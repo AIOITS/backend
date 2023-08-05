@@ -1,0 +1,38 @@
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://postgres:admin@localhost:5432/aioits_backend"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+generator nestgraphql {
+  provider  = "node node_modules/prisma-nestjs-graphql"
+  output    = "../src/@generated/prisma-nestjs-graphql"
+  fields_Validator_from = "class-validator"
+  fields_Validator_input = true
+}
+
+model User {
+  /// @Validator.IsNotEmpty()
+  nik       Int       @id @unique
+  
+  /// @Validator.IsNotEmpty()
+  name      String
+
+  /// @Validator.IsNotEmpty()
+  email     String    @unique
+
+  /// @Validator.IsNotEmpty()
+  phone     String    @unique
+
+  /// @Validator.IsNotEmpty()
+  password  String
+
+  /// @Validator.IsNotEmpty()
+  createdAt DateTime  @default(now())
+
+  /// @Validator.IsNotEmpty()
+  updatedAt DateTime  @updatedAt
+}
