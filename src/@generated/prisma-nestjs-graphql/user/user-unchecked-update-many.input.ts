@@ -8,6 +8,9 @@ import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-up
 export class UserUncheckedUpdateManyInput {
 
     @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
+    id?: IntFieldUpdateOperationsInput;
+
+    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
     nik?: IntFieldUpdateOperationsInput;
 
     @Field(() => StringFieldUpdateOperationsInput, {nullable:true})

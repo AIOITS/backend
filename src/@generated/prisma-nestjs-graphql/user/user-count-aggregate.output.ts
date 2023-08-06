@@ -6,6 +6,9 @@ import { Int } from '@nestjs/graphql';
 export class UserCountAggregate {
 
     @Field(() => Int, {nullable:false})
+    id!: number;
+
+    @Field(() => Int, {nullable:false})
     nik!: number;
 
     @Field(() => Int, {nullable:false})

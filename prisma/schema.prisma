@@ -15,24 +15,26 @@ generator nestgraphql {
 }
 
 model User {
+  id        Int      @id @default(autoincrement())
+  
   /// @Validator.IsNotEmpty()
-  nik       Int       @id @unique
+  /// @Validator.MinLength(16)
+  /// @Validator.MaxLength(16)
+  nik       Int       @unique
   
   /// @Validator.IsNotEmpty()
   name      String
 
-  /// @Validator.IsNotEmpty()
+  /// @Validator.IsEmail()
+  /// @Validator.ValidateIf(o => !o.email || o.phone)
   email     String    @unique
 
-  /// @Validator.IsNotEmpty()
+  /// @Validator.ValidateIf(o => !o.phone || o.email)
   phone     String    @unique
 
   /// @Validator.IsNotEmpty()
   password  String
 
-  /// @Validator.IsNotEmpty()
   createdAt DateTime  @default(now())
-
-  /// @Validator.IsNotEmpty()
   updatedAt DateTime  @updatedAt
 }

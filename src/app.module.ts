@@ -7,6 +7,8 @@ import { UserModule } from './user/user.module';
 import { join } from 'path';
 import { PrismaService } from './prisma/prisma.service';
 import { GraphqlModule } from './graphql/graphql.module';
+import { AuthModule } from './auth/auth.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
@@ -14,8 +16,12 @@ import { GraphqlModule } from './graphql/graphql.module';
       driver: ApolloDriver,
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
     }),
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
     UserModule,
     GraphqlModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService, PrismaService],

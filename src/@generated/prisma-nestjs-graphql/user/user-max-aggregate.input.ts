@@ -5,6 +5,9 @@ import { InputType } from '@nestjs/graphql';
 export class UserMaxAggregateInput {
 
     @Field(() => Boolean, {nullable:true})
+    id?: true;
+
+    @Field(() => Boolean, {nullable:true})
     nik?: true;
 
     @Field(() => Boolean, {nullable:true})

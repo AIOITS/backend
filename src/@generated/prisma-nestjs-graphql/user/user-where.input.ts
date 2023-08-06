@@ -17,6 +17,9 @@ export class UserWhereInput {
     NOT?: Array<UserWhereInput>;
 
     @Field(() => IntFilter, {nullable:true})
+    id?: IntFilter;
+
+    @Field(() => IntFilter, {nullable:true})
     nik?: IntFilter;
 
     @Field(() => StringFilter, {nullable:true})

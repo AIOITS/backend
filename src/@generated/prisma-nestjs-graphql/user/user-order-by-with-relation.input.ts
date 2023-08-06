@@ -6,6 +6,9 @@ import { SortOrder } from '../prisma/sort-order.enum';
 export class UserOrderByWithRelationInput {
 
     @Field(() => SortOrder, {nullable:true})
+    id?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
     nik?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})

@@ -10,15 +10,21 @@ import { DateTimeFilter } from '../prisma/date-time-filter.input';
 export class UserWhereUniqueInput {
 
     @Field(() => Int, {nullable:true})
+    id?: number;
+
+    @Field(() => Int, {nullable:true})
     @Validator.IsNotEmpty()
+    @Validator.MinLength(16)
+    @Validator.MaxLength(16)
     nik?: number;
 
     @Field(() => String, {nullable:true})
-    @Validator.IsNotEmpty()
+    @Validator.IsEmail()
+    @Validator.ValidateIf(o => !o.email || o.phone)
     email?: string;
 
     @Field(() => String, {nullable:true})
-    @Validator.IsNotEmpty()
+    @Validator.ValidateIf(o => !o.phone || o.email)
     phone?: string;
 
     @Field(() => [UserWhereInput], {nullable:true})

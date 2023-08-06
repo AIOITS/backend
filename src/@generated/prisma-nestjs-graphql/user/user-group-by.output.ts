@@ -11,6 +11,9 @@ import { UserMaxAggregate } from './user-max-aggregate.output';
 export class UserGroupBy {
 
     @Field(() => Int, {nullable:false})
+    id!: number;
+
+    @Field(() => Int, {nullable:false})
     nik!: number;
 
     @Field(() => String, {nullable:false})

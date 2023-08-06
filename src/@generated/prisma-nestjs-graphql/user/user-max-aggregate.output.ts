@@ -6,6 +6,9 @@ import { Int } from '@nestjs/graphql';
 export class UserMaxAggregate {
 
     @Field(() => Int, {nullable:true})
+    id?: number;
+
+    @Field(() => Int, {nullable:true})
     nik?: number;
 
     @Field(() => String, {nullable:true})

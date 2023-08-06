@@ -3,7 +3,8 @@
 # ------------------------------------------------------
 
 type User {
-  nik: ID!
+  id: ID!
+  nik: Int!
   name: String!
   email: String!
   phone: String!
@@ -25,6 +26,7 @@ input UserWhereInput {
   AND: [UserWhereInput!]
   OR: [UserWhereInput!]
   NOT: [UserWhereInput!]
+  id: IntFilter
   nik: IntFilter
   name: StringFilter
   email: StringFilter
@@ -113,6 +115,7 @@ input NestedDateTimeFilter {
 }
 
 input UserOrderByWithRelationInput {
+  id: SortOrder
   nik: SortOrder
   name: SortOrder
   email: SortOrder
@@ -128,6 +131,7 @@ enum SortOrder {
 }
 
 input UserWhereUniqueInput {
+  id: Int
   nik: Int
   email: String
   phone: String
@@ -141,6 +145,7 @@ input UserWhereUniqueInput {
 }
 
 enum UserScalarFieldEnum {
+  id
   nik
   name
   email

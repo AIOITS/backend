@@ -3,6 +3,7 @@ import { FindManyUserArgs } from 'src/@generated/prisma-nestjs-graphql/user/find
 import { PrismaService } from 'src/prisma/prisma.service';
 import { UserCreateInput } from 'src/@generated/prisma-nestjs-graphql/user/user-create.input';
 import { User } from 'src/@generated/prisma-nestjs-graphql/user/user.model';
+import * as argon2 from 'argon2'
 @Injectable()
 export class UserService {
   constructor(
@@ -11,7 +12,6 @@ export class UserService {
 
   async create(createUserDto: UserCreateInput) {
     const { nik, email, phone } = createUserDto
-    console.log('testing::', this._prismaService.user.count({where: { nik }}))
     if (await this._prismaService.user.count({where: { nik }})) throw new HttpException('Email already exists', 400)
     if (await this._prismaService.user.count({where: { email }})) throw new HttpException('Email already exists', 400)
     if (await this._prismaService.user.count({where: { phone }})) throw new HttpException('Email already exists', 400)
@@ -29,6 +29,22 @@ export class UserService {
 
   findOne(id: number) {
     return `This action returns a #${id} user`;
+  }
+
+  async validateWithEmail(email: string, password: string): Promise<User | null> {
+    const user = await this._prismaService.user.findFirst({ where: { email } })
+    if (!user) throw new HttpException("User doesn't exists", 400)
+
+    if (await argon2.verify(user.password, password)) return user
+    return null
+  }
+
+  async validateWithPhone(phone: string, password: string): Promise<User | null> {
+    const user = await this._prismaService.user.findFirst({ where: { phone } })
+    if (!user) throw new HttpException("User doesn't exists", 400)
+
+    if (await argon2.verify(user.password, password)) return user
+    return null
   }
 
   // update(id: number, updateUserDto: UpdateUserDto) {

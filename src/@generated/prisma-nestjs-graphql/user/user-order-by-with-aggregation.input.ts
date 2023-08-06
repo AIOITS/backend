@@ -11,6 +11,9 @@ import { UserSumOrderByAggregateInput } from './user-sum-order-by-aggregate.inpu
 export class UserOrderByWithAggregationInput {
 
     @Field(() => SortOrder, {nullable:true})
+    id?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
     nik?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})

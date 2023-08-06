@@ -6,8 +6,13 @@ import * as Validator from 'class-validator';
 @InputType()
 export class UserUncheckedCreateInput {
 
+    @Field(() => Int, {nullable:true})
+    id?: number;
+
     @Field(() => Int, {nullable:false})
     @Validator.IsNotEmpty()
+    @Validator.MinLength(16)
+    @Validator.MaxLength(16)
     nik!: number;
 
     @Field(() => String, {nullable:false})
@@ -15,11 +20,12 @@ export class UserUncheckedCreateInput {
     name!: string;
 
     @Field(() => String, {nullable:false})
-    @Validator.IsNotEmpty()
+    @Validator.IsEmail()
+    @Validator.ValidateIf(o => !o.email || o.phone)
     email!: string;
 
     @Field(() => String, {nullable:false})
-    @Validator.IsNotEmpty()
+    @Validator.ValidateIf(o => !o.phone || o.email)
     phone!: string;
 
     @Field(() => String, {nullable:false})
@@ -27,10 +33,8 @@ export class UserUncheckedCreateInput {
     password!: string;
 
     @Field(() => Date, {nullable:true})
-    @Validator.IsNotEmpty()
     createdAt?: Date | string;
 
     @Field(() => Date, {nullable:true})
-    @Validator.IsNotEmpty()
     updatedAt?: Date | string;
 }
