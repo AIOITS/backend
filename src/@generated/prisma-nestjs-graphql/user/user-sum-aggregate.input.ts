@@ -8,5 +8,5 @@ export class UserSumAggregateInput {
     id?: true;
 
     @Field(() => Boolean, {nullable:true})
-    nik?: true;
+    role?: true;
 }

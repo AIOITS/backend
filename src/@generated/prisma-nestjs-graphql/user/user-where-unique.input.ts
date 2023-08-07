@@ -4,6 +4,7 @@ import { Int } from '@nestjs/graphql';
 import * as Validator from 'class-validator';
 import { UserWhereInput } from './user-where.input';
 import { StringFilter } from '../prisma/string-filter.input';
+import { IntFilter } from '../prisma/int-filter.input';
 import { DateTimeFilter } from '../prisma/date-time-filter.input';
 
 @InputType()
@@ -12,19 +13,20 @@ export class UserWhereUniqueInput {
     @Field(() => Int, {nullable:true})
     id?: number;
 
-    @Field(() => Int, {nullable:true})
+    @Field(() => String, {nullable:true})
     @Validator.IsNotEmpty()
     @Validator.MinLength(16)
     @Validator.MaxLength(16)
-    nik?: number;
+    nik?: string;
 
     @Field(() => String, {nullable:true})
     @Validator.IsEmail()
-    @Validator.ValidateIf(o => !o.email || o.phone)
+    @Validator.IsOptional()
     email?: string;
 
     @Field(() => String, {nullable:true})
-    @Validator.ValidateIf(o => !o.phone || o.email)
+    @Validator.IsPhoneNumber('ID', {message: 'phone must be a valid Indoesia phone number'})
+    @Validator.IsOptional()
     phone?: string;
 
     @Field(() => [UserWhereInput], {nullable:true})
@@ -41,6 +43,9 @@ export class UserWhereUniqueInput {
 
     @Field(() => StringFilter, {nullable:true})
     password?: StringFilter;
+
+    @Field(() => IntFilter, {nullable:true})
+    role?: IntFilter;
 
     @Field(() => DateTimeFilter, {nullable:true})
     createdAt?: DateTimeFilter;

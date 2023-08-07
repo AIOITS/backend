@@ -12,12 +12,13 @@ export class UserService {
 
   async create(createUserDto: UserCreateInput) {
     const { nik, email, phone } = createUserDto
-    if (await this._prismaService.user.count({where: { nik }})) throw new HttpException('Email already exists', 400)
-    if (await this._prismaService.user.count({where: { email }})) throw new HttpException('Email already exists', 400)
-    if (await this._prismaService.user.count({where: { phone }})) throw new HttpException('Email already exists', 400)
+    if (await this._prismaService.user.count({where: { nik }})) throw new HttpException('NIK already registered', 400)
+    if (await this._prismaService.user.count({where: { email }})) throw new HttpException('Email already registered', 400)
+    if (await this._prismaService.user.count({where: { phone }})) throw new HttpException('Phone already registered', 400)
 
     const user = new User()
     Object.assign(user, createUserDto)
+    createUserDto.password = await argon2.hash(createUserDto.password)
     return this._prismaService.user.create({
       data: createUserDto
     })

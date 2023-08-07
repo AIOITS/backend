@@ -33,10 +33,15 @@ export class AuthService {
   }
 
   async register(registerAuthDto: UserCreateInput) {
+    const { email, phone } = registerAuthDto
+    if (!email && !phone) throw new HttpException('Email or phone cannot be empty', 400)
     const user = await this.usersService.create(registerAuthDto)
     if (!user) throw new HttpException('User gagal ditambahkan', 500)
 
-    const payload = { id: user.id }
+    const payload = {
+      id: user.id,
+      role: user.role
+    }
     return {
       id: user.id,
       access_token: await this.jwtService.signAsync(payload),

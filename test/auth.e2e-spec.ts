@@ -15,10 +15,15 @@ describe('AppController (e2e)', () => {
     await app.init();
   });
 
-  it('/ (GET)', () => {
-    return request(app.getHttpServer())
-      .get('/')
+  it('/login (POST)', async () => {
+    const response = await request(app.getHttpServer())
+      .post('/auth/login')
+      .send({
+        email: 'testing@gmail.com',
+        password: 'testing'
+      })
       .expect(200)
-      .expect('Hello World!');
+      expect(response.body.data).toHaveProperty('id');
+      expect(response.body.data).toHaveProperty('access_token');
   });
 });

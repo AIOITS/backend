@@ -9,5 +9,5 @@ export class UserAvgOrderByAggregateInput {
     id?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
-    nik?: keyof typeof SortOrder;
+    role?: keyof typeof SortOrder;
 }

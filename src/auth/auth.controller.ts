@@ -20,7 +20,7 @@ export class AuthController {
     const data = await this.authService.signIn(loginAuthDto)
     return {
       statusCode: 200,
-      data: [data],
+      data,
     }
   }
 

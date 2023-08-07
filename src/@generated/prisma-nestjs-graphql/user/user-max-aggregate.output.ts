@@ -8,8 +8,8 @@ export class UserMaxAggregate {
     @Field(() => Int, {nullable:true})
     id?: number;
 
-    @Field(() => Int, {nullable:true})
-    nik?: number;
+    @Field(() => String, {nullable:true})
+    nik?: string;
 
     @Field(() => String, {nullable:true})
     name?: string;
@@ -22,6 +22,9 @@ export class UserMaxAggregate {
 
     @Field(() => String, {nullable:true})
     password?: string;
+
+    @Field(() => Int, {nullable:true})
+    role?: number;
 
     @Field(() => Date, {nullable:true})
     createdAt?: Date | string;

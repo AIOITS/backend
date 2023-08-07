@@ -13,20 +13,23 @@ export class UserGroupBy {
     @Field(() => Int, {nullable:false})
     id!: number;
 
-    @Field(() => Int, {nullable:false})
-    nik!: number;
+    @Field(() => String, {nullable:false})
+    nik!: string;
 
     @Field(() => String, {nullable:false})
     name!: string;
 
-    @Field(() => String, {nullable:false})
-    email!: string;
+    @Field(() => String, {nullable:true})
+    email?: string;
 
-    @Field(() => String, {nullable:false})
-    phone!: string;
+    @Field(() => String, {nullable:true})
+    phone?: string;
 
     @Field(() => String, {nullable:false})
     password!: string;
+
+    @Field(() => Int, {nullable:false})
+    role!: number;
 
     @Field(() => Date, {nullable:false})
     createdAt!: Date | string;

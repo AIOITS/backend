@@ -1,9 +1,24 @@
 {
-  "moduleFileExtensions": ["js", "json", "ts"],
-  "rootDir": ".",
-  "testEnvironment": "node",
   "testRegex": ".e2e-spec.ts$",
+  "moduleFileExtensions": [
+    "js",
+    "json",
+    "ts"
+  ],
+  "moduleDirectories": ["node_modules", "<rootDir>"],
+  "coveragePathIgnorePatterns": ["@generated/.*", "^.*.module.ts$", "<rootDir>/src/main.ts", "<rootDir>/src/auth/auth.guard.ts"],
+  "modulePaths": ["<rootDir>/src/"],
+  "moduleNameMapper": {
+    "^src/(.*)$": "<rootDir>/src/$1",
+    "/^config\/(.*)$/": "<rootDir>/config/$1"
+  },
+  "rootDir": "../",
   "transform": {
     "^.+\\.(t|j)s$": "ts-jest"
-  }
+  },
+  "collectCoverageFrom": [
+    "src/**/*.(t|j)s"
+  ],
+  "coverageDirectory": "../coverage",
+  "testEnvironment": "node"
 }

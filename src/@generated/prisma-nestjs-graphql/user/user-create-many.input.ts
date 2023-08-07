@@ -9,28 +9,33 @@ export class UserCreateManyInput {
     @Field(() => Int, {nullable:true})
     id?: number;
 
-    @Field(() => Int, {nullable:false})
+    @Field(() => String, {nullable:false})
     @Validator.IsNotEmpty()
     @Validator.MinLength(16)
     @Validator.MaxLength(16)
-    nik!: number;
+    nik!: string;
 
     @Field(() => String, {nullable:false})
     @Validator.IsNotEmpty()
+    @Validator.MaxLength(60)
     name!: string;
 
-    @Field(() => String, {nullable:false})
+    @Field(() => String, {nullable:true})
     @Validator.IsEmail()
-    @Validator.ValidateIf(o => !o.email || o.phone)
-    email!: string;
+    @Validator.IsOptional()
+    email?: string;
 
-    @Field(() => String, {nullable:false})
-    @Validator.ValidateIf(o => !o.phone || o.email)
-    phone!: string;
+    @Field(() => String, {nullable:true})
+    @Validator.IsPhoneNumber('ID', {message: 'phone must be a valid Indoesia phone number'})
+    @Validator.IsOptional()
+    phone?: string;
 
     @Field(() => String, {nullable:false})
     @Validator.IsNotEmpty()
     password!: string;
+
+    @Field(() => Int, {nullable:true})
+    role?: number;
 
     @Field(() => Date, {nullable:true})
     createdAt?: Date | string;

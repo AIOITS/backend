@@ -4,11 +4,12 @@
 
 type User {
   id: ID!
-  nik: Int!
+  nik: String!
   name: String!
-  email: String!
-  phone: String!
+  email: String
+  phone: String
   password: String!
+  role: Int!
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -27,11 +28,12 @@ input UserWhereInput {
   OR: [UserWhereInput!]
   NOT: [UserWhereInput!]
   id: IntFilter
-  nik: IntFilter
+  nik: StringFilter
   name: StringFilter
-  email: StringFilter
-  phone: StringFilter
+  email: StringNullableFilter
+  phone: StringNullableFilter
   password: StringFilter
+  role: IntFilter
   createdAt: DateTimeFilter
   updatedAt: DateTimeFilter
 }
@@ -92,6 +94,35 @@ input NestedStringFilter {
   not: NestedStringFilter
 }
 
+input StringNullableFilter {
+  equals: String
+  in: [String!]
+  notIn: [String!]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  mode: QueryMode
+  not: NestedStringNullableFilter
+}
+
+input NestedStringNullableFilter {
+  equals: String
+  in: [String!]
+  notIn: [String!]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  not: NestedStringNullableFilter
+}
+
 input DateTimeFilter {
   equals: DateTime
   in: [DateTime!]
@@ -118,9 +149,10 @@ input UserOrderByWithRelationInput {
   id: SortOrder
   nik: SortOrder
   name: SortOrder
-  email: SortOrder
-  phone: SortOrder
+  email: SortOrderInput
+  phone: SortOrderInput
   password: SortOrder
+  role: SortOrder
   createdAt: SortOrder
   updatedAt: SortOrder
 }
@@ -130,9 +162,19 @@ enum SortOrder {
   desc
 }
 
+input SortOrderInput {
+  sort: SortOrder!
+  nulls: NullsOrder
+}
+
+enum NullsOrder {
+  first
+  last
+}
+
 input UserWhereUniqueInput {
   id: Int
-  nik: Int
+  nik: String
   email: String
   phone: String
   AND: [UserWhereInput!]
@@ -140,6 +182,7 @@ input UserWhereUniqueInput {
   NOT: [UserWhereInput!]
   name: StringFilter
   password: StringFilter
+  role: IntFilter
   createdAt: DateTimeFilter
   updatedAt: DateTimeFilter
 }
@@ -151,6 +194,7 @@ enum UserScalarFieldEnum {
   email
   phone
   password
+  role
   createdAt
   updatedAt
 }
