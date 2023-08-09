@@ -4,8 +4,10 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm ci --only=production
 
+COPY tsconfig.json ./tsconfig.json
+COPY tsconfig.build.json ./tsconfig.build.json
+COPY nest-cli.json ./nest-cli.json
 RUN npm run build
-COPY dist/ ./dist/
 
 EXPOSE 8080
 
