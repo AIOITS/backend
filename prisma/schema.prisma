@@ -8,36 +8,141 @@ generator client {
 }
 
 generator nestgraphql {
-  provider  = "node node_modules/prisma-nestjs-graphql"
-  output    = "../src/@generated/prisma-nestjs-graphql"
-  fields_Validator_from = "class-validator"
+  provider               = "node node_modules/prisma-nestjs-graphql"
+  output                 = "../src/@generated/prisma-nestjs-graphql"
+  fields_Validator_from  = "class-validator"
   fields_Validator_input = true
 }
 
 model User {
-  id        Int      @id @default(autoincrement())
-  
+  id Int @id @default(autoincrement())
+
   /// @Validator.IsNotEmpty()
   /// @Validator.MinLength(16)
   /// @Validator.MaxLength(16)
-  nik       String       @unique
-  
+  nik       String @unique
+  nomor_sim SIM[]
+
   /// @Validator.IsNotEmpty()
   /// @Validator.MaxLength(60)
-  name      String
+  name String[]
 
   /// @Validator.IsEmail()
   /// @Validator.IsOptional()
-  email     String?    @unique
+  email String? @unique
 
   /// @Validator.IsPhoneNumber('ID', {message: 'phone must be a valid Indoesia phone number'})
   /// @Validator.IsOptional()
-  phone     String?    @unique
+  phone String? @unique
 
   /// @Validator.IsNotEmpty()
-  password  String
+  password String
 
-  role Int @default(2)
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
+  role      Int      @default(2)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  ktp       KTP      @relation(fields: [nik], references: [nik])
+}
+
+model KTP {
+  nik               String           @id @unique
+  nama              String
+  tempat_lahir      String
+  tanggal_lahir     DateTime
+  alamat            String
+  rt                Int              @db.SmallInt
+  rw                Int              @db.SmallInt
+  kelurahan_desa    String
+  kecamatan         String
+  kabupaten_kota    String
+  provinsi          String
+  golongan_darah    GolonganDarah
+  agama             Agama
+  status_perkawinan StatusPerkawinan
+  pekerjaan         String
+  kewarganegaraan   String
+  tanggal_terbit    DateTime         @db.Date
+  User              User?
+}
+
+model SIM {
+  nomor_sim        String   @id @unique
+  nama             String
+  alamat           String
+  rt               Int      @db.SmallInt
+  rw               Int      @db.SmallInt
+  kelurahan_desa   String
+  kecamatan        String
+  kabupaten        String
+  pekerjaan        String
+  kabupaten_terbit String
+  tanggal_terbit   DateTime @db.Date
+  penerbit         String
+  berlaku_sampai   DateTime @db.Date
+  userId           Int?
+  User             User?    @relation(fields: [userId], references: [id])
+}
+
+model STNK {
+  nomor_stnk             String   @id @unique
+  nomor_polisi           String   @unique
+  nama_pemilik           String
+  nomor_bpkb             String
+  alamat                 String
+  bahan_bakar            String
+  berlaku                DateTime @db.Date
+  merk                   String
+  tipe                   String
+  jenis                  String
+  model                  String
+  tahun_pembuatan        String
+  isi_silinder           String
+  nomor_mesin            String
+  nomor_rangka           String
+  warna                  String
+  warna_tnkb             String
+  tahun_registrasi       String
+  nomor_registrasi       String
+  kode_lokasi            String
+  nomor_urut_pendaftaran String
+  nomor_PKB              String   @unique
+}
+
+model PKB {
+  nomor_PKB                String  @id
+  status_pajak             Boolean
+  bbknb_pokok              Int
+  bbknb_sanksi             Int
+  PKB_pokok                Int
+  PKB_sanksi               Int
+  swdkllj_pokok            Int
+  swdkllj_sanksi           Int
+  administrasi_stnk_pokok  Int
+  administrasi_stnk_sanksi Int
+  administrasi_tnkb_pokok  Int
+  administrasi_tnkb_sanksi Int
+}
+
+enum GolonganDarah {
+  A
+  B
+  AB
+  O
+}
+
+enum Agama {
+  Islam
+  Kristen
+  Katolik
+  Budha
+  Hindu
+  Konghuchu
+  Aliran_Kepercayaan
+}
+
+enum StatusPerkawinan {
+  Belum_Kawin
+  Kawin
+  Cerai_Hidup
+  Cerai_Mati
 }
