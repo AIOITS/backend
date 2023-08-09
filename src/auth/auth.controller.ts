@@ -24,6 +24,16 @@ export class AuthController {
     }
   }
 
+  @Post('government')
+  @HttpCode(200)
+  async validateGovernment(@Body() loginAuthDto: LoginAuthDto) {
+    const data = await this.authService.signInGovernment(loginAuthDto)
+    return {
+      statusCode: 200,
+      data,
+    }
+  }
+
   @Post('register')
   async create(@Body() registerAuthDto: UserCreateInput) {
     const data = await this.authService.register(registerAuthDto)

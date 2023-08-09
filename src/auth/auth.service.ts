@@ -25,7 +25,31 @@ export class AuthService {
       : await this.usersService.validateWithPhone(phone, password)
     if (!user) throw new UnauthorizedException()
 
-    const payload = { id: user.id }
+    const payload = {
+      id: user.id,
+      role: user.role
+    }
+    return {
+      id: user.id,
+      access_token: await this.jwtService.signAsync(payload),
+    }
+  }
+
+  async signInGovernment(loginAuthDto: LoginAuthDto) {
+    const { email, phone, password } = loginAuthDto
+    if (!email && !phone) throw new HttpException('Email or phone cannot be empty', 400)
+
+    const user = email
+      ? await this.usersService.validateWithEmail(email, password)
+      : await this.usersService.validateWithPhone(phone, password)
+    if (!user) throw new UnauthorizedException()
+    if (user.role !== 0) throw new UnauthorizedException()
+
+    const payload = {
+      id: user.id,
+      role: user.role
+    }
+
     return {
       id: user.id,
       access_token: await this.jwtService.signAsync(payload),
