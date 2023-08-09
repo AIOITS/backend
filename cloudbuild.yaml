@@ -11,7 +11,7 @@ steps:
   args:
   - 'run'
   - 'deploy'
-  - 'speak-sure'
+  - 'aioits_backend'
   - '--image'
   - 'gcr.io/$PROJECT_ID/aioits_backend:$COMMIT_SHA'
   - '--region'
