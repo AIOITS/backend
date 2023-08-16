@@ -1,18 +1,18 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
-import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input';
+import { UserUpdatenameInput } from './user-updatename.input';
 import { NullableStringFieldUpdateOperationsInput } from '../prisma/nullable-string-field-update-operations.input';
+import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input';
 import { IntFieldUpdateOperationsInput } from '../prisma/int-field-update-operations.input';
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input';
+import { SIMUpdateManyWithoutUserNestedInput } from '../sim/sim-update-many-without-user-nested.input';
+import { KTPUpdateOneRequiredWithoutUserNestedInput } from '../ktp/ktp-update-one-required-without-user-nested.input';
 
 @InputType()
 export class UserUpdateInput {
 
-    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
-    nik?: StringFieldUpdateOperationsInput;
-
-    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
-    name?: StringFieldUpdateOperationsInput;
+    @Field(() => UserUpdatenameInput, {nullable:true})
+    name?: UserUpdatenameInput;
 
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
     email?: NullableStringFieldUpdateOperationsInput;
@@ -31,4 +31,10 @@ export class UserUpdateInput {
 
     @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
     updatedAt?: DateTimeFieldUpdateOperationsInput;
+
+    @Field(() => SIMUpdateManyWithoutUserNestedInput, {nullable:true})
+    nomor_sim?: SIMUpdateManyWithoutUserNestedInput;
+
+    @Field(() => KTPUpdateOneRequiredWithoutUserNestedInput, {nullable:true})
+    ktp?: KTPUpdateOneRequiredWithoutUserNestedInput;
 }

@@ -2,6 +2,9 @@ import { Field } from '@nestjs/graphql';
 import { ObjectType } from '@nestjs/graphql';
 import { ID } from '@nestjs/graphql';
 import { Int } from '@nestjs/graphql';
+import { SIM } from '../sim/sim.model';
+import { KTP } from '../ktp/ktp.model';
+import { UserCount } from './user-count.output';
 
 @ObjectType()
 export class User {
@@ -12,8 +15,8 @@ export class User {
     @Field(() => String, {nullable:false})
     nik!: string;
 
-    @Field(() => String, {nullable:false})
-    name!: string;
+    @Field(() => [String], {nullable:true})
+    name!: Array<string>;
 
     @Field(() => String, {nullable:true})
     email!: string | null;
@@ -32,4 +35,13 @@ export class User {
 
     @Field(() => Date, {nullable:false})
     updatedAt!: Date;
+
+    @Field(() => [SIM], {nullable:true})
+    nomor_sim?: Array<SIM>;
+
+    @Field(() => KTP, {nullable:false})
+    ktp?: KTP;
+
+    @Field(() => UserCount, {nullable:false})
+    _count?: UserCount;
 }

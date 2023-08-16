@@ -1,0 +1,84 @@
+import { Field } from '@nestjs/graphql';
+import { ObjectType } from '@nestjs/graphql';
+import { STNKCountAggregate } from './stnk-count-aggregate.output';
+import { STNKMinAggregate } from './stnk-min-aggregate.output';
+import { STNKMaxAggregate } from './stnk-max-aggregate.output';
+
+@ObjectType()
+export class STNKGroupBy {
+
+    @Field(() => String, {nullable:false})
+    nomor_stnk!: string;
+
+    @Field(() => String, {nullable:false})
+    nomor_polisi!: string;
+
+    @Field(() => String, {nullable:false})
+    nama_pemilik!: string;
+
+    @Field(() => String, {nullable:false})
+    nomor_bpkb!: string;
+
+    @Field(() => String, {nullable:false})
+    alamat!: string;
+
+    @Field(() => String, {nullable:false})
+    bahan_bakar!: string;
+
+    @Field(() => Date, {nullable:false})
+    berlaku!: Date | string;
+
+    @Field(() => String, {nullable:false})
+    merk!: string;
+
+    @Field(() => String, {nullable:false})
+    tipe!: string;
+
+    @Field(() => String, {nullable:false})
+    jenis!: string;
+
+    @Field(() => String, {nullable:false})
+    model!: string;
+
+    @Field(() => String, {nullable:false})
+    tahun_pembuatan!: string;
+
+    @Field(() => String, {nullable:false})
+    isi_silinder!: string;
+
+    @Field(() => String, {nullable:false})
+    nomor_mesin!: string;
+
+    @Field(() => String, {nullable:false})
+    nomor_rangka!: string;
+
+    @Field(() => String, {nullable:false})
+    warna!: string;
+
+    @Field(() => String, {nullable:false})
+    warna_tnkb!: string;
+
+    @Field(() => String, {nullable:false})
+    tahun_registrasi!: string;
+
+    @Field(() => String, {nullable:false})
+    nomor_registrasi!: string;
+
+    @Field(() => String, {nullable:false})
+    kode_lokasi!: string;
+
+    @Field(() => String, {nullable:false})
+    nomor_urut_pendaftaran!: string;
+
+    @Field(() => String, {nullable:false})
+    nomor_PKB!: string;
+
+    @Field(() => STNKCountAggregate, {nullable:true})
+    _count?: STNKCountAggregate;
+
+    @Field(() => STNKMinAggregate, {nullable:true})
+    _min?: STNKMinAggregate;
+
+    @Field(() => STNKMaxAggregate, {nullable:true})
+    _max?: STNKMaxAggregate;
+}

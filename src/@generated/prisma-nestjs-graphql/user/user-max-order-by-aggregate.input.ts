@@ -12,9 +12,6 @@ export class UserMaxOrderByAggregateInput {
     nik?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
-    name?: keyof typeof SortOrder;
-
-    @Field(() => SortOrder, {nullable:true})
     email?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})

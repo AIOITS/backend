@@ -2,22 +2,92 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type User {
-  id: ID!
-  nik: String!
-  name: String!
-  email: String
-  phone: String
-  password: String!
-  role: Int!
-  createdAt: DateTime!
-  updatedAt: DateTime!
+type SIM {
+  nomor_sim: ID!
+  nama: String!
+  alamat: String!
+  rt: Int!
+  rw: Int!
+  kelurahan_desa: String!
+  kecamatan: String!
+  kabupaten: String!
+  pekerjaan: String!
+  kabupaten_terbit: String!
+  tanggal_terbit: DateTime!
+  penerbit: String!
+  berlaku_sampai: DateTime!
+  userId: Int
+  User: User
 }
 
 """
 A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
 """
 scalar DateTime
+
+type KTP {
+  nik: ID!
+  nama: String!
+  tempat_lahir: String!
+  tanggal_lahir: DateTime!
+  alamat: String!
+  rt: Int!
+  rw: Int!
+  kelurahan_desa: String!
+  kecamatan: String!
+  kabupaten_kota: String!
+  provinsi: String!
+  golongan_darah: GolonganDarah!
+  agama: Agama!
+  status_perkawinan: StatusPerkawinan!
+  pekerjaan: String!
+  kewarganegaraan: String!
+  tanggal_terbit: DateTime!
+  User: User
+}
+
+enum GolonganDarah {
+  A
+  B
+  AB
+  O
+}
+
+enum Agama {
+  Islam
+  Kristen
+  Katolik
+  Budha
+  Hindu
+  Konghuchu
+  Aliran_Kepercayaan
+}
+
+enum StatusPerkawinan {
+  Belum_Kawin
+  Kawin
+  Cerai_Hidup
+  Cerai_Mati
+}
+
+type UserCount {
+  nomor_sim: Int!
+}
+
+type User {
+  id: ID!
+  nik: String!
+  name: [String!]
+  email: String
+  phone: String
+  password: String!
+  role: Int!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  nomor_sim: [SIM!]
+  ktp: KTP!
+  _count: UserCount!
+}
 
 type Query {
   user(where: UserWhereInput, orderBy: [UserOrderByWithRelationInput!], cursor: UserWhereUniqueInput, take: Int, skip: Int, distinct: [UserScalarFieldEnum!]): [User!]!
@@ -29,13 +99,15 @@ input UserWhereInput {
   NOT: [UserWhereInput!]
   id: IntFilter
   nik: StringFilter
-  name: StringFilter
+  name: StringNullableListFilter
   email: StringNullableFilter
   phone: StringNullableFilter
   password: StringFilter
   role: IntFilter
   createdAt: DateTimeFilter
   updatedAt: DateTimeFilter
+  nomor_sim: SIMListRelationFilter
+  ktp: KTPRelationFilter
 }
 
 input IntFilter {
@@ -94,6 +166,14 @@ input NestedStringFilter {
   not: NestedStringFilter
 }
 
+input StringNullableListFilter {
+  equals: [String!]
+  has: String
+  hasEvery: [String!]
+  hasSome: [String!]
+  isEmpty: Boolean
+}
+
 input StringNullableFilter {
   equals: String
   in: [String!]
@@ -145,6 +225,131 @@ input NestedDateTimeFilter {
   not: NestedDateTimeFilter
 }
 
+input SIMListRelationFilter {
+  every: SIMWhereInput
+  some: SIMWhereInput
+  none: SIMWhereInput
+}
+
+input SIMWhereInput {
+  AND: [SIMWhereInput!]
+  OR: [SIMWhereInput!]
+  NOT: [SIMWhereInput!]
+  nomor_sim: StringFilter
+  nama: StringFilter
+  alamat: StringFilter
+  rt: IntFilter
+  rw: IntFilter
+  kelurahan_desa: StringFilter
+  kecamatan: StringFilter
+  kabupaten: StringFilter
+  pekerjaan: StringFilter
+  kabupaten_terbit: StringFilter
+  tanggal_terbit: DateTimeFilter
+  penerbit: StringFilter
+  berlaku_sampai: DateTimeFilter
+  userId: IntNullableFilter
+  User: UserNullableRelationFilter
+}
+
+input IntNullableFilter {
+  equals: Int
+  in: [Int!]
+  notIn: [Int!]
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+  not: NestedIntNullableFilter
+}
+
+input NestedIntNullableFilter {
+  equals: Int
+  in: [Int!]
+  notIn: [Int!]
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+  not: NestedIntNullableFilter
+}
+
+input UserNullableRelationFilter {
+  is: UserWhereInput
+  isNot: UserWhereInput
+}
+
+input KTPRelationFilter {
+  is: KTPWhereInput
+  isNot: KTPWhereInput
+}
+
+input KTPWhereInput {
+  AND: [KTPWhereInput!]
+  OR: [KTPWhereInput!]
+  NOT: [KTPWhereInput!]
+  nik: StringFilter
+  nama: StringFilter
+  tempat_lahir: StringFilter
+  tanggal_lahir: DateTimeFilter
+  alamat: StringFilter
+  rt: IntFilter
+  rw: IntFilter
+  kelurahan_desa: StringFilter
+  kecamatan: StringFilter
+  kabupaten_kota: StringFilter
+  provinsi: StringFilter
+  golongan_darah: EnumGolonganDarahFilter
+  agama: EnumAgamaFilter
+  status_perkawinan: EnumStatusPerkawinanFilter
+  pekerjaan: StringFilter
+  kewarganegaraan: StringFilter
+  tanggal_terbit: DateTimeFilter
+  User: UserNullableRelationFilter
+}
+
+input EnumGolonganDarahFilter {
+  equals: GolonganDarah
+  in: [GolonganDarah!]
+  notIn: [GolonganDarah!]
+  not: NestedEnumGolonganDarahFilter
+}
+
+input NestedEnumGolonganDarahFilter {
+  equals: GolonganDarah
+  in: [GolonganDarah!]
+  notIn: [GolonganDarah!]
+  not: NestedEnumGolonganDarahFilter
+}
+
+input EnumAgamaFilter {
+  equals: Agama
+  in: [Agama!]
+  notIn: [Agama!]
+  not: NestedEnumAgamaFilter
+}
+
+input NestedEnumAgamaFilter {
+  equals: Agama
+  in: [Agama!]
+  notIn: [Agama!]
+  not: NestedEnumAgamaFilter
+}
+
+input EnumStatusPerkawinanFilter {
+  equals: StatusPerkawinan
+  in: [StatusPerkawinan!]
+  notIn: [StatusPerkawinan!]
+  not: NestedEnumStatusPerkawinanFilter
+}
+
+input NestedEnumStatusPerkawinanFilter {
+  equals: StatusPerkawinan
+  in: [StatusPerkawinan!]
+  notIn: [StatusPerkawinan!]
+  not: NestedEnumStatusPerkawinanFilter
+}
+
 input UserOrderByWithRelationInput {
   id: SortOrder
   nik: SortOrder
@@ -155,6 +360,8 @@ input UserOrderByWithRelationInput {
   role: SortOrder
   createdAt: SortOrder
   updatedAt: SortOrder
+  nomor_sim: SIMOrderByRelationAggregateInput
+  ktp: KTPOrderByWithRelationInput
 }
 
 enum SortOrder {
@@ -172,6 +379,31 @@ enum NullsOrder {
   last
 }
 
+input SIMOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input KTPOrderByWithRelationInput {
+  nik: SortOrder
+  nama: SortOrder
+  tempat_lahir: SortOrder
+  tanggal_lahir: SortOrder
+  alamat: SortOrder
+  rt: SortOrder
+  rw: SortOrder
+  kelurahan_desa: SortOrder
+  kecamatan: SortOrder
+  kabupaten_kota: SortOrder
+  provinsi: SortOrder
+  golongan_darah: SortOrder
+  agama: SortOrder
+  status_perkawinan: SortOrder
+  pekerjaan: SortOrder
+  kewarganegaraan: SortOrder
+  tanggal_terbit: SortOrder
+  User: UserOrderByWithRelationInput
+}
+
 input UserWhereUniqueInput {
   id: Int
   nik: String
@@ -180,11 +412,13 @@ input UserWhereUniqueInput {
   AND: [UserWhereInput!]
   OR: [UserWhereInput!]
   NOT: [UserWhereInput!]
-  name: StringFilter
+  name: StringNullableListFilter
   password: StringFilter
   role: IntFilter
   createdAt: DateTimeFilter
   updatedAt: DateTimeFilter
+  nomor_sim: SIMListRelationFilter
+  ktp: KTPRelationFilter
 }
 
 enum UserScalarFieldEnum {

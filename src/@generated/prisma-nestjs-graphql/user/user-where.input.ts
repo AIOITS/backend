@@ -2,8 +2,11 @@ import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { IntFilter } from '../prisma/int-filter.input';
 import { StringFilter } from '../prisma/string-filter.input';
+import { StringNullableListFilter } from '../prisma/string-nullable-list-filter.input';
 import { StringNullableFilter } from '../prisma/string-nullable-filter.input';
 import { DateTimeFilter } from '../prisma/date-time-filter.input';
+import { SIMListRelationFilter } from '../sim/sim-list-relation-filter.input';
+import { KTPRelationFilter } from '../ktp/ktp-relation-filter.input';
 
 @InputType()
 export class UserWhereInput {
@@ -23,8 +26,8 @@ export class UserWhereInput {
     @Field(() => StringFilter, {nullable:true})
     nik?: StringFilter;
 
-    @Field(() => StringFilter, {nullable:true})
-    name?: StringFilter;
+    @Field(() => StringNullableListFilter, {nullable:true})
+    name?: StringNullableListFilter;
 
     @Field(() => StringNullableFilter, {nullable:true})
     email?: StringNullableFilter;
@@ -43,4 +46,10 @@ export class UserWhereInput {
 
     @Field(() => DateTimeFilter, {nullable:true})
     updatedAt?: DateTimeFilter;
+
+    @Field(() => SIMListRelationFilter, {nullable:true})
+    nomor_sim?: SIMListRelationFilter;
+
+    @Field(() => KTPRelationFilter, {nullable:true})
+    ktp?: KTPRelationFilter;
 }

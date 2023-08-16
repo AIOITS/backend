@@ -2,6 +2,7 @@ import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { Int } from '@nestjs/graphql';
 import * as Validator from 'class-validator';
+import { UserCreatenameInput } from './user-createname.input';
 
 @InputType()
 export class UserCreateManyInput {
@@ -15,10 +16,8 @@ export class UserCreateManyInput {
     @Validator.MaxLength(16)
     nik!: string;
 
-    @Field(() => String, {nullable:false})
-    @Validator.IsNotEmpty()
-    @Validator.MaxLength(60)
-    name!: string;
+    @Field(() => UserCreatenameInput, {nullable:true})
+    name?: UserCreatenameInput;
 
     @Field(() => String, {nullable:true})
     @Validator.IsEmail()

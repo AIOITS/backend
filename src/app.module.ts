@@ -9,6 +9,7 @@ import { PrismaService } from './prisma/prisma.service';
 import { GraphqlModule } from './graphql/graphql.module';
 import { AuthModule } from './auth/auth.module';
 import { ConfigModule } from '@nestjs/config';
+import { KtpModule } from './ktp/ktp.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { ConfigModule } from '@nestjs/config';
     UserModule,
     GraphqlModule,
     AuthModule,
+    KtpModule,
   ],
   controllers: [AppController],
   providers: [AppService, PrismaService],

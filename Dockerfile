@@ -1,14 +1,15 @@
 FROM node:18-alpine
 
 WORKDIR /app
-COPY package*.json ./
+
+COPY . ./
+
 RUN npm ci --only=production
 
-COPY tsconfig.json ./tsconfig.json
-COPY tsconfig.build.json ./tsconfig.build.json
-COPY nest-cli.json ./nest-cli.json
+RUN npm install -g @nestjs/cli
+RUN npm install -g prisma-nestjs-graphql
 RUN npm run build
 
 EXPOSE 8080
 
-CMD [ "npm", "run", "start:prod"]
+CMD [ "npm", "run", "start:prod" ]

@@ -2,6 +2,8 @@ import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { SortOrder } from '../prisma/sort-order.enum';
 import { SortOrderInput } from '../prisma/sort-order.input';
+import { SIMOrderByRelationAggregateInput } from '../sim/sim-order-by-relation-aggregate.input';
+import { KTPOrderByWithRelationInput } from '../ktp/ktp-order-by-with-relation.input';
 
 @InputType()
 export class UserOrderByWithRelationInput {
@@ -32,4 +34,10 @@ export class UserOrderByWithRelationInput {
 
     @Field(() => SortOrder, {nullable:true})
     updatedAt?: keyof typeof SortOrder;
+
+    @Field(() => SIMOrderByRelationAggregateInput, {nullable:true})
+    nomor_sim?: SIMOrderByRelationAggregateInput;
+
+    @Field(() => KTPOrderByWithRelationInput, {nullable:true})
+    ktp?: KTPOrderByWithRelationInput;
 }
