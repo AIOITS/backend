@@ -1,6 +1,14 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { UserService } from './user.service';
-import { UserCreateInput } from 'src/@generated/prisma-nestjs-graphql/user/user-create.input';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common'
+import { UserService } from './user.service'
+import { UserCreateInput } from 'src/@generated/prisma-nestjs-graphql/user/user-create.input'
 
 @Controller('user')
 export class UserController {
@@ -8,7 +16,7 @@ export class UserController {
 
   @Post()
   async create(@Body() createUserDto: UserCreateInput) {
-    return await this.userService.create(createUserDto);
+    return await this.userService.create(createUserDto)
   }
 
   // @Patch(':id')

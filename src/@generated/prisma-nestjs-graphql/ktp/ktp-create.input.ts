@@ -1,103 +1,64 @@
-import { Field } from '@nestjs/graphql';
-import { InputType } from '@nestjs/graphql';
-import * as Validator from 'class-validator';
-import { Int } from '@nestjs/graphql';
-import { GolonganDarah } from '../prisma/golongan-darah.enum';
-import { Agama } from '../prisma/agama.enum';
-import { StatusPerkawinan } from '../prisma/status-perkawinan.enum';
-import { UserCreateNestedOneWithoutKtpInput } from '../user/user-create-nested-one-without-ktp.input';
-import { Type } from 'class-transformer';
+import { Field } from '@nestjs/graphql'
+import { InputType } from '@nestjs/graphql'
+import { Int } from '@nestjs/graphql'
+import { GolonganDarah } from '../prisma/golongan-darah.enum'
+import { Agama } from '../prisma/agama.enum'
+import { StatusPerkawinan } from '../prisma/status-perkawinan.enum'
+import { UserCreateNestedOneWithoutKtpInput } from '../user/user-create-nested-one-without-ktp.input'
 
 @InputType()
 export class KTPCreateInput {
+  @Field(() => String, { nullable: false })
+  nik!: string
 
-    @Field(() => String, {nullable:false})
-    @Validator.IsNotEmpty()
-    @Validator.IsNumberString()
-    @Validator.MinLength(16)
-    @Validator.MaxLength(16)
-    nik!: string;
+  @Field(() => String, { nullable: false })
+  nama!: string
 
-    @Field(() => String, {nullable:false})
-    @Validator.IsNotEmpty()
-    @Validator.IsString()
-    nama!: string;
+  @Field(() => String, { nullable: false })
+  tempat_lahir!: string
 
-    @Field(() => String, {nullable:false})
-    @Validator.IsNotEmpty()
-    @Validator.IsString()
-    tempat_lahir!: string;
+  @Field(() => Date, { nullable: false })
+  tanggal_lahir!: Date | string
 
-    @Field(() => Date, {nullable:false})
-    @Validator.IsNotEmpty()
-    @Validator.IsISO8601({strict: true})
-    tanggal_lahir!: Date | string;
+  @Field(() => String, { nullable: false })
+  alamat!: string
 
-    @Field(() => String, {nullable:false})
-    @Validator.IsNotEmpty()
-    @Validator.IsString()
-    alamat!: string;
+  @Field(() => Int, { nullable: false })
+  rt!: number
 
-    @Field(() => Int, {nullable:false})
-    @Validator.IsNotEmpty()
-    @Type(() => Number)
-    rt!: number;
+  @Field(() => Int, { nullable: false })
+  rw!: number
 
-    @Field(() => Int, {nullable:false})
-    @Type(() => Number)
-    @Validator.IsNotEmpty()
-    rw!: number;
+  @Field(() => String, { nullable: false })
+  kelurahan_desa!: string
 
-    @Field(() => String, {nullable:false})
-    @Validator.IsNotEmpty()
-    @Validator.IsString()
-    kelurahan_desa!: string;
+  @Field(() => String, { nullable: false })
+  kecamatan!: string
 
-    @Field(() => String, {nullable:false})
-    @Validator.IsNotEmpty()
-    @Validator.IsString()
-    kecamatan!: string;
+  @Field(() => String, { nullable: false })
+  kabupaten_kota!: string
 
-    @Field(() => String, {nullable:false})
-    @Validator.IsNotEmpty()
-    @Validator.IsString()
-    kabupaten_kota!: string;
+  @Field(() => String, { nullable: false })
+  provinsi!: string
 
-    @Field(() => String, {nullable:false})
-    @Validator.IsNotEmpty()
-    @Validator.IsString()
-    provinsi!: string;
+  @Field(() => GolonganDarah, { nullable: false })
+  golongan_darah!: keyof typeof GolonganDarah
 
-    @Field(() => GolonganDarah, {nullable:false})
-    @Validator.IsNotEmpty()
-    @Validator.IsEnum(GolonganDarah)
-    golongan_darah!: keyof typeof GolonganDarah;
+  @Field(() => Agama, { nullable: false })
+  agama!: keyof typeof Agama
 
-    @Field(() => Agama, {nullable:false})
-    @Validator.IsNotEmpty()
-    @Validator.IsEnum(Agama)
-    agama!: keyof typeof Agama;
+  @Field(() => StatusPerkawinan, { nullable: false })
+  status_perkawinan!: keyof typeof StatusPerkawinan
 
-    @Field(() => StatusPerkawinan, {nullable:false})
-    @Validator.IsNotEmpty()
-    @Validator.IsEnum(StatusPerkawinan)
-    status_perkawinan!: keyof typeof StatusPerkawinan;
+  @Field(() => String, { nullable: false })
+  pekerjaan!: string
 
-    @Field(() => String, {nullable:false})
-    @Validator.IsNotEmpty()
-    @Validator.IsString()
-    pekerjaan!: string;
+  @Field(() => String, { nullable: false })
+  kewarganegaraan!: string
 
-    @Field(() => String, {nullable:false})
-    @Validator.IsNotEmpty()
-    @Validator.IsString()
-    kewarganegaraan!: string;
+  @Field(() => Date, { nullable: false })
+  tanggal_terbit!: Date | string
 
-    @Field(() => Date, {nullable:false})
-    @Validator.IsNotEmpty()
-    @Validator.IsISO8601({strict: true})
-    tanggal_terbit!: Date | string;
-
-    @Field(() => UserCreateNestedOneWithoutKtpInput, {nullable:true})
-    User?: UserCreateNestedOneWithoutKtpInput;
+  @Field(() => UserCreateNestedOneWithoutKtpInput, { nullable: true })
+  User?: UserCreateNestedOneWithoutKtpInput
 }

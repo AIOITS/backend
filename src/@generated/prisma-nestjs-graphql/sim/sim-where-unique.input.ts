@@ -1,66 +1,65 @@
-import { Field } from '@nestjs/graphql';
-import { InputType } from '@nestjs/graphql';
-import { SIMWhereInput } from './sim-where.input';
-import { StringFilter } from '../prisma/string-filter.input';
-import { IntFilter } from '../prisma/int-filter.input';
-import { DateTimeFilter } from '../prisma/date-time-filter.input';
-import { IntNullableFilter } from '../prisma/int-nullable-filter.input';
-import { UserNullableRelationFilter } from '../user/user-nullable-relation-filter.input';
+import { Field } from '@nestjs/graphql'
+import { InputType } from '@nestjs/graphql'
+import { SIMWhereInput } from './sim-where.input'
+import { StringFilter } from '../prisma/string-filter.input'
+import { IntFilter } from '../prisma/int-filter.input'
+import { DateTimeFilter } from '../prisma/date-time-filter.input'
+import { IntNullableFilter } from '../prisma/int-nullable-filter.input'
+import { UserNullableRelationFilter } from '../user/user-nullable-relation-filter.input'
 
 @InputType()
 export class SIMWhereUniqueInput {
+  @Field(() => String, { nullable: true })
+  nomor_sim?: string
 
-    @Field(() => String, {nullable:true})
-    nomor_sim?: string;
+  @Field(() => [SIMWhereInput], { nullable: true })
+  AND?: Array<SIMWhereInput>
 
-    @Field(() => [SIMWhereInput], {nullable:true})
-    AND?: Array<SIMWhereInput>;
+  @Field(() => [SIMWhereInput], { nullable: true })
+  OR?: Array<SIMWhereInput>
 
-    @Field(() => [SIMWhereInput], {nullable:true})
-    OR?: Array<SIMWhereInput>;
+  @Field(() => [SIMWhereInput], { nullable: true })
+  NOT?: Array<SIMWhereInput>
 
-    @Field(() => [SIMWhereInput], {nullable:true})
-    NOT?: Array<SIMWhereInput>;
+  @Field(() => StringFilter, { nullable: true })
+  nama?: StringFilter
 
-    @Field(() => StringFilter, {nullable:true})
-    nama?: StringFilter;
+  @Field(() => StringFilter, { nullable: true })
+  alamat?: StringFilter
 
-    @Field(() => StringFilter, {nullable:true})
-    alamat?: StringFilter;
+  @Field(() => IntFilter, { nullable: true })
+  rt?: IntFilter
 
-    @Field(() => IntFilter, {nullable:true})
-    rt?: IntFilter;
+  @Field(() => IntFilter, { nullable: true })
+  rw?: IntFilter
 
-    @Field(() => IntFilter, {nullable:true})
-    rw?: IntFilter;
+  @Field(() => StringFilter, { nullable: true })
+  kelurahan_desa?: StringFilter
 
-    @Field(() => StringFilter, {nullable:true})
-    kelurahan_desa?: StringFilter;
+  @Field(() => StringFilter, { nullable: true })
+  kecamatan?: StringFilter
 
-    @Field(() => StringFilter, {nullable:true})
-    kecamatan?: StringFilter;
+  @Field(() => StringFilter, { nullable: true })
+  kabupaten?: StringFilter
 
-    @Field(() => StringFilter, {nullable:true})
-    kabupaten?: StringFilter;
+  @Field(() => StringFilter, { nullable: true })
+  pekerjaan?: StringFilter
 
-    @Field(() => StringFilter, {nullable:true})
-    pekerjaan?: StringFilter;
+  @Field(() => StringFilter, { nullable: true })
+  kabupaten_terbit?: StringFilter
 
-    @Field(() => StringFilter, {nullable:true})
-    kabupaten_terbit?: StringFilter;
+  @Field(() => DateTimeFilter, { nullable: true })
+  tanggal_terbit?: DateTimeFilter
 
-    @Field(() => DateTimeFilter, {nullable:true})
-    tanggal_terbit?: DateTimeFilter;
+  @Field(() => StringFilter, { nullable: true })
+  penerbit?: StringFilter
 
-    @Field(() => StringFilter, {nullable:true})
-    penerbit?: StringFilter;
+  @Field(() => DateTimeFilter, { nullable: true })
+  berlaku_sampai?: DateTimeFilter
 
-    @Field(() => DateTimeFilter, {nullable:true})
-    berlaku_sampai?: DateTimeFilter;
+  @Field(() => IntNullableFilter, { nullable: true })
+  userId?: IntNullableFilter
 
-    @Field(() => IntNullableFilter, {nullable:true})
-    userId?: IntNullableFilter;
-
-    @Field(() => UserNullableRelationFilter, {nullable:true})
-    User?: UserNullableRelationFilter;
+  @Field(() => UserNullableRelationFilter, { nullable: true })
+  User?: UserNullableRelationFilter
 }

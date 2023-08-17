@@ -18,7 +18,8 @@ export class AuthService {
 
   async signIn(loginAuthDto: LoginAuthDto) {
     const { email, phone, password } = loginAuthDto
-    if (!email && !phone) throw new HttpException('Email or phone cannot be empty', 400)
+    if (!email && !phone)
+      throw new HttpException('Email or phone cannot be empty', 400)
 
     const user = email
       ? await this.usersService.validateWithEmail(email, password)
@@ -27,7 +28,7 @@ export class AuthService {
 
     const payload = {
       id: user.id,
-      role: user.role
+      role: user.role,
     }
     return {
       id: user.id,
@@ -37,7 +38,8 @@ export class AuthService {
 
   async signInGovernment(loginAuthDto: LoginAuthDto) {
     const { email, phone, password } = loginAuthDto
-    if (!email && !phone) throw new HttpException('Email or phone cannot be empty', 400)
+    if (!email && !phone)
+      throw new HttpException('Email or phone cannot be empty', 400)
 
     const user = email
       ? await this.usersService.validateWithEmail(email, password)
@@ -47,7 +49,7 @@ export class AuthService {
 
     const payload = {
       id: user.id,
-      role: user.role
+      role: user.role,
     }
 
     return {
@@ -58,13 +60,14 @@ export class AuthService {
 
   async register(registerAuthDto: UserCreateInput) {
     const { email, phone } = registerAuthDto
-    if (!email && !phone) throw new HttpException('Email or phone cannot be empty', 400)
+    if (!email && !phone)
+      throw new HttpException('Email or phone cannot be empty', 400)
     const user = await this.usersService.create(registerAuthDto)
     if (!user) throw new HttpException('User gagal ditambahkan', 500)
 
     const payload = {
       id: user.id,
-      role: user.role
+      role: user.role,
     }
     return {
       id: user.id,

@@ -47,76 +47,23 @@ model User {
 }
 
 model KTP {
-  /// @Validator.IsNotEmpty()
-  /// @Validator.IsNumberString()
-  /// @Validator.MinLength(16)
-  /// @Validator.MaxLength(16)
   nik               String           @id @unique
-
-  /// @Validator.IsNotEmpty()
-  /// @Validator.IsString()
   nama              String
-
-  /// @Validator.IsNotEmpty()
-  /// @Validator.IsString()
   tempat_lahir      String
-
-  /// @Validator.IsNotEmpty()
-  /// @Validator.IsISO8601({strict: true})
   tanggal_lahir     DateTime @db.Date
-
-  /// @Validator.IsNotEmpty()
-  /// @Validator.IsString()
   alamat            String
-
-  /// @Validator.IsNotEmpty()
-  /// @Type(() => Number)
   rt                Int              @db.SmallInt
-
-  /// @Validator.IsNotEmpty()
-  /// @Type(() => Number)
   rw                Int              @db.SmallInt
-
-  /// @Validator.IsNotEmpty()
-  /// @Validator.IsString()
   kelurahan_desa    String
-
-  /// @Validator.IsNotEmpty()
-  /// @Validator.IsString()
   kecamatan         String
-
-  /// @Validator.IsNotEmpty()
-  /// @Validator.IsString()
   kabupaten_kota    String
-
-  /// @Validator.IsNotEmpty()
-  /// @Validator.IsString()
   provinsi          String
-
-  /// @Validator.IsNotEmpty()
-  /// @Validator.IsEnum(GolonganDarah)
   golongan_darah    GolonganDarah
-
-  /// @Validator.IsNotEmpty()
-  /// @Validator.IsEnum(Agama)
   agama             Agama
-
-  /// @Validator.IsNotEmpty()
-  /// @Validator.IsEnum(StatusPerkawinan)
   status_perkawinan StatusPerkawinan
-
-  /// @Validator.IsNotEmpty()
-  /// @Validator.IsString()
   pekerjaan         String
-
-  /// @Validator.IsNotEmpty()
-  /// @Validator.IsString()
   kewarganegaraan   String
-
-  /// @Validator.IsNotEmpty()
-  /// @Validator.IsISO8601({strict: true})
   tanggal_terbit    DateTime         @db.Date
-  
   User              User?
 }
 

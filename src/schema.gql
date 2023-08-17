@@ -43,7 +43,6 @@ type KTP {
   pekerjaan: String!
   kewarganegaraan: String!
   tanggal_terbit: DateTime!
-  User: User
 }
 
 enum GolonganDarah {
