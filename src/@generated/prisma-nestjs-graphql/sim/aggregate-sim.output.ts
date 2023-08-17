@@ -1,25 +1,25 @@
 import { Field } from '@nestjs/graphql'
 import { ObjectType } from '@nestjs/graphql'
-import { SIMCountAggregate } from './sim-count-aggregate.output'
-import { SIMAvgAggregate } from './sim-avg-aggregate.output'
-import { SIMSumAggregate } from './sim-sum-aggregate.output'
-import { SIMMinAggregate } from './sim-min-aggregate.output'
-import { SIMMaxAggregate } from './sim-max-aggregate.output'
+import { SimCountAggregate } from './sim-count-aggregate.output'
+import { SimAvgAggregate } from './sim-avg-aggregate.output'
+import { SimSumAggregate } from './sim-sum-aggregate.output'
+import { SimMinAggregate } from './sim-min-aggregate.output'
+import { SimMaxAggregate } from './sim-max-aggregate.output'
 
 @ObjectType()
-export class AggregateSIM {
-  @Field(() => SIMCountAggregate, { nullable: true })
-  _count?: SIMCountAggregate
+export class AggregateSim {
+  @Field(() => SimCountAggregate, { nullable: true })
+  _count?: SimCountAggregate
 
-  @Field(() => SIMAvgAggregate, { nullable: true })
-  _avg?: SIMAvgAggregate
+  @Field(() => SimAvgAggregate, { nullable: true })
+  _avg?: SimAvgAggregate
 
-  @Field(() => SIMSumAggregate, { nullable: true })
-  _sum?: SIMSumAggregate
+  @Field(() => SimSumAggregate, { nullable: true })
+  _sum?: SimSumAggregate
 
-  @Field(() => SIMMinAggregate, { nullable: true })
-  _min?: SIMMinAggregate
+  @Field(() => SimMinAggregate, { nullable: true })
+  _min?: SimMinAggregate
 
-  @Field(() => SIMMaxAggregate, { nullable: true })
-  _max?: SIMMaxAggregate
+  @Field(() => SimMaxAggregate, { nullable: true })
+  _max?: SimMaxAggregate
 }

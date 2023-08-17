@@ -5,7 +5,7 @@ import { NullableStringFieldUpdateOperationsInput } from '../prisma/nullable-str
 import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input'
 import { IntFieldUpdateOperationsInput } from '../prisma/int-field-update-operations.input'
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input'
-import { SIMUpdateManyWithoutUserNestedInput } from '../sim/sim-update-many-without-user-nested.input'
+import { SimUpdateManyWithoutUserNestedInput } from '../sim/sim-update-many-without-user-nested.input'
 
 @InputType()
 export class UserUpdateWithoutKtpInput {
@@ -30,6 +30,6 @@ export class UserUpdateWithoutKtpInput {
   @Field(() => DateTimeFieldUpdateOperationsInput, { nullable: true })
   updatedAt?: DateTimeFieldUpdateOperationsInput
 
-  @Field(() => SIMUpdateManyWithoutUserNestedInput, { nullable: true })
-  nomor_sim?: SIMUpdateManyWithoutUserNestedInput
+  @Field(() => SimUpdateManyWithoutUserNestedInput, { nullable: true })
+  nomor_sim?: SimUpdateManyWithoutUserNestedInput
 }

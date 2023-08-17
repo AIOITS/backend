@@ -4,7 +4,7 @@ import { Int } from '@nestjs/graphql'
 import { UserCreateNestedOneWithoutNomor_simInput } from '../user/user-create-nested-one-without-nomor-sim.input'
 
 @InputType()
-export class SIMCreateInput {
+export class SimCreateInput {
   @Field(() => String, { nullable: false })
   nomor_sim!: string
 

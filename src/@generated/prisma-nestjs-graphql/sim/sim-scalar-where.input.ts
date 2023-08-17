@@ -6,15 +6,15 @@ import { DateTimeFilter } from '../prisma/date-time-filter.input'
 import { IntNullableFilter } from '../prisma/int-nullable-filter.input'
 
 @InputType()
-export class SIMScalarWhereInput {
-  @Field(() => [SIMScalarWhereInput], { nullable: true })
-  AND?: Array<SIMScalarWhereInput>
+export class SimScalarWhereInput {
+  @Field(() => [SimScalarWhereInput], { nullable: true })
+  AND?: Array<SimScalarWhereInput>
 
-  @Field(() => [SIMScalarWhereInput], { nullable: true })
-  OR?: Array<SIMScalarWhereInput>
+  @Field(() => [SimScalarWhereInput], { nullable: true })
+  OR?: Array<SimScalarWhereInput>
 
-  @Field(() => [SIMScalarWhereInput], { nullable: true })
-  NOT?: Array<SIMScalarWhereInput>
+  @Field(() => [SimScalarWhereInput], { nullable: true })
+  NOT?: Array<SimScalarWhereInput>
 
   @Field(() => StringFilter, { nullable: true })
   nomor_sim?: StringFilter

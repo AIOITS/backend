@@ -2,7 +2,7 @@ import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
 
 @InputType()
-export class KTPAvgAggregateInput {
+export class KtpAvgAggregateInput {
   @Field(() => Boolean, { nullable: true })
   rt?: true
 

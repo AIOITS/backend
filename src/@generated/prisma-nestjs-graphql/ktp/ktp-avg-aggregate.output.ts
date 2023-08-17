@@ -3,7 +3,7 @@ import { ObjectType } from '@nestjs/graphql'
 import { Float } from '@nestjs/graphql'
 
 @ObjectType()
-export class KTPAvgAggregate {
+export class KtpAvgAggregate {
   @Field(() => Float, { nullable: true })
   rt?: number
 

@@ -7,15 +7,15 @@ import { IntNullableFilter } from '../prisma/int-nullable-filter.input'
 import { UserNullableRelationFilter } from '../user/user-nullable-relation-filter.input'
 
 @InputType()
-export class SIMWhereInput {
-  @Field(() => [SIMWhereInput], { nullable: true })
-  AND?: Array<SIMWhereInput>
+export class SimWhereInput {
+  @Field(() => [SimWhereInput], { nullable: true })
+  AND?: Array<SimWhereInput>
 
-  @Field(() => [SIMWhereInput], { nullable: true })
-  OR?: Array<SIMWhereInput>
+  @Field(() => [SimWhereInput], { nullable: true })
+  OR?: Array<SimWhereInput>
 
-  @Field(() => [SIMWhereInput], { nullable: true })
-  NOT?: Array<SIMWhereInput>
+  @Field(() => [SimWhereInput], { nullable: true })
+  NOT?: Array<SimWhereInput>
 
   @Field(() => StringFilter, { nullable: true })
   nomor_sim?: StringFilter

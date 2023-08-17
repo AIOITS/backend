@@ -1,15 +1,15 @@
 import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
-import { SIMWhereInput } from './sim-where.input'
+import { SimWhereInput } from './sim-where.input'
 
 @InputType()
-export class SIMListRelationFilter {
-  @Field(() => SIMWhereInput, { nullable: true })
-  every?: SIMWhereInput
+export class SimListRelationFilter {
+  @Field(() => SimWhereInput, { nullable: true })
+  every?: SimWhereInput
 
-  @Field(() => SIMWhereInput, { nullable: true })
-  some?: SIMWhereInput
+  @Field(() => SimWhereInput, { nullable: true })
+  some?: SimWhereInput
 
-  @Field(() => SIMWhereInput, { nullable: true })
-  none?: SIMWhereInput
+  @Field(() => SimWhereInput, { nullable: true })
+  none?: SimWhereInput
 }

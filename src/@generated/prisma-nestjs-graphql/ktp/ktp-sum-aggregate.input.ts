@@ -2,7 +2,7 @@ import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
 
 @InputType()
-export class KTPSumAggregateInput {
+export class KtpSumAggregateInput {
   @Field(() => Boolean, { nullable: true })
   rt?: true
 

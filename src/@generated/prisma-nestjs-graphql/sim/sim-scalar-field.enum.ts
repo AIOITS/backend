@@ -1,6 +1,6 @@
 import { registerEnumType } from '@nestjs/graphql'
 
-export enum SIMScalarFieldEnum {
+export enum SimScalarFieldEnum {
   nomor_sim = 'nomor_sim',
   nama = 'nama',
   alamat = 'alamat',
@@ -17,7 +17,7 @@ export enum SIMScalarFieldEnum {
   userId = 'userId',
 }
 
-registerEnumType(SIMScalarFieldEnum, {
-  name: 'SIMScalarFieldEnum',
+registerEnumType(SimScalarFieldEnum, {
+  name: 'SimScalarFieldEnum',
   description: undefined,
 })

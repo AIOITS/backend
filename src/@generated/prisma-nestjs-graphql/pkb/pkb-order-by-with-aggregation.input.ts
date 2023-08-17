@@ -1,14 +1,14 @@
 import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
 import { SortOrder } from '../prisma/sort-order.enum'
-import { PKBCountOrderByAggregateInput } from './pkb-count-order-by-aggregate.input'
-import { PKBAvgOrderByAggregateInput } from './pkb-avg-order-by-aggregate.input'
-import { PKBMaxOrderByAggregateInput } from './pkb-max-order-by-aggregate.input'
-import { PKBMinOrderByAggregateInput } from './pkb-min-order-by-aggregate.input'
-import { PKBSumOrderByAggregateInput } from './pkb-sum-order-by-aggregate.input'
+import { PkbCountOrderByAggregateInput } from './pkb-count-order-by-aggregate.input'
+import { PkbAvgOrderByAggregateInput } from './pkb-avg-order-by-aggregate.input'
+import { PkbMaxOrderByAggregateInput } from './pkb-max-order-by-aggregate.input'
+import { PkbMinOrderByAggregateInput } from './pkb-min-order-by-aggregate.input'
+import { PkbSumOrderByAggregateInput } from './pkb-sum-order-by-aggregate.input'
 
 @InputType()
-export class PKBOrderByWithAggregationInput {
+export class PkbOrderByWithAggregationInput {
   @Field(() => SortOrder, { nullable: true })
   nomor_PKB?: keyof typeof SortOrder
 
@@ -45,18 +45,18 @@ export class PKBOrderByWithAggregationInput {
   @Field(() => SortOrder, { nullable: true })
   administrasi_tnkb_sanksi?: keyof typeof SortOrder
 
-  @Field(() => PKBCountOrderByAggregateInput, { nullable: true })
-  _count?: PKBCountOrderByAggregateInput
+  @Field(() => PkbCountOrderByAggregateInput, { nullable: true })
+  _count?: PkbCountOrderByAggregateInput
 
-  @Field(() => PKBAvgOrderByAggregateInput, { nullable: true })
-  _avg?: PKBAvgOrderByAggregateInput
+  @Field(() => PkbAvgOrderByAggregateInput, { nullable: true })
+  _avg?: PkbAvgOrderByAggregateInput
 
-  @Field(() => PKBMaxOrderByAggregateInput, { nullable: true })
-  _max?: PKBMaxOrderByAggregateInput
+  @Field(() => PkbMaxOrderByAggregateInput, { nullable: true })
+  _max?: PkbMaxOrderByAggregateInput
 
-  @Field(() => PKBMinOrderByAggregateInput, { nullable: true })
-  _min?: PKBMinOrderByAggregateInput
+  @Field(() => PkbMinOrderByAggregateInput, { nullable: true })
+  _min?: PkbMinOrderByAggregateInput
 
-  @Field(() => PKBSumOrderByAggregateInput, { nullable: true })
-  _sum?: PKBSumOrderByAggregateInput
+  @Field(() => PkbSumOrderByAggregateInput, { nullable: true })
+  _sum?: PkbSumOrderByAggregateInput
 }

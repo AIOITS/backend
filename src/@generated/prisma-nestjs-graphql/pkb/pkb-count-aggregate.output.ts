@@ -3,7 +3,7 @@ import { ObjectType } from '@nestjs/graphql'
 import { Int } from '@nestjs/graphql'
 
 @ObjectType()
-export class PKBCountAggregate {
+export class PkbCountAggregate {
   @Field(() => Int, { nullable: false })
   nomor_PKB!: number
 

@@ -3,7 +3,7 @@ import { ObjectType } from '@nestjs/graphql'
 import { Int } from '@nestjs/graphql'
 
 @ObjectType()
-export class SIMSumAggregate {
+export class SimSumAggregate {
   @Field(() => Int, { nullable: true })
   rt?: number
 

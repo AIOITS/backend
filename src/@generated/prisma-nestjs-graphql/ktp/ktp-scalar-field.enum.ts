@@ -1,6 +1,6 @@
 import { registerEnumType } from '@nestjs/graphql'
 
-export enum KTPScalarFieldEnum {
+export enum KtpScalarFieldEnum {
   nik = 'nik',
   nama = 'nama',
   tempat_lahir = 'tempat_lahir',
@@ -20,7 +20,7 @@ export enum KTPScalarFieldEnum {
   tanggal_terbit = 'tanggal_terbit',
 }
 
-registerEnumType(KTPScalarFieldEnum, {
-  name: 'KTPScalarFieldEnum',
+registerEnumType(KtpScalarFieldEnum, {
+  name: 'KtpScalarFieldEnum',
   description: undefined,
 })

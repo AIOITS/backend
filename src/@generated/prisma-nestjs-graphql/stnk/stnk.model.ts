@@ -3,7 +3,7 @@ import { ObjectType } from '@nestjs/graphql'
 import { ID } from '@nestjs/graphql'
 
 @ObjectType()
-export class STNK {
+export class Stnk {
   @Field(() => ID, { nullable: false })
   nomor_stnk!: string
 

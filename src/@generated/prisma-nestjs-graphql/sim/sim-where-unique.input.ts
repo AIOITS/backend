@@ -1,6 +1,6 @@
 import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
-import { SIMWhereInput } from './sim-where.input'
+import { SimWhereInput } from './sim-where.input'
 import { StringFilter } from '../prisma/string-filter.input'
 import { IntFilter } from '../prisma/int-filter.input'
 import { DateTimeFilter } from '../prisma/date-time-filter.input'
@@ -8,18 +8,18 @@ import { IntNullableFilter } from '../prisma/int-nullable-filter.input'
 import { UserNullableRelationFilter } from '../user/user-nullable-relation-filter.input'
 
 @InputType()
-export class SIMWhereUniqueInput {
+export class SimWhereUniqueInput {
   @Field(() => String, { nullable: true })
   nomor_sim?: string
 
-  @Field(() => [SIMWhereInput], { nullable: true })
-  AND?: Array<SIMWhereInput>
+  @Field(() => [SimWhereInput], { nullable: true })
+  AND?: Array<SimWhereInput>
 
-  @Field(() => [SIMWhereInput], { nullable: true })
-  OR?: Array<SIMWhereInput>
+  @Field(() => [SimWhereInput], { nullable: true })
+  OR?: Array<SimWhereInput>
 
-  @Field(() => [SIMWhereInput], { nullable: true })
-  NOT?: Array<SIMWhereInput>
+  @Field(() => [SimWhereInput], { nullable: true })
+  NOT?: Array<SimWhereInput>
 
   @Field(() => StringFilter, { nullable: true })
   nama?: StringFilter

@@ -4,7 +4,7 @@ import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input'
 
 @InputType()
-export class STNKUncheckedUpdateInput {
+export class StnkUncheckedUpdateInput {
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
   nomor_stnk?: StringFieldUpdateOperationsInput
 

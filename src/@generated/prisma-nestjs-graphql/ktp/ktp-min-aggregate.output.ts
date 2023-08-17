@@ -6,7 +6,7 @@ import { Agama } from '../prisma/agama.enum'
 import { StatusPerkawinan } from '../prisma/status-perkawinan.enum'
 
 @ObjectType()
-export class KTPMinAggregate {
+export class KtpMinAggregate {
   @Field(() => String, { nullable: true })
   nik?: string
 

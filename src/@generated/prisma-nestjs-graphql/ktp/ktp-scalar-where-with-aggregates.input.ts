@@ -8,15 +8,15 @@ import { EnumAgamaWithAggregatesFilter } from '../prisma/enum-agama-with-aggrega
 import { EnumStatusPerkawinanWithAggregatesFilter } from '../prisma/enum-status-perkawinan-with-aggregates-filter.input'
 
 @InputType()
-export class KTPScalarWhereWithAggregatesInput {
-  @Field(() => [KTPScalarWhereWithAggregatesInput], { nullable: true })
-  AND?: Array<KTPScalarWhereWithAggregatesInput>
+export class KtpScalarWhereWithAggregatesInput {
+  @Field(() => [KtpScalarWhereWithAggregatesInput], { nullable: true })
+  AND?: Array<KtpScalarWhereWithAggregatesInput>
 
-  @Field(() => [KTPScalarWhereWithAggregatesInput], { nullable: true })
-  OR?: Array<KTPScalarWhereWithAggregatesInput>
+  @Field(() => [KtpScalarWhereWithAggregatesInput], { nullable: true })
+  OR?: Array<KtpScalarWhereWithAggregatesInput>
 
-  @Field(() => [KTPScalarWhereWithAggregatesInput], { nullable: true })
-  NOT?: Array<KTPScalarWhereWithAggregatesInput>
+  @Field(() => [KtpScalarWhereWithAggregatesInput], { nullable: true })
+  NOT?: Array<KtpScalarWhereWithAggregatesInput>
 
   @Field(() => StringWithAggregatesFilter, { nullable: true })
   nik?: StringWithAggregatesFilter

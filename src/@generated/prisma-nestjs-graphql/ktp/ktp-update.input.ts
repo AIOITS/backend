@@ -9,7 +9,7 @@ import { EnumStatusPerkawinanFieldUpdateOperationsInput } from '../prisma/enum-s
 import { UserUpdateOneWithoutKtpNestedInput } from '../user/user-update-one-without-ktp-nested.input'
 
 @InputType()
-export class KTPUpdateInput {
+export class KtpUpdateInput {
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
   nik?: StringFieldUpdateOperationsInput
 

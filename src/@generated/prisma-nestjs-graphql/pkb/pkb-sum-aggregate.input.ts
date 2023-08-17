@@ -2,7 +2,7 @@ import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
 
 @InputType()
-export class PKBSumAggregateInput {
+export class PkbSumAggregateInput {
   @Field(() => Boolean, { nullable: true })
   bbknb_pokok?: true
 

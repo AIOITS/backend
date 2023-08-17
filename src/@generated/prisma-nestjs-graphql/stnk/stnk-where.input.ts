@@ -4,15 +4,15 @@ import { StringFilter } from '../prisma/string-filter.input'
 import { DateTimeFilter } from '../prisma/date-time-filter.input'
 
 @InputType()
-export class STNKWhereInput {
-  @Field(() => [STNKWhereInput], { nullable: true })
-  AND?: Array<STNKWhereInput>
+export class StnkWhereInput {
+  @Field(() => [StnkWhereInput], { nullable: true })
+  AND?: Array<StnkWhereInput>
 
-  @Field(() => [STNKWhereInput], { nullable: true })
-  OR?: Array<STNKWhereInput>
+  @Field(() => [StnkWhereInput], { nullable: true })
+  OR?: Array<StnkWhereInput>
 
-  @Field(() => [STNKWhereInput], { nullable: true })
-  NOT?: Array<STNKWhereInput>
+  @Field(() => [StnkWhereInput], { nullable: true })
+  NOT?: Array<StnkWhereInput>
 
   @Field(() => StringFilter, { nullable: true })
   nomor_stnk?: StringFilter

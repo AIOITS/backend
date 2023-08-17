@@ -1,25 +1,25 @@
 import { Field } from '@nestjs/graphql'
 import { ObjectType } from '@nestjs/graphql'
-import { KTPCountAggregate } from './ktp-count-aggregate.output'
-import { KTPAvgAggregate } from './ktp-avg-aggregate.output'
-import { KTPSumAggregate } from './ktp-sum-aggregate.output'
-import { KTPMinAggregate } from './ktp-min-aggregate.output'
-import { KTPMaxAggregate } from './ktp-max-aggregate.output'
+import { KtpCountAggregate } from './ktp-count-aggregate.output'
+import { KtpAvgAggregate } from './ktp-avg-aggregate.output'
+import { KtpSumAggregate } from './ktp-sum-aggregate.output'
+import { KtpMinAggregate } from './ktp-min-aggregate.output'
+import { KtpMaxAggregate } from './ktp-max-aggregate.output'
 
 @ObjectType()
-export class AggregateKTP {
-  @Field(() => KTPCountAggregate, { nullable: true })
-  _count?: KTPCountAggregate
+export class AggregateKtp {
+  @Field(() => KtpCountAggregate, { nullable: true })
+  _count?: KtpCountAggregate
 
-  @Field(() => KTPAvgAggregate, { nullable: true })
-  _avg?: KTPAvgAggregate
+  @Field(() => KtpAvgAggregate, { nullable: true })
+  _avg?: KtpAvgAggregate
 
-  @Field(() => KTPSumAggregate, { nullable: true })
-  _sum?: KTPSumAggregate
+  @Field(() => KtpSumAggregate, { nullable: true })
+  _sum?: KtpSumAggregate
 
-  @Field(() => KTPMinAggregate, { nullable: true })
-  _min?: KTPMinAggregate
+  @Field(() => KtpMinAggregate, { nullable: true })
+  _min?: KtpMinAggregate
 
-  @Field(() => KTPMaxAggregate, { nullable: true })
-  _max?: KTPMaxAggregate
+  @Field(() => KtpMaxAggregate, { nullable: true })
+  _max?: KtpMaxAggregate
 }

@@ -1,6 +1,6 @@
 import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
-import { KTPWhereInput } from './ktp-where.input'
+import { KtpWhereInput } from './ktp-where.input'
 import { StringFilter } from '../prisma/string-filter.input'
 import { DateTimeFilter } from '../prisma/date-time-filter.input'
 import { IntFilter } from '../prisma/int-filter.input'
@@ -10,18 +10,18 @@ import { EnumStatusPerkawinanFilter } from '../prisma/enum-status-perkawinan-fil
 import { UserNullableRelationFilter } from '../user/user-nullable-relation-filter.input'
 
 @InputType()
-export class KTPWhereUniqueInput {
+export class KtpWhereUniqueInput {
   @Field(() => String, { nullable: true })
   nik?: string
 
-  @Field(() => [KTPWhereInput], { nullable: true })
-  AND?: Array<KTPWhereInput>
+  @Field(() => [KtpWhereInput], { nullable: true })
+  AND?: Array<KtpWhereInput>
 
-  @Field(() => [KTPWhereInput], { nullable: true })
-  OR?: Array<KTPWhereInput>
+  @Field(() => [KtpWhereInput], { nullable: true })
+  OR?: Array<KtpWhereInput>
 
-  @Field(() => [KTPWhereInput], { nullable: true })
-  NOT?: Array<KTPWhereInput>
+  @Field(() => [KtpWhereInput], { nullable: true })
+  NOT?: Array<KtpWhereInput>
 
   @Field(() => StringFilter, { nullable: true })
   nama?: StringFilter

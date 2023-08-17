@@ -2,7 +2,7 @@ import { Field } from '@nestjs/graphql'
 import { ObjectType } from '@nestjs/graphql'
 
 @ObjectType()
-export class STNKMaxAggregate {
+export class StnkMaxAggregate {
   @Field(() => String, { nullable: true })
   nomor_stnk?: string
 

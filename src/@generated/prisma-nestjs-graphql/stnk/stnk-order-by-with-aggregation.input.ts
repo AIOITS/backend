@@ -1,12 +1,12 @@
 import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
 import { SortOrder } from '../prisma/sort-order.enum'
-import { STNKCountOrderByAggregateInput } from './stnk-count-order-by-aggregate.input'
-import { STNKMaxOrderByAggregateInput } from './stnk-max-order-by-aggregate.input'
-import { STNKMinOrderByAggregateInput } from './stnk-min-order-by-aggregate.input'
+import { StnkCountOrderByAggregateInput } from './stnk-count-order-by-aggregate.input'
+import { StnkMaxOrderByAggregateInput } from './stnk-max-order-by-aggregate.input'
+import { StnkMinOrderByAggregateInput } from './stnk-min-order-by-aggregate.input'
 
 @InputType()
-export class STNKOrderByWithAggregationInput {
+export class StnkOrderByWithAggregationInput {
   @Field(() => SortOrder, { nullable: true })
   nomor_stnk?: keyof typeof SortOrder
 
@@ -73,12 +73,12 @@ export class STNKOrderByWithAggregationInput {
   @Field(() => SortOrder, { nullable: true })
   nomor_PKB?: keyof typeof SortOrder
 
-  @Field(() => STNKCountOrderByAggregateInput, { nullable: true })
-  _count?: STNKCountOrderByAggregateInput
+  @Field(() => StnkCountOrderByAggregateInput, { nullable: true })
+  _count?: StnkCountOrderByAggregateInput
 
-  @Field(() => STNKMaxOrderByAggregateInput, { nullable: true })
-  _max?: STNKMaxOrderByAggregateInput
+  @Field(() => StnkMaxOrderByAggregateInput, { nullable: true })
+  _max?: StnkMaxOrderByAggregateInput
 
-  @Field(() => STNKMinOrderByAggregateInput, { nullable: true })
-  _min?: STNKMinOrderByAggregateInput
+  @Field(() => StnkMinOrderByAggregateInput, { nullable: true })
+  _min?: StnkMinOrderByAggregateInput
 }

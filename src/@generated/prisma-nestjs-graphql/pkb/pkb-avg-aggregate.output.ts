@@ -3,7 +3,7 @@ import { ObjectType } from '@nestjs/graphql'
 import { Float } from '@nestjs/graphql'
 
 @ObjectType()
-export class PKBAvgAggregate {
+export class PkbAvgAggregate {
   @Field(() => Float, { nullable: true })
   bbknb_pokok?: number
 

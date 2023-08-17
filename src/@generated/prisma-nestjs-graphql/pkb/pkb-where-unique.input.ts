@@ -1,22 +1,22 @@
 import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
-import { PKBWhereInput } from './pkb-where.input'
+import { PkbWhereInput } from './pkb-where.input'
 import { BoolFilter } from '../prisma/bool-filter.input'
 import { IntFilter } from '../prisma/int-filter.input'
 
 @InputType()
-export class PKBWhereUniqueInput {
+export class PkbWhereUniqueInput {
   @Field(() => String, { nullable: true })
   nomor_PKB?: string
 
-  @Field(() => [PKBWhereInput], { nullable: true })
-  AND?: Array<PKBWhereInput>
+  @Field(() => [PkbWhereInput], { nullable: true })
+  AND?: Array<PkbWhereInput>
 
-  @Field(() => [PKBWhereInput], { nullable: true })
-  OR?: Array<PKBWhereInput>
+  @Field(() => [PkbWhereInput], { nullable: true })
+  OR?: Array<PkbWhereInput>
 
-  @Field(() => [PKBWhereInput], { nullable: true })
-  NOT?: Array<PKBWhereInput>
+  @Field(() => [PkbWhereInput], { nullable: true })
+  NOT?: Array<PkbWhereInput>
 
   @Field(() => BoolFilter, { nullable: true })
   status_pajak?: BoolFilter

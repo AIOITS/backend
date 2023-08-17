@@ -6,7 +6,7 @@ import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-up
 import { UserUpdateOneWithoutNomor_simNestedInput } from '../user/user-update-one-without-nomor-sim-nested.input'
 
 @InputType()
-export class SIMUpdateInput {
+export class SimUpdateInput {
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
   nomor_sim?: StringFieldUpdateOperationsInput
 

@@ -7,7 +7,7 @@ import { StatusPerkawinan } from '../prisma/status-perkawinan.enum'
 import { UserCreateNestedOneWithoutKtpInput } from '../user/user-create-nested-one-without-ktp.input'
 
 @InputType()
-export class KTPCreateInput {
+export class KtpCreateInput {
   @Field(() => String, { nullable: false })
   nik!: string
 

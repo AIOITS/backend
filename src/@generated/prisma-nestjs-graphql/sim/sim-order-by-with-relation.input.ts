@@ -5,7 +5,7 @@ import { SortOrderInput } from '../prisma/sort-order.input'
 import { UserOrderByWithRelationInput } from '../user/user-order-by-with-relation.input'
 
 @InputType()
-export class SIMOrderByWithRelationInput {
+export class SimOrderByWithRelationInput {
   @Field(() => SortOrder, { nullable: true })
   nomor_sim?: keyof typeof SortOrder
 

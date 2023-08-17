@@ -4,15 +4,15 @@ import { StringWithAggregatesFilter } from '../prisma/string-with-aggregates-fil
 import { DateTimeWithAggregatesFilter } from '../prisma/date-time-with-aggregates-filter.input'
 
 @InputType()
-export class STNKScalarWhereWithAggregatesInput {
-  @Field(() => [STNKScalarWhereWithAggregatesInput], { nullable: true })
-  AND?: Array<STNKScalarWhereWithAggregatesInput>
+export class StnkScalarWhereWithAggregatesInput {
+  @Field(() => [StnkScalarWhereWithAggregatesInput], { nullable: true })
+  AND?: Array<StnkScalarWhereWithAggregatesInput>
 
-  @Field(() => [STNKScalarWhereWithAggregatesInput], { nullable: true })
-  OR?: Array<STNKScalarWhereWithAggregatesInput>
+  @Field(() => [StnkScalarWhereWithAggregatesInput], { nullable: true })
+  OR?: Array<StnkScalarWhereWithAggregatesInput>
 
-  @Field(() => [STNKScalarWhereWithAggregatesInput], { nullable: true })
-  NOT?: Array<STNKScalarWhereWithAggregatesInput>
+  @Field(() => [StnkScalarWhereWithAggregatesInput], { nullable: true })
+  NOT?: Array<StnkScalarWhereWithAggregatesInput>
 
   @Field(() => StringWithAggregatesFilter, { nullable: true })
   nomor_stnk?: StringWithAggregatesFilter

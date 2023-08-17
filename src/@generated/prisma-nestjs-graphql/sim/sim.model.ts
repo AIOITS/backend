@@ -5,7 +5,7 @@ import { Int } from '@nestjs/graphql'
 import { User } from '../user/user.model'
 
 @ObjectType()
-export class SIM {
+export class Sim {
   @Field(() => ID, { nullable: false })
   nomor_sim!: string
 

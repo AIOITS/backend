@@ -1,23 +1,24 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common'
-import { KTPCreateInput } from 'src/ktp/dto/ktp-create.input'
-import { KTPUpdateInput } from 'src/ktp/dto/ktp-update.input'
+import { Ktp, Prisma } from '@prisma/client'
+import { KtpCreateInput } from 'src/ktp/dto/ktp-create.input'
+import { KtpUpdateInput } from 'src/ktp/dto/ktp-update.input'
 import { PrismaService } from 'src/prisma/prisma.service'
 
 @Injectable()
 export class KtpService {
-  constructor(private readonly prismaService: PrismaService) {}
+  constructor(private readonly _prismaService: PrismaService) {}
 
-  async create(createKtpDto: KTPCreateInput) {
+  async create(createKtpDto: KtpCreateInput) {
     const { nik } = createKtpDto
     if (
-      await this.prismaService.kTP.count({
+      await this._prismaService.ktp.count({
         where: { nik },
       })
     ) {
       throw new HttpException('NIK already registered', 400)
     }
 
-    const createdKTP = await this.prismaService.kTP.create({
+    const createdKtp = await this._prismaService.ktp.create({
       data: {
         ...createKtpDto,
         tanggal_lahir: new Date(createKtpDto.tanggal_lahir),
@@ -26,30 +27,30 @@ export class KtpService {
     })
 
     return {
-      ...createdKTP,
-      tanggal_lahir: createdKTP.tanggal_lahir.toISOString().split('T')[0],
-      tanggal_terbit: createdKTP.tanggal_terbit.toISOString().split('T')[0],
+      ...createdKtp,
+      tanggal_lahir: createdKtp.tanggal_lahir.toISOString().split('T')[0],
+      tanggal_terbit: createdKtp.tanggal_terbit.toISOString().split('T')[0],
     }
   }
 
-  findAll() {
-    return `This action returns all ktp`
+  findAll(args: Prisma.KtpFindManyArgs): Promise<Array<Ktp>> {
+    return this._prismaService.ktp.findMany(args)
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} ktp`
+  findOne(args: Prisma.KtpFindFirstArgs) {
+    return this._prismaService.ktp.findFirst(args)
   }
 
-  async update(nik: string, updateKtpDto: KTPUpdateInput) {
+  async update(nik: string, updateKtpDto: KtpUpdateInput) {
     try {
-      await this.prismaService.kTP.findFirstOrThrow({
+      await this._prismaService.ktp.findFirstOrThrow({
         where: { nik },
       })
     } catch (error) {
-      throw new HttpException('KTP not found', HttpStatus.NOT_FOUND)
+      throw new HttpException('Ktp not found', HttpStatus.NOT_FOUND)
     }
 
-    const updatedKTP = await this.prismaService.kTP.update({
+    const updatedKtp = await this._prismaService.ktp.update({
       where: { nik },
       data: {
         ...updateKtpDto,
@@ -59,22 +60,22 @@ export class KtpService {
     })
 
     return {
-      ...updatedKTP,
-      tanggal_lahir: updatedKTP.tanggal_lahir.toISOString().split('T')[0],
-      tanggal_terbit: updatedKTP.tanggal_terbit.toISOString().split('T')[0],
+      ...updatedKtp,
+      tanggal_lahir: updatedKtp.tanggal_lahir.toISOString().split('T')[0],
+      tanggal_terbit: updatedKtp.tanggal_terbit.toISOString().split('T')[0],
     }
   }
 
   async remove(nik: string) {
     try {
-      await this.prismaService.kTP.findFirstOrThrow({
+      await this._prismaService.ktp.findFirstOrThrow({
         where: { nik },
       })
     } catch (error) {
-      throw new HttpException('KTP not found', HttpStatus.NOT_FOUND)
+      throw new HttpException('Ktp not found', HttpStatus.NOT_FOUND)
     }
 
-    await this.prismaService.kTP.delete({
+    await this._prismaService.ktp.delete({
       where: { nik },
     })
   }

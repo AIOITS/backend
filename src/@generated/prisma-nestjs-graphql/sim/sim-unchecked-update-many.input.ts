@@ -6,7 +6,7 @@ import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-up
 import { NullableIntFieldUpdateOperationsInput } from '../prisma/nullable-int-field-update-operations.input'
 
 @InputType()
-export class SIMUncheckedUpdateManyInput {
+export class SimUncheckedUpdateManyInput {
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
   nomor_sim?: StringFieldUpdateOperationsInput
 

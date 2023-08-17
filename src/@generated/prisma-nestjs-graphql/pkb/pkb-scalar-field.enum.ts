@@ -1,6 +1,6 @@
 import { registerEnumType } from '@nestjs/graphql'
 
-export enum PKBScalarFieldEnum {
+export enum PkbScalarFieldEnum {
   nomor_PKB = 'nomor_PKB',
   status_pajak = 'status_pajak',
   bbknb_pokok = 'bbknb_pokok',
@@ -15,7 +15,7 @@ export enum PKBScalarFieldEnum {
   administrasi_tnkb_sanksi = 'administrasi_tnkb_sanksi',
 }
 
-registerEnumType(PKBScalarFieldEnum, {
-  name: 'PKBScalarFieldEnum',
+registerEnumType(PkbScalarFieldEnum, {
+  name: 'PkbScalarFieldEnum',
   description: undefined,
 })

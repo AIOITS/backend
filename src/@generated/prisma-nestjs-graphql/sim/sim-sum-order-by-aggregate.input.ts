@@ -3,7 +3,7 @@ import { InputType } from '@nestjs/graphql'
 import { SortOrder } from '../prisma/sort-order.enum'
 
 @InputType()
-export class SIMSumOrderByAggregateInput {
+export class SimSumOrderByAggregateInput {
   @Field(() => SortOrder, { nullable: true })
   rt?: keyof typeof SortOrder
 

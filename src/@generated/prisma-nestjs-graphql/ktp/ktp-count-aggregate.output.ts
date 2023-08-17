@@ -3,7 +3,7 @@ import { ObjectType } from '@nestjs/graphql'
 import { Int } from '@nestjs/graphql'
 
 @ObjectType()
-export class KTPCountAggregate {
+export class KtpCountAggregate {
   @Field(() => Int, { nullable: false })
   nik!: number
 

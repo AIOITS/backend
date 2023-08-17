@@ -1,11 +1,11 @@
 import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
-import { STNKWhereInput } from './stnk-where.input'
+import { StnkWhereInput } from './stnk-where.input'
 import { StringFilter } from '../prisma/string-filter.input'
 import { DateTimeFilter } from '../prisma/date-time-filter.input'
 
 @InputType()
-export class STNKWhereUniqueInput {
+export class StnkWhereUniqueInput {
   @Field(() => String, { nullable: true })
   nomor_stnk?: string
 
@@ -15,14 +15,14 @@ export class STNKWhereUniqueInput {
   @Field(() => String, { nullable: true })
   nomor_PKB?: string
 
-  @Field(() => [STNKWhereInput], { nullable: true })
-  AND?: Array<STNKWhereInput>
+  @Field(() => [StnkWhereInput], { nullable: true })
+  AND?: Array<StnkWhereInput>
 
-  @Field(() => [STNKWhereInput], { nullable: true })
-  OR?: Array<STNKWhereInput>
+  @Field(() => [StnkWhereInput], { nullable: true })
+  OR?: Array<StnkWhereInput>
 
-  @Field(() => [STNKWhereInput], { nullable: true })
-  NOT?: Array<STNKWhereInput>
+  @Field(() => [StnkWhereInput], { nullable: true })
+  NOT?: Array<StnkWhereInput>
 
   @Field(() => StringFilter, { nullable: true })
   nama_pemilik?: StringFilter

@@ -3,7 +3,7 @@ import { ObjectType } from '@nestjs/graphql'
 import { Int } from '@nestjs/graphql'
 
 @ObjectType()
-export class PKBMaxAggregate {
+export class PkbMaxAggregate {
   @Field(() => String, { nullable: true })
   nomor_PKB?: string
 

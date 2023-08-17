@@ -3,7 +3,7 @@ import { InputType } from '@nestjs/graphql'
 import { SortOrder } from '../prisma/sort-order.enum'
 
 @InputType()
-export class PKBSumOrderByAggregateInput {
+export class PkbSumOrderByAggregateInput {
   @Field(() => SortOrder, { nullable: true })
   bbknb_pokok?: keyof typeof SortOrder
 

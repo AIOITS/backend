@@ -2,7 +2,7 @@ import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
 
 @InputType()
-export class PKBMaxAggregateInput {
+export class PkbMaxAggregateInput {
   @Field(() => Boolean, { nullable: true })
   nomor_PKB?: true
 

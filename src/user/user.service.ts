@@ -4,6 +4,7 @@ import { PrismaService } from 'src/prisma/prisma.service'
 import { UserCreateInput } from 'src/@generated/prisma-nestjs-graphql/user/user-create.input'
 import { User } from 'src/@generated/prisma-nestjs-graphql/user/user.model'
 import * as argon2 from 'argon2'
+import { Prisma } from '@prisma/client'
 @Injectable()
 export class UserService {
   constructor(private readonly _prismaService: PrismaService) {}
@@ -11,7 +12,7 @@ export class UserService {
   async create(createUserDto: UserCreateInput) {
     const { ktp, email, phone } = createUserDto
     if (
-      await this._prismaService.kTP.count({ where: { nik: ktp.connect.nik } })
+      await this._prismaService.ktp.count({ where: { nik: ktp.connect.nik } })
     )
       throw new HttpException('NIK already registered', 400)
     if (await this._prismaService.user.count({ where: { email } }))
@@ -27,7 +28,7 @@ export class UserService {
     })
   }
 
-  findAll(args: FindManyUserArgs) {
+  findAll(args: Prisma.UserFindManyArgs) {
     return this._prismaService.user.findMany(args)
   }
 

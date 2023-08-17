@@ -3,7 +3,7 @@ import { ObjectType } from '@nestjs/graphql'
 import { Int } from '@nestjs/graphql'
 
 @ObjectType()
-export class STNKCountAggregate {
+export class StnkCountAggregate {
   @Field(() => Int, { nullable: false })
   nomor_stnk!: number
 

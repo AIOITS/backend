@@ -4,14 +4,14 @@ import { Int } from '@nestjs/graphql'
 import { GolonganDarah } from '../prisma/golongan-darah.enum'
 import { Agama } from '../prisma/agama.enum'
 import { StatusPerkawinan } from '../prisma/status-perkawinan.enum'
-import { KTPCountAggregate } from './ktp-count-aggregate.output'
-import { KTPAvgAggregate } from './ktp-avg-aggregate.output'
-import { KTPSumAggregate } from './ktp-sum-aggregate.output'
-import { KTPMinAggregate } from './ktp-min-aggregate.output'
-import { KTPMaxAggregate } from './ktp-max-aggregate.output'
+import { KtpCountAggregate } from './ktp-count-aggregate.output'
+import { KtpAvgAggregate } from './ktp-avg-aggregate.output'
+import { KtpSumAggregate } from './ktp-sum-aggregate.output'
+import { KtpMinAggregate } from './ktp-min-aggregate.output'
+import { KtpMaxAggregate } from './ktp-max-aggregate.output'
 
 @ObjectType()
-export class KTPGroupBy {
+export class KtpGroupBy {
   @Field(() => String, { nullable: false })
   nik!: string
 
@@ -63,18 +63,18 @@ export class KTPGroupBy {
   @Field(() => Date, { nullable: false })
   tanggal_terbit!: Date | string
 
-  @Field(() => KTPCountAggregate, { nullable: true })
-  _count?: KTPCountAggregate
+  @Field(() => KtpCountAggregate, { nullable: true })
+  _count?: KtpCountAggregate
 
-  @Field(() => KTPAvgAggregate, { nullable: true })
-  _avg?: KTPAvgAggregate
+  @Field(() => KtpAvgAggregate, { nullable: true })
+  _avg?: KtpAvgAggregate
 
-  @Field(() => KTPSumAggregate, { nullable: true })
-  _sum?: KTPSumAggregate
+  @Field(() => KtpSumAggregate, { nullable: true })
+  _sum?: KtpSumAggregate
 
-  @Field(() => KTPMinAggregate, { nullable: true })
-  _min?: KTPMinAggregate
+  @Field(() => KtpMinAggregate, { nullable: true })
+  _min?: KtpMinAggregate
 
-  @Field(() => KTPMaxAggregate, { nullable: true })
-  _max?: KTPMaxAggregate
+  @Field(() => KtpMaxAggregate, { nullable: true })
+  _max?: KtpMaxAggregate
 }

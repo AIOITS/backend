@@ -4,7 +4,7 @@ import { ID } from '@nestjs/graphql'
 import { Int } from '@nestjs/graphql'
 
 @ObjectType()
-export class PKB {
+export class Pkb {
   @Field(() => ID, { nullable: false })
   nomor_PKB!: string
 

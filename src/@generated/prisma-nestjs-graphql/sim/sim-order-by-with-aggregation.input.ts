@@ -2,14 +2,14 @@ import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
 import { SortOrder } from '../prisma/sort-order.enum'
 import { SortOrderInput } from '../prisma/sort-order.input'
-import { SIMCountOrderByAggregateInput } from './sim-count-order-by-aggregate.input'
-import { SIMAvgOrderByAggregateInput } from './sim-avg-order-by-aggregate.input'
-import { SIMMaxOrderByAggregateInput } from './sim-max-order-by-aggregate.input'
-import { SIMMinOrderByAggregateInput } from './sim-min-order-by-aggregate.input'
-import { SIMSumOrderByAggregateInput } from './sim-sum-order-by-aggregate.input'
+import { SimCountOrderByAggregateInput } from './sim-count-order-by-aggregate.input'
+import { SimAvgOrderByAggregateInput } from './sim-avg-order-by-aggregate.input'
+import { SimMaxOrderByAggregateInput } from './sim-max-order-by-aggregate.input'
+import { SimMinOrderByAggregateInput } from './sim-min-order-by-aggregate.input'
+import { SimSumOrderByAggregateInput } from './sim-sum-order-by-aggregate.input'
 
 @InputType()
-export class SIMOrderByWithAggregationInput {
+export class SimOrderByWithAggregationInput {
   @Field(() => SortOrder, { nullable: true })
   nomor_sim?: keyof typeof SortOrder
 
@@ -52,18 +52,18 @@ export class SIMOrderByWithAggregationInput {
   @Field(() => SortOrderInput, { nullable: true })
   userId?: SortOrderInput
 
-  @Field(() => SIMCountOrderByAggregateInput, { nullable: true })
-  _count?: SIMCountOrderByAggregateInput
+  @Field(() => SimCountOrderByAggregateInput, { nullable: true })
+  _count?: SimCountOrderByAggregateInput
 
-  @Field(() => SIMAvgOrderByAggregateInput, { nullable: true })
-  _avg?: SIMAvgOrderByAggregateInput
+  @Field(() => SimAvgOrderByAggregateInput, { nullable: true })
+  _avg?: SimAvgOrderByAggregateInput
 
-  @Field(() => SIMMaxOrderByAggregateInput, { nullable: true })
-  _max?: SIMMaxOrderByAggregateInput
+  @Field(() => SimMaxOrderByAggregateInput, { nullable: true })
+  _max?: SimMaxOrderByAggregateInput
 
-  @Field(() => SIMMinOrderByAggregateInput, { nullable: true })
-  _min?: SIMMinOrderByAggregateInput
+  @Field(() => SimMinOrderByAggregateInput, { nullable: true })
+  _min?: SimMinOrderByAggregateInput
 
-  @Field(() => SIMSumOrderByAggregateInput, { nullable: true })
-  _sum?: SIMSumOrderByAggregateInput
+  @Field(() => SimSumOrderByAggregateInput, { nullable: true })
+  _sum?: SimSumOrderByAggregateInput
 }

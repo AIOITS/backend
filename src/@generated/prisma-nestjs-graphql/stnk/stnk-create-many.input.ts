@@ -2,7 +2,7 @@ import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
 
 @InputType()
-export class STNKCreateManyInput {
+export class StnkCreateManyInput {
   @Field(() => String, { nullable: false })
   nomor_stnk!: string
 

@@ -2,7 +2,7 @@ import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
 
 @InputType()
-export class KTPMinAggregateInput {
+export class KtpMinAggregateInput {
   @Field(() => Boolean, { nullable: true })
   nik?: true
 

@@ -3,7 +3,7 @@ import { InputType } from '@nestjs/graphql'
 import { UserCreatenameInput } from './user-createname.input'
 import * as Validator from 'class-validator'
 import { Int } from '@nestjs/graphql'
-import { KTPCreateNestedOneWithoutUserInput } from '../ktp/ktp-create-nested-one-without-user.input'
+import { KtpCreateNestedOneWithoutUserInput } from '../ktp/ktp-create-nested-one-without-user.input'
 
 @InputType()
 export class UserCreateWithoutNomor_simInput {
@@ -35,6 +35,6 @@ export class UserCreateWithoutNomor_simInput {
   @Field(() => Date, { nullable: true })
   updatedAt?: Date | string
 
-  @Field(() => KTPCreateNestedOneWithoutUserInput, { nullable: false })
-  ktp!: KTPCreateNestedOneWithoutUserInput
+  @Field(() => KtpCreateNestedOneWithoutUserInput, { nullable: false })
+  ktp!: KtpCreateNestedOneWithoutUserInput
 }

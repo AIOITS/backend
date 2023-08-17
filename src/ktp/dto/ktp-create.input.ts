@@ -17,7 +17,7 @@ import { ApiProperty } from '@nestjs/swagger'
 import { GolonganDarah } from '@prisma/client'
 
 @InputType()
-export class KTPCreateInput {
+export class KtpCreateInput {
   @ApiProperty({
     example: '1234567890123456',
   })

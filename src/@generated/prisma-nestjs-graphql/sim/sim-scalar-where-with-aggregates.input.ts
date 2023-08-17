@@ -6,15 +6,15 @@ import { DateTimeWithAggregatesFilter } from '../prisma/date-time-with-aggregate
 import { IntNullableWithAggregatesFilter } from '../prisma/int-nullable-with-aggregates-filter.input'
 
 @InputType()
-export class SIMScalarWhereWithAggregatesInput {
-  @Field(() => [SIMScalarWhereWithAggregatesInput], { nullable: true })
-  AND?: Array<SIMScalarWhereWithAggregatesInput>
+export class SimScalarWhereWithAggregatesInput {
+  @Field(() => [SimScalarWhereWithAggregatesInput], { nullable: true })
+  AND?: Array<SimScalarWhereWithAggregatesInput>
 
-  @Field(() => [SIMScalarWhereWithAggregatesInput], { nullable: true })
-  OR?: Array<SIMScalarWhereWithAggregatesInput>
+  @Field(() => [SimScalarWhereWithAggregatesInput], { nullable: true })
+  OR?: Array<SimScalarWhereWithAggregatesInput>
 
-  @Field(() => [SIMScalarWhereWithAggregatesInput], { nullable: true })
-  NOT?: Array<SIMScalarWhereWithAggregatesInput>
+  @Field(() => [SimScalarWhereWithAggregatesInput], { nullable: true })
+  NOT?: Array<SimScalarWhereWithAggregatesInput>
 
   @Field(() => StringWithAggregatesFilter, { nullable: true })
   nomor_sim?: StringWithAggregatesFilter

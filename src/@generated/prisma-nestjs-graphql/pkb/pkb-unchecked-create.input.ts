@@ -3,7 +3,7 @@ import { InputType } from '@nestjs/graphql'
 import { Int } from '@nestjs/graphql'
 
 @InputType()
-export class PKBUncheckedCreateInput {
+export class PkbUncheckedCreateInput {
   @Field(() => String, { nullable: false })
   nomor_PKB!: string
 

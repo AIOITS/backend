@@ -9,15 +9,15 @@ import { EnumStatusPerkawinanFilter } from '../prisma/enum-status-perkawinan-fil
 import { UserNullableRelationFilter } from '../user/user-nullable-relation-filter.input'
 
 @InputType()
-export class KTPWhereInput {
-  @Field(() => [KTPWhereInput], { nullable: true })
-  AND?: Array<KTPWhereInput>
+export class KtpWhereInput {
+  @Field(() => [KtpWhereInput], { nullable: true })
+  AND?: Array<KtpWhereInput>
 
-  @Field(() => [KTPWhereInput], { nullable: true })
-  OR?: Array<KTPWhereInput>
+  @Field(() => [KtpWhereInput], { nullable: true })
+  OR?: Array<KtpWhereInput>
 
-  @Field(() => [KTPWhereInput], { nullable: true })
-  NOT?: Array<KTPWhereInput>
+  @Field(() => [KtpWhereInput], { nullable: true })
+  NOT?: Array<KtpWhereInput>
 
   @Field(() => StringFilter, { nullable: true })
   nik?: StringFilter

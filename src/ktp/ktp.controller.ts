@@ -9,15 +9,15 @@ import {
   HttpCode,
 } from '@nestjs/common'
 import { KtpService } from './ktp.service'
-import { KTPCreateInput } from 'src/ktp/dto/ktp-create.input'
-import { KTPUpdateInput } from 'src/ktp/dto/ktp-update.input'
+import { KtpCreateInput } from 'src/ktp/dto/ktp-create.input'
+import { KtpUpdateInput } from 'src/ktp/dto/ktp-update.input'
 import {
   ApiBadRequestResponse,
   ApiCreatedResponse,
   ApiNotFoundResponse,
   ApiAcceptedResponse,
 } from '@nestjs/swagger'
-import { KTPCreateOutput } from './dto/ktp-create.output'
+import { KtpCreateOutput } from './dto/ktp-create.output'
 import { errorResponse } from 'common/error-response'
 import {
   createdResponse,
@@ -34,12 +34,12 @@ export class KtpController {
     type: errorResponse,
   })
   @ApiCreatedResponse({
-    description: 'Succesful register KTP',
-    type: getCreatedResponseType(KTPCreateOutput),
+    description: 'Succesful register Ktp',
+    type: getCreatedResponseType(KtpCreateOutput),
   })
   async create(
-    @Body() createKtpDto: KTPCreateInput,
-  ): Promise<createdResponse<KTPCreateOutput>> {
+    @Body() createKtpDto: KtpCreateInput,
+  ): Promise<createdResponse<KtpCreateOutput>> {
     return {
       statusCode: HttpStatus.CREATED,
       data: await this.ktpService.create(createKtpDto),
@@ -51,14 +51,14 @@ export class KtpController {
     description: 'NIK not found',
   })
   @ApiAcceptedResponse({
-    description: 'KTP updated',
-    type: getCreatedResponseType(KTPCreateOutput),
+    description: 'Ktp updated',
+    type: getCreatedResponseType(KtpCreateOutput),
   })
   @HttpCode(HttpStatus.ACCEPTED)
   async update(
     @Param('nik') nik: string,
-    @Body() updateKtpDto: KTPUpdateInput,
-  ): Promise<updatedResponse<KTPCreateOutput>> {
+    @Body() updateKtpDto: KtpUpdateInput,
+  ): Promise<updatedResponse<KtpCreateOutput>> {
     return {
       statusCode: HttpStatus.CREATED,
       data: await this.ktpService.update(nik, updateKtpDto),

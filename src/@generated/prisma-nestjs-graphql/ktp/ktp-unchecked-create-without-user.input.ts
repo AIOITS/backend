@@ -6,7 +6,7 @@ import { Agama } from '../prisma/agama.enum'
 import { StatusPerkawinan } from '../prisma/status-perkawinan.enum'
 
 @InputType()
-export class KTPUncheckedCreateWithoutUserInput {
+export class KtpUncheckedCreateWithoutUserInput {
   @Field(() => String, { nullable: false })
   nik!: string
 

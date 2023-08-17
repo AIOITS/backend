@@ -2,7 +2,7 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type SIM {
+type Sim {
   nomor_sim: ID!
   nama: String!
   alamat: String!
@@ -25,7 +25,7 @@ A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date
 """
 scalar DateTime
 
-type KTP {
+type Ktp {
   nik: ID!
   nama: String!
   tempat_lahir: String!
@@ -43,6 +43,7 @@ type KTP {
   pekerjaan: String!
   kewarganegaraan: String!
   tanggal_terbit: DateTime!
+  User: User
 }
 
 enum GolonganDarah {
@@ -83,13 +84,14 @@ type User {
   role: Int!
   createdAt: DateTime!
   updatedAt: DateTime!
-  nomor_sim: [SIM!]
-  ktp: KTP!
+  nomor_sim: [Sim!]
+  ktp: Ktp!
   _count: UserCount!
 }
 
 type Query {
   user(where: UserWhereInput, orderBy: [UserOrderByWithRelationInput!], cursor: UserWhereUniqueInput, take: Int, skip: Int, distinct: [UserScalarFieldEnum!]): [User!]!
+  ktp(where: KtpWhereInput, orderBy: [KtpOrderByWithRelationInput!], cursor: KtpWhereUniqueInput, take: Int, skip: Int, distinct: [KtpScalarFieldEnum!]): [Ktp!]!
 }
 
 input UserWhereInput {
@@ -105,8 +107,8 @@ input UserWhereInput {
   role: IntFilter
   createdAt: DateTimeFilter
   updatedAt: DateTimeFilter
-  nomor_sim: SIMListRelationFilter
-  ktp: KTPRelationFilter
+  nomor_sim: SimListRelationFilter
+  ktp: KtpRelationFilter
 }
 
 input IntFilter {
@@ -224,16 +226,16 @@ input NestedDateTimeFilter {
   not: NestedDateTimeFilter
 }
 
-input SIMListRelationFilter {
-  every: SIMWhereInput
-  some: SIMWhereInput
-  none: SIMWhereInput
+input SimListRelationFilter {
+  every: SimWhereInput
+  some: SimWhereInput
+  none: SimWhereInput
 }
 
-input SIMWhereInput {
-  AND: [SIMWhereInput!]
-  OR: [SIMWhereInput!]
-  NOT: [SIMWhereInput!]
+input SimWhereInput {
+  AND: [SimWhereInput!]
+  OR: [SimWhereInput!]
+  NOT: [SimWhereInput!]
   nomor_sim: StringFilter
   nama: StringFilter
   alamat: StringFilter
@@ -278,15 +280,15 @@ input UserNullableRelationFilter {
   isNot: UserWhereInput
 }
 
-input KTPRelationFilter {
-  is: KTPWhereInput
-  isNot: KTPWhereInput
+input KtpRelationFilter {
+  is: KtpWhereInput
+  isNot: KtpWhereInput
 }
 
-input KTPWhereInput {
-  AND: [KTPWhereInput!]
-  OR: [KTPWhereInput!]
-  NOT: [KTPWhereInput!]
+input KtpWhereInput {
+  AND: [KtpWhereInput!]
+  OR: [KtpWhereInput!]
+  NOT: [KtpWhereInput!]
   nik: StringFilter
   nama: StringFilter
   tempat_lahir: StringFilter
@@ -359,8 +361,8 @@ input UserOrderByWithRelationInput {
   role: SortOrder
   createdAt: SortOrder
   updatedAt: SortOrder
-  nomor_sim: SIMOrderByRelationAggregateInput
-  ktp: KTPOrderByWithRelationInput
+  nomor_sim: SimOrderByRelationAggregateInput
+  ktp: KtpOrderByWithRelationInput
 }
 
 enum SortOrder {
@@ -378,11 +380,11 @@ enum NullsOrder {
   last
 }
 
-input SIMOrderByRelationAggregateInput {
+input SimOrderByRelationAggregateInput {
   _count: SortOrder
 }
 
-input KTPOrderByWithRelationInput {
+input KtpOrderByWithRelationInput {
   nik: SortOrder
   nama: SortOrder
   tempat_lahir: SortOrder
@@ -416,8 +418,8 @@ input UserWhereUniqueInput {
   role: IntFilter
   createdAt: DateTimeFilter
   updatedAt: DateTimeFilter
-  nomor_sim: SIMListRelationFilter
-  ktp: KTPRelationFilter
+  nomor_sim: SimListRelationFilter
+  ktp: KtpRelationFilter
 }
 
 enum UserScalarFieldEnum {
@@ -430,4 +432,48 @@ enum UserScalarFieldEnum {
   role
   createdAt
   updatedAt
+}
+
+input KtpWhereUniqueInput {
+  nik: String
+  AND: [KtpWhereInput!]
+  OR: [KtpWhereInput!]
+  NOT: [KtpWhereInput!]
+  nama: StringFilter
+  tempat_lahir: StringFilter
+  tanggal_lahir: DateTimeFilter
+  alamat: StringFilter
+  rt: IntFilter
+  rw: IntFilter
+  kelurahan_desa: StringFilter
+  kecamatan: StringFilter
+  kabupaten_kota: StringFilter
+  provinsi: StringFilter
+  golongan_darah: EnumGolonganDarahFilter
+  agama: EnumAgamaFilter
+  status_perkawinan: EnumStatusPerkawinanFilter
+  pekerjaan: StringFilter
+  kewarganegaraan: StringFilter
+  tanggal_terbit: DateTimeFilter
+  User: UserNullableRelationFilter
+}
+
+enum KtpScalarFieldEnum {
+  nik
+  nama
+  tempat_lahir
+  tanggal_lahir
+  alamat
+  rt
+  rw
+  kelurahan_desa
+  kecamatan
+  kabupaten_kota
+  provinsi
+  golongan_darah
+  agama
+  status_perkawinan
+  pekerjaan
+  kewarganegaraan
+  tanggal_terbit
 }

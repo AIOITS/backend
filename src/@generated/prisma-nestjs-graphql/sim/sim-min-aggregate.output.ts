@@ -3,7 +3,7 @@ import { ObjectType } from '@nestjs/graphql'
 import { Int } from '@nestjs/graphql'
 
 @ObjectType()
-export class SIMMinAggregate {
+export class SimMinAggregate {
   @Field(() => String, { nullable: true })
   nomor_sim?: string
 

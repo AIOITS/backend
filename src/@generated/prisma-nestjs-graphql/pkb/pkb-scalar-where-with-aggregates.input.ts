@@ -5,15 +5,15 @@ import { BoolWithAggregatesFilter } from '../prisma/bool-with-aggregates-filter.
 import { IntWithAggregatesFilter } from '../prisma/int-with-aggregates-filter.input'
 
 @InputType()
-export class PKBScalarWhereWithAggregatesInput {
-  @Field(() => [PKBScalarWhereWithAggregatesInput], { nullable: true })
-  AND?: Array<PKBScalarWhereWithAggregatesInput>
+export class PkbScalarWhereWithAggregatesInput {
+  @Field(() => [PkbScalarWhereWithAggregatesInput], { nullable: true })
+  AND?: Array<PkbScalarWhereWithAggregatesInput>
 
-  @Field(() => [PKBScalarWhereWithAggregatesInput], { nullable: true })
-  OR?: Array<PKBScalarWhereWithAggregatesInput>
+  @Field(() => [PkbScalarWhereWithAggregatesInput], { nullable: true })
+  OR?: Array<PkbScalarWhereWithAggregatesInput>
 
-  @Field(() => [PKBScalarWhereWithAggregatesInput], { nullable: true })
-  NOT?: Array<PKBScalarWhereWithAggregatesInput>
+  @Field(() => [PkbScalarWhereWithAggregatesInput], { nullable: true })
+  NOT?: Array<PkbScalarWhereWithAggregatesInput>
 
   @Field(() => StringWithAggregatesFilter, { nullable: true })
   nomor_PKB?: StringWithAggregatesFilter

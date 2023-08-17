@@ -3,7 +3,7 @@ import { InputType } from '@nestjs/graphql'
 import { Int } from '@nestjs/graphql'
 
 @InputType()
-export class SIMUncheckedCreateInput {
+export class SimUncheckedCreateInput {
   @Field(() => String, { nullable: false })
   nomor_sim!: string
 

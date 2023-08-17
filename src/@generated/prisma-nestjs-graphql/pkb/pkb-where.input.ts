@@ -5,15 +5,15 @@ import { BoolFilter } from '../prisma/bool-filter.input'
 import { IntFilter } from '../prisma/int-filter.input'
 
 @InputType()
-export class PKBWhereInput {
-  @Field(() => [PKBWhereInput], { nullable: true })
-  AND?: Array<PKBWhereInput>
+export class PkbWhereInput {
+  @Field(() => [PkbWhereInput], { nullable: true })
+  AND?: Array<PkbWhereInput>
 
-  @Field(() => [PKBWhereInput], { nullable: true })
-  OR?: Array<PKBWhereInput>
+  @Field(() => [PkbWhereInput], { nullable: true })
+  OR?: Array<PkbWhereInput>
 
-  @Field(() => [PKBWhereInput], { nullable: true })
-  NOT?: Array<PKBWhereInput>
+  @Field(() => [PkbWhereInput], { nullable: true })
+  NOT?: Array<PkbWhereInput>
 
   @Field(() => StringFilter, { nullable: true })
   nomor_PKB?: StringFilter

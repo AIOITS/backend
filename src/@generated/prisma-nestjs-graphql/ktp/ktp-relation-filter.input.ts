@@ -1,12 +1,12 @@
 import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
-import { KTPWhereInput } from './ktp-where.input'
+import { KtpWhereInput } from './ktp-where.input'
 
 @InputType()
-export class KTPRelationFilter {
-  @Field(() => KTPWhereInput, { nullable: true })
-  is?: KTPWhereInput
+export class KtpRelationFilter {
+  @Field(() => KtpWhereInput, { nullable: true })
+  is?: KtpWhereInput
 
-  @Field(() => KTPWhereInput, { nullable: true })
-  isNot?: KTPWhereInput
+  @Field(() => KtpWhereInput, { nullable: true })
+  isNot?: KtpWhereInput
 }

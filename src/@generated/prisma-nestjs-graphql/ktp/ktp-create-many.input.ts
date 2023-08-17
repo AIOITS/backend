@@ -6,7 +6,7 @@ import { Agama } from '../prisma/agama.enum'
 import { StatusPerkawinan } from '../prisma/status-perkawinan.enum'
 
 @InputType()
-export class KTPCreateManyInput {
+export class KtpCreateManyInput {
   @Field(() => String, { nullable: false })
   nik!: string
 

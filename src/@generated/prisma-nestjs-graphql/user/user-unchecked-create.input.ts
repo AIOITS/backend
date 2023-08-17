@@ -3,7 +3,7 @@ import { InputType } from '@nestjs/graphql'
 import { Int } from '@nestjs/graphql'
 import * as Validator from 'class-validator'
 import { UserCreatenameInput } from './user-createname.input'
-import { SIMUncheckedCreateNestedManyWithoutUserInput } from '../sim/sim-unchecked-create-nested-many-without-user.input'
+import { SimUncheckedCreateNestedManyWithoutUserInput } from '../sim/sim-unchecked-create-nested-many-without-user.input'
 
 @InputType()
 export class UserUncheckedCreateInput {
@@ -44,6 +44,6 @@ export class UserUncheckedCreateInput {
   @Field(() => Date, { nullable: true })
   updatedAt?: Date | string
 
-  @Field(() => SIMUncheckedCreateNestedManyWithoutUserInput, { nullable: true })
-  nomor_sim?: SIMUncheckedCreateNestedManyWithoutUserInput
+  @Field(() => SimUncheckedCreateNestedManyWithoutUserInput, { nullable: true })
+  nomor_sim?: SimUncheckedCreateNestedManyWithoutUserInput
 }

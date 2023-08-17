@@ -1,32 +1,32 @@
 import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
-import { KTPCreateWithoutUserInput } from './ktp-create-without-user.input'
+import { KtpCreateWithoutUserInput } from './ktp-create-without-user.input'
 import { Type } from 'class-transformer'
-import { KTPCreateOrConnectWithoutUserInput } from './ktp-create-or-connect-without-user.input'
-import { KTPUpsertWithoutUserInput } from './ktp-upsert-without-user.input'
+import { KtpCreateOrConnectWithoutUserInput } from './ktp-create-or-connect-without-user.input'
+import { KtpUpsertWithoutUserInput } from './ktp-upsert-without-user.input'
 import { Prisma } from '@prisma/client'
-import { KTPWhereUniqueInput } from './ktp-where-unique.input'
-import { KTPUpdateToOneWithWhereWithoutUserInput } from './ktp-update-to-one-with-where-without-user.input'
+import { KtpWhereUniqueInput } from './ktp-where-unique.input'
+import { KtpUpdateToOneWithWhereWithoutUserInput } from './ktp-update-to-one-with-where-without-user.input'
 
 @InputType()
-export class KTPUpdateOneRequiredWithoutUserNestedInput {
-  @Field(() => KTPCreateWithoutUserInput, { nullable: true })
-  @Type(() => KTPCreateWithoutUserInput)
-  create?: KTPCreateWithoutUserInput
+export class KtpUpdateOneRequiredWithoutUserNestedInput {
+  @Field(() => KtpCreateWithoutUserInput, { nullable: true })
+  @Type(() => KtpCreateWithoutUserInput)
+  create?: KtpCreateWithoutUserInput
 
-  @Field(() => KTPCreateOrConnectWithoutUserInput, { nullable: true })
-  @Type(() => KTPCreateOrConnectWithoutUserInput)
-  connectOrCreate?: KTPCreateOrConnectWithoutUserInput
+  @Field(() => KtpCreateOrConnectWithoutUserInput, { nullable: true })
+  @Type(() => KtpCreateOrConnectWithoutUserInput)
+  connectOrCreate?: KtpCreateOrConnectWithoutUserInput
 
-  @Field(() => KTPUpsertWithoutUserInput, { nullable: true })
-  @Type(() => KTPUpsertWithoutUserInput)
-  upsert?: KTPUpsertWithoutUserInput
+  @Field(() => KtpUpsertWithoutUserInput, { nullable: true })
+  @Type(() => KtpUpsertWithoutUserInput)
+  upsert?: KtpUpsertWithoutUserInput
 
-  @Field(() => KTPWhereUniqueInput, { nullable: true })
-  @Type(() => KTPWhereUniqueInput)
-  connect?: Prisma.AtLeast<KTPWhereUniqueInput, 'nik'>
+  @Field(() => KtpWhereUniqueInput, { nullable: true })
+  @Type(() => KtpWhereUniqueInput)
+  connect?: Prisma.AtLeast<KtpWhereUniqueInput, 'nik'>
 
-  @Field(() => KTPUpdateToOneWithWhereWithoutUserInput, { nullable: true })
-  @Type(() => KTPUpdateToOneWithWhereWithoutUserInput)
-  update?: KTPUpdateToOneWithWhereWithoutUserInput
+  @Field(() => KtpUpdateToOneWithWhereWithoutUserInput, { nullable: true })
+  @Type(() => KtpUpdateToOneWithWhereWithoutUserInput)
+  update?: KtpUpdateToOneWithWhereWithoutUserInput
 }

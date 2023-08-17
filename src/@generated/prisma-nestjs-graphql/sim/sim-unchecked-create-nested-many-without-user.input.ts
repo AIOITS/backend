@@ -1,27 +1,27 @@
 import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
-import { SIMCreateWithoutUserInput } from './sim-create-without-user.input'
+import { SimCreateWithoutUserInput } from './sim-create-without-user.input'
 import { Type } from 'class-transformer'
-import { SIMCreateOrConnectWithoutUserInput } from './sim-create-or-connect-without-user.input'
-import { SIMCreateManyUserInputEnvelope } from './sim-create-many-user-input-envelope.input'
+import { SimCreateOrConnectWithoutUserInput } from './sim-create-or-connect-without-user.input'
+import { SimCreateManyUserInputEnvelope } from './sim-create-many-user-input-envelope.input'
 import { Prisma } from '@prisma/client'
-import { SIMWhereUniqueInput } from './sim-where-unique.input'
+import { SimWhereUniqueInput } from './sim-where-unique.input'
 
 @InputType()
-export class SIMUncheckedCreateNestedManyWithoutUserInput {
-  @Field(() => [SIMCreateWithoutUserInput], { nullable: true })
-  @Type(() => SIMCreateWithoutUserInput)
-  create?: Array<SIMCreateWithoutUserInput>
+export class SimUncheckedCreateNestedManyWithoutUserInput {
+  @Field(() => [SimCreateWithoutUserInput], { nullable: true })
+  @Type(() => SimCreateWithoutUserInput)
+  create?: Array<SimCreateWithoutUserInput>
 
-  @Field(() => [SIMCreateOrConnectWithoutUserInput], { nullable: true })
-  @Type(() => SIMCreateOrConnectWithoutUserInput)
-  connectOrCreate?: Array<SIMCreateOrConnectWithoutUserInput>
+  @Field(() => [SimCreateOrConnectWithoutUserInput], { nullable: true })
+  @Type(() => SimCreateOrConnectWithoutUserInput)
+  connectOrCreate?: Array<SimCreateOrConnectWithoutUserInput>
 
-  @Field(() => SIMCreateManyUserInputEnvelope, { nullable: true })
-  @Type(() => SIMCreateManyUserInputEnvelope)
-  createMany?: SIMCreateManyUserInputEnvelope
+  @Field(() => SimCreateManyUserInputEnvelope, { nullable: true })
+  @Type(() => SimCreateManyUserInputEnvelope)
+  createMany?: SimCreateManyUserInputEnvelope
 
-  @Field(() => [SIMWhereUniqueInput], { nullable: true })
-  @Type(() => SIMWhereUniqueInput)
-  connect?: Array<Prisma.AtLeast<SIMWhereUniqueInput, 'nomor_sim'>>
+  @Field(() => [SimWhereUniqueInput], { nullable: true })
+  @Type(() => SimWhereUniqueInput)
+  connect?: Array<Prisma.AtLeast<SimWhereUniqueInput, 'nomor_sim'>>
 }

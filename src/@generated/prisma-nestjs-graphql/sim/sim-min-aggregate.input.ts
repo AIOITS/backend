@@ -2,7 +2,7 @@ import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
 
 @InputType()
-export class SIMMinAggregateInput {
+export class SimMinAggregateInput {
   @Field(() => Boolean, { nullable: true })
   nomor_sim?: true
 

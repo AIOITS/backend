@@ -8,12 +8,10 @@ generator client {
 }
 
 generator nestgraphql {
-  provider               = "node node_modules/prisma-nestjs-graphql"
-  output                 = "../src/@generated/prisma-nestjs-graphql"
-  fields_Validator_from  = "class-validator"
-  fields_Validator_input = true
-  fields_transformer_from = "class-transformer"
-  fields_transformer_input = true
+  provider                 = "node node_modules/prisma-nestjs-graphql"
+  output                   = "../src/@generated/prisma-nestjs-graphql"
+  fields_Validator_from    = "class-validator"
+  fields_Validator_input   = true
 }
 
 model User {
@@ -23,7 +21,7 @@ model User {
   /// @Validator.MinLength(16)
   /// @Validator.MaxLength(16)
   nik       String @unique
-  nomor_sim SIM[]
+  nomor_sim Sim[]
 
   /// @Validator.IsNotEmpty()
   /// @Validator.MaxLength(60)
@@ -43,14 +41,14 @@ model User {
   role      Int      @default(2)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  ktp       KTP      @relation(fields: [nik], references: [nik])
+  ktp       Ktp      @relation(fields: [nik], references: [nik])
 }
 
-model KTP {
+model Ktp {
   nik               String           @id @unique
   nama              String
   tempat_lahir      String
-  tanggal_lahir     DateTime @db.Date
+  tanggal_lahir     DateTime         @db.Date
   alamat            String
   rt                Int              @db.SmallInt
   rw                Int              @db.SmallInt
@@ -65,9 +63,11 @@ model KTP {
   kewarganegaraan   String
   tanggal_terbit    DateTime         @db.Date
   User              User?
+
+  @@map("KTP")
 }
 
-model SIM {
+model Sim {
   nomor_sim        String   @id @unique
   nama             String
   alamat           String
@@ -83,9 +83,11 @@ model SIM {
   berlaku_sampai   DateTime @db.Date
   userId           Int?
   User             User?    @relation(fields: [userId], references: [id])
+
+  @@map("SIM")
 }
 
-model STNK {
+model Stnk {
   nomor_stnk             String   @id @unique
   nomor_polisi           String   @unique
   nama_pemilik           String
@@ -108,9 +110,11 @@ model STNK {
   kode_lokasi            String
   nomor_urut_pendaftaran String
   nomor_PKB              String   @unique
+
+  @@map("STNK")
 }
 
-model PKB {
+model Pkb {
   nomor_PKB                String  @id
   status_pajak             Boolean
   bbknb_pokok              Int
@@ -123,6 +127,8 @@ model PKB {
   administrasi_stnk_sanksi Int
   administrasi_tnkb_pokok  Int
   administrasi_tnkb_sanksi Int
+
+  @@map("PKB")
 }
 
 enum GolonganDarah {

@@ -15,7 +15,7 @@ import {
 import { ApiPropertyOptional } from '@nestjs/swagger'
 import { GolonganDarah } from '@prisma/client'
 
-export class KTPUpdateInput {
+export class KtpUpdateInput {
   @IsOptional()
   @ApiPropertyOptional({
     example: 'John Doe',

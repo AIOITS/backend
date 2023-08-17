@@ -3,7 +3,7 @@ import { InputType } from '@nestjs/graphql'
 import { SortOrder } from '../prisma/sort-order.enum'
 
 @InputType()
-export class PKBOrderByWithRelationInput {
+export class PkbOrderByWithRelationInput {
   @Field(() => SortOrder, { nullable: true })
   nomor_PKB?: keyof typeof SortOrder
 

@@ -1,22 +1,22 @@
 import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
-import { KTPCreateWithoutUserInput } from './ktp-create-without-user.input'
+import { KtpCreateWithoutUserInput } from './ktp-create-without-user.input'
 import { Type } from 'class-transformer'
-import { KTPCreateOrConnectWithoutUserInput } from './ktp-create-or-connect-without-user.input'
+import { KtpCreateOrConnectWithoutUserInput } from './ktp-create-or-connect-without-user.input'
 import { Prisma } from '@prisma/client'
-import { KTPWhereUniqueInput } from './ktp-where-unique.input'
+import { KtpWhereUniqueInput } from './ktp-where-unique.input'
 
 @InputType()
-export class KTPCreateNestedOneWithoutUserInput {
-  @Field(() => KTPCreateWithoutUserInput, { nullable: true })
-  @Type(() => KTPCreateWithoutUserInput)
-  create?: KTPCreateWithoutUserInput
+export class KtpCreateNestedOneWithoutUserInput {
+  @Field(() => KtpCreateWithoutUserInput, { nullable: true })
+  @Type(() => KtpCreateWithoutUserInput)
+  create?: KtpCreateWithoutUserInput
 
-  @Field(() => KTPCreateOrConnectWithoutUserInput, { nullable: true })
-  @Type(() => KTPCreateOrConnectWithoutUserInput)
-  connectOrCreate?: KTPCreateOrConnectWithoutUserInput
+  @Field(() => KtpCreateOrConnectWithoutUserInput, { nullable: true })
+  @Type(() => KtpCreateOrConnectWithoutUserInput)
+  connectOrCreate?: KtpCreateOrConnectWithoutUserInput
 
-  @Field(() => KTPWhereUniqueInput, { nullable: true })
-  @Type(() => KTPWhereUniqueInput)
-  connect?: Prisma.AtLeast<KTPWhereUniqueInput, 'nik'>
+  @Field(() => KtpWhereUniqueInput, { nullable: true })
+  @Type(() => KtpWhereUniqueInput)
+  connect?: Prisma.AtLeast<KtpWhereUniqueInput, 'nik'>
 }

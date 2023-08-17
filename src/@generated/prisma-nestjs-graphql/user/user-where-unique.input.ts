@@ -7,8 +7,8 @@ import { StringNullableListFilter } from '../prisma/string-nullable-list-filter.
 import { StringFilter } from '../prisma/string-filter.input'
 import { IntFilter } from '../prisma/int-filter.input'
 import { DateTimeFilter } from '../prisma/date-time-filter.input'
-import { SIMListRelationFilter } from '../sim/sim-list-relation-filter.input'
-import { KTPRelationFilter } from '../ktp/ktp-relation-filter.input'
+import { SimListRelationFilter } from '../sim/sim-list-relation-filter.input'
+import { KtpRelationFilter } from '../ktp/ktp-relation-filter.input'
 
 @InputType()
 export class UserWhereUniqueInput {
@@ -57,9 +57,9 @@ export class UserWhereUniqueInput {
   @Field(() => DateTimeFilter, { nullable: true })
   updatedAt?: DateTimeFilter
 
-  @Field(() => SIMListRelationFilter, { nullable: true })
-  nomor_sim?: SIMListRelationFilter
+  @Field(() => SimListRelationFilter, { nullable: true })
+  nomor_sim?: SimListRelationFilter
 
-  @Field(() => KTPRelationFilter, { nullable: true })
-  ktp?: KTPRelationFilter
+  @Field(() => KtpRelationFilter, { nullable: true })
+  ktp?: KtpRelationFilter
 }

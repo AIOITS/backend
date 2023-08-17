@@ -3,7 +3,7 @@ import { ObjectType } from '@nestjs/graphql'
 import { Int } from '@nestjs/graphql'
 
 @ObjectType()
-export class KTPSumAggregate {
+export class KtpSumAggregate {
   @Field(() => Int, { nullable: true })
   rt?: number
 

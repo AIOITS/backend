@@ -2,7 +2,7 @@ import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
 
 @InputType()
-export class STNKCountAggregateInput {
+export class StnkCountAggregateInput {
   @Field(() => Boolean, { nullable: true })
   nomor_stnk?: true
 

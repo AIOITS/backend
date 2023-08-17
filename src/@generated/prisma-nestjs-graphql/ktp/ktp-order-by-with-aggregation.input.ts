@@ -1,14 +1,14 @@
 import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
 import { SortOrder } from '../prisma/sort-order.enum'
-import { KTPCountOrderByAggregateInput } from './ktp-count-order-by-aggregate.input'
-import { KTPAvgOrderByAggregateInput } from './ktp-avg-order-by-aggregate.input'
-import { KTPMaxOrderByAggregateInput } from './ktp-max-order-by-aggregate.input'
-import { KTPMinOrderByAggregateInput } from './ktp-min-order-by-aggregate.input'
-import { KTPSumOrderByAggregateInput } from './ktp-sum-order-by-aggregate.input'
+import { KtpCountOrderByAggregateInput } from './ktp-count-order-by-aggregate.input'
+import { KtpAvgOrderByAggregateInput } from './ktp-avg-order-by-aggregate.input'
+import { KtpMaxOrderByAggregateInput } from './ktp-max-order-by-aggregate.input'
+import { KtpMinOrderByAggregateInput } from './ktp-min-order-by-aggregate.input'
+import { KtpSumOrderByAggregateInput } from './ktp-sum-order-by-aggregate.input'
 
 @InputType()
-export class KTPOrderByWithAggregationInput {
+export class KtpOrderByWithAggregationInput {
   @Field(() => SortOrder, { nullable: true })
   nik?: keyof typeof SortOrder
 
@@ -60,18 +60,18 @@ export class KTPOrderByWithAggregationInput {
   @Field(() => SortOrder, { nullable: true })
   tanggal_terbit?: keyof typeof SortOrder
 
-  @Field(() => KTPCountOrderByAggregateInput, { nullable: true })
-  _count?: KTPCountOrderByAggregateInput
+  @Field(() => KtpCountOrderByAggregateInput, { nullable: true })
+  _count?: KtpCountOrderByAggregateInput
 
-  @Field(() => KTPAvgOrderByAggregateInput, { nullable: true })
-  _avg?: KTPAvgOrderByAggregateInput
+  @Field(() => KtpAvgOrderByAggregateInput, { nullable: true })
+  _avg?: KtpAvgOrderByAggregateInput
 
-  @Field(() => KTPMaxOrderByAggregateInput, { nullable: true })
-  _max?: KTPMaxOrderByAggregateInput
+  @Field(() => KtpMaxOrderByAggregateInput, { nullable: true })
+  _max?: KtpMaxOrderByAggregateInput
 
-  @Field(() => KTPMinOrderByAggregateInput, { nullable: true })
-  _min?: KTPMinOrderByAggregateInput
+  @Field(() => KtpMinOrderByAggregateInput, { nullable: true })
+  _min?: KtpMinOrderByAggregateInput
 
-  @Field(() => KTPSumOrderByAggregateInput, { nullable: true })
-  _sum?: KTPSumOrderByAggregateInput
+  @Field(() => KtpSumOrderByAggregateInput, { nullable: true })
+  _sum?: KtpSumOrderByAggregateInput
 }

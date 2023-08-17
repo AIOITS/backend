@@ -8,7 +8,7 @@ import { EnumAgamaFieldUpdateOperationsInput } from '../prisma/enum-agama-field-
 import { EnumStatusPerkawinanFieldUpdateOperationsInput } from '../prisma/enum-status-perkawinan-field-update-operations.input'
 
 @InputType()
-export class KTPUncheckedUpdateManyInput {
+export class KtpUncheckedUpdateManyInput {
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
   nik?: StringFieldUpdateOperationsInput
 

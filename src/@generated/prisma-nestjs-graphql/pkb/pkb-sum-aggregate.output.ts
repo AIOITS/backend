@@ -3,7 +3,7 @@ import { ObjectType } from '@nestjs/graphql'
 import { Int } from '@nestjs/graphql'
 
 @ObjectType()
-export class PKBSumAggregate {
+export class PkbSumAggregate {
   @Field(() => Int, { nullable: true })
   bbknb_pokok?: number
 

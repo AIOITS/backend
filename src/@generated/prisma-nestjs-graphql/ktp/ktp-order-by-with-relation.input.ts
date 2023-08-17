@@ -4,7 +4,7 @@ import { SortOrder } from '../prisma/sort-order.enum'
 import { UserOrderByWithRelationInput } from '../user/user-order-by-with-relation.input'
 
 @InputType()
-export class KTPOrderByWithRelationInput {
+export class KtpOrderByWithRelationInput {
   @Field(() => SortOrder, { nullable: true })
   nik?: keyof typeof SortOrder
 
