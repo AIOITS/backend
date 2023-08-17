@@ -4,7 +4,6 @@ WORKDIR /app
 COPY . ./
 
 RUN npm install
-RUN npm run prisma:migrate
 RUN npm run build
 
 EXPOSE 8080
