@@ -6,6 +6,7 @@ export class errorResponse {
   })
   statusCode: number
   @ApiProperty({
+    example: 'ini pesan',
     oneOf: [
       { type: 'string' },
       { type: 'array', items: { type: 'string' } },

@@ -15,13 +15,11 @@ export class GraphqlResolver {
 
   @Query(() => [User], { name: 'user' })
   async getUsers(@Args() query: FindManyUserArgs) {
-    console.log('testing::', query)
     return await this.userService.findAll(query)
   }
 
   @Query(() => [Ktp], { name: 'ktp' })
   async getAllKtp(@Args() query: FindManyKtpArgs) {
-    console.log('testing::', query)
     return await this.ktpService.findAll(query)
   }
 }

@@ -20,10 +20,9 @@ import {
 import { KtpCreateOutput } from './dto/ktp-create.output'
 import { errorResponse } from 'common/error-response'
 import {
-  createdResponse,
-  getCreatedResponseType,
-} from 'common/created-response'
-import { updatedResponse } from 'common/updated-response'
+  ResponseWithData,
+  getResponseWithDataType,
+} from 'common/response-with-data'
 @Controller('ktp')
 export class KtpController {
   constructor(private readonly ktpService: KtpService) {}
@@ -35,11 +34,11 @@ export class KtpController {
   })
   @ApiCreatedResponse({
     description: 'Succesful register Ktp',
-    type: getCreatedResponseType(KtpCreateOutput),
+    type: getResponseWithDataType(KtpCreateOutput),
   })
   async create(
     @Body() createKtpDto: KtpCreateInput,
-  ): Promise<createdResponse<KtpCreateOutput>> {
+  ): Promise<ResponseWithData<KtpCreateOutput>> {
     return {
       statusCode: HttpStatus.CREATED,
       data: await this.ktpService.create(createKtpDto),
@@ -52,13 +51,13 @@ export class KtpController {
   })
   @ApiAcceptedResponse({
     description: 'Ktp updated',
-    type: getCreatedResponseType(KtpCreateOutput),
+    type: getResponseWithDataType(KtpCreateOutput),
   })
   @HttpCode(HttpStatus.ACCEPTED)
   async update(
     @Param('nik') nik: string,
     @Body() updateKtpDto: KtpUpdateInput,
-  ): Promise<updatedResponse<KtpCreateOutput>> {
+  ): Promise<ResponseWithData<KtpCreateOutput>> {
     return {
       statusCode: HttpStatus.CREATED,
       data: await this.ktpService.update(nik, updateKtpDto),

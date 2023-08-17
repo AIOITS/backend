@@ -8,7 +8,7 @@ import {
   Delete,
 } from '@nestjs/common'
 import { UserService } from './user.service'
-import { UserCreateInput } from 'src/@generated/prisma-nestjs-graphql/user/user-create.input'
+import { UserCreateInput } from 'src/auth/dto/user-create.input'
 
 @Controller('user')
 export class UserController {

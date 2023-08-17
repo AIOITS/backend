@@ -25,7 +25,7 @@ model User {
 
   /// @Validator.IsNotEmpty()
   /// @Validator.MaxLength(60)
-  name String[]
+  name String
 
   /// @Validator.IsEmail()
   /// @Validator.IsOptional()

@@ -7,7 +7,7 @@ import { JwtService } from '@nestjs/jwt'
 
 import { UserService } from 'src/user/user.service'
 import { LoginAuthDto } from './dto/login-auth.dto'
-import { UserCreateInput } from 'src/@generated/prisma-nestjs-graphql/user/user-create.input'
+import { UserCreateInput } from './dto/user-create.input'
 
 @Injectable()
 export class AuthService {

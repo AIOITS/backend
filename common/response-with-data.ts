@@ -1,7 +1,7 @@
 import { ApiProperty } from "@nestjs/swagger"
 
-export function getUpdatedResponseType(data) {
-  class updatedResponse<T> {
+export function getResponseWithDataType(data) {
+  class ResponseWithData<T> {
     @ApiProperty({
       example: '201',
     })
@@ -11,10 +11,11 @@ export function getUpdatedResponseType(data) {
     })
     data: T
   }
-  return updatedResponse<typeof data>
+  
+  return ResponseWithData<typeof data>
 }
 
-export class updatedResponse<T> {
+export class ResponseWithData<T> {
   @ApiProperty({
     example: '201',
   })

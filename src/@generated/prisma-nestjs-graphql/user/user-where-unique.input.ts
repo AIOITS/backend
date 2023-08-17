@@ -3,7 +3,6 @@ import { InputType } from '@nestjs/graphql'
 import { Int } from '@nestjs/graphql'
 import * as Validator from 'class-validator'
 import { UserWhereInput } from './user-where.input'
-import { StringNullableListFilter } from '../prisma/string-nullable-list-filter.input'
 import { StringFilter } from '../prisma/string-filter.input'
 import { IntFilter } from '../prisma/int-filter.input'
 import { DateTimeFilter } from '../prisma/date-time-filter.input'
@@ -42,8 +41,8 @@ export class UserWhereUniqueInput {
   @Field(() => [UserWhereInput], { nullable: true })
   NOT?: Array<UserWhereInput>
 
-  @Field(() => StringNullableListFilter, { nullable: true })
-  name?: StringNullableListFilter
+  @Field(() => StringFilter, { nullable: true })
+  name?: StringFilter
 
   @Field(() => StringFilter, { nullable: true })
   password?: StringFilter

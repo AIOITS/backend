@@ -1,7 +1,6 @@
 import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
 import { Int } from '@nestjs/graphql'
-import { UserCreatenameInput } from './user-createname.input'
 import * as Validator from 'class-validator'
 import { SimUncheckedCreateNestedManyWithoutUserInput } from '../sim/sim-unchecked-create-nested-many-without-user.input'
 
@@ -10,8 +9,10 @@ export class UserUncheckedCreateWithoutKtpInput {
   @Field(() => Int, { nullable: true })
   id?: number
 
-  @Field(() => UserCreatenameInput, { nullable: true })
-  name?: UserCreatenameInput
+  @Field(() => String, { nullable: false })
+  @Validator.IsNotEmpty()
+  @Validator.MaxLength(60)
+  name!: string
 
   @Field(() => String, { nullable: true })
   @Validator.IsEmail()

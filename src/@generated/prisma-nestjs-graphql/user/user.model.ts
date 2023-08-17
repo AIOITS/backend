@@ -14,8 +14,8 @@ export class User {
   @Field(() => String, { nullable: false })
   nik!: string
 
-  @Field(() => [String], { nullable: true })
-  name!: Array<string>
+  @Field(() => String, { nullable: false })
+  name!: string
 
   @Field(() => String, { nullable: true })
   email!: string | null
