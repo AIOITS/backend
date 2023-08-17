@@ -8,7 +8,6 @@ RUN npm ci --only=production
 
 RUN npm install -g @nestjs/cli
 RUN npm install -g prisma-nestjs-graphql
-RUN npm run prisma:migrate
 RUN npm run build
 
 EXPOSE 8080
