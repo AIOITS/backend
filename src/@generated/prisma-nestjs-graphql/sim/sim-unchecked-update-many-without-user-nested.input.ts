@@ -31,19 +31,19 @@ export class SimUncheckedUpdateManyWithoutUserNestedInput {
 
   @Field(() => [SimWhereUniqueInput], { nullable: true })
   @Type(() => SimWhereUniqueInput)
-  set?: Array<Prisma.AtLeast<SimWhereUniqueInput, 'nomor_sim'>>
+  set?: Array<Prisma.AtLeast<SimWhereUniqueInput, 'uid' | 'nomor_sim'>>
 
   @Field(() => [SimWhereUniqueInput], { nullable: true })
   @Type(() => SimWhereUniqueInput)
-  disconnect?: Array<Prisma.AtLeast<SimWhereUniqueInput, 'nomor_sim'>>
+  disconnect?: Array<Prisma.AtLeast<SimWhereUniqueInput, 'uid' | 'nomor_sim'>>
 
   @Field(() => [SimWhereUniqueInput], { nullable: true })
   @Type(() => SimWhereUniqueInput)
-  delete?: Array<Prisma.AtLeast<SimWhereUniqueInput, 'nomor_sim'>>
+  delete?: Array<Prisma.AtLeast<SimWhereUniqueInput, 'uid' | 'nomor_sim'>>
 
   @Field(() => [SimWhereUniqueInput], { nullable: true })
   @Type(() => SimWhereUniqueInput)
-  connect?: Array<Prisma.AtLeast<SimWhereUniqueInput, 'nomor_sim'>>
+  connect?: Array<Prisma.AtLeast<SimWhereUniqueInput, 'uid' | 'nomor_sim'>>
 
   @Field(() => [SimUpdateWithWhereUniqueWithoutUserInput], { nullable: true })
   @Type(() => SimUpdateWithWhereUniqueWithoutUserInput)

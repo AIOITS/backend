@@ -8,6 +8,9 @@ import { NullableIntFieldUpdateOperationsInput } from '../prisma/nullable-int-fi
 @InputType()
 export class SimUncheckedUpdateInput {
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  uid?: StringFieldUpdateOperationsInput
+
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
   nomor_sim?: StringFieldUpdateOperationsInput
 
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })

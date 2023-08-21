@@ -18,7 +18,7 @@ export class FindFirstSimOrThrowArgs {
   orderBy?: Array<SimOrderByWithRelationInput>
 
   @Field(() => SimWhereUniqueInput, { nullable: true })
-  cursor?: Prisma.AtLeast<SimWhereUniqueInput, 'nomor_sim'>
+  cursor?: Prisma.AtLeast<SimWhereUniqueInput, 'uid' | 'nomor_sim'>
 
   @Field(() => Int, { nullable: true })
   take?: number

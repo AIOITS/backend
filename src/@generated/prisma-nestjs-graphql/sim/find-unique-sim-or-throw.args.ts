@@ -8,5 +8,5 @@ import { Type } from 'class-transformer'
 export class FindUniqueSimOrThrowArgs {
   @Field(() => SimWhereUniqueInput, { nullable: false })
   @Type(() => SimWhereUniqueInput)
-  where!: Prisma.AtLeast<SimWhereUniqueInput, 'nomor_sim'>
+  where!: Prisma.AtLeast<SimWhereUniqueInput, 'uid' | 'nomor_sim'>
 }

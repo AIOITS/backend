@@ -6,6 +6,9 @@ import { User } from '../user/user.model'
 
 @ObjectType()
 export class Sim {
+  @Field(() => String, { nullable: false })
+  uid!: string
+
   @Field(() => ID, { nullable: false })
   nomor_sim!: string
 

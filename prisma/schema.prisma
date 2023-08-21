@@ -68,6 +68,7 @@ model Ktp {
 }
 
 model Sim {
+  uid        String   @unique
   nomor_sim        String   @id @unique
   nama             String
   alamat           String

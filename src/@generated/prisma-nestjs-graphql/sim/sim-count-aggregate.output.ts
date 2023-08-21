@@ -5,6 +5,9 @@ import { Int } from '@nestjs/graphql'
 @ObjectType()
 export class SimCountAggregate {
   @Field(() => Int, { nullable: false })
+  uid!: number
+
+  @Field(() => Int, { nullable: false })
   nomor_sim!: number
 
   @Field(() => Int, { nullable: false })

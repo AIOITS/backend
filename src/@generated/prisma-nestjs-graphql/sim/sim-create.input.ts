@@ -6,6 +6,9 @@ import { UserCreateNestedOneWithoutNomor_simInput } from '../user/user-create-ne
 @InputType()
 export class SimCreateInput {
   @Field(() => String, { nullable: false })
+  uid!: string
+
+  @Field(() => String, { nullable: false })
   nomor_sim!: string
 
   @Field(() => String, { nullable: false })

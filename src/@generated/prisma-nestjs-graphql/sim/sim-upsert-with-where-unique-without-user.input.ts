@@ -10,7 +10,7 @@ import { SimCreateWithoutUserInput } from './sim-create-without-user.input'
 export class SimUpsertWithWhereUniqueWithoutUserInput {
   @Field(() => SimWhereUniqueInput, { nullable: false })
   @Type(() => SimWhereUniqueInput)
-  where!: Prisma.AtLeast<SimWhereUniqueInput, 'nomor_sim'>
+  where!: Prisma.AtLeast<SimWhereUniqueInput, 'uid' | 'nomor_sim'>
 
   @Field(() => SimUpdateWithoutUserInput, { nullable: false })
   @Type(() => SimUpdateWithoutUserInput)

@@ -17,6 +17,9 @@ export class SimScalarWhereWithAggregatesInput {
   NOT?: Array<SimScalarWhereWithAggregatesInput>
 
   @Field(() => StringWithAggregatesFilter, { nullable: true })
+  uid?: StringWithAggregatesFilter
+
+  @Field(() => StringWithAggregatesFilter, { nullable: true })
   nomor_sim?: StringWithAggregatesFilter
 
   @Field(() => StringWithAggregatesFilter, { nullable: true })

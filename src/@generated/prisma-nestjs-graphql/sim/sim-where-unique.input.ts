@@ -10,6 +10,9 @@ import { UserNullableRelationFilter } from '../user/user-nullable-relation-filte
 @InputType()
 export class SimWhereUniqueInput {
   @Field(() => String, { nullable: true })
+  uid?: string
+
+  @Field(() => String, { nullable: true })
   nomor_sim?: string
 
   @Field(() => [SimWhereInput], { nullable: true })

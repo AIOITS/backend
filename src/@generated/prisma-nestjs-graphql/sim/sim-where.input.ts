@@ -18,6 +18,9 @@ export class SimWhereInput {
   NOT?: Array<SimWhereInput>
 
   @Field(() => StringFilter, { nullable: true })
+  uid?: StringFilter
+
+  @Field(() => StringFilter, { nullable: true })
   nomor_sim?: StringFilter
 
   @Field(() => StringFilter, { nullable: true })

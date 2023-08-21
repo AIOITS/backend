@@ -7,6 +7,9 @@ import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-up
 @InputType()
 export class SimUpdateManyMutationInput {
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  uid?: StringFieldUpdateOperationsInput
+
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
   nomor_sim?: StringFieldUpdateOperationsInput
 
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })

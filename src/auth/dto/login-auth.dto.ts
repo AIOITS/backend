@@ -3,14 +3,14 @@ import { IsEmail, IsNotEmpty, IsOptional, IsPhoneNumber } from 'class-validator'
 
 export class LoginAuthDto {
   @ApiProperty({
-    example: 'pkmaioits@email.com'
+    example: 'pkmaioits@email.com',
   })
   @IsEmail()
   @IsOptional()
   readonly email?: string
 
   @ApiProperty({
-    example: '081234567890'
+    example: '081234567890',
   })
   @IsOptional()
   @IsPhoneNumber('ID', {
@@ -19,7 +19,7 @@ export class LoginAuthDto {
   readonly phone: string
 
   @ApiProperty({
-    example: 'rahasia'
+    example: 'rahasia',
   })
   @IsNotEmpty()
   readonly password: string

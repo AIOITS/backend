@@ -4,6 +4,9 @@ import { InputType } from '@nestjs/graphql'
 @InputType()
 export class SimMaxAggregateInput {
   @Field(() => Boolean, { nullable: true })
+  uid?: true
+
+  @Field(() => Boolean, { nullable: true })
   nomor_sim?: true
 
   @Field(() => Boolean, { nullable: true })

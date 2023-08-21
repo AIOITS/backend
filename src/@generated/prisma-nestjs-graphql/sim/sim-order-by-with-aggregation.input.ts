@@ -11,6 +11,9 @@ import { SimSumOrderByAggregateInput } from './sim-sum-order-by-aggregate.input'
 @InputType()
 export class SimOrderByWithAggregationInput {
   @Field(() => SortOrder, { nullable: true })
+  uid?: keyof typeof SortOrder
+
+  @Field(() => SortOrder, { nullable: true })
   nomor_sim?: keyof typeof SortOrder
 
   @Field(() => SortOrder, { nullable: true })

@@ -17,6 +17,9 @@ export class SimScalarWhereInput {
   NOT?: Array<SimScalarWhereInput>
 
   @Field(() => StringFilter, { nullable: true })
+  uid?: StringFilter
+
+  @Field(() => StringFilter, { nullable: true })
   nomor_sim?: StringFilter
 
   @Field(() => StringFilter, { nullable: true })

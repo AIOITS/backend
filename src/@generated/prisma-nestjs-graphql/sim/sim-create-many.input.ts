@@ -5,6 +5,9 @@ import { Int } from '@nestjs/graphql'
 @InputType()
 export class SimCreateManyInput {
   @Field(() => String, { nullable: false })
+  uid!: string
+
+  @Field(() => String, { nullable: false })
   nomor_sim!: string
 
   @Field(() => String, { nullable: false })

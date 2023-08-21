@@ -23,5 +23,5 @@ export class SimCreateNestedManyWithoutUserInput {
 
   @Field(() => [SimWhereUniqueInput], { nullable: true })
   @Type(() => SimWhereUniqueInput)
-  connect?: Array<Prisma.AtLeast<SimWhereUniqueInput, 'nomor_sim'>>
+  connect?: Array<Prisma.AtLeast<SimWhereUniqueInput, 'uid' | 'nomor_sim'>>
 }

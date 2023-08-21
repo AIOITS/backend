@@ -10,6 +10,9 @@ import { SimMaxAggregate } from './sim-max-aggregate.output'
 @ObjectType()
 export class SimGroupBy {
   @Field(() => String, { nullable: false })
+  uid!: string
+
+  @Field(() => String, { nullable: false })
   nomor_sim!: string
 
   @Field(() => String, { nullable: false })

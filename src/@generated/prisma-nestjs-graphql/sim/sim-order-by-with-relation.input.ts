@@ -7,6 +7,9 @@ import { UserOrderByWithRelationInput } from '../user/user-order-by-with-relatio
 @InputType()
 export class SimOrderByWithRelationInput {
   @Field(() => SortOrder, { nullable: true })
+  uid?: keyof typeof SortOrder
+
+  @Field(() => SortOrder, { nullable: true })
   nomor_sim?: keyof typeof SortOrder
 
   @Field(() => SortOrder, { nullable: true })

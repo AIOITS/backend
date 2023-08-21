@@ -8,6 +8,9 @@ import { UserUpdateOneWithoutNomor_simNestedInput } from '../user/user-update-on
 @InputType()
 export class SimUpdateInput {
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  uid?: StringFieldUpdateOperationsInput
+
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
   nomor_sim?: StringFieldUpdateOperationsInput
 
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })

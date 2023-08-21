@@ -11,7 +11,7 @@ export class UserService {
 
   async create(createUserDto: UserCreateInput) {
     const { nik, email, phone, ...data } = createUserDto
-    if (!await this._prismaService.ktp.count({ where: { nik } }))
+    if (!(await this._prismaService.ktp.count({ where: { nik } })))
       throw new HttpException('NIK not found', 400)
     if (await this._prismaService.user.count({ where: { email } }))
       throw new HttpException('Email already registered', 400)
