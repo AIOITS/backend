@@ -47,7 +47,7 @@ export class SimCountAggregate {
   berlaku_sampai!: number
 
   @Field(() => Int, { nullable: false })
-  userId!: number
+  nik!: number
 
   @Field(() => Int, { nullable: false })
   _all!: number

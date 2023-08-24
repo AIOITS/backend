@@ -4,9 +4,9 @@ import { Int } from '@nestjs/graphql'
 import * as Validator from 'class-validator'
 import { UserWhereInput } from './user-where.input'
 import { StringFilter } from '../prisma/string-filter.input'
+import { FloatFilter } from '../prisma/float-filter.input'
 import { IntFilter } from '../prisma/int-filter.input'
 import { DateTimeFilter } from '../prisma/date-time-filter.input'
-import { SimListRelationFilter } from '../sim/sim-list-relation-filter.input'
 import { KtpRelationFilter } from '../ktp/ktp-relation-filter.input'
 
 @InputType()
@@ -47,6 +47,12 @@ export class UserWhereUniqueInput {
   @Field(() => StringFilter, { nullable: true })
   password?: StringFilter
 
+  @Field(() => FloatFilter, { nullable: true })
+  kuota_subsidi?: FloatFilter
+
+  @Field(() => IntFilter, { nullable: true })
+  saldo?: IntFilter
+
   @Field(() => IntFilter, { nullable: true })
   role?: IntFilter
 
@@ -55,9 +61,6 @@ export class UserWhereUniqueInput {
 
   @Field(() => DateTimeFilter, { nullable: true })
   updatedAt?: DateTimeFilter
-
-  @Field(() => SimListRelationFilter, { nullable: true })
-  nomor_sim?: SimListRelationFilter
 
   @Field(() => KtpRelationFilter, { nullable: true })
   ktp?: KtpRelationFilter

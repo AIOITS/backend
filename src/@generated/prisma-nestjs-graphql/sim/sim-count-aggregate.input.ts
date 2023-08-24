@@ -46,7 +46,7 @@ export class SimCountAggregateInput {
   berlaku_sampai?: true
 
   @Field(() => Boolean, { nullable: true })
-  userId?: true
+  nik?: true
 
   @Field(() => Boolean, { nullable: true })
   _all?: true

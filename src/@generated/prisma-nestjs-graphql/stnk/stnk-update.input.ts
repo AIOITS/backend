@@ -2,6 +2,9 @@ import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
 import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input'
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input'
+import { PkbUpdateOneRequiredWithoutStnkNestedInput } from '../pkb/pkb-update-one-required-without-stnk-nested.input'
+import { KtpUpdateOneWithoutNomor_stnkNestedInput } from '../ktp/ktp-update-one-without-nomor-stnk-nested.input'
+import { history_pengisianUpdateOneWithoutStnkNestedInput } from '../history-pengisian/history-pengisian-update-one-without-stnk-nested.input'
 
 @InputType()
 export class StnkUpdateInput {
@@ -68,6 +71,14 @@ export class StnkUpdateInput {
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
   nomor_urut_pendaftaran?: StringFieldUpdateOperationsInput
 
-  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
-  nomor_PKB?: StringFieldUpdateOperationsInput
+  @Field(() => PkbUpdateOneRequiredWithoutStnkNestedInput, { nullable: true })
+  pkb?: PkbUpdateOneRequiredWithoutStnkNestedInput
+
+  @Field(() => KtpUpdateOneWithoutNomor_stnkNestedInput, { nullable: true })
+  Ktp?: KtpUpdateOneWithoutNomor_stnkNestedInput
+
+  @Field(() => history_pengisianUpdateOneWithoutStnkNestedInput, {
+    nullable: true,
+  })
+  history_pengisian?: history_pengisianUpdateOneWithoutStnkNestedInput
 }

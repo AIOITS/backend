@@ -22,7 +22,8 @@ export enum StnkScalarFieldEnum {
   nomor_registrasi = 'nomor_registrasi',
   kode_lokasi = 'kode_lokasi',
   nomor_urut_pendaftaran = 'nomor_urut_pendaftaran',
-  nomor_PKB = 'nomor_PKB',
+  nomor_pkb = 'nomor_pkb',
+  nik = 'nik',
 }
 
 registerEnumType(StnkScalarFieldEnum, {

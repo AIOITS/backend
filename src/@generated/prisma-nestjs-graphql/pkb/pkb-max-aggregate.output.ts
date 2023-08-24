@@ -5,7 +5,7 @@ import { Int } from '@nestjs/graphql'
 @ObjectType()
 export class PkbMaxAggregate {
   @Field(() => String, { nullable: true })
-  nomor_PKB?: string
+  nomor_pkb?: string
 
   @Field(() => Boolean, { nullable: true })
   status_pajak?: boolean

@@ -8,5 +8,5 @@ import { Type } from 'class-transformer'
 export class DeleteOnePkbArgs {
   @Field(() => PkbWhereUniqueInput, { nullable: false })
   @Type(() => PkbWhereUniqueInput)
-  where!: Prisma.AtLeast<PkbWhereUniqueInput, 'nomor_PKB'>
+  where!: Prisma.AtLeast<PkbWhereUniqueInput, 'nomor_pkb'>
 }

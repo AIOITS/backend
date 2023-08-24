@@ -1,13 +1,13 @@
 import { registerEnumType } from '@nestjs/graphql'
 
 export enum Agama {
-  Islam = 'Islam',
-  Kristen = 'Kristen',
-  Katolik = 'Katolik',
-  Budha = 'Budha',
-  Hindu = 'Hindu',
-  Konghuchu = 'Konghuchu',
-  Aliran_Kepercayaan = 'Aliran_Kepercayaan',
+  islam = 'islam',
+  kristen = 'kristen',
+  katolik = 'katolik',
+  budha = 'budha',
+  hindu = 'hindu',
+  konghuchu = 'konghuchu',
+  aliran_kepercayaan = 'aliran_kepercayaan',
 }
 
 registerEnumType(Agama, { name: 'Agama', description: undefined })

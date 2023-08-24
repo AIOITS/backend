@@ -46,5 +46,5 @@ export class SimMinAggregateInput {
   berlaku_sampai?: true
 
   @Field(() => Boolean, { nullable: true })
-  userId?: true
+  nik?: true
 }

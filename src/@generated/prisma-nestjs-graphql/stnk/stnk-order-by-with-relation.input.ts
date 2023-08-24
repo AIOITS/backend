@@ -1,6 +1,10 @@
 import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
 import { SortOrder } from '../prisma/sort-order.enum'
+import { SortOrderInput } from '../prisma/sort-order.input'
+import { PkbOrderByWithRelationInput } from '../pkb/pkb-order-by-with-relation.input'
+import { KtpOrderByWithRelationInput } from '../ktp/ktp-order-by-with-relation.input'
+import { history_pengisianOrderByWithRelationInput } from '../history-pengisian/history-pengisian-order-by-with-relation.input'
 
 @InputType()
 export class StnkOrderByWithRelationInput {
@@ -68,5 +72,17 @@ export class StnkOrderByWithRelationInput {
   nomor_urut_pendaftaran?: keyof typeof SortOrder
 
   @Field(() => SortOrder, { nullable: true })
-  nomor_PKB?: keyof typeof SortOrder
+  nomor_pkb?: keyof typeof SortOrder
+
+  @Field(() => SortOrderInput, { nullable: true })
+  nik?: SortOrderInput
+
+  @Field(() => PkbOrderByWithRelationInput, { nullable: true })
+  pkb?: PkbOrderByWithRelationInput
+
+  @Field(() => KtpOrderByWithRelationInput, { nullable: true })
+  Ktp?: KtpOrderByWithRelationInput
+
+  @Field(() => history_pengisianOrderByWithRelationInput, { nullable: true })
+  history_pengisian?: history_pengisianOrderByWithRelationInput
 }

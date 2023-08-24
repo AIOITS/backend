@@ -68,7 +68,10 @@ export class StnkCountAggregate {
   nomor_urut_pendaftaran!: number
 
   @Field(() => Int, { nullable: false })
-  nomor_PKB!: number
+  nomor_pkb!: number
+
+  @Field(() => Int, { nullable: false })
+  nik!: number
 
   @Field(() => Int, { nullable: false })
   _all!: number

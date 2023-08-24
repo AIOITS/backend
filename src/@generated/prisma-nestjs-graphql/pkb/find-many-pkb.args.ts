@@ -18,7 +18,7 @@ export class FindManyPkbArgs {
   orderBy?: Array<PkbOrderByWithRelationInput>
 
   @Field(() => PkbWhereUniqueInput, { nullable: true })
-  cursor?: Prisma.AtLeast<PkbWhereUniqueInput, 'nomor_PKB'>
+  cursor?: Prisma.AtLeast<PkbWhereUniqueInput, 'nomor_pkb'>
 
   @Field(() => Int, { nullable: true })
   take?: number

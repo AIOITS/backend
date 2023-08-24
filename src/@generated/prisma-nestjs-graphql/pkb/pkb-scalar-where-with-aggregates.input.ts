@@ -16,7 +16,7 @@ export class PkbScalarWhereWithAggregatesInput {
   NOT?: Array<PkbScalarWhereWithAggregatesInput>
 
   @Field(() => StringWithAggregatesFilter, { nullable: true })
-  nomor_PKB?: StringWithAggregatesFilter
+  nomor_pkb?: StringWithAggregatesFilter
 
   @Field(() => BoolWithAggregatesFilter, { nullable: true })
   status_pajak?: BoolWithAggregatesFilter

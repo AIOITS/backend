@@ -7,7 +7,7 @@ import { IntFieldUpdateOperationsInput } from '../prisma/int-field-update-operat
 @InputType()
 export class PkbUpdateManyMutationInput {
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
-  nomor_PKB?: StringFieldUpdateOperationsInput
+  nomor_pkb?: StringFieldUpdateOperationsInput
 
   @Field(() => BoolFieldUpdateOperationsInput, { nullable: true })
   status_pajak?: BoolFieldUpdateOperationsInput

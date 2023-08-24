@@ -2,6 +2,7 @@ import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
 import { Int } from '@nestjs/graphql'
 import * as Validator from 'class-validator'
+import { Float } from '@nestjs/graphql'
 
 @InputType()
 export class UserCreateManyInput {
@@ -34,6 +35,12 @@ export class UserCreateManyInput {
   @Field(() => String, { nullable: false })
   @Validator.IsNotEmpty()
   password!: string
+
+  @Field(() => Float, { nullable: true })
+  kuota_subsidi?: number
+
+  @Field(() => Int, { nullable: true })
+  saldo?: number
 
   @Field(() => Int, { nullable: true })
   role?: number

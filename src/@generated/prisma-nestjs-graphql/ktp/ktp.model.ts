@@ -5,7 +5,10 @@ import { Int } from '@nestjs/graphql'
 import { GolonganDarah } from '../prisma/golongan-darah.enum'
 import { Agama } from '../prisma/agama.enum'
 import { StatusPerkawinan } from '../prisma/status-perkawinan.enum'
+import { Sim } from '../sim/sim.model'
+import { Stnk } from '../stnk/stnk.model'
 import { User } from '../user/user.model'
+import { KtpCount } from './ktp-count.output'
 
 @ObjectType()
 export class Ktp {
@@ -60,6 +63,15 @@ export class Ktp {
   @Field(() => Date, { nullable: false })
   tanggal_terbit!: Date
 
+  @Field(() => [Sim], { nullable: true })
+  nomor_sim?: Array<Sim>
+
+  @Field(() => [Stnk], { nullable: true })
+  nomor_stnk?: Array<Stnk>
+
   @Field(() => User, { nullable: true })
-  User?: User | null
+  user?: User | null
+
+  @Field(() => KtpCount, { nullable: false })
+  _count?: KtpCount
 }

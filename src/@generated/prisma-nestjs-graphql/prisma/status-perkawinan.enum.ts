@@ -1,10 +1,10 @@
 import { registerEnumType } from '@nestjs/graphql'
 
 export enum StatusPerkawinan {
-  Belum_Kawin = 'Belum_Kawin',
-  Kawin = 'Kawin',
-  Cerai_Hidup = 'Cerai_Hidup',
-  Cerai_Mati = 'Cerai_Mati',
+  belum_kawin = 'belum_kawin',
+  kawin = 'kawin',
+  cerai_hidup = 'cerai_hidup',
+  cerai_mati = 'cerai_mati',
 }
 
 registerEnumType(StatusPerkawinan, {

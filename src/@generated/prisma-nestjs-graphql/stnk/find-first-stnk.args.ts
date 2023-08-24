@@ -20,7 +20,7 @@ export class FindFirstStnkArgs {
   @Field(() => StnkWhereUniqueInput, { nullable: true })
   cursor?: Prisma.AtLeast<
     StnkWhereUniqueInput,
-    'nomor_stnk' | 'nomor_polisi' | 'nomor_PKB'
+    'nomor_stnk' | 'nomor_polisi' | 'nomor_pkb'
   >
 
   @Field(() => Int, { nullable: true })

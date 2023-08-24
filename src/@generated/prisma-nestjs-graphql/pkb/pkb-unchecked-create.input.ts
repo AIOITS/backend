@@ -1,11 +1,12 @@
 import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
 import { Int } from '@nestjs/graphql'
+import { StnkUncheckedCreateNestedOneWithoutPkbInput } from '../stnk/stnk-unchecked-create-nested-one-without-pkb.input'
 
 @InputType()
 export class PkbUncheckedCreateInput {
   @Field(() => String, { nullable: false })
-  nomor_PKB!: string
+  nomor_pkb!: string
 
   @Field(() => Boolean, { nullable: false })
   status_pajak!: boolean
@@ -39,4 +40,7 @@ export class PkbUncheckedCreateInput {
 
   @Field(() => Int, { nullable: false })
   administrasi_tnkb_sanksi!: number
+
+  @Field(() => StnkUncheckedCreateNestedOneWithoutPkbInput, { nullable: true })
+  stnk?: StnkUncheckedCreateNestedOneWithoutPkbInput
 }

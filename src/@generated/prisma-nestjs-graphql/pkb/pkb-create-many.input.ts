@@ -5,7 +5,7 @@ import { Int } from '@nestjs/graphql'
 @InputType()
 export class PkbCreateManyInput {
   @Field(() => String, { nullable: false })
-  nomor_PKB!: string
+  nomor_pkb!: string
 
   @Field(() => Boolean, { nullable: false })
   status_pajak!: boolean

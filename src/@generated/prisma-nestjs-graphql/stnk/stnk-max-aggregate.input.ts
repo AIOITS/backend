@@ -67,5 +67,8 @@ export class StnkMaxAggregateInput {
   nomor_urut_pendaftaran?: true
 
   @Field(() => Boolean, { nullable: true })
-  nomor_PKB?: true
+  nomor_pkb?: true
+
+  @Field(() => Boolean, { nullable: true })
+  nik?: true
 }

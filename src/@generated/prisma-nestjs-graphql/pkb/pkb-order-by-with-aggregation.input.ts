@@ -10,7 +10,7 @@ import { PkbSumOrderByAggregateInput } from './pkb-sum-order-by-aggregate.input'
 @InputType()
 export class PkbOrderByWithAggregationInput {
   @Field(() => SortOrder, { nullable: true })
-  nomor_PKB?: keyof typeof SortOrder
+  nomor_pkb?: keyof typeof SortOrder
 
   @Field(() => SortOrder, { nullable: true })
   status_pajak?: keyof typeof SortOrder

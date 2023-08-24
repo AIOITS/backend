@@ -8,10 +8,10 @@ generator client {
 }
 
 generator nestgraphql {
-  provider                 = "node node_modules/prisma-nestjs-graphql"
-  output                   = "../src/@generated/prisma-nestjs-graphql"
-  fields_Validator_from    = "class-validator"
-  fields_Validator_input   = true
+  provider               = "node node_modules/prisma-nestjs-graphql"
+  output                 = "../src/@generated/prisma-nestjs-graphql"
+  fields_Validator_from  = "class-validator"
+  fields_Validator_input = true
 }
 
 model User {
@@ -20,8 +20,7 @@ model User {
   /// @Validator.IsNotEmpty()
   /// @Validator.MinLength(16)
   /// @Validator.MaxLength(16)
-  nik       String @unique
-  nomor_sim Sim[]
+  nik String @unique
 
   /// @Validator.IsNotEmpty()
   /// @Validator.MaxLength(60)
@@ -38,10 +37,36 @@ model User {
   /// @Validator.IsNotEmpty()
   password String
 
+  kuota_subsidi Float @default(0.0)
+  saldo         Int   @default(0)
+
   role      Int      @default(2)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   ktp       Ktp      @relation(fields: [nik], references: [nik])
+}
+
+model history_pengisian {
+  kategori_pengisian KategoriPengisian @id @unique
+
+  nama_spbu String
+  jumlah    Float
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  nomor_stnk String @unique
+  stnk       Stnk?  @relation(fields: [nomor_stnk], references: [nomor_stnk])
+}
+
+model ajuan_subsidi {
+  id                Int                    @id @default(autoincrement())
+  jumlah            Int
+  alasan            String                 @db.Text
+  dokumen_pendukung String[]
+  tanggal_pengajuan DateTime               @db.Date
+  status_pengajuan  StatusPengajuanSubsidi
+  createdAt         DateTime               @default(now())
+  updatedAt         DateTime               @updatedAt
 }
 
 model Ktp {
@@ -62,13 +87,16 @@ model Ktp {
   pekerjaan         String
   kewarganegaraan   String
   tanggal_terbit    DateTime         @db.Date
-  User              User?
+
+  nomor_sim  Sim[]
+  nomor_stnk Stnk[]
+  user       User?
 
   @@map("KTP")
 }
 
 model Sim {
-  uid        String   @unique
+  uid              String   @unique
   nomor_sim        String   @id @unique
   nama             String
   alamat           String
@@ -82,8 +110,9 @@ model Sim {
   tanggal_terbit   DateTime @db.Date
   penerbit         String
   berlaku_sampai   DateTime @db.Date
-  userId           Int?
-  User             User?    @relation(fields: [userId], references: [id])
+
+  nik String?
+  Ktp Ktp?    @relation(fields: [nik], references: [nik])
 
   @@map("SIM")
 }
@@ -110,13 +139,20 @@ model Stnk {
   nomor_registrasi       String
   kode_lokasi            String
   nomor_urut_pendaftaran String
-  nomor_PKB              String   @unique
+
+  nomor_pkb String @unique
+  pkb       Pkb    @relation(fields: [nomor_pkb], references: [nomor_pkb])
+
+  nik String?
+  Ktp Ktp?    @relation(fields: [nik], references: [nik])
+
+  history_pengisian history_pengisian?
 
   @@map("STNK")
 }
 
 model Pkb {
-  nomor_PKB                String  @id
+  nomor_pkb                String  @id
   status_pajak             Boolean
   bbknb_pokok              Int
   bbknb_sanksi             Int
@@ -129,29 +165,42 @@ model Pkb {
   administrasi_tnkb_pokok  Int
   administrasi_tnkb_sanksi Int
 
+  stnk Stnk?
+
   @@map("PKB")
 }
 
+enum KategoriPengisian {
+  subsidi
+  non_subsidi
+}
+
+enum StatusPengajuanSubsidi {
+  diproses
+  ditolak
+  disetujui
+}
+
 enum GolonganDarah {
-  A
-  B
-  AB
-  O
+  a
+  b
+  ab
+  o
 }
 
 enum Agama {
-  Islam
-  Kristen
-  Katolik
-  Budha
-  Hindu
-  Konghuchu
-  Aliran_Kepercayaan
+  islam
+  kristen
+  katolik
+  budha
+  hindu
+  konghuchu
+  aliran_kepercayaan
 }
 
 enum StatusPerkawinan {
-  Belum_Kawin
-  Kawin
-  Cerai_Hidup
-  Cerai_Mati
+  belum_kawin
+  kawin
+  cerai_hidup
+  cerai_mati
 }

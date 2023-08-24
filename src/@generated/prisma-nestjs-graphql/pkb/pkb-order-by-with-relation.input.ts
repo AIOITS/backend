@@ -1,11 +1,12 @@
 import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
 import { SortOrder } from '../prisma/sort-order.enum'
+import { StnkOrderByWithRelationInput } from '../stnk/stnk-order-by-with-relation.input'
 
 @InputType()
 export class PkbOrderByWithRelationInput {
   @Field(() => SortOrder, { nullable: true })
-  nomor_PKB?: keyof typeof SortOrder
+  nomor_pkb?: keyof typeof SortOrder
 
   @Field(() => SortOrder, { nullable: true })
   status_pajak?: keyof typeof SortOrder
@@ -39,4 +40,7 @@ export class PkbOrderByWithRelationInput {
 
   @Field(() => SortOrder, { nullable: true })
   administrasi_tnkb_sanksi?: keyof typeof SortOrder
+
+  @Field(() => StnkOrderByWithRelationInput, { nullable: true })
+  stnk?: StnkOrderByWithRelationInput
 }

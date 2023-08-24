@@ -22,6 +22,12 @@ export class UserCountAggregateInput {
   password?: true
 
   @Field(() => Boolean, { nullable: true })
+  kuota_subsidi?: true
+
+  @Field(() => Boolean, { nullable: true })
+  saldo?: true
+
+  @Field(() => Boolean, { nullable: true })
   role?: true
 
   @Field(() => Boolean, { nullable: true })

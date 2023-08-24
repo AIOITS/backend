@@ -3,11 +3,12 @@ import { InputType } from '@nestjs/graphql'
 import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input'
 import { BoolFieldUpdateOperationsInput } from '../prisma/bool-field-update-operations.input'
 import { IntFieldUpdateOperationsInput } from '../prisma/int-field-update-operations.input'
+import { StnkUncheckedUpdateOneWithoutPkbNestedInput } from '../stnk/stnk-unchecked-update-one-without-pkb-nested.input'
 
 @InputType()
 export class PkbUncheckedUpdateInput {
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
-  nomor_PKB?: StringFieldUpdateOperationsInput
+  nomor_pkb?: StringFieldUpdateOperationsInput
 
   @Field(() => BoolFieldUpdateOperationsInput, { nullable: true })
   status_pajak?: BoolFieldUpdateOperationsInput
@@ -41,4 +42,7 @@ export class PkbUncheckedUpdateInput {
 
   @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
   administrasi_tnkb_sanksi?: IntFieldUpdateOperationsInput
+
+  @Field(() => StnkUncheckedUpdateOneWithoutPkbNestedInput, { nullable: true })
+  stnk?: StnkUncheckedUpdateOneWithoutPkbNestedInput
 }

@@ -2,7 +2,6 @@ import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
 import { SortOrder } from '../prisma/sort-order.enum'
 import { SortOrderInput } from '../prisma/sort-order.input'
-import { SimOrderByRelationAggregateInput } from '../sim/sim-order-by-relation-aggregate.input'
 import { KtpOrderByWithRelationInput } from '../ktp/ktp-order-by-with-relation.input'
 
 @InputType()
@@ -26,6 +25,12 @@ export class UserOrderByWithRelationInput {
   password?: keyof typeof SortOrder
 
   @Field(() => SortOrder, { nullable: true })
+  kuota_subsidi?: keyof typeof SortOrder
+
+  @Field(() => SortOrder, { nullable: true })
+  saldo?: keyof typeof SortOrder
+
+  @Field(() => SortOrder, { nullable: true })
   role?: keyof typeof SortOrder
 
   @Field(() => SortOrder, { nullable: true })
@@ -33,9 +38,6 @@ export class UserOrderByWithRelationInput {
 
   @Field(() => SortOrder, { nullable: true })
   updatedAt?: keyof typeof SortOrder
-
-  @Field(() => SimOrderByRelationAggregateInput, { nullable: true })
-  nomor_sim?: SimOrderByRelationAggregateInput
 
   @Field(() => KtpOrderByWithRelationInput, { nullable: true })
   ktp?: KtpOrderByWithRelationInput

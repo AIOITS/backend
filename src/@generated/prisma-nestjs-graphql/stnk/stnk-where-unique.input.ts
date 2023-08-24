@@ -3,6 +3,10 @@ import { InputType } from '@nestjs/graphql'
 import { StnkWhereInput } from './stnk-where.input'
 import { StringFilter } from '../prisma/string-filter.input'
 import { DateTimeFilter } from '../prisma/date-time-filter.input'
+import { StringNullableFilter } from '../prisma/string-nullable-filter.input'
+import { PkbRelationFilter } from '../pkb/pkb-relation-filter.input'
+import { KtpNullableRelationFilter } from '../ktp/ktp-nullable-relation-filter.input'
+import { History_pengisianNullableRelationFilter } from '../prisma/history-pengisian-nullable-relation-filter.input'
 
 @InputType()
 export class StnkWhereUniqueInput {
@@ -13,7 +17,7 @@ export class StnkWhereUniqueInput {
   nomor_polisi?: string
 
   @Field(() => String, { nullable: true })
-  nomor_PKB?: string
+  nomor_pkb?: string
 
   @Field(() => [StnkWhereInput], { nullable: true })
   AND?: Array<StnkWhereInput>
@@ -80,4 +84,16 @@ export class StnkWhereUniqueInput {
 
   @Field(() => StringFilter, { nullable: true })
   nomor_urut_pendaftaran?: StringFilter
+
+  @Field(() => StringNullableFilter, { nullable: true })
+  nik?: StringNullableFilter
+
+  @Field(() => PkbRelationFilter, { nullable: true })
+  pkb?: PkbRelationFilter
+
+  @Field(() => KtpNullableRelationFilter, { nullable: true })
+  Ktp?: KtpNullableRelationFilter
+
+  @Field(() => History_pengisianNullableRelationFilter, { nullable: true })
+  history_pengisian?: History_pengisianNullableRelationFilter
 }

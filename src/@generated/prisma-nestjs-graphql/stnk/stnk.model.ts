@@ -1,6 +1,9 @@
 import { Field } from '@nestjs/graphql'
 import { ObjectType } from '@nestjs/graphql'
 import { ID } from '@nestjs/graphql'
+import { Pkb } from '../pkb/pkb.model'
+import { Ktp } from '../ktp/ktp.model'
+import { history_pengisian } from '../history-pengisian/history-pengisian.model'
 
 @ObjectType()
 export class Stnk {
@@ -68,5 +71,17 @@ export class Stnk {
   nomor_urut_pendaftaran!: string
 
   @Field(() => String, { nullable: false })
-  nomor_PKB!: string
+  nomor_pkb!: string
+
+  @Field(() => String, { nullable: true })
+  nik!: string | null
+
+  @Field(() => Pkb, { nullable: false })
+  pkb?: Pkb
+
+  @Field(() => Ktp, { nullable: true })
+  Ktp?: Ktp | null
+
+  @Field(() => history_pengisian, { nullable: true })
+  history_pengisian?: history_pengisian | null
 }

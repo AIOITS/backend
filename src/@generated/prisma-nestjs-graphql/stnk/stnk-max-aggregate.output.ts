@@ -67,5 +67,8 @@ export class StnkMaxAggregate {
   nomor_urut_pendaftaran?: string
 
   @Field(() => String, { nullable: true })
-  nomor_PKB?: string
+  nomor_pkb?: string
+
+  @Field(() => String, { nullable: true })
+  nik?: string
 }

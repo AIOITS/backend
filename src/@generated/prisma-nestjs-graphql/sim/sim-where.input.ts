@@ -3,8 +3,8 @@ import { InputType } from '@nestjs/graphql'
 import { StringFilter } from '../prisma/string-filter.input'
 import { IntFilter } from '../prisma/int-filter.input'
 import { DateTimeFilter } from '../prisma/date-time-filter.input'
-import { IntNullableFilter } from '../prisma/int-nullable-filter.input'
-import { UserNullableRelationFilter } from '../user/user-nullable-relation-filter.input'
+import { StringNullableFilter } from '../prisma/string-nullable-filter.input'
+import { KtpNullableRelationFilter } from '../ktp/ktp-nullable-relation-filter.input'
 
 @InputType()
 export class SimWhereInput {
@@ -59,9 +59,9 @@ export class SimWhereInput {
   @Field(() => DateTimeFilter, { nullable: true })
   berlaku_sampai?: DateTimeFilter
 
-  @Field(() => IntNullableFilter, { nullable: true })
-  userId?: IntNullableFilter
+  @Field(() => StringNullableFilter, { nullable: true })
+  nik?: StringNullableFilter
 
-  @Field(() => UserNullableRelationFilter, { nullable: true })
-  User?: UserNullableRelationFilter
+  @Field(() => KtpNullableRelationFilter, { nullable: true })
+  Ktp?: KtpNullableRelationFilter
 }

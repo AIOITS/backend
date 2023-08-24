@@ -1,5 +1,6 @@
 import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
+import { history_pengisianUncheckedCreateNestedOneWithoutStnkInput } from '../history-pengisian/history-pengisian-unchecked-create-nested-one-without-stnk.input'
 
 @InputType()
 export class StnkUncheckedCreateInput {
@@ -67,5 +68,13 @@ export class StnkUncheckedCreateInput {
   nomor_urut_pendaftaran!: string
 
   @Field(() => String, { nullable: false })
-  nomor_PKB!: string
+  nomor_pkb!: string
+
+  @Field(() => String, { nullable: true })
+  nik?: string
+
+  @Field(() => history_pengisianUncheckedCreateNestedOneWithoutStnkInput, {
+    nullable: true,
+  })
+  history_pengisian?: history_pengisianUncheckedCreateNestedOneWithoutStnkInput
 }

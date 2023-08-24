@@ -9,7 +9,4 @@ export class SimAvgOrderByAggregateInput {
 
   @Field(() => SortOrder, { nullable: true })
   rw?: keyof typeof SortOrder
-
-  @Field(() => SortOrder, { nullable: true })
-  userId?: keyof typeof SortOrder
 }

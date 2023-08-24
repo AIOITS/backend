@@ -8,7 +8,4 @@ export class SimSumAggregateInput {
 
   @Field(() => Boolean, { nullable: true })
   rw?: true
-
-  @Field(() => Boolean, { nullable: true })
-  userId?: true
 }

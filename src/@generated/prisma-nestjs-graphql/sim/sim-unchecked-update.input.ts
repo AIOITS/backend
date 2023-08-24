@@ -3,7 +3,7 @@ import { InputType } from '@nestjs/graphql'
 import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input'
 import { IntFieldUpdateOperationsInput } from '../prisma/int-field-update-operations.input'
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input'
-import { NullableIntFieldUpdateOperationsInput } from '../prisma/nullable-int-field-update-operations.input'
+import { NullableStringFieldUpdateOperationsInput } from '../prisma/nullable-string-field-update-operations.input'
 
 @InputType()
 export class SimUncheckedUpdateInput {
@@ -49,6 +49,6 @@ export class SimUncheckedUpdateInput {
   @Field(() => DateTimeFieldUpdateOperationsInput, { nullable: true })
   berlaku_sampai?: DateTimeFieldUpdateOperationsInput
 
-  @Field(() => NullableIntFieldUpdateOperationsInput, { nullable: true })
-  userId?: NullableIntFieldUpdateOperationsInput
+  @Field(() => NullableStringFieldUpdateOperationsInput, { nullable: true })
+  nik?: NullableStringFieldUpdateOperationsInput
 }

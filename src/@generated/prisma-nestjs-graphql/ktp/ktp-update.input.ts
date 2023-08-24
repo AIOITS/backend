@@ -6,6 +6,8 @@ import { IntFieldUpdateOperationsInput } from '../prisma/int-field-update-operat
 import { EnumGolonganDarahFieldUpdateOperationsInput } from '../prisma/enum-golongan-darah-field-update-operations.input'
 import { EnumAgamaFieldUpdateOperationsInput } from '../prisma/enum-agama-field-update-operations.input'
 import { EnumStatusPerkawinanFieldUpdateOperationsInput } from '../prisma/enum-status-perkawinan-field-update-operations.input'
+import { SimUpdateManyWithoutKtpNestedInput } from '../sim/sim-update-many-without-ktp-nested.input'
+import { StnkUpdateManyWithoutKtpNestedInput } from '../stnk/stnk-update-many-without-ktp-nested.input'
 import { UserUpdateOneWithoutKtpNestedInput } from '../user/user-update-one-without-ktp-nested.input'
 
 @InputType()
@@ -63,6 +65,12 @@ export class KtpUpdateInput {
   @Field(() => DateTimeFieldUpdateOperationsInput, { nullable: true })
   tanggal_terbit?: DateTimeFieldUpdateOperationsInput
 
+  @Field(() => SimUpdateManyWithoutKtpNestedInput, { nullable: true })
+  nomor_sim?: SimUpdateManyWithoutKtpNestedInput
+
+  @Field(() => StnkUpdateManyWithoutKtpNestedInput, { nullable: true })
+  nomor_stnk?: StnkUpdateManyWithoutKtpNestedInput
+
   @Field(() => UserUpdateOneWithoutKtpNestedInput, { nullable: true })
-  User?: UserUpdateOneWithoutKtpNestedInput
+  user?: UserUpdateOneWithoutKtpNestedInput
 }

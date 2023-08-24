@@ -5,7 +5,7 @@ import { SortOrder } from '../prisma/sort-order.enum'
 @InputType()
 export class PkbMinOrderByAggregateInput {
   @Field(() => SortOrder, { nullable: true })
-  nomor_PKB?: keyof typeof SortOrder
+  nomor_pkb?: keyof typeof SortOrder
 
   @Field(() => SortOrder, { nullable: true })
   status_pajak?: keyof typeof SortOrder

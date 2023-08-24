@@ -5,7 +5,7 @@ import { Int } from '@nestjs/graphql'
 @ObjectType()
 export class PkbCountAggregate {
   @Field(() => Int, { nullable: false })
-  nomor_PKB!: number
+  nomor_pkb!: number
 
   @Field(() => Int, { nullable: false })
   status_pajak!: number

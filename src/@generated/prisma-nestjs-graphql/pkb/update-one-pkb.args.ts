@@ -13,5 +13,5 @@ export class UpdateOnePkbArgs {
 
   @Field(() => PkbWhereUniqueInput, { nullable: false })
   @Type(() => PkbWhereUniqueInput)
-  where!: Prisma.AtLeast<PkbWhereUniqueInput, 'nomor_PKB'>
+  where!: Prisma.AtLeast<PkbWhereUniqueInput, 'nomor_pkb'>
 }

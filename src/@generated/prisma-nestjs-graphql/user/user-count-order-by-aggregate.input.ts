@@ -23,6 +23,12 @@ export class UserCountOrderByAggregateInput {
   password?: keyof typeof SortOrder
 
   @Field(() => SortOrder, { nullable: true })
+  kuota_subsidi?: keyof typeof SortOrder
+
+  @Field(() => SortOrder, { nullable: true })
+  saldo?: keyof typeof SortOrder
+
+  @Field(() => SortOrder, { nullable: true })
   role?: keyof typeof SortOrder
 
   @Field(() => SortOrder, { nullable: true })

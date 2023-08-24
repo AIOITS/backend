@@ -8,5 +8,11 @@ export class UserAvgAggregate {
   id?: number
 
   @Field(() => Float, { nullable: true })
+  kuota_subsidi?: number
+
+  @Field(() => Float, { nullable: true })
+  saldo?: number
+
+  @Field(() => Float, { nullable: true })
   role?: number
 }

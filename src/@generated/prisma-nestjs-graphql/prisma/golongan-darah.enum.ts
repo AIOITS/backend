@@ -1,10 +1,10 @@
 import { registerEnumType } from '@nestjs/graphql'
 
 export enum GolonganDarah {
-  A = 'A',
-  B = 'B',
-  AB = 'AB',
-  O = 'O',
+  a = 'a',
+  b = 'b',
+  ab = 'ab',
+  o = 'o',
 }
 
 registerEnumType(GolonganDarah, {

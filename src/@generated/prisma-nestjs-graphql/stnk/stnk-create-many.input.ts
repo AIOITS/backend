@@ -67,5 +67,8 @@ export class StnkCreateManyInput {
   nomor_urut_pendaftaran!: string
 
   @Field(() => String, { nullable: false })
-  nomor_PKB!: string
+  nomor_pkb!: string
+
+  @Field(() => String, { nullable: true })
+  nik?: string
 }

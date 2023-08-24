@@ -1,8 +1,8 @@
 import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
 import * as Validator from 'class-validator'
+import { Float } from '@nestjs/graphql'
 import { Int } from '@nestjs/graphql'
-import { SimCreateNestedManyWithoutUserInput } from '../sim/sim-create-nested-many-without-user.input'
 import { KtpCreateNestedOneWithoutUserInput } from '../ktp/ktp-create-nested-one-without-user.input'
 
 @InputType()
@@ -28,6 +28,12 @@ export class UserCreateInput {
   @Validator.IsNotEmpty()
   password!: string
 
+  @Field(() => Float, { nullable: true })
+  kuota_subsidi?: number
+
+  @Field(() => Int, { nullable: true })
+  saldo?: number
+
   @Field(() => Int, { nullable: true })
   role?: number
 
@@ -36,9 +42,6 @@ export class UserCreateInput {
 
   @Field(() => Date, { nullable: true })
   updatedAt?: Date | string
-
-  @Field(() => SimCreateNestedManyWithoutUserInput, { nullable: true })
-  nomor_sim?: SimCreateNestedManyWithoutUserInput
 
   @Field(() => KtpCreateNestedOneWithoutUserInput, { nullable: false })
   ktp!: KtpCreateNestedOneWithoutUserInput

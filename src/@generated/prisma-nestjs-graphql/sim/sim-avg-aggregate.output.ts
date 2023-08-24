@@ -9,7 +9,4 @@ export class SimAvgAggregate {
 
   @Field(() => Float, { nullable: true })
   rw?: number
-
-  @Field(() => Float, { nullable: true })
-  userId?: number
 }

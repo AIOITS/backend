@@ -10,7 +10,7 @@ import { PkbMaxAggregate } from './pkb-max-aggregate.output'
 @ObjectType()
 export class PkbGroupBy {
   @Field(() => String, { nullable: false })
-  nomor_PKB!: string
+  nomor_pkb!: string
 
   @Field(() => Boolean, { nullable: false })
   status_pajak!: boolean

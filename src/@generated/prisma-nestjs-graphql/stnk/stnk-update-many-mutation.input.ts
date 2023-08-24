@@ -67,7 +67,4 @@ export class StnkUpdateManyMutationInput {
 
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
   nomor_urut_pendaftaran?: StringFieldUpdateOperationsInput
-
-  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
-  nomor_PKB?: StringFieldUpdateOperationsInput
 }

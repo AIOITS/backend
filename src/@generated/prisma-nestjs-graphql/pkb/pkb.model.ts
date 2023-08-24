@@ -2,11 +2,12 @@ import { Field } from '@nestjs/graphql'
 import { ObjectType } from '@nestjs/graphql'
 import { ID } from '@nestjs/graphql'
 import { Int } from '@nestjs/graphql'
+import { Stnk } from '../stnk/stnk.model'
 
 @ObjectType()
 export class Pkb {
   @Field(() => ID, { nullable: false })
-  nomor_PKB!: string
+  nomor_pkb!: string
 
   @Field(() => Boolean, { nullable: false })
   status_pajak!: boolean
@@ -40,4 +41,7 @@ export class Pkb {
 
   @Field(() => Int, { nullable: false })
   administrasi_tnkb_sanksi!: number
+
+  @Field(() => Stnk, { nullable: true })
+  stnk?: Stnk | null
 }

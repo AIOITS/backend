@@ -68,5 +68,8 @@ export class StnkCountOrderByAggregateInput {
   nomor_urut_pendaftaran?: keyof typeof SortOrder
 
   @Field(() => SortOrder, { nullable: true })
-  nomor_PKB?: keyof typeof SortOrder
+  nomor_pkb?: keyof typeof SortOrder
+
+  @Field(() => SortOrder, { nullable: true })
+  nik?: keyof typeof SortOrder
 }

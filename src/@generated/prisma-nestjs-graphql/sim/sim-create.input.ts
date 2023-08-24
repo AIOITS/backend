@@ -1,7 +1,7 @@
 import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
 import { Int } from '@nestjs/graphql'
-import { UserCreateNestedOneWithoutNomor_simInput } from '../user/user-create-nested-one-without-nomor-sim.input'
+import { KtpCreateNestedOneWithoutNomor_simInput } from '../ktp/ktp-create-nested-one-without-nomor-sim.input'
 
 @InputType()
 export class SimCreateInput {
@@ -47,6 +47,6 @@ export class SimCreateInput {
   @Field(() => Date, { nullable: false })
   berlaku_sampai!: Date | string
 
-  @Field(() => UserCreateNestedOneWithoutNomor_simInput, { nullable: true })
-  User?: UserCreateNestedOneWithoutNomor_simInput
+  @Field(() => KtpCreateNestedOneWithoutNomor_simInput, { nullable: true })
+  Ktp?: KtpCreateNestedOneWithoutNomor_simInput
 }

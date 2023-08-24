@@ -3,11 +3,12 @@ import { InputType } from '@nestjs/graphql'
 import { PkbWhereInput } from './pkb-where.input'
 import { BoolFilter } from '../prisma/bool-filter.input'
 import { IntFilter } from '../prisma/int-filter.input'
+import { StnkNullableRelationFilter } from '../stnk/stnk-nullable-relation-filter.input'
 
 @InputType()
 export class PkbWhereUniqueInput {
   @Field(() => String, { nullable: true })
-  nomor_PKB?: string
+  nomor_pkb?: string
 
   @Field(() => [PkbWhereInput], { nullable: true })
   AND?: Array<PkbWhereInput>
@@ -50,4 +51,7 @@ export class PkbWhereUniqueInput {
 
   @Field(() => IntFilter, { nullable: true })
   administrasi_tnkb_sanksi?: IntFilter
+
+  @Field(() => StnkNullableRelationFilter, { nullable: true })
+  stnk?: StnkNullableRelationFilter
 }

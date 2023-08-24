@@ -9,7 +9,4 @@ export class SimSumAggregate {
 
   @Field(() => Int, { nullable: true })
   rw?: number
-
-  @Field(() => Int, { nullable: true })
-  userId?: number
 }

@@ -2,6 +2,7 @@ import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
 import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input'
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input'
+import { NullableStringFieldUpdateOperationsInput } from '../prisma/nullable-string-field-update-operations.input'
 
 @InputType()
 export class StnkUncheckedUpdateManyInput {
@@ -69,5 +70,8 @@ export class StnkUncheckedUpdateManyInput {
   nomor_urut_pendaftaran?: StringFieldUpdateOperationsInput
 
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
-  nomor_PKB?: StringFieldUpdateOperationsInput
+  nomor_pkb?: StringFieldUpdateOperationsInput
+
+  @Field(() => NullableStringFieldUpdateOperationsInput, { nullable: true })
+  nik?: NullableStringFieldUpdateOperationsInput
 }

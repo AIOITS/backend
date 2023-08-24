@@ -10,6 +10,6 @@ export class DeleteOneStnkArgs {
   @Type(() => StnkWhereUniqueInput)
   where!: Prisma.AtLeast<
     StnkWhereUniqueInput,
-    'nomor_stnk' | 'nomor_polisi' | 'nomor_PKB'
+    'nomor_stnk' | 'nomor_polisi' | 'nomor_pkb'
   >
 }

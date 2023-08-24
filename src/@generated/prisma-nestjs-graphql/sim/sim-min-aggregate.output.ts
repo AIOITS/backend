@@ -46,6 +46,6 @@ export class SimMinAggregate {
   @Field(() => Date, { nullable: true })
   berlaku_sampai?: Date | string
 
-  @Field(() => Int, { nullable: true })
-  userId?: number
+  @Field(() => String, { nullable: true })
+  nik?: string
 }

@@ -1,7 +1,7 @@
 import { registerEnumType } from '@nestjs/graphql'
 
 export enum PkbScalarFieldEnum {
-  nomor_PKB = 'nomor_PKB',
+  nomor_pkb = 'nomor_pkb',
   status_pajak = 'status_pajak',
   bbknb_pokok = 'bbknb_pokok',
   bbknb_sanksi = 'bbknb_sanksi',

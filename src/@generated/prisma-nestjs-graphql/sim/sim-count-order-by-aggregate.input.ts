@@ -47,5 +47,5 @@ export class SimCountOrderByAggregateInput {
   berlaku_sampai?: keyof typeof SortOrder
 
   @Field(() => SortOrder, { nullable: true })
-  userId?: keyof typeof SortOrder
+  nik?: keyof typeof SortOrder
 }

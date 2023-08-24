@@ -1,6 +1,7 @@
 import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
 import { SortOrder } from '../prisma/sort-order.enum'
+import { SortOrderInput } from '../prisma/sort-order.input'
 import { StnkCountOrderByAggregateInput } from './stnk-count-order-by-aggregate.input'
 import { StnkMaxOrderByAggregateInput } from './stnk-max-order-by-aggregate.input'
 import { StnkMinOrderByAggregateInput } from './stnk-min-order-by-aggregate.input'
@@ -71,7 +72,10 @@ export class StnkOrderByWithAggregationInput {
   nomor_urut_pendaftaran?: keyof typeof SortOrder
 
   @Field(() => SortOrder, { nullable: true })
-  nomor_PKB?: keyof typeof SortOrder
+  nomor_pkb?: keyof typeof SortOrder
+
+  @Field(() => SortOrderInput, { nullable: true })
+  nik?: SortOrderInput
 
   @Field(() => StnkCountOrderByAggregateInput, { nullable: true })
   _count?: StnkCountOrderByAggregateInput

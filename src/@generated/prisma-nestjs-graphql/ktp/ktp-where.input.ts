@@ -6,6 +6,8 @@ import { IntFilter } from '../prisma/int-filter.input'
 import { EnumGolonganDarahFilter } from '../prisma/enum-golongan-darah-filter.input'
 import { EnumAgamaFilter } from '../prisma/enum-agama-filter.input'
 import { EnumStatusPerkawinanFilter } from '../prisma/enum-status-perkawinan-filter.input'
+import { SimListRelationFilter } from '../sim/sim-list-relation-filter.input'
+import { StnkListRelationFilter } from '../stnk/stnk-list-relation-filter.input'
 import { UserNullableRelationFilter } from '../user/user-nullable-relation-filter.input'
 
 @InputType()
@@ -70,6 +72,12 @@ export class KtpWhereInput {
   @Field(() => DateTimeFilter, { nullable: true })
   tanggal_terbit?: DateTimeFilter
 
+  @Field(() => SimListRelationFilter, { nullable: true })
+  nomor_sim?: SimListRelationFilter
+
+  @Field(() => StnkListRelationFilter, { nullable: true })
+  nomor_stnk?: StnkListRelationFilter
+
   @Field(() => UserNullableRelationFilter, { nullable: true })
-  User?: UserNullableRelationFilter
+  user?: UserNullableRelationFilter
 }

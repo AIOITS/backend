@@ -2,9 +2,9 @@ import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
 import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input'
 import { NullableStringFieldUpdateOperationsInput } from '../prisma/nullable-string-field-update-operations.input'
+import { FloatFieldUpdateOperationsInput } from '../prisma/float-field-update-operations.input'
 import { IntFieldUpdateOperationsInput } from '../prisma/int-field-update-operations.input'
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input'
-import { SimUpdateManyWithoutUserNestedInput } from '../sim/sim-update-many-without-user-nested.input'
 
 @InputType()
 export class UserUpdateWithoutKtpInput {
@@ -20,6 +20,12 @@ export class UserUpdateWithoutKtpInput {
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
   password?: StringFieldUpdateOperationsInput
 
+  @Field(() => FloatFieldUpdateOperationsInput, { nullable: true })
+  kuota_subsidi?: FloatFieldUpdateOperationsInput
+
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  saldo?: IntFieldUpdateOperationsInput
+
   @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
   role?: IntFieldUpdateOperationsInput
 
@@ -28,7 +34,4 @@ export class UserUpdateWithoutKtpInput {
 
   @Field(() => DateTimeFieldUpdateOperationsInput, { nullable: true })
   updatedAt?: DateTimeFieldUpdateOperationsInput
-
-  @Field(() => SimUpdateManyWithoutUserNestedInput, { nullable: true })
-  nomor_sim?: SimUpdateManyWithoutUserNestedInput
 }

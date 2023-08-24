@@ -4,6 +4,8 @@ import { Int } from '@nestjs/graphql'
 import { GolonganDarah } from '../prisma/golongan-darah.enum'
 import { Agama } from '../prisma/agama.enum'
 import { StatusPerkawinan } from '../prisma/status-perkawinan.enum'
+import { SimCreateNestedManyWithoutKtpInput } from '../sim/sim-create-nested-many-without-ktp.input'
+import { StnkCreateNestedManyWithoutKtpInput } from '../stnk/stnk-create-nested-many-without-ktp.input'
 
 @InputType()
 export class KtpCreateWithoutUserInput {
@@ -57,4 +59,10 @@ export class KtpCreateWithoutUserInput {
 
   @Field(() => Date, { nullable: false })
   tanggal_terbit!: Date | string
+
+  @Field(() => SimCreateNestedManyWithoutKtpInput, { nullable: true })
+  nomor_sim?: SimCreateNestedManyWithoutKtpInput
+
+  @Field(() => StnkCreateNestedManyWithoutKtpInput, { nullable: true })
+  nomor_stnk?: StnkCreateNestedManyWithoutKtpInput
 }

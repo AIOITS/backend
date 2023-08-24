@@ -15,7 +15,7 @@ export enum SimScalarFieldEnum {
   tanggal_terbit = 'tanggal_terbit',
   penerbit = 'penerbit',
   berlaku_sampai = 'berlaku_sampai',
-  userId = 'userId',
+  nik = 'nik',
 }
 
 registerEnumType(SimScalarFieldEnum, {

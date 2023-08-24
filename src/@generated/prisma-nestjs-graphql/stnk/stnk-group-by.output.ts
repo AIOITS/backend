@@ -70,7 +70,10 @@ export class StnkGroupBy {
   nomor_urut_pendaftaran!: string
 
   @Field(() => String, { nullable: false })
-  nomor_PKB!: string
+  nomor_pkb!: string
+
+  @Field(() => String, { nullable: true })
+  nik?: string
 
   @Field(() => StnkCountAggregate, { nullable: true })
   _count?: StnkCountAggregate

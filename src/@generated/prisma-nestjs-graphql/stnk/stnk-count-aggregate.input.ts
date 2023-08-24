@@ -67,7 +67,10 @@ export class StnkCountAggregateInput {
   nomor_urut_pendaftaran?: true
 
   @Field(() => Boolean, { nullable: true })
-  nomor_PKB?: true
+  nomor_pkb?: true
+
+  @Field(() => Boolean, { nullable: true })
+  nik?: true
 
   @Field(() => Boolean, { nullable: true })
   _all?: true

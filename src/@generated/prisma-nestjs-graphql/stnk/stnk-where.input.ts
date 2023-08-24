@@ -2,6 +2,10 @@ import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
 import { StringFilter } from '../prisma/string-filter.input'
 import { DateTimeFilter } from '../prisma/date-time-filter.input'
+import { StringNullableFilter } from '../prisma/string-nullable-filter.input'
+import { PkbRelationFilter } from '../pkb/pkb-relation-filter.input'
+import { KtpNullableRelationFilter } from '../ktp/ktp-nullable-relation-filter.input'
+import { History_pengisianNullableRelationFilter } from '../prisma/history-pengisian-nullable-relation-filter.input'
 
 @InputType()
 export class StnkWhereInput {
@@ -78,5 +82,17 @@ export class StnkWhereInput {
   nomor_urut_pendaftaran?: StringFilter
 
   @Field(() => StringFilter, { nullable: true })
-  nomor_PKB?: StringFilter
+  nomor_pkb?: StringFilter
+
+  @Field(() => StringNullableFilter, { nullable: true })
+  nik?: StringNullableFilter
+
+  @Field(() => PkbRelationFilter, { nullable: true })
+  pkb?: PkbRelationFilter
+
+  @Field(() => KtpNullableRelationFilter, { nullable: true })
+  Ktp?: KtpNullableRelationFilter
+
+  @Field(() => History_pengisianNullableRelationFilter, { nullable: true })
+  history_pengisian?: History_pengisianNullableRelationFilter
 }

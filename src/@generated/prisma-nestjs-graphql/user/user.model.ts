@@ -1,10 +1,9 @@
 import { Field } from '@nestjs/graphql'
 import { ObjectType } from '@nestjs/graphql'
 import { ID } from '@nestjs/graphql'
+import { Float } from '@nestjs/graphql'
 import { Int } from '@nestjs/graphql'
-import { Sim } from '../sim/sim.model'
 import { Ktp } from '../ktp/ktp.model'
-import { UserCount } from './user-count.output'
 
 @ObjectType()
 export class User {
@@ -26,6 +25,12 @@ export class User {
   @Field(() => String, { nullable: false })
   password!: string
 
+  @Field(() => Float, { nullable: false, defaultValue: 0 })
+  kuota_subsidi!: number
+
+  @Field(() => Int, { nullable: false, defaultValue: 0 })
+  saldo!: number
+
   @Field(() => Int, { nullable: false, defaultValue: 2 })
   role!: number
 
@@ -35,12 +40,6 @@ export class User {
   @Field(() => Date, { nullable: false })
   updatedAt!: Date
 
-  @Field(() => [Sim], { nullable: true })
-  nomor_sim?: Array<Sim>
-
   @Field(() => Ktp, { nullable: false })
   ktp?: Ktp
-
-  @Field(() => UserCount, { nullable: false })
-  _count?: UserCount
 }

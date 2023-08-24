@@ -2,7 +2,7 @@ import { Field } from '@nestjs/graphql'
 import { ObjectType } from '@nestjs/graphql'
 import { ID } from '@nestjs/graphql'
 import { Int } from '@nestjs/graphql'
-import { User } from '../user/user.model'
+import { Ktp } from '../ktp/ktp.model'
 
 @ObjectType()
 export class Sim {
@@ -48,9 +48,9 @@ export class Sim {
   @Field(() => Date, { nullable: false })
   berlaku_sampai!: Date
 
-  @Field(() => Int, { nullable: true })
-  userId!: number | null
+  @Field(() => String, { nullable: true })
+  nik!: string | null
 
-  @Field(() => User, { nullable: true })
-  User?: User | null
+  @Field(() => Ktp, { nullable: true })
+  Ktp?: Ktp | null
 }
