@@ -13,6 +13,9 @@ export class SimOrderByWithRelationInput {
   nomor_sim?: keyof typeof SortOrder
 
   @Field(() => SortOrder, { nullable: true })
+  jenis_sim?: keyof typeof SortOrder
+
+  @Field(() => SortOrder, { nullable: true })
   nama?: keyof typeof SortOrder
 
   @Field(() => SortOrder, { nullable: true })

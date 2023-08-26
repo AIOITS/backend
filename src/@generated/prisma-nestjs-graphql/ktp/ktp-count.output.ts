@@ -5,8 +5,8 @@ import { Int } from '@nestjs/graphql'
 @ObjectType()
 export class KtpCount {
   @Field(() => Int, { nullable: false })
-  nomor_sim?: number
+  sim?: number
 
   @Field(() => Int, { nullable: false })
-  nomor_stnk?: number
+  stnk?: number
 }

@@ -3,6 +3,7 @@ import { registerEnumType } from '@nestjs/graphql'
 export enum SimScalarFieldEnum {
   uid = 'uid',
   nomor_sim = 'nomor_sim',
+  jenis_sim = 'jenis_sim',
   nama = 'nama',
   alamat = 'alamat',
   rt = 'rt',

@@ -3,7 +3,7 @@ import { InputType } from '@nestjs/graphql'
 import { SortOrder } from '../prisma/sort-order.enum'
 
 @InputType()
-export class ajuan_subsidiMinOrderByAggregateInput {
+export class AjuanSubsidiMinOrderByAggregateInput {
   @Field(() => SortOrder, { nullable: true })
   id?: keyof typeof SortOrder
 
@@ -24,4 +24,7 @@ export class ajuan_subsidiMinOrderByAggregateInput {
 
   @Field(() => SortOrder, { nullable: true })
   updatedAt?: keyof typeof SortOrder
+
+  @Field(() => SortOrder, { nullable: true })
+  userId?: keyof typeof SortOrder
 }

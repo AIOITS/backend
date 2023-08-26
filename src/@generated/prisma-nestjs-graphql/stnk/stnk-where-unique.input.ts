@@ -6,7 +6,7 @@ import { DateTimeFilter } from '../prisma/date-time-filter.input'
 import { StringNullableFilter } from '../prisma/string-nullable-filter.input'
 import { PkbRelationFilter } from '../pkb/pkb-relation-filter.input'
 import { KtpNullableRelationFilter } from '../ktp/ktp-nullable-relation-filter.input'
-import { History_pengisianNullableRelationFilter } from '../prisma/history-pengisian-nullable-relation-filter.input'
+import { HistoryPengisianListRelationFilter } from '../history-pengisian/history-pengisian-list-relation-filter.input'
 
 @InputType()
 export class StnkWhereUniqueInput {
@@ -94,6 +94,6 @@ export class StnkWhereUniqueInput {
   @Field(() => KtpNullableRelationFilter, { nullable: true })
   Ktp?: KtpNullableRelationFilter
 
-  @Field(() => History_pengisianNullableRelationFilter, { nullable: true })
-  history_pengisian?: History_pengisianNullableRelationFilter
+  @Field(() => HistoryPengisianListRelationFilter, { nullable: true })
+  history_pengisian?: HistoryPengisianListRelationFilter
 }

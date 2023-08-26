@@ -1,0 +1,171 @@
+const { PrismaClient } = require('@prisma/client');
+const prisma = new PrismaClient();
+
+async function main() {  
+  await prisma.historyPengisian.deleteMany()
+  await prisma.user.deleteMany()
+  await prisma.ktp.deleteMany()
+  await prisma.sim.deleteMany()
+  await prisma.stnk.deleteMany()
+  await prisma.pkb.deleteMany()
+  await prisma.ajuanSubsidi.deleteMany()
+  // User
+  await prisma.user.create({
+    data: {
+      name: "Testing Doe",
+      email: "testing@example.com",
+      phone: "081234567890",
+      password: "testing",
+      kuota_subsidi: 100.0,
+      saldo: 50000,
+      ktp: {
+        create: {
+          nik: "1234567890123456",
+          nama: "Testing Doe",
+          tempat_lahir: "Bandung",
+          tanggal_lahir: new Date("1992-08-10"),
+          alamat: "Jl. PQR No. 789",
+          rt: 5,
+          rw: 6,
+          kelurahan_desa: "Ciumbuleuit",
+          kecamatan: "Cidadap",
+          kabupaten_kota: "Bandung",
+          provinsi: "Jawa Barat",
+          golongan_darah: "ab",
+          agama: "kristen",
+          status_perkawinan: "belum_kawin",
+          pekerjaan: "Graphic Designer",
+          kewarganegaraan: "WNI",
+          tanggal_terbit: new Date("2012-12-05"),
+  
+          sim: {
+            create: [
+              {
+                uid: "49a65da8ab81af",
+                nomor_sim: "67045837028",
+                jenis_sim: "a_umum",
+                nama: "Testing Doe",
+                alamat: "Jl. PQR No. 101",
+                rt: 7,
+                rw: 8,
+                kelurahan_desa: "Titi Kuning",
+                kecamatan: "Medan Baru",
+                kabupaten: "Medan",
+                pekerjaan: "Accountant",
+                kabupaten_terbit: "Medan",
+                tanggal_terbit: new Date("2021-03-05"),
+                penerbit: "Polda Sumatera Utara",
+                berlaku_sampai: new Date("2026-03-05"),
+              },
+              {
+                uid: "cc02bb4aac2722",
+                nomor_sim: "670458370281",
+                jenis_sim: "b1",
+                nama: "Testing Doe",
+                alamat: "Jl. PQR No. 101",
+                rt: 7,
+                rw: 8,
+                kelurahan_desa: "Titi Kuning",
+                kecamatan: "Medan Baru",
+                kabupaten: "Medan",
+                pekerjaan: "Accountant",
+                kabupaten_terbit: "Medan",
+                tanggal_terbit: new Date("2021-03-05"),
+                penerbit: "Polda Sumatera Utara",
+                berlaku_sampai: new Date("2026-03-05"),
+              },
+            ]
+          },
+          stnk: {
+            create: [
+              {
+                nomor_stnk: '98762848',
+                nomor_polisi: 'AB123CD',
+                nama_pemilik: 'Testing Doe',
+                nomor_bpkb: '67890',
+                alamat: '123 Main St, City',
+                bahan_bakar: 'Gasoline',
+                berlaku: new Date('2023-12-31'),
+                merk: 'Toyota',
+                tipe: 'Sedan',
+                jenis: 'Private',
+                model: 'Camry',
+                tahun_pembuatan: '2022',
+                isi_silinder: '2000',
+                nomor_mesin: 'ABC123',
+                nomor_rangka: 'XYZ789',
+                warna: 'Silver',
+                warna_tnkb: 'Black',
+                tahun_registrasi: '2022',
+                nomor_registrasi: 'R-1234-AB',
+                kode_lokasi: 'CITY123',
+                nomor_urut_pendaftaran: '56789',
+                pkb: {
+                  create: {
+                    nomor_pkb: 'PKB123',
+                    status_pajak: true,
+                    bbknb_pokok: 100000,
+                    bbknb_sanksi: 50000,
+                    PKB_pokok: 120000,
+                    PKB_sanksi: 60000,
+                    swdkllj_pokok: 15000,
+                    swdkllj_sanksi: 7500,
+                    administrasi_stnk_pokok: 5000,
+                    administrasi_stnk_sanksi: 2500,
+                    administrasi_tnkb_pokok: 5000,
+                    administrasi_tnkb_sanksi: 2500,
+                  }
+                }
+              },
+            ]
+          },
+        },
+      },
+      ajuan_subsidi: {
+        create: [
+          {
+            jumlah: 500,
+            alasan: 'Low income',
+            dokumen_pendukung: ['document1.pdf', 'document2.pdf'],
+            tanggal_pengajuan: new Date('2023-08-25'),
+            status_pengajuan: 'ditolak',
+          },
+          {
+            jumlah: 300,
+            alasan: 'Financial hardship',
+            dokumen_pendukung: ['document3.pdf'],
+            tanggal_pengajuan: new Date('2023-08-26'),
+            status_pengajuan: 'diproses',
+          },
+        ]
+      }
+    },
+  });
+
+  await prisma.historyPengisian.createMany({
+    data: [
+      {
+        kategori_pengisian: 'subsidi',
+        nama_spbu: 'SPBU ABC',
+        jumlah: 50.0,
+        nomor_stnk: '98762848', // Connect to an existing STNK entry
+        user_id: (await prisma.user.findFirst({where: { email: 'testing@example.com'}})).id
+      },
+      {
+        kategori_pengisian: 'non_subsidi',
+        nama_spbu: 'SPBU XYZ',
+        jumlah: 30.0,
+        nomor_stnk: '98762848', // Connect to an existing STNK entry
+        user_id: (await prisma.user.findFirst({where: { email: 'testing@example.com'}})).id
+      }
+    ]
+  })
+}
+
+main()
+  .catch((error) => {
+    console.error(error);
+  })
+  .finally(async () => {
+    await prisma.$disconnect();
+  });

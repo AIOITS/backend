@@ -4,18 +4,20 @@ import { EnumKategoriPengisianFilter } from '../prisma/enum-kategori-pengisian-f
 import { StringFilter } from '../prisma/string-filter.input'
 import { FloatFilter } from '../prisma/float-filter.input'
 import { DateTimeFilter } from '../prisma/date-time-filter.input'
-import { StnkNullableRelationFilter } from '../stnk/stnk-nullable-relation-filter.input'
+import { IntFilter } from '../prisma/int-filter.input'
+import { UserNullableRelationFilter } from '../user/user-nullable-relation-filter.input'
+import { StnkRelationFilter } from '../stnk/stnk-relation-filter.input'
 
 @InputType()
-export class history_pengisianWhereInput {
-  @Field(() => [history_pengisianWhereInput], { nullable: true })
-  AND?: Array<history_pengisianWhereInput>
+export class HistoryPengisianWhereInput {
+  @Field(() => [HistoryPengisianWhereInput], { nullable: true })
+  AND?: Array<HistoryPengisianWhereInput>
 
-  @Field(() => [history_pengisianWhereInput], { nullable: true })
-  OR?: Array<history_pengisianWhereInput>
+  @Field(() => [HistoryPengisianWhereInput], { nullable: true })
+  OR?: Array<HistoryPengisianWhereInput>
 
-  @Field(() => [history_pengisianWhereInput], { nullable: true })
-  NOT?: Array<history_pengisianWhereInput>
+  @Field(() => [HistoryPengisianWhereInput], { nullable: true })
+  NOT?: Array<HistoryPengisianWhereInput>
 
   @Field(() => EnumKategoriPengisianFilter, { nullable: true })
   kategori_pengisian?: EnumKategoriPengisianFilter
@@ -32,9 +34,15 @@ export class history_pengisianWhereInput {
   @Field(() => DateTimeFilter, { nullable: true })
   updatedAt?: DateTimeFilter
 
+  @Field(() => IntFilter, { nullable: true })
+  user_id?: IntFilter
+
   @Field(() => StringFilter, { nullable: true })
   nomor_stnk?: StringFilter
 
-  @Field(() => StnkNullableRelationFilter, { nullable: true })
-  stnk?: StnkNullableRelationFilter
+  @Field(() => UserNullableRelationFilter, { nullable: true })
+  user?: UserNullableRelationFilter
+
+  @Field(() => StnkRelationFilter, { nullable: true })
+  stnk?: StnkRelationFilter
 }

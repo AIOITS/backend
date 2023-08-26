@@ -3,9 +3,10 @@ import { ObjectType } from '@nestjs/graphql'
 import { ID } from '@nestjs/graphql'
 import { Int } from '@nestjs/graphql'
 import { StatusPengajuanSubsidi } from '../prisma/status-pengajuan-subsidi.enum'
+import { User } from '../user/user.model'
 
 @ObjectType()
-export class ajuan_subsidi {
+export class AjuanSubsidi {
   @Field(() => ID, { nullable: false })
   id!: number
 
@@ -29,4 +30,10 @@ export class ajuan_subsidi {
 
   @Field(() => Date, { nullable: false })
   updatedAt!: Date
+
+  @Field(() => Int, { nullable: true })
+  userId!: number | null
+
+  @Field(() => User, { nullable: true })
+  user?: User | null
 }

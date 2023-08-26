@@ -1,17 +1,17 @@
 import { Test, TestingModule } from '@nestjs/testing'
-import { GraphqlResolver } from './graphql.resolver'
+import { UserResolver } from './graphql.resolver'
 import { PrismaService } from 'src/prisma/prisma.service'
 import { UserService } from 'src/user/user.service'
 
 describe('GraphqlResolver', () => {
-  let resolver: GraphqlResolver
+  let resolver: UserResolver
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [PrismaService, GraphqlResolver, UserService],
+      providers: [PrismaService, UserResolver, UserService],
     }).compile()
 
-    resolver = module.get<GraphqlResolver>(GraphqlResolver)
+    resolver = module.get<UserResolver>(UserResolver)
   })
 
   it('should be defined', () => {

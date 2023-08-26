@@ -3,7 +3,8 @@ import { ObjectType } from '@nestjs/graphql'
 import { ID } from '@nestjs/graphql'
 import { Pkb } from '../pkb/pkb.model'
 import { Ktp } from '../ktp/ktp.model'
-import { history_pengisian } from '../history-pengisian/history-pengisian.model'
+import { HistoryPengisian } from '../history-pengisian/history-pengisian.model'
+import { StnkCount } from './stnk-count.output'
 
 @ObjectType()
 export class Stnk {
@@ -82,6 +83,9 @@ export class Stnk {
   @Field(() => Ktp, { nullable: true })
   Ktp?: Ktp | null
 
-  @Field(() => history_pengisian, { nullable: true })
-  history_pengisian?: history_pengisian | null
+  @Field(() => [HistoryPengisian], { nullable: true })
+  history_pengisian?: Array<HistoryPengisian>
+
+  @Field(() => StnkCount, { nullable: false })
+  _count?: StnkCount
 }

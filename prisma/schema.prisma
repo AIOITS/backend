@@ -37,8 +37,10 @@ model User {
   /// @Validator.IsNotEmpty()
   password String
 
-  kuota_subsidi Float @default(0.0)
-  saldo         Int   @default(0)
+  kuota_subsidi     Float              @default(0.0)
+  saldo             Int                @default(0)
+  history_pengisian HistoryPengisian[]
+  ajuan_subsidi     AjuanSubsidi[]
 
   role      Int      @default(2)
   createdAt DateTime @default(now())
@@ -46,19 +48,21 @@ model User {
   ktp       Ktp      @relation(fields: [nik], references: [nik])
 }
 
-model history_pengisian {
+model HistoryPengisian {
   kategori_pengisian KategoriPengisian @id @unique
 
   nama_spbu String
   jumlah    Float
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  user_id   Int
+  user      User?    @relation(fields: [user_id], references: [id])
 
-  nomor_stnk String @unique
-  stnk       Stnk?  @relation(fields: [nomor_stnk], references: [nomor_stnk])
+  nomor_stnk String
+  stnk       Stnk   @relation(fields: [nomor_stnk], references: [nomor_stnk])
 }
 
-model ajuan_subsidi {
+model AjuanSubsidi {
   id                Int                    @id @default(autoincrement())
   jumlah            Int
   alasan            String                 @db.Text
@@ -67,6 +71,8 @@ model ajuan_subsidi {
   status_pengajuan  StatusPengajuanSubsidi
   createdAt         DateTime               @default(now())
   updatedAt         DateTime               @updatedAt
+  user              User?                  @relation(fields: [userId], references: [id])
+  userId            Int?
 }
 
 model Ktp {
@@ -88,8 +94,8 @@ model Ktp {
   kewarganegaraan   String
   tanggal_terbit    DateTime         @db.Date
 
-  nomor_sim  Sim[]
-  nomor_stnk Stnk[]
+  sim  Sim[]
+  stnk Stnk[]
   user       User?
 
   @@map("KTP")
@@ -98,6 +104,7 @@ model Ktp {
 model Sim {
   uid              String   @unique
   nomor_sim        String   @id @unique
+  jenis_sim        JenisSim
   nama             String
   alamat           String
   rt               Int      @db.SmallInt
@@ -146,7 +153,7 @@ model Stnk {
   nik String?
   Ktp Ktp?    @relation(fields: [nik], references: [nik])
 
-  history_pengisian history_pengisian?
+  history_pengisian HistoryPengisian[]
 
   @@map("STNK")
 }
@@ -186,6 +193,21 @@ enum GolonganDarah {
   b
   ab
   o
+}
+
+enum JenisSim {
+  a
+  a_umum
+  b1
+  b2
+  b2_umum
+  c
+  d
+  e
+  f
+  g
+  i
+  x
 }
 
 enum Agama {

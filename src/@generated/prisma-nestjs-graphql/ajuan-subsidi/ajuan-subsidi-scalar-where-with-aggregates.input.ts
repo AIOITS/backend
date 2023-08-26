@@ -5,23 +5,18 @@ import { StringWithAggregatesFilter } from '../prisma/string-with-aggregates-fil
 import { StringNullableListFilter } from '../prisma/string-nullable-list-filter.input'
 import { DateTimeWithAggregatesFilter } from '../prisma/date-time-with-aggregates-filter.input'
 import { EnumStatusPengajuanSubsidiWithAggregatesFilter } from '../prisma/enum-status-pengajuan-subsidi-with-aggregates-filter.input'
+import { IntNullableWithAggregatesFilter } from '../prisma/int-nullable-with-aggregates-filter.input'
 
 @InputType()
-export class ajuan_subsidiScalarWhereWithAggregatesInput {
-  @Field(() => [ajuan_subsidiScalarWhereWithAggregatesInput], {
-    nullable: true,
-  })
-  AND?: Array<ajuan_subsidiScalarWhereWithAggregatesInput>
+export class AjuanSubsidiScalarWhereWithAggregatesInput {
+  @Field(() => [AjuanSubsidiScalarWhereWithAggregatesInput], { nullable: true })
+  AND?: Array<AjuanSubsidiScalarWhereWithAggregatesInput>
 
-  @Field(() => [ajuan_subsidiScalarWhereWithAggregatesInput], {
-    nullable: true,
-  })
-  OR?: Array<ajuan_subsidiScalarWhereWithAggregatesInput>
+  @Field(() => [AjuanSubsidiScalarWhereWithAggregatesInput], { nullable: true })
+  OR?: Array<AjuanSubsidiScalarWhereWithAggregatesInput>
 
-  @Field(() => [ajuan_subsidiScalarWhereWithAggregatesInput], {
-    nullable: true,
-  })
-  NOT?: Array<ajuan_subsidiScalarWhereWithAggregatesInput>
+  @Field(() => [AjuanSubsidiScalarWhereWithAggregatesInput], { nullable: true })
+  NOT?: Array<AjuanSubsidiScalarWhereWithAggregatesInput>
 
   @Field(() => IntWithAggregatesFilter, { nullable: true })
   id?: IntWithAggregatesFilter
@@ -48,4 +43,7 @@ export class ajuan_subsidiScalarWhereWithAggregatesInput {
 
   @Field(() => DateTimeWithAggregatesFilter, { nullable: true })
   updatedAt?: DateTimeWithAggregatesFilter
+
+  @Field(() => IntNullableWithAggregatesFilter, { nullable: true })
+  userId?: IntNullableWithAggregatesFilter
 }

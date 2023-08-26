@@ -5,5 +5,8 @@ import { Int } from '@nestjs/graphql'
 @ObjectType()
 export class UserCount {
   @Field(() => Int, { nullable: false })
-  nomor_sim?: number
+  history_pengisian?: number
+
+  @Field(() => Int, { nullable: false })
+  ajuan_subsidi?: number
 }

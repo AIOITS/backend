@@ -3,8 +3,8 @@ import { InputType } from '@nestjs/graphql'
 import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input'
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input'
 import { PkbUpdateOneRequiredWithoutStnkNestedInput } from '../pkb/pkb-update-one-required-without-stnk-nested.input'
-import { KtpUpdateOneWithoutNomor_stnkNestedInput } from '../ktp/ktp-update-one-without-nomor-stnk-nested.input'
-import { history_pengisianUpdateOneWithoutStnkNestedInput } from '../history-pengisian/history-pengisian-update-one-without-stnk-nested.input'
+import { KtpUpdateOneWithoutStnkNestedInput } from '../ktp/ktp-update-one-without-stnk-nested.input'
+import { HistoryPengisianUpdateManyWithoutStnkNestedInput } from '../history-pengisian/history-pengisian-update-many-without-stnk-nested.input'
 
 @InputType()
 export class StnkUpdateInput {
@@ -74,11 +74,11 @@ export class StnkUpdateInput {
   @Field(() => PkbUpdateOneRequiredWithoutStnkNestedInput, { nullable: true })
   pkb?: PkbUpdateOneRequiredWithoutStnkNestedInput
 
-  @Field(() => KtpUpdateOneWithoutNomor_stnkNestedInput, { nullable: true })
-  Ktp?: KtpUpdateOneWithoutNomor_stnkNestedInput
+  @Field(() => KtpUpdateOneWithoutStnkNestedInput, { nullable: true })
+  Ktp?: KtpUpdateOneWithoutStnkNestedInput
 
-  @Field(() => history_pengisianUpdateOneWithoutStnkNestedInput, {
+  @Field(() => HistoryPengisianUpdateManyWithoutStnkNestedInput, {
     nullable: true,
   })
-  history_pengisian?: history_pengisianUpdateOneWithoutStnkNestedInput
+  history_pengisian?: HistoryPengisianUpdateManyWithoutStnkNestedInput
 }

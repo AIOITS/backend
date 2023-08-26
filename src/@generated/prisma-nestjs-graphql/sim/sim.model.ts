@@ -1,6 +1,7 @@
 import { Field } from '@nestjs/graphql'
 import { ObjectType } from '@nestjs/graphql'
 import { ID } from '@nestjs/graphql'
+import { JenisSim } from '../prisma/jenis-sim.enum'
 import { Int } from '@nestjs/graphql'
 import { Ktp } from '../ktp/ktp.model'
 
@@ -11,6 +12,9 @@ export class Sim {
 
   @Field(() => ID, { nullable: false })
   nomor_sim!: string
+
+  @Field(() => JenisSim, { nullable: false })
+  jenis_sim!: keyof typeof JenisSim
 
   @Field(() => String, { nullable: false })
   nama!: string

@@ -4,9 +4,10 @@ import { EnumKategoriPengisianFieldUpdateOperationsInput } from '../prisma/enum-
 import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input'
 import { FloatFieldUpdateOperationsInput } from '../prisma/float-field-update-operations.input'
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input'
+import { IntFieldUpdateOperationsInput } from '../prisma/int-field-update-operations.input'
 
 @InputType()
-export class history_pengisianUncheckedUpdateInput {
+export class HistoryPengisianUncheckedUpdateInput {
   @Field(() => EnumKategoriPengisianFieldUpdateOperationsInput, {
     nullable: true,
   })
@@ -23,6 +24,9 @@ export class history_pengisianUncheckedUpdateInput {
 
   @Field(() => DateTimeFieldUpdateOperationsInput, { nullable: true })
   updatedAt?: DateTimeFieldUpdateOperationsInput
+
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  user_id?: IntFieldUpdateOperationsInput
 
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
   nomor_stnk?: StringFieldUpdateOperationsInput

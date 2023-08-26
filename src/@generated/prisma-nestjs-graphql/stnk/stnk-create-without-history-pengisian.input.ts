@@ -1,7 +1,7 @@
 import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
 import { PkbCreateNestedOneWithoutStnkInput } from '../pkb/pkb-create-nested-one-without-stnk.input'
-import { KtpCreateNestedOneWithoutNomor_stnkInput } from '../ktp/ktp-create-nested-one-without-nomor-stnk.input'
+import { KtpCreateNestedOneWithoutStnkInput } from '../ktp/ktp-create-nested-one-without-stnk.input'
 
 @InputType()
 export class StnkCreateWithoutHistory_pengisianInput {
@@ -71,6 +71,6 @@ export class StnkCreateWithoutHistory_pengisianInput {
   @Field(() => PkbCreateNestedOneWithoutStnkInput, { nullable: false })
   pkb!: PkbCreateNestedOneWithoutStnkInput
 
-  @Field(() => KtpCreateNestedOneWithoutNomor_stnkInput, { nullable: true })
-  Ktp?: KtpCreateNestedOneWithoutNomor_stnkInput
+  @Field(() => KtpCreateNestedOneWithoutStnkInput, { nullable: true })
+  Ktp?: KtpCreateNestedOneWithoutStnkInput
 }

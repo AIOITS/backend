@@ -73,10 +73,10 @@ export class KtpWhereInput {
   tanggal_terbit?: DateTimeFilter
 
   @Field(() => SimListRelationFilter, { nullable: true })
-  nomor_sim?: SimListRelationFilter
+  sim?: SimListRelationFilter
 
   @Field(() => StnkListRelationFilter, { nullable: true })
-  nomor_stnk?: StnkListRelationFilter
+  stnk?: StnkListRelationFilter
 
   @Field(() => UserNullableRelationFilter, { nullable: true })
   user?: UserNullableRelationFilter

@@ -1,16 +1,80 @@
-import { Resolver, Query, Args } from '@nestjs/graphql'
+import { Resolver, Query, Args, Parent, ResolveField } from '@nestjs/graphql'
 import { UserService } from 'src/user/user.service'
 import { User } from 'src/@generated/prisma-nestjs-graphql/user/user.model'
 import { KtpService } from 'src/ktp/ktp.service'
+import { SimService } from 'src/sim/sim.service'
 import { FindManyUserArgs } from 'src/@generated/prisma-nestjs-graphql/user/find-many-user.args'
 import { Ktp } from 'src/@generated/prisma-nestjs-graphql/ktp/ktp.model'
+import { Sim } from 'src/@generated/prisma-nestjs-graphql/sim/sim.model'
 import { FindManyKtpArgs } from 'src/@generated/prisma-nestjs-graphql/ktp/find-many-ktp.args'
+import { StnkService } from 'src/stnk/stnk.service'
+import { Stnk } from 'src/@generated/prisma-nestjs-graphql/stnk/stnk.model'
+import { PkbService } from 'src/pkb/pkb.service'
+import { FindManyStnkArgs } from 'src/@generated/prisma-nestjs-graphql/stnk/find-many-stnk.args'
+import { Pkb } from 'src/@generated/prisma-nestjs-graphql/pkb/pkb.model'
+import { HistoryPengisian } from 'src/@generated/prisma-nestjs-graphql/history-pengisian/history-pengisian.model'
+import { HistoryPengisianService } from 'src/history-pengisian/history-pengisian.service'
+import { AjuanSubsidiService } from 'src/ajuan-subsidi/ajuan-subsidi.service'
+import { AjuanSubsidi } from 'src/@generated/prisma-nestjs-graphql/ajuan-subsidi/ajuan-subsidi.model'
+import { FindManyHistoryPengisianArgs } from 'src/@generated/prisma-nestjs-graphql/history-pengisian/find-many-history-pengisian.args'
+import { FindManyAjuanSubsidiArgs } from 'src/@generated/prisma-nestjs-graphql/ajuan-subsidi/find-many-ajuan-subsidi.args'
+import { FindManySimArgs } from 'src/@generated/prisma-nestjs-graphql/sim/find-many-sim.args'
+import { FindManyPkbArgs } from 'src/@generated/prisma-nestjs-graphql/pkb/find-many-pkb.args'
 
 @Resolver()
 export class GraphqlResolver {
   constructor(
     private readonly userService: UserService,
     private readonly ktpService: KtpService,
+    private readonly historyPengisianService: HistoryPengisianService,
+    private readonly ajuanSubsidiService: AjuanSubsidiService,
+    private readonly simService: SimService,
+    private readonly stnkService: StnkService,
+    private readonly pkbService: PkbService,
+  ) {}
+
+  @Query(() => [User], { name: 'user' })
+  async getAllUser(@Args() query: FindManyUserArgs) {
+    return await this.userService.findAll(query)
+  }
+
+  @Query(() => [Ktp], { name: 'ktp' })
+  async getAllKtp(@Args() query: FindManyKtpArgs) {
+    return await this.ktpService.findAll(query)
+  }
+
+  @Query(() => [HistoryPengisian], { name: 'history_pengisian' })
+  async getAllHistoryPengisian(@Args() query: FindManyHistoryPengisianArgs) {
+    return await this.historyPengisianService.findAll(query)
+  }
+
+  @Query(() => [AjuanSubsidi], { name: 'ajuan_subsidi' })
+  async getAllAjuanSubsidi(@Args() query: FindManyAjuanSubsidiArgs) {
+    return await this.ajuanSubsidiService.findAll(query)
+  }
+
+  @Query(() => [Sim], { name: 'sim' })
+  async getAllSim(@Args() query: FindManySimArgs) {
+    return await this.simService.findAll(query)
+  }
+
+  @Query(() => [Stnk], { name: 'stnk' })
+  async getAllStnk(@Args() query: FindManyStnkArgs) {
+    return await this.stnkService.findAll(query)
+  }
+
+  @Query(() => [Pkb], { name: 'pkb' })
+  async getAllPkb(@Args() query: FindManyPkbArgs) {
+    return await this.pkbService.findAll(query)
+  }
+}
+@Resolver(() => User)
+export class UserResolver {
+  constructor(
+    private readonly userService: UserService,
+    private readonly ktpService: KtpService,
+    private readonly historyPengisianService: HistoryPengisianService,
+    private readonly ajuanSubsidiService: AjuanSubsidiService,
   ) {}
 
   @Query(() => [User], { name: 'user' })
@@ -18,8 +82,74 @@ export class GraphqlResolver {
     return await this.userService.findAll(query)
   }
 
+  @ResolveField('ktp', () => Ktp)
+  async getUserKtp(@Parent() user: User) {
+    return await this.ktpService.findOne({ where: { user: { id: user.id } } })
+  }
+
+  @ResolveField('history_pengisian', () => [HistoryPengisian])
+  async getHistoryPengisian(@Parent() user: User) {
+    return await this.historyPengisianService.findAll({
+      where: { user: { id: user.id } },
+    })
+  }
+
+  @ResolveField('ajuan_subsidi', () => [AjuanSubsidi])
+  async getAjuanSubsidi(@Parent() user: User) {
+    return await this.ajuanSubsidiService.findAll({
+      where: { user: { id: user.id } },
+    })
+  }
+}
+
+@Resolver(() => Ktp)
+export class KtpResolver {
+  constructor(
+    private readonly ktpService: KtpService,
+    private readonly simService: SimService,
+    private readonly stnkService: StnkService,
+  ) {}
+
   @Query(() => [Ktp], { name: 'ktp' })
   async getAllKtp(@Args() query: FindManyKtpArgs) {
     return await this.ktpService.findAll(query)
+  }
+
+  @ResolveField('sim', () => Sim)
+  async getSim(@Parent() Ktp: Ktp) {
+    return await this.simService.findOne({ where: { Ktp: { nik: Ktp.nik } } })
+  }
+
+  @ResolveField('stnk', () => [Stnk])
+  async getStnk(@Parent() Ktp: Ktp) {
+    return await this.stnkService.findAll({ where: { Ktp: { nik: Ktp.nik } } })
+  }
+}
+
+@Resolver(() => Stnk)
+export class StnkResolver {
+  constructor(
+    private readonly stnkService: StnkService,
+    private readonly pkbService: PkbService,
+    private readonly historyPengisianService: HistoryPengisianService,
+  ) {}
+
+  @Query(() => [Stnk], { name: 'stnk' })
+  async getAllStnk(@Args() query: FindManyStnkArgs) {
+    return await this.stnkService.findAll(query)
+  }
+
+  @ResolveField('pkb', () => Pkb)
+  async getPkb(@Parent() stnk: Stnk) {
+    return await this.pkbService.findOne({
+      where: { stnk: { nomor_stnk: stnk.nomor_stnk } },
+    })
+  }
+
+  @ResolveField('history_pengisian', () => [HistoryPengisian])
+  async getHistoryPengisian(@Parent() stnk: Stnk) {
+    return await this.historyPengisianService.findAll({
+      where: { stnk: { nomor_stnk: stnk.nomor_stnk } },
+    })
   }
 }

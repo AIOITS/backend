@@ -59,10 +59,10 @@ export class KtpOrderByWithRelationInput {
   tanggal_terbit?: keyof typeof SortOrder
 
   @Field(() => SimOrderByRelationAggregateInput, { nullable: true })
-  nomor_sim?: SimOrderByRelationAggregateInput
+  sim?: SimOrderByRelationAggregateInput
 
   @Field(() => StnkOrderByRelationAggregateInput, { nullable: true })
-  nomor_stnk?: StnkOrderByRelationAggregateInput
+  stnk?: StnkOrderByRelationAggregateInput
 
   @Field(() => UserOrderByWithRelationInput, { nullable: true })
   user?: UserOrderByWithRelationInput

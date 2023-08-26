@@ -62,10 +62,10 @@ export class KtpUncheckedCreateInput {
   tanggal_terbit!: Date | string
 
   @Field(() => SimUncheckedCreateNestedManyWithoutKtpInput, { nullable: true })
-  nomor_sim?: SimUncheckedCreateNestedManyWithoutKtpInput
+  sim?: SimUncheckedCreateNestedManyWithoutKtpInput
 
   @Field(() => StnkUncheckedCreateNestedManyWithoutKtpInput, { nullable: true })
-  nomor_stnk?: StnkUncheckedCreateNestedManyWithoutKtpInput
+  stnk?: StnkUncheckedCreateNestedManyWithoutKtpInput
 
   @Field(() => UserUncheckedCreateNestedOneWithoutKtpInput, { nullable: true })
   user?: UserUncheckedCreateNestedOneWithoutKtpInput

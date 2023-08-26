@@ -10,6 +10,9 @@ export class SimMaxAggregateInput {
   nomor_sim?: true
 
   @Field(() => Boolean, { nullable: true })
+  jenis_sim?: true
+
+  @Field(() => Boolean, { nullable: true })
   nama?: true
 
   @Field(() => Boolean, { nullable: true })

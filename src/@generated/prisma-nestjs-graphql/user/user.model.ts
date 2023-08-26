@@ -3,7 +3,10 @@ import { ObjectType } from '@nestjs/graphql'
 import { ID } from '@nestjs/graphql'
 import { Float } from '@nestjs/graphql'
 import { Int } from '@nestjs/graphql'
+import { HistoryPengisian } from '../history-pengisian/history-pengisian.model'
+import { AjuanSubsidi } from '../ajuan-subsidi/ajuan-subsidi.model'
 import { Ktp } from '../ktp/ktp.model'
+import { UserCount } from './user-count.output'
 
 @ObjectType()
 export class User {
@@ -40,6 +43,15 @@ export class User {
   @Field(() => Date, { nullable: false })
   updatedAt!: Date
 
+  @Field(() => [HistoryPengisian], { nullable: true })
+  history_pengisian?: Array<HistoryPengisian>
+
+  @Field(() => [AjuanSubsidi], { nullable: true })
+  ajuan_subsidi?: Array<AjuanSubsidi>
+
   @Field(() => Ktp, { nullable: false })
   ktp?: Ktp
+
+  @Field(() => UserCount, { nullable: false })
+  _count?: UserCount
 }

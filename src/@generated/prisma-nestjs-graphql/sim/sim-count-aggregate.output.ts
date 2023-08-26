@@ -11,6 +11,9 @@ export class SimCountAggregate {
   nomor_sim!: number
 
   @Field(() => Int, { nullable: false })
+  jenis_sim!: number
+
+  @Field(() => Int, { nullable: false })
   nama!: number
 
   @Field(() => Int, { nullable: false })

@@ -3,6 +3,8 @@ import { InputType } from '@nestjs/graphql'
 import * as Validator from 'class-validator'
 import { Float } from '@nestjs/graphql'
 import { Int } from '@nestjs/graphql'
+import { HistoryPengisianCreateNestedManyWithoutUserInput } from '../history-pengisian/history-pengisian-create-nested-many-without-user.input'
+import { AjuanSubsidiCreateNestedManyWithoutUserInput } from '../ajuan-subsidi/ajuan-subsidi-create-nested-many-without-user.input'
 
 @InputType()
 export class UserCreateWithoutKtpInput {
@@ -41,4 +43,12 @@ export class UserCreateWithoutKtpInput {
 
   @Field(() => Date, { nullable: true })
   updatedAt?: Date | string
+
+  @Field(() => HistoryPengisianCreateNestedManyWithoutUserInput, {
+    nullable: true,
+  })
+  history_pengisian?: HistoryPengisianCreateNestedManyWithoutUserInput
+
+  @Field(() => AjuanSubsidiCreateNestedManyWithoutUserInput, { nullable: true })
+  ajuan_subsidi?: AjuanSubsidiCreateNestedManyWithoutUserInput
 }

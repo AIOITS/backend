@@ -1,6 +1,7 @@
 import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
 import { SimWhereInput } from './sim-where.input'
+import { EnumJenisSimFilter } from '../prisma/enum-jenis-sim-filter.input'
 import { StringFilter } from '../prisma/string-filter.input'
 import { IntFilter } from '../prisma/int-filter.input'
 import { DateTimeFilter } from '../prisma/date-time-filter.input'
@@ -23,6 +24,9 @@ export class SimWhereUniqueInput {
 
   @Field(() => [SimWhereInput], { nullable: true })
   NOT?: Array<SimWhereInput>
+
+  @Field(() => EnumJenisSimFilter, { nullable: true })
+  jenis_sim?: EnumJenisSimFilter
 
   @Field(() => StringFilter, { nullable: true })
   nama?: StringFilter

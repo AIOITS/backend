@@ -2,9 +2,10 @@ import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
 import { KategoriPengisian } from '../prisma/kategori-pengisian.enum'
 import { Float } from '@nestjs/graphql'
+import { Int } from '@nestjs/graphql'
 
 @InputType()
-export class history_pengisianUncheckedCreateWithoutStnkInput {
+export class HistoryPengisianUncheckedCreateWithoutStnkInput {
   @Field(() => KategoriPengisian, { nullable: false })
   kategori_pengisian!: keyof typeof KategoriPengisian
 
@@ -19,4 +20,7 @@ export class history_pengisianUncheckedCreateWithoutStnkInput {
 
   @Field(() => Date, { nullable: true })
   updatedAt?: Date | string
+
+  @Field(() => Int, { nullable: false })
+  user_id!: number
 }

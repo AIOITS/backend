@@ -7,6 +7,8 @@ import { StringFilter } from '../prisma/string-filter.input'
 import { FloatFilter } from '../prisma/float-filter.input'
 import { IntFilter } from '../prisma/int-filter.input'
 import { DateTimeFilter } from '../prisma/date-time-filter.input'
+import { HistoryPengisianListRelationFilter } from '../history-pengisian/history-pengisian-list-relation-filter.input'
+import { AjuanSubsidiListRelationFilter } from '../ajuan-subsidi/ajuan-subsidi-list-relation-filter.input'
 import { KtpRelationFilter } from '../ktp/ktp-relation-filter.input'
 
 @InputType()
@@ -61,6 +63,12 @@ export class UserWhereUniqueInput {
 
   @Field(() => DateTimeFilter, { nullable: true })
   updatedAt?: DateTimeFilter
+
+  @Field(() => HistoryPengisianListRelationFilter, { nullable: true })
+  history_pengisian?: HistoryPengisianListRelationFilter
+
+  @Field(() => AjuanSubsidiListRelationFilter, { nullable: true })
+  ajuan_subsidi?: AjuanSubsidiListRelationFilter
 
   @Field(() => KtpRelationFilter, { nullable: true })
   ktp?: KtpRelationFilter

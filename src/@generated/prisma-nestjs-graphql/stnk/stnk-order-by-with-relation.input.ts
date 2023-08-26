@@ -4,7 +4,7 @@ import { SortOrder } from '../prisma/sort-order.enum'
 import { SortOrderInput } from '../prisma/sort-order.input'
 import { PkbOrderByWithRelationInput } from '../pkb/pkb-order-by-with-relation.input'
 import { KtpOrderByWithRelationInput } from '../ktp/ktp-order-by-with-relation.input'
-import { history_pengisianOrderByWithRelationInput } from '../history-pengisian/history-pengisian-order-by-with-relation.input'
+import { HistoryPengisianOrderByRelationAggregateInput } from '../history-pengisian/history-pengisian-order-by-relation-aggregate.input'
 
 @InputType()
 export class StnkOrderByWithRelationInput {
@@ -83,6 +83,8 @@ export class StnkOrderByWithRelationInput {
   @Field(() => KtpOrderByWithRelationInput, { nullable: true })
   Ktp?: KtpOrderByWithRelationInput
 
-  @Field(() => history_pengisianOrderByWithRelationInput, { nullable: true })
-  history_pengisian?: history_pengisianOrderByWithRelationInput
+  @Field(() => HistoryPengisianOrderByRelationAggregateInput, {
+    nullable: true,
+  })
+  history_pengisian?: HistoryPengisianOrderByRelationAggregateInput
 }

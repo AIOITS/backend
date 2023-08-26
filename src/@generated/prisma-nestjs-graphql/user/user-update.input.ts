@@ -5,6 +5,8 @@ import { NullableStringFieldUpdateOperationsInput } from '../prisma/nullable-str
 import { FloatFieldUpdateOperationsInput } from '../prisma/float-field-update-operations.input'
 import { IntFieldUpdateOperationsInput } from '../prisma/int-field-update-operations.input'
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input'
+import { HistoryPengisianUpdateManyWithoutUserNestedInput } from '../history-pengisian/history-pengisian-update-many-without-user-nested.input'
+import { AjuanSubsidiUpdateManyWithoutUserNestedInput } from '../ajuan-subsidi/ajuan-subsidi-update-many-without-user-nested.input'
 import { KtpUpdateOneRequiredWithoutUserNestedInput } from '../ktp/ktp-update-one-required-without-user-nested.input'
 
 @InputType()
@@ -35,6 +37,14 @@ export class UserUpdateInput {
 
   @Field(() => DateTimeFieldUpdateOperationsInput, { nullable: true })
   updatedAt?: DateTimeFieldUpdateOperationsInput
+
+  @Field(() => HistoryPengisianUpdateManyWithoutUserNestedInput, {
+    nullable: true,
+  })
+  history_pengisian?: HistoryPengisianUpdateManyWithoutUserNestedInput
+
+  @Field(() => AjuanSubsidiUpdateManyWithoutUserNestedInput, { nullable: true })
+  ajuan_subsidi?: AjuanSubsidiUpdateManyWithoutUserNestedInput
 
   @Field(() => KtpUpdateOneRequiredWithoutUserNestedInput, { nullable: true })
   ktp?: KtpUpdateOneRequiredWithoutUserNestedInput

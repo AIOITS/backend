@@ -6,7 +6,7 @@ import { FloatFieldUpdateOperationsInput } from '../prisma/float-field-update-op
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input'
 
 @InputType()
-export class history_pengisianUpdateManyMutationInput {
+export class HistoryPengisianUpdateManyMutationInput {
   @Field(() => EnumKategoriPengisianFieldUpdateOperationsInput, {
     nullable: true,
   })

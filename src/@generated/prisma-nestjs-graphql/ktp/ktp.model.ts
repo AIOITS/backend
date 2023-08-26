@@ -64,10 +64,10 @@ export class Ktp {
   tanggal_terbit!: Date
 
   @Field(() => [Sim], { nullable: true })
-  nomor_sim?: Array<Sim>
+  sim?: Array<Sim>
 
   @Field(() => [Stnk], { nullable: true })
-  nomor_stnk?: Array<Stnk>
+  stnk?: Array<Stnk>
 
   @Field(() => User, { nullable: true })
   user?: User | null

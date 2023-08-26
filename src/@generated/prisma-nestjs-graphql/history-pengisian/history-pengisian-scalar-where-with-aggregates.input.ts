@@ -4,23 +4,24 @@ import { EnumKategoriPengisianWithAggregatesFilter } from '../prisma/enum-katego
 import { StringWithAggregatesFilter } from '../prisma/string-with-aggregates-filter.input'
 import { FloatWithAggregatesFilter } from '../prisma/float-with-aggregates-filter.input'
 import { DateTimeWithAggregatesFilter } from '../prisma/date-time-with-aggregates-filter.input'
+import { IntWithAggregatesFilter } from '../prisma/int-with-aggregates-filter.input'
 
 @InputType()
-export class history_pengisianScalarWhereWithAggregatesInput {
-  @Field(() => [history_pengisianScalarWhereWithAggregatesInput], {
+export class HistoryPengisianScalarWhereWithAggregatesInput {
+  @Field(() => [HistoryPengisianScalarWhereWithAggregatesInput], {
     nullable: true,
   })
-  AND?: Array<history_pengisianScalarWhereWithAggregatesInput>
+  AND?: Array<HistoryPengisianScalarWhereWithAggregatesInput>
 
-  @Field(() => [history_pengisianScalarWhereWithAggregatesInput], {
+  @Field(() => [HistoryPengisianScalarWhereWithAggregatesInput], {
     nullable: true,
   })
-  OR?: Array<history_pengisianScalarWhereWithAggregatesInput>
+  OR?: Array<HistoryPengisianScalarWhereWithAggregatesInput>
 
-  @Field(() => [history_pengisianScalarWhereWithAggregatesInput], {
+  @Field(() => [HistoryPengisianScalarWhereWithAggregatesInput], {
     nullable: true,
   })
-  NOT?: Array<history_pengisianScalarWhereWithAggregatesInput>
+  NOT?: Array<HistoryPengisianScalarWhereWithAggregatesInput>
 
   @Field(() => EnumKategoriPengisianWithAggregatesFilter, { nullable: true })
   kategori_pengisian?: EnumKategoriPengisianWithAggregatesFilter
@@ -36,6 +37,9 @@ export class history_pengisianScalarWhereWithAggregatesInput {
 
   @Field(() => DateTimeWithAggregatesFilter, { nullable: true })
   updatedAt?: DateTimeWithAggregatesFilter
+
+  @Field(() => IntWithAggregatesFilter, { nullable: true })
+  user_id?: IntWithAggregatesFilter
 
   @Field(() => StringWithAggregatesFilter, { nullable: true })
   nomor_stnk?: StringWithAggregatesFilter

@@ -1,7 +1,8 @@
 import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
+import { JenisSim } from '../prisma/jenis-sim.enum'
 import { Int } from '@nestjs/graphql'
-import { KtpCreateNestedOneWithoutNomor_simInput } from '../ktp/ktp-create-nested-one-without-nomor-sim.input'
+import { KtpCreateNestedOneWithoutSimInput } from '../ktp/ktp-create-nested-one-without-sim.input'
 
 @InputType()
 export class SimCreateInput {
@@ -10,6 +11,9 @@ export class SimCreateInput {
 
   @Field(() => String, { nullable: false })
   nomor_sim!: string
+
+  @Field(() => JenisSim, { nullable: false })
+  jenis_sim!: keyof typeof JenisSim
 
   @Field(() => String, { nullable: false })
   nama!: string
@@ -47,6 +51,6 @@ export class SimCreateInput {
   @Field(() => Date, { nullable: false })
   berlaku_sampai!: Date | string
 
-  @Field(() => KtpCreateNestedOneWithoutNomor_simInput, { nullable: true })
-  Ktp?: KtpCreateNestedOneWithoutNomor_simInput
+  @Field(() => KtpCreateNestedOneWithoutSimInput, { nullable: true })
+  Ktp?: KtpCreateNestedOneWithoutSimInput
 }

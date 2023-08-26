@@ -1,6 +1,7 @@
 import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
 import { StringWithAggregatesFilter } from '../prisma/string-with-aggregates-filter.input'
+import { EnumJenisSimWithAggregatesFilter } from '../prisma/enum-jenis-sim-with-aggregates-filter.input'
 import { IntWithAggregatesFilter } from '../prisma/int-with-aggregates-filter.input'
 import { DateTimeWithAggregatesFilter } from '../prisma/date-time-with-aggregates-filter.input'
 import { StringNullableWithAggregatesFilter } from '../prisma/string-nullable-with-aggregates-filter.input'
@@ -21,6 +22,9 @@ export class SimScalarWhereWithAggregatesInput {
 
   @Field(() => StringWithAggregatesFilter, { nullable: true })
   nomor_sim?: StringWithAggregatesFilter
+
+  @Field(() => EnumJenisSimWithAggregatesFilter, { nullable: true })
+  jenis_sim?: EnumJenisSimWithAggregatesFilter
 
   @Field(() => StringWithAggregatesFilter, { nullable: true })
   nama?: StringWithAggregatesFilter

@@ -2,7 +2,7 @@ import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
 
 @InputType()
-export class ajuan_subsidiUpdatedokumen_pendukungInput {
+export class AjuanSubsidiUpdatedokumen_pendukungInput {
   @Field(() => [String], { nullable: true })
   set?: Array<string>
 

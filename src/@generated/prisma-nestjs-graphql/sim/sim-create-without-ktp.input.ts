@@ -1,5 +1,6 @@
 import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
+import { JenisSim } from '../prisma/jenis-sim.enum'
 import { Int } from '@nestjs/graphql'
 
 @InputType()
@@ -9,6 +10,9 @@ export class SimCreateWithoutKtpInput {
 
   @Field(() => String, { nullable: false })
   nomor_sim!: string
+
+  @Field(() => JenisSim, { nullable: false })
+  jenis_sim!: keyof typeof JenisSim
 
   @Field(() => String, { nullable: false })
   nama!: string

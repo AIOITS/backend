@@ -10,6 +10,11 @@ import { GraphqlModule } from './graphql/graphql.module'
 import { AuthModule } from './auth/auth.module'
 import { ConfigModule } from '@nestjs/config'
 import { KtpModule } from './ktp/ktp.module'
+import { SimModule } from './sim/sim.module'
+import { AjuanSubsidiModule } from './ajuan-subsidi/ajuan-subsidi.module'
+import { StnkModule } from './stnk/stnk.module'
+import { PkbModule } from './pkb/pkb.module'
+import { HistoryPengisianModule } from './history-pengisian/history-pengisian.module'
 
 @Module({
   imports: [
@@ -24,6 +29,11 @@ import { KtpModule } from './ktp/ktp.module'
     GraphqlModule,
     AuthModule,
     KtpModule,
+    SimModule,
+    AjuanSubsidiModule,
+    StnkModule,
+    PkbModule,
+    HistoryPengisianModule,
   ],
   controllers: [AppController],
   providers: [AppService, PrismaService],

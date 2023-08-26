@@ -3,7 +3,7 @@ import { InputType } from '@nestjs/graphql'
 import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input'
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input'
 import { PkbUpdateOneRequiredWithoutStnkNestedInput } from '../pkb/pkb-update-one-required-without-stnk-nested.input'
-import { history_pengisianUpdateOneWithoutStnkNestedInput } from '../history-pengisian/history-pengisian-update-one-without-stnk-nested.input'
+import { HistoryPengisianUpdateManyWithoutStnkNestedInput } from '../history-pengisian/history-pengisian-update-many-without-stnk-nested.input'
 
 @InputType()
 export class StnkUpdateWithoutKtpInput {
@@ -73,8 +73,8 @@ export class StnkUpdateWithoutKtpInput {
   @Field(() => PkbUpdateOneRequiredWithoutStnkNestedInput, { nullable: true })
   pkb?: PkbUpdateOneRequiredWithoutStnkNestedInput
 
-  @Field(() => history_pengisianUpdateOneWithoutStnkNestedInput, {
+  @Field(() => HistoryPengisianUpdateManyWithoutStnkNestedInput, {
     nullable: true,
   })
-  history_pengisian?: history_pengisianUpdateOneWithoutStnkNestedInput
+  history_pengisian?: HistoryPengisianUpdateManyWithoutStnkNestedInput
 }

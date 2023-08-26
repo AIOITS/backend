@@ -2,10 +2,12 @@ import { Field } from '@nestjs/graphql'
 import { ObjectType } from '@nestjs/graphql'
 import { KategoriPengisian } from '../prisma/kategori-pengisian.enum'
 import { Float } from '@nestjs/graphql'
+import { Int } from '@nestjs/graphql'
+import { User } from '../user/user.model'
 import { Stnk } from '../stnk/stnk.model'
 
 @ObjectType()
-export class history_pengisian {
+export class HistoryPengisian {
   @Field(() => KategoriPengisian, { nullable: false })
   kategori_pengisian!: keyof typeof KategoriPengisian
 
@@ -21,9 +23,15 @@ export class history_pengisian {
   @Field(() => Date, { nullable: false })
   updatedAt!: Date
 
+  @Field(() => Int, { nullable: false })
+  user_id!: number
+
   @Field(() => String, { nullable: false })
   nomor_stnk!: string
 
-  @Field(() => Stnk, { nullable: true })
-  stnk?: Stnk | null
+  @Field(() => User, { nullable: true })
+  user?: User | null
+
+  @Field(() => Stnk, { nullable: false })
+  stnk?: Stnk
 }

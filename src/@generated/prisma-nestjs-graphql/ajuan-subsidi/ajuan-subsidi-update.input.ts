@@ -2,20 +2,21 @@ import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
 import { IntFieldUpdateOperationsInput } from '../prisma/int-field-update-operations.input'
 import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input'
-import { ajuan_subsidiUpdatedokumen_pendukungInput } from './ajuan-subsidi-updatedokumen-pendukung.input'
+import { AjuanSubsidiUpdatedokumen_pendukungInput } from './ajuan-subsidi-updatedokumen-pendukung.input'
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input'
 import { EnumStatusPengajuanSubsidiFieldUpdateOperationsInput } from '../prisma/enum-status-pengajuan-subsidi-field-update-operations.input'
+import { UserUpdateOneWithoutAjuan_subsidiNestedInput } from '../user/user-update-one-without-ajuan-subsidi-nested.input'
 
 @InputType()
-export class ajuan_subsidiUpdateInput {
+export class AjuanSubsidiUpdateInput {
   @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
   jumlah?: IntFieldUpdateOperationsInput
 
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
   alasan?: StringFieldUpdateOperationsInput
 
-  @Field(() => ajuan_subsidiUpdatedokumen_pendukungInput, { nullable: true })
-  dokumen_pendukung?: ajuan_subsidiUpdatedokumen_pendukungInput
+  @Field(() => AjuanSubsidiUpdatedokumen_pendukungInput, { nullable: true })
+  dokumen_pendukung?: AjuanSubsidiUpdatedokumen_pendukungInput
 
   @Field(() => DateTimeFieldUpdateOperationsInput, { nullable: true })
   tanggal_pengajuan?: DateTimeFieldUpdateOperationsInput
@@ -30,4 +31,7 @@ export class ajuan_subsidiUpdateInput {
 
   @Field(() => DateTimeFieldUpdateOperationsInput, { nullable: true })
   updatedAt?: DateTimeFieldUpdateOperationsInput
+
+  @Field(() => UserUpdateOneWithoutAjuan_subsidiNestedInput, { nullable: true })
+  user?: UserUpdateOneWithoutAjuan_subsidiNestedInput
 }

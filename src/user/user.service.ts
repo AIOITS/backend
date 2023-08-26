@@ -63,12 +63,4 @@ export class UserService {
     if (await argon2.verify(user.password, password)) return user
     return null
   }
-
-  // update(id: number, updateUserDto: UpdateUserDto) {
-  //   return `This action updates a #${id} user`;
-  // }
-
-  // remove(id: number) {
-  //   return `This action removes a #${id} user`;
-  // }
 }

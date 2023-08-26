@@ -61,8 +61,8 @@ export class KtpCreateWithoutUserInput {
   tanggal_terbit!: Date | string
 
   @Field(() => SimCreateNestedManyWithoutKtpInput, { nullable: true })
-  nomor_sim?: SimCreateNestedManyWithoutKtpInput
+  sim?: SimCreateNestedManyWithoutKtpInput
 
   @Field(() => StnkCreateNestedManyWithoutKtpInput, { nullable: true })
-  nomor_stnk?: StnkCreateNestedManyWithoutKtpInput
+  stnk?: StnkCreateNestedManyWithoutKtpInput
 }

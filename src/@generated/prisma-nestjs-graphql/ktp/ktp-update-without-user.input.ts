@@ -65,8 +65,8 @@ export class KtpUpdateWithoutUserInput {
   tanggal_terbit?: DateTimeFieldUpdateOperationsInput
 
   @Field(() => SimUpdateManyWithoutKtpNestedInput, { nullable: true })
-  nomor_sim?: SimUpdateManyWithoutKtpNestedInput
+  sim?: SimUpdateManyWithoutKtpNestedInput
 
   @Field(() => StnkUpdateManyWithoutKtpNestedInput, { nullable: true })
-  nomor_stnk?: StnkUpdateManyWithoutKtpNestedInput
+  stnk?: StnkUpdateManyWithoutKtpNestedInput
 }

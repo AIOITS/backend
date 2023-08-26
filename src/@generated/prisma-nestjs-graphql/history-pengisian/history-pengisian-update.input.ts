@@ -4,10 +4,11 @@ import { EnumKategoriPengisianFieldUpdateOperationsInput } from '../prisma/enum-
 import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input'
 import { FloatFieldUpdateOperationsInput } from '../prisma/float-field-update-operations.input'
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input'
-import { StnkUpdateOneWithoutHistory_pengisianNestedInput } from '../stnk/stnk-update-one-without-history-pengisian-nested.input'
+import { UserUpdateOneWithoutHistory_pengisianNestedInput } from '../user/user-update-one-without-history-pengisian-nested.input'
+import { StnkUpdateOneRequiredWithoutHistory_pengisianNestedInput } from '../stnk/stnk-update-one-required-without-history-pengisian-nested.input'
 
 @InputType()
-export class history_pengisianUpdateInput {
+export class HistoryPengisianUpdateInput {
   @Field(() => EnumKategoriPengisianFieldUpdateOperationsInput, {
     nullable: true,
   })
@@ -25,8 +26,13 @@ export class history_pengisianUpdateInput {
   @Field(() => DateTimeFieldUpdateOperationsInput, { nullable: true })
   updatedAt?: DateTimeFieldUpdateOperationsInput
 
-  @Field(() => StnkUpdateOneWithoutHistory_pengisianNestedInput, {
+  @Field(() => UserUpdateOneWithoutHistory_pengisianNestedInput, {
     nullable: true,
   })
-  stnk?: StnkUpdateOneWithoutHistory_pengisianNestedInput
+  user?: UserUpdateOneWithoutHistory_pengisianNestedInput
+
+  @Field(() => StnkUpdateOneRequiredWithoutHistory_pengisianNestedInput, {
+    nullable: true,
+  })
+  stnk?: StnkUpdateOneRequiredWithoutHistory_pengisianNestedInput
 }

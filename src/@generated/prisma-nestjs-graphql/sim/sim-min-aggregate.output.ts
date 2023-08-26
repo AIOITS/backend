@@ -1,5 +1,6 @@
 import { Field } from '@nestjs/graphql'
 import { ObjectType } from '@nestjs/graphql'
+import { JenisSim } from '../prisma/jenis-sim.enum'
 import { Int } from '@nestjs/graphql'
 
 @ObjectType()
@@ -9,6 +10,9 @@ export class SimMinAggregate {
 
   @Field(() => String, { nullable: true })
   nomor_sim?: string
+
+  @Field(() => JenisSim, { nullable: true })
+  jenis_sim?: keyof typeof JenisSim
 
   @Field(() => String, { nullable: true })
   nama?: string
