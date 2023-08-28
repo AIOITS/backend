@@ -100,7 +100,7 @@ export class KtpCreateInput {
 
   @ApiProperty({
     enum: GolonganDarah,
-    example: 'A',
+    example: 'a',
   })
   @IsNotEmpty()
   @IsEnum(GolonganDarah)
@@ -108,7 +108,7 @@ export class KtpCreateInput {
 
   @ApiProperty({
     enum: Agama,
-    example: 'Islam',
+    example: 'islam',
   })
   @IsNotEmpty()
   @IsEnum(Agama)
@@ -116,7 +116,7 @@ export class KtpCreateInput {
 
   @ApiProperty({
     enum: StatusPerkawinan,
-    example: 'Belum_Kawin',
+    example: 'belum_kawin',
   })
   @IsNotEmpty()
   @IsEnum(StatusPerkawinan)
