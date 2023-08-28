@@ -1,5 +1,10 @@
 import { Module } from '@nestjs/common'
-import { GraphqlResolver, KtpResolver, StnkResolver, UserResolver } from './graphql.resolver'
+import {
+  GraphqlResolver,
+  KtpResolver,
+  StnkResolver,
+  UserResolver,
+} from './graphql.resolver'
 import { UserService } from 'src/user/user.service'
 import { PrismaService } from 'src/prisma/prisma.service'
 import { KtpService } from 'src/ktp/ktp.service'
