@@ -22,7 +22,7 @@ export class UserService {
 
     if (email && await this._prismaService.user.count({ where: { email } }))
       throw new HttpException('Email already registered', 400)
-    if (await this._prismaService.user.count({ where: { phone } }))
+    if (phone && await this._prismaService.user.count({ where: { phone } }))
       throw new HttpException('Phone already registered', 400)
 
     const prismaUserCreateInput = new PrismaUserCreatedInput()
