@@ -115,9 +115,9 @@ export class KtpResolver {
     return await this.ktpService.findAll(query)
   }
 
-  @ResolveField('sim', () => Sim)
+  @ResolveField('sim', () => [Sim])
   async getSim(@Parent() Ktp: Ktp) {
-    return await this.simService.findOne({ where: { Ktp: { nik: Ktp.nik } } })
+    return await this.simService.findAll({ where: { Ktp: { nik: Ktp.nik } } })
   }
 
   @ResolveField('stnk', () => [Stnk])
