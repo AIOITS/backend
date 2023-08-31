@@ -33,6 +33,7 @@ async function main() {
           provinsi: "Jawa Barat",
           golongan_darah: "ab",
           agama: "kristen",
+          jenis_kelamin: "lainnya",
           status_perkawinan: "belum_kawin",
           pekerjaan: "Graphic Designer",
           kewarganegaraan: "WNI",

@@ -9,7 +9,7 @@
     "prisma:seed": "node prisma/seed.js",
     "build": "nest build",
     "prisma:generate": "prisma generate",
-    "prisma:migrate": "prisma migrate dev --name init --create-only",
+    "prisma:migrate": "prisma migrate dev --name init",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "start:dev": "nest start --watch",

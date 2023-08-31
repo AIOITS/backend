@@ -37,6 +37,9 @@ export class KtpMaxAggregateInput {
   provinsi?: true
 
   @Field(() => Boolean, { nullable: true })
+  jenis_kelamin?: true
+
+  @Field(() => Boolean, { nullable: true })
   golongan_darah?: true
 
   @Field(() => Boolean, { nullable: true })

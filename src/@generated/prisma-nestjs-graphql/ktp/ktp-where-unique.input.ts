@@ -4,6 +4,7 @@ import { KtpWhereInput } from './ktp-where.input'
 import { StringFilter } from '../prisma/string-filter.input'
 import { DateTimeFilter } from '../prisma/date-time-filter.input'
 import { IntFilter } from '../prisma/int-filter.input'
+import { EnumJenisKelaminFilter } from '../prisma/enum-jenis-kelamin-filter.input'
 import { EnumGolonganDarahFilter } from '../prisma/enum-golongan-darah-filter.input'
 import { EnumAgamaFilter } from '../prisma/enum-agama-filter.input'
 import { EnumStatusPerkawinanFilter } from '../prisma/enum-status-perkawinan-filter.input'
@@ -54,6 +55,9 @@ export class KtpWhereUniqueInput {
 
   @Field(() => StringFilter, { nullable: true })
   provinsi?: StringFilter
+
+  @Field(() => EnumJenisKelaminFilter, { nullable: true })
+  jenis_kelamin?: EnumJenisKelaminFilter
 
   @Field(() => EnumGolonganDarahFilter, { nullable: true })
   golongan_darah?: EnumGolonganDarahFilter

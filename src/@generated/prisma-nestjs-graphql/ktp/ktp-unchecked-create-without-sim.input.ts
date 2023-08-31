@@ -1,6 +1,7 @@
 import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
 import { Int } from '@nestjs/graphql'
+import { JenisKelamin } from '../prisma/jenis-kelamin.enum'
 import { GolonganDarah } from '../prisma/golongan-darah.enum'
 import { Agama } from '../prisma/agama.enum'
 import { StatusPerkawinan } from '../prisma/status-perkawinan.enum'
@@ -41,6 +42,9 @@ export class KtpUncheckedCreateWithoutSimInput {
 
   @Field(() => String, { nullable: false })
   provinsi!: string
+
+  @Field(() => JenisKelamin, { nullable: false })
+  jenis_kelamin!: keyof typeof JenisKelamin
 
   @Field(() => GolonganDarah, { nullable: false })
   golongan_darah!: keyof typeof GolonganDarah

@@ -38,6 +38,9 @@ export class KtpCountAggregate {
   provinsi!: number
 
   @Field(() => Int, { nullable: false })
+  jenis_kelamin!: number
+
+  @Field(() => Int, { nullable: false })
   golongan_darah!: number
 
   @Field(() => Int, { nullable: false })

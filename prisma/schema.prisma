@@ -87,6 +87,7 @@ model Ktp {
   kecamatan         String
   kabupaten_kota    String
   provinsi          String
+  jenis_kelamin     JenisKelamin
   golongan_darah    GolonganDarah
   agama             Agama
   status_perkawinan StatusPerkawinan
@@ -96,7 +97,7 @@ model Ktp {
 
   sim  Sim[]
   stnk Stnk[]
-  user       User?
+  user User?
 
   @@map("KTP")
 }
@@ -225,4 +226,10 @@ enum StatusPerkawinan {
   kawin
   cerai_hidup
   cerai_mati
+}
+
+enum JenisKelamin {
+  laki_laki
+  perempuan
+  lainnya
 }

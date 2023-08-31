@@ -38,6 +38,9 @@ export class KtpCountOrderByAggregateInput {
   provinsi?: keyof typeof SortOrder
 
   @Field(() => SortOrder, { nullable: true })
+  jenis_kelamin?: keyof typeof SortOrder
+
+  @Field(() => SortOrder, { nullable: true })
   golongan_darah?: keyof typeof SortOrder
 
   @Field(() => SortOrder, { nullable: true })

@@ -1,6 +1,7 @@
 import { Field } from '@nestjs/graphql'
 import { ObjectType } from '@nestjs/graphql'
 import { Int } from '@nestjs/graphql'
+import { JenisKelamin } from '../prisma/jenis-kelamin.enum'
 import { GolonganDarah } from '../prisma/golongan-darah.enum'
 import { Agama } from '../prisma/agama.enum'
 import { StatusPerkawinan } from '../prisma/status-perkawinan.enum'
@@ -39,6 +40,9 @@ export class KtpMinAggregate {
 
   @Field(() => String, { nullable: true })
   provinsi?: string
+
+  @Field(() => JenisKelamin, { nullable: true })
+  jenis_kelamin?: keyof typeof JenisKelamin
 
   @Field(() => GolonganDarah, { nullable: true })
   golongan_darah?: keyof typeof GolonganDarah

@@ -3,6 +3,7 @@ import { InputType } from '@nestjs/graphql'
 import { StringWithAggregatesFilter } from '../prisma/string-with-aggregates-filter.input'
 import { DateTimeWithAggregatesFilter } from '../prisma/date-time-with-aggregates-filter.input'
 import { IntWithAggregatesFilter } from '../prisma/int-with-aggregates-filter.input'
+import { EnumJenisKelaminWithAggregatesFilter } from '../prisma/enum-jenis-kelamin-with-aggregates-filter.input'
 import { EnumGolonganDarahWithAggregatesFilter } from '../prisma/enum-golongan-darah-with-aggregates-filter.input'
 import { EnumAgamaWithAggregatesFilter } from '../prisma/enum-agama-with-aggregates-filter.input'
 import { EnumStatusPerkawinanWithAggregatesFilter } from '../prisma/enum-status-perkawinan-with-aggregates-filter.input'
@@ -50,6 +51,9 @@ export class KtpScalarWhereWithAggregatesInput {
 
   @Field(() => StringWithAggregatesFilter, { nullable: true })
   provinsi?: StringWithAggregatesFilter
+
+  @Field(() => EnumJenisKelaminWithAggregatesFilter, { nullable: true })
+  jenis_kelamin?: EnumJenisKelaminWithAggregatesFilter
 
   @Field(() => EnumGolonganDarahWithAggregatesFilter, { nullable: true })
   golongan_darah?: EnumGolonganDarahWithAggregatesFilter

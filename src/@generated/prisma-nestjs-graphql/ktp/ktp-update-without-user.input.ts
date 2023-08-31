@@ -3,6 +3,7 @@ import { InputType } from '@nestjs/graphql'
 import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input'
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input'
 import { IntFieldUpdateOperationsInput } from '../prisma/int-field-update-operations.input'
+import { EnumJenisKelaminFieldUpdateOperationsInput } from '../prisma/enum-jenis-kelamin-field-update-operations.input'
 import { EnumGolonganDarahFieldUpdateOperationsInput } from '../prisma/enum-golongan-darah-field-update-operations.input'
 import { EnumAgamaFieldUpdateOperationsInput } from '../prisma/enum-agama-field-update-operations.input'
 import { EnumStatusPerkawinanFieldUpdateOperationsInput } from '../prisma/enum-status-perkawinan-field-update-operations.input'
@@ -43,6 +44,9 @@ export class KtpUpdateWithoutUserInput {
 
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
   provinsi?: StringFieldUpdateOperationsInput
+
+  @Field(() => EnumJenisKelaminFieldUpdateOperationsInput, { nullable: true })
+  jenis_kelamin?: EnumJenisKelaminFieldUpdateOperationsInput
 
   @Field(() => EnumGolonganDarahFieldUpdateOperationsInput, { nullable: true })
   golongan_darah?: EnumGolonganDarahFieldUpdateOperationsInput

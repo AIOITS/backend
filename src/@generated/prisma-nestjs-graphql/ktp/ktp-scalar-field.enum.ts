@@ -12,6 +12,7 @@ export enum KtpScalarFieldEnum {
   kecamatan = 'kecamatan',
   kabupaten_kota = 'kabupaten_kota',
   provinsi = 'provinsi',
+  jenis_kelamin = 'jenis_kelamin',
   golongan_darah = 'golongan_darah',
   agama = 'agama',
   status_perkawinan = 'status_perkawinan',
