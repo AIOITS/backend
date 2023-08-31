@@ -1,6 +1,6 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common'
 import { Ktp, Prisma } from '@prisma/client'
-import { KtpCreateInput } from 'src/ktp/dto/ktp-create.input'
+import { KtpCreateInput } from 'src/@generated/prisma-nestjs-graphql/ktp/ktp-create.input'
 import { KtpUpdateInput } from 'src/ktp/dto/ktp-update.input'
 import { PrismaService } from 'src/prisma/prisma.service'
 

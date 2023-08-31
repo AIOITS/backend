@@ -75,16 +75,23 @@ type Ktp {
   kecamatan: String!
   kabupaten_kota: String!
   provinsi: String!
+  jenis_kelamin: JenisKelamin!
   golongan_darah: GolonganDarah!
   agama: Agama!
   status_perkawinan: StatusPerkawinan!
   pekerjaan: String!
   kewarganegaraan: String!
   tanggal_terbit: DateTime!
-  sim: Sim!
+  sim: [Sim!]!
   stnk: [Stnk!]!
   user: User
   _count: KtpCount!
+}
+
+enum JenisKelamin {
+  laki_laki
+  perempuan
+  lainnya
 }
 
 enum GolonganDarah {
@@ -499,6 +506,7 @@ input KtpWhereInput {
   kecamatan: StringFilter
   kabupaten_kota: StringFilter
   provinsi: StringFilter
+  jenis_kelamin: EnumJenisKelaminFilter
   golongan_darah: EnumGolonganDarahFilter
   agama: EnumAgamaFilter
   status_perkawinan: EnumStatusPerkawinanFilter
@@ -508,6 +516,20 @@ input KtpWhereInput {
   sim: SimListRelationFilter
   stnk: StnkListRelationFilter
   user: UserNullableRelationFilter
+}
+
+input EnumJenisKelaminFilter {
+  equals: JenisKelamin
+  in: [JenisKelamin!]
+  notIn: [JenisKelamin!]
+  not: NestedEnumJenisKelaminFilter
+}
+
+input NestedEnumJenisKelaminFilter {
+  equals: JenisKelamin
+  in: [JenisKelamin!]
+  notIn: [JenisKelamin!]
+  not: NestedEnumJenisKelaminFilter
 }
 
 input EnumGolonganDarahFilter {
@@ -724,6 +746,7 @@ input KtpOrderByWithRelationInput {
   kecamatan: SortOrder
   kabupaten_kota: SortOrder
   provinsi: SortOrder
+  jenis_kelamin: SortOrder
   golongan_darah: SortOrder
   agama: SortOrder
   status_perkawinan: SortOrder
@@ -792,6 +815,7 @@ input KtpWhereUniqueInput {
   kecamatan: StringFilter
   kabupaten_kota: StringFilter
   provinsi: StringFilter
+  jenis_kelamin: EnumJenisKelaminFilter
   golongan_darah: EnumGolonganDarahFilter
   agama: EnumAgamaFilter
   status_perkawinan: EnumStatusPerkawinanFilter
@@ -815,6 +839,7 @@ enum KtpScalarFieldEnum {
   kecamatan
   kabupaten_kota
   provinsi
+  jenis_kelamin
   golongan_darah
   agama
   status_perkawinan

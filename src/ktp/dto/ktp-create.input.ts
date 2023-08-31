@@ -15,6 +15,7 @@ import {
 } from 'class-validator'
 import { ApiProperty } from '@nestjs/swagger'
 import { GolonganDarah } from '@prisma/client'
+import { JenisKelamin } from 'src/@generated/prisma-nestjs-graphql/prisma/jenis-kelamin.enum'
 
 @InputType()
 export class KtpCreateInput {
@@ -113,6 +114,14 @@ export class KtpCreateInput {
   @IsNotEmpty()
   @IsEnum(Agama)
   readonly agama: keyof typeof Agama
+
+  @ApiProperty({
+    enum: Agama,
+    example: 'lainnya',
+  })
+  @IsNotEmpty()
+  @IsEnum(JenisKelamin)
+  readonly jenis_kelamin: keyof typeof JenisKelamin
 
   @ApiProperty({
     enum: StatusPerkawinan,
