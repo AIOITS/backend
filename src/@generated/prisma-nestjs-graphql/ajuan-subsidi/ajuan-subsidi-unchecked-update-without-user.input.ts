@@ -4,7 +4,7 @@ import { IntFieldUpdateOperationsInput } from '../prisma/int-field-update-operat
 import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input'
 import { AjuanSubsidiUpdatedokumen_pendukungInput } from './ajuan-subsidi-updatedokumen-pendukung.input'
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input'
-import { EnumStatusPengajuanSubsidiFieldUpdateOperationsInput } from '../prisma/enum-status-pengajuan-subsidi-field-update-operations.input'
+import { NullableEnumStatusPengajuanSubsidiFieldUpdateOperationsInput } from '../prisma/nullable-enum-status-pengajuan-subsidi-field-update-operations.input'
 
 @InputType()
 export class AjuanSubsidiUncheckedUpdateWithoutUserInput {
@@ -23,10 +23,10 @@ export class AjuanSubsidiUncheckedUpdateWithoutUserInput {
   @Field(() => DateTimeFieldUpdateOperationsInput, { nullable: true })
   tanggal_pengajuan?: DateTimeFieldUpdateOperationsInput
 
-  @Field(() => EnumStatusPengajuanSubsidiFieldUpdateOperationsInput, {
+  @Field(() => NullableEnumStatusPengajuanSubsidiFieldUpdateOperationsInput, {
     nullable: true,
   })
-  status_pengajuan?: EnumStatusPengajuanSubsidiFieldUpdateOperationsInput
+  status_pengajuan?: NullableEnumStatusPengajuanSubsidiFieldUpdateOperationsInput
 
   @Field(() => DateTimeFieldUpdateOperationsInput, { nullable: true })
   createdAt?: DateTimeFieldUpdateOperationsInput

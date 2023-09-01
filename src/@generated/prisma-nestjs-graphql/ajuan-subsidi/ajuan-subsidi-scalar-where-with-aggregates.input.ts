@@ -4,7 +4,7 @@ import { IntWithAggregatesFilter } from '../prisma/int-with-aggregates-filter.in
 import { StringWithAggregatesFilter } from '../prisma/string-with-aggregates-filter.input'
 import { StringNullableListFilter } from '../prisma/string-nullable-list-filter.input'
 import { DateTimeWithAggregatesFilter } from '../prisma/date-time-with-aggregates-filter.input'
-import { EnumStatusPengajuanSubsidiWithAggregatesFilter } from '../prisma/enum-status-pengajuan-subsidi-with-aggregates-filter.input'
+import { EnumStatusPengajuanSubsidiNullableWithAggregatesFilter } from '../prisma/enum-status-pengajuan-subsidi-nullable-with-aggregates-filter.input'
 import { IntNullableWithAggregatesFilter } from '../prisma/int-nullable-with-aggregates-filter.input'
 
 @InputType()
@@ -33,10 +33,10 @@ export class AjuanSubsidiScalarWhereWithAggregatesInput {
   @Field(() => DateTimeWithAggregatesFilter, { nullable: true })
   tanggal_pengajuan?: DateTimeWithAggregatesFilter
 
-  @Field(() => EnumStatusPengajuanSubsidiWithAggregatesFilter, {
+  @Field(() => EnumStatusPengajuanSubsidiNullableWithAggregatesFilter, {
     nullable: true,
   })
-  status_pengajuan?: EnumStatusPengajuanSubsidiWithAggregatesFilter
+  status_pengajuan?: EnumStatusPengajuanSubsidiNullableWithAggregatesFilter
 
   @Field(() => DateTimeWithAggregatesFilter, { nullable: true })
   createdAt?: DateTimeWithAggregatesFilter

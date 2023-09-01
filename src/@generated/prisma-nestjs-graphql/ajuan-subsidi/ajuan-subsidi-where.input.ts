@@ -4,7 +4,7 @@ import { IntFilter } from '../prisma/int-filter.input'
 import { StringFilter } from '../prisma/string-filter.input'
 import { StringNullableListFilter } from '../prisma/string-nullable-list-filter.input'
 import { DateTimeFilter } from '../prisma/date-time-filter.input'
-import { EnumStatusPengajuanSubsidiFilter } from '../prisma/enum-status-pengajuan-subsidi-filter.input'
+import { EnumStatusPengajuanSubsidiNullableFilter } from '../prisma/enum-status-pengajuan-subsidi-nullable-filter.input'
 import { IntNullableFilter } from '../prisma/int-nullable-filter.input'
 import { UserNullableRelationFilter } from '../user/user-nullable-relation-filter.input'
 
@@ -34,8 +34,8 @@ export class AjuanSubsidiWhereInput {
   @Field(() => DateTimeFilter, { nullable: true })
   tanggal_pengajuan?: DateTimeFilter
 
-  @Field(() => EnumStatusPengajuanSubsidiFilter, { nullable: true })
-  status_pengajuan?: EnumStatusPengajuanSubsidiFilter
+  @Field(() => EnumStatusPengajuanSubsidiNullableFilter, { nullable: true })
+  status_pengajuan?: EnumStatusPengajuanSubsidiNullableFilter
 
   @Field(() => DateTimeFilter, { nullable: true })
   createdAt?: DateTimeFilter

@@ -15,6 +15,7 @@ import { AjuanSubsidiModule } from './ajuan-subsidi/ajuan-subsidi.module'
 import { StnkModule } from './stnk/stnk.module'
 import { PkbModule } from './pkb/pkb.module'
 import { HistoryPengisianModule } from './history-pengisian/history-pengisian.module'
+import { StorageModule } from './storage/storage.module'
 
 @Module({
   imports: [
@@ -34,6 +35,7 @@ import { HistoryPengisianModule } from './history-pengisian/history-pengisian.mo
     StnkModule,
     PkbModule,
     HistoryPengisianModule,
+    StorageModule,
   ],
   controllers: [AppController],
   providers: [AppService, PrismaService],

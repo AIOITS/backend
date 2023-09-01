@@ -64,11 +64,22 @@ model HistoryPengisian {
 
 model AjuanSubsidi {
   id                Int                    @id @default(autoincrement())
+
+  /// @Validator.IsNotEmpty()
   jumlah            Int
+
+  /// @Validator.IsNotEmpty()
   alasan            String                 @db.Text
+
+  /// @Validator.IsNotEmpty()
   dokumen_pendukung String[]
+
+  /// @Validator.IsNotEmpty()
+  /// @Validator.IsISO8601({ strict: true })
+  /// @ApiProperty({ example: '2023-08-17' })
   tanggal_pengajuan DateTime               @db.Date
-  status_pengajuan  StatusPengajuanSubsidi
+
+  status_pengajuan  StatusPengajuanSubsidi?
   createdAt         DateTime               @default(now())
   updatedAt         DateTime               @updatedAt
   user              User?                  @relation(fields: [userId], references: [id])

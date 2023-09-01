@@ -25,8 +25,8 @@ export class AjuanSubsidiGroupBy {
   @Field(() => Date, { nullable: false })
   tanggal_pengajuan!: Date | string
 
-  @Field(() => StatusPengajuanSubsidi, { nullable: false })
-  status_pengajuan!: keyof typeof StatusPengajuanSubsidi
+  @Field(() => StatusPengajuanSubsidi, { nullable: true })
+  status_pengajuan?: keyof typeof StatusPengajuanSubsidi
 
   @Field(() => Date, { nullable: false })
   createdAt!: Date | string

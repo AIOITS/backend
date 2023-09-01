@@ -22,8 +22,8 @@ export class AjuanSubsidi {
   @Field(() => Date, { nullable: false })
   tanggal_pengajuan!: Date
 
-  @Field(() => StatusPengajuanSubsidi, { nullable: false })
-  status_pengajuan!: keyof typeof StatusPengajuanSubsidi
+  @Field(() => StatusPengajuanSubsidi, { nullable: true })
+  status_pengajuan!: keyof typeof StatusPengajuanSubsidi | null
 
   @Field(() => Date, { nullable: false })
   createdAt!: Date

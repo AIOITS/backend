@@ -175,7 +175,7 @@ type AjuanSubsidi {
   alasan: String!
   dokumen_pendukung: [String!]
   tanggal_pengajuan: DateTime!
-  status_pengajuan: StatusPengajuanSubsidi!
+  status_pengajuan: StatusPengajuanSubsidi
   createdAt: DateTime!
   updatedAt: DateTime!
   userId: Int
@@ -638,7 +638,7 @@ input AjuanSubsidiWhereInput {
   alasan: StringFilter
   dokumen_pendukung: StringNullableListFilter
   tanggal_pengajuan: DateTimeFilter
-  status_pengajuan: EnumStatusPengajuanSubsidiFilter
+  status_pengajuan: EnumStatusPengajuanSubsidiNullableFilter
   createdAt: DateTimeFilter
   updatedAt: DateTimeFilter
   userId: IntNullableFilter
@@ -653,18 +653,18 @@ input StringNullableListFilter {
   isEmpty: Boolean
 }
 
-input EnumStatusPengajuanSubsidiFilter {
+input EnumStatusPengajuanSubsidiNullableFilter {
   equals: StatusPengajuanSubsidi
   in: [StatusPengajuanSubsidi!]
   notIn: [StatusPengajuanSubsidi!]
-  not: NestedEnumStatusPengajuanSubsidiFilter
+  not: NestedEnumStatusPengajuanSubsidiNullableFilter
 }
 
-input NestedEnumStatusPengajuanSubsidiFilter {
+input NestedEnumStatusPengajuanSubsidiNullableFilter {
   equals: StatusPengajuanSubsidi
   in: [StatusPengajuanSubsidi!]
   notIn: [StatusPengajuanSubsidi!]
-  not: NestedEnumStatusPengajuanSubsidiFilter
+  not: NestedEnumStatusPengajuanSubsidiNullableFilter
 }
 
 input IntNullableFilter {
@@ -994,7 +994,7 @@ input AjuanSubsidiOrderByWithRelationInput {
   alasan: SortOrder
   dokumen_pendukung: SortOrder
   tanggal_pengajuan: SortOrder
-  status_pengajuan: SortOrder
+  status_pengajuan: SortOrderInput
   createdAt: SortOrder
   updatedAt: SortOrder
   userId: SortOrderInput
@@ -1010,7 +1010,7 @@ input AjuanSubsidiWhereUniqueInput {
   alasan: StringFilter
   dokumen_pendukung: StringNullableListFilter
   tanggal_pengajuan: DateTimeFilter
-  status_pengajuan: EnumStatusPengajuanSubsidiFilter
+  status_pengajuan: EnumStatusPengajuanSubsidiNullableFilter
   createdAt: DateTimeFilter
   updatedAt: DateTimeFilter
   userId: IntNullableFilter
