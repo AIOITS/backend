@@ -12,7 +12,8 @@ import {
 import { AuthGuard } from 'src/auth/auth.guard'
 import { HistoryPengisianService } from './history-pengisian.service'
 import { HistoryPengisianCreateInput } from './dto/history-pengisian-create.input'
-import { ApiBearerAuth } from '@nestjs/swagger'
+import { ApiBearerAuth, ApiCreatedResponse } from '@nestjs/swagger'
+import { getResponseWithDataType } from 'common/response-with-data'
 @ApiBearerAuth()
 @Controller('history-pengisian')
 export class HistoryPengisianController {
@@ -24,6 +25,10 @@ export class HistoryPengisianController {
   @Post()
   @UsePipes(new ValidationPipe())
   @UseGuards(AuthGuard)
+  @ApiCreatedResponse({
+    description: 'Succesful create ajuan Subsidi',
+    type: getResponseWithDataType(HistoryPengisianCreateInput),
+  })
   async create(
     @Request() req,
     @Body() createHistoryPengisianDto: HistoryPengisianCreateInput,
