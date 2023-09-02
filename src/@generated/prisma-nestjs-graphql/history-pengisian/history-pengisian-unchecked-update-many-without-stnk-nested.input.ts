@@ -35,27 +35,19 @@ export class HistoryPengisianUncheckedUpdateManyWithoutStnkNestedInput {
 
   @Field(() => [HistoryPengisianWhereUniqueInput], { nullable: true })
   @Type(() => HistoryPengisianWhereUniqueInput)
-  set?: Array<
-    Prisma.AtLeast<HistoryPengisianWhereUniqueInput, 'kategori_pengisian'>
-  >
+  set?: Array<Prisma.AtLeast<HistoryPengisianWhereUniqueInput, 'id'>>
 
   @Field(() => [HistoryPengisianWhereUniqueInput], { nullable: true })
   @Type(() => HistoryPengisianWhereUniqueInput)
-  disconnect?: Array<
-    Prisma.AtLeast<HistoryPengisianWhereUniqueInput, 'kategori_pengisian'>
-  >
+  disconnect?: Array<Prisma.AtLeast<HistoryPengisianWhereUniqueInput, 'id'>>
 
   @Field(() => [HistoryPengisianWhereUniqueInput], { nullable: true })
   @Type(() => HistoryPengisianWhereUniqueInput)
-  delete?: Array<
-    Prisma.AtLeast<HistoryPengisianWhereUniqueInput, 'kategori_pengisian'>
-  >
+  delete?: Array<Prisma.AtLeast<HistoryPengisianWhereUniqueInput, 'id'>>
 
   @Field(() => [HistoryPengisianWhereUniqueInput], { nullable: true })
   @Type(() => HistoryPengisianWhereUniqueInput)
-  connect?: Array<
-    Prisma.AtLeast<HistoryPengisianWhereUniqueInput, 'kategori_pengisian'>
-  >
+  connect?: Array<Prisma.AtLeast<HistoryPengisianWhereUniqueInput, 'id'>>
 
   @Field(() => [HistoryPengisianUpdateWithWhereUniqueWithoutStnkInput], {
     nullable: true,

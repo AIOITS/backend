@@ -46,8 +46,12 @@ export class UserService {
     return this._prismaService.user.findMany(args)
   }
 
-  findOne(id: number) {
-    return this._prismaService.user.findFirst({ where: { id } })
+  findOne(args: Prisma.UserFindFirstArgs) {
+    return this._prismaService.user.findFirst(args)
+  }
+
+  update(args: Prisma.UserUpdateArgs) {
+    return this._prismaService.user.update(args)
   }
 
   async validateWithEmail(

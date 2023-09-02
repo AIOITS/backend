@@ -15,7 +15,9 @@ import { AjuanSubsidiService } from './ajuan-subsidi.service'
 import { AuthGuard } from 'src/auth/auth.guard'
 import { FilesInterceptor } from '@nestjs/platform-express'
 import { AjuanSubsidiCreateInput } from './dto/ajuan-subsidi-create.input'
+import { ApiBearerAuth } from '@nestjs/swagger'
 
+@ApiBearerAuth()
 @Controller('ajuan-subsidi')
 export class AjuanSubsidiController {
   constructor(private readonly ajuanSubsidiService: AjuanSubsidiService) {}
@@ -35,7 +37,7 @@ export class AjuanSubsidiController {
       data: await this.ajuanSubsidiService.create({
         ...createAjuanSubsidiDto,
         dokumen_pendukung: files,
-        userId: req.user.id
+        userId: req.user.id,
       }),
     }
   }

@@ -1,8 +1,8 @@
 import { Field } from '@nestjs/graphql'
 import { ObjectType } from '@nestjs/graphql'
+import { Int } from '@nestjs/graphql'
 import { KategoriPengisian } from '../prisma/kategori-pengisian.enum'
 import { Float } from '@nestjs/graphql'
-import { Int } from '@nestjs/graphql'
 import { HistoryPengisianCountAggregate } from './history-pengisian-count-aggregate.output'
 import { HistoryPengisianAvgAggregate } from './history-pengisian-avg-aggregate.output'
 import { HistoryPengisianSumAggregate } from './history-pengisian-sum-aggregate.output'
@@ -11,6 +11,9 @@ import { HistoryPengisianMaxAggregate } from './history-pengisian-max-aggregate.
 
 @ObjectType()
 export class HistoryPengisianGroupBy {
+  @Field(() => Int, { nullable: false })
+  id!: number
+
   @Field(() => KategoriPengisian, { nullable: false })
   kategori_pengisian!: keyof typeof KategoriPengisian
 

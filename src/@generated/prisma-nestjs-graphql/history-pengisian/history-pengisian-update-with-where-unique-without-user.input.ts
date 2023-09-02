@@ -9,7 +9,7 @@ import { HistoryPengisianUpdateWithoutUserInput } from './history-pengisian-upda
 export class HistoryPengisianUpdateWithWhereUniqueWithoutUserInput {
   @Field(() => HistoryPengisianWhereUniqueInput, { nullable: false })
   @Type(() => HistoryPengisianWhereUniqueInput)
-  where!: Prisma.AtLeast<HistoryPengisianWhereUniqueInput, 'kategori_pengisian'>
+  where!: Prisma.AtLeast<HistoryPengisianWhereUniqueInput, 'id'>
 
   @Field(() => HistoryPengisianUpdateWithoutUserInput, { nullable: false })
   @Type(() => HistoryPengisianUpdateWithoutUserInput)

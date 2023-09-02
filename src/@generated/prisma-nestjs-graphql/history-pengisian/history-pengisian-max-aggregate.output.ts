@@ -1,11 +1,14 @@
 import { Field } from '@nestjs/graphql'
 import { ObjectType } from '@nestjs/graphql'
+import { Int } from '@nestjs/graphql'
 import { KategoriPengisian } from '../prisma/kategori-pengisian.enum'
 import { Float } from '@nestjs/graphql'
-import { Int } from '@nestjs/graphql'
 
 @ObjectType()
 export class HistoryPengisianMaxAggregate {
+  @Field(() => Int, { nullable: true })
+  id?: number
+
   @Field(() => KategoriPengisian, { nullable: true })
   kategori_pengisian?: keyof typeof KategoriPengisian
 

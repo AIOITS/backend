@@ -20,16 +20,13 @@ export class AjuanSubsidiService {
   }
 
   async create(createAjuanSubsidiDto: AjuanSubsidiCreateInput) {
-    const {
-      userId,
-      jumlah,
-      alasan,
-      tanggal_pengajuan,
-      dokumen_pendukung
-    } = createAjuanSubsidiDto
+    const { userId, jumlah, alasan, tanggal_pengajuan, dokumen_pendukung } =
+      createAjuanSubsidiDto
 
     const newDocuments = await Promise.all(
-      dokumen_pendukung.map((file) => this.storageService.save('dokumen_pendukung/', file))
+      dokumen_pendukung.map((file) =>
+        this.storageService.save('dokumen_pendukung/', file),
+      ),
     )
 
     const createdAjuanSubsidi = await this._prismaService.ajuanSubsidi.create({
@@ -38,15 +35,16 @@ export class AjuanSubsidiService {
         alasan,
         dokumen_pendukung: newDocuments,
         tanggal_pengajuan: new Date(tanggal_pengajuan),
-        user: {connect: {id: userId}},
-        status_pengajuan: 'diproses'
+        user: { connect: { id: userId } },
+        status_pengajuan: 'diproses',
       },
     })
 
-    const { userId: id, ...data } = createdAjuanSubsidi
     return {
-      ...data,
-      tanggal_pengajuan: createdAjuanSubsidi.tanggal_pengajuan.toISOString().split('T')[0]
+      ...createdAjuanSubsidi,
+      tanggal_pengajuan: createdAjuanSubsidi.tanggal_pengajuan
+        .toISOString()
+        .split('T')[0],
     }
   }
 }

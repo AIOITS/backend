@@ -8,5 +8,5 @@ import { Type } from 'class-transformer'
 export class FindUniqueHistoryPengisianOrThrowArgs {
   @Field(() => HistoryPengisianWhereUniqueInput, { nullable: false })
   @Type(() => HistoryPengisianWhereUniqueInput)
-  where!: Prisma.AtLeast<HistoryPengisianWhereUniqueInput, 'kategori_pengisian'>
+  where!: Prisma.AtLeast<HistoryPengisianWhereUniqueInput, 'id'>
 }

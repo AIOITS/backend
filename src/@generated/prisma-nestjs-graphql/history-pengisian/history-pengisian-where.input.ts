@@ -1,10 +1,10 @@
 import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
+import { IntFilter } from '../prisma/int-filter.input'
 import { EnumKategoriPengisianFilter } from '../prisma/enum-kategori-pengisian-filter.input'
 import { StringFilter } from '../prisma/string-filter.input'
 import { FloatFilter } from '../prisma/float-filter.input'
 import { DateTimeFilter } from '../prisma/date-time-filter.input'
-import { IntFilter } from '../prisma/int-filter.input'
 import { UserNullableRelationFilter } from '../user/user-nullable-relation-filter.input'
 import { StnkRelationFilter } from '../stnk/stnk-relation-filter.input'
 
@@ -18,6 +18,9 @@ export class HistoryPengisianWhereInput {
 
   @Field(() => [HistoryPengisianWhereInput], { nullable: true })
   NOT?: Array<HistoryPengisianWhereInput>
+
+  @Field(() => IntFilter, { nullable: true })
+  id?: IntFilter
 
   @Field(() => EnumKategoriPengisianFilter, { nullable: true })
   kategori_pengisian?: EnumKategoriPengisianFilter

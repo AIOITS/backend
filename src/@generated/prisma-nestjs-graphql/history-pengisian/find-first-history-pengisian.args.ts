@@ -18,10 +18,7 @@ export class FindFirstHistoryPengisianArgs {
   orderBy?: Array<HistoryPengisianOrderByWithRelationInput>
 
   @Field(() => HistoryPengisianWhereUniqueInput, { nullable: true })
-  cursor?: Prisma.AtLeast<
-    HistoryPengisianWhereUniqueInput,
-    'kategori_pengisian'
-  >
+  cursor?: Prisma.AtLeast<HistoryPengisianWhereUniqueInput, 'id'>
 
   @Field(() => Int, { nullable: true })
   take?: number

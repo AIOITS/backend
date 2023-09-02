@@ -5,6 +5,9 @@ import { Int } from '@nestjs/graphql'
 @ObjectType()
 export class HistoryPengisianCountAggregate {
   @Field(() => Int, { nullable: false })
+  id!: number
+
+  @Field(() => Int, { nullable: false })
   kategori_pengisian!: number
 
   @Field(() => Int, { nullable: false })

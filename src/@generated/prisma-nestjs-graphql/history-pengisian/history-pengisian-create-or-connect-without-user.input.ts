@@ -9,7 +9,7 @@ import { HistoryPengisianCreateWithoutUserInput } from './history-pengisian-crea
 export class HistoryPengisianCreateOrConnectWithoutUserInput {
   @Field(() => HistoryPengisianWhereUniqueInput, { nullable: false })
   @Type(() => HistoryPengisianWhereUniqueInput)
-  where!: Prisma.AtLeast<HistoryPengisianWhereUniqueInput, 'kategori_pengisian'>
+  where!: Prisma.AtLeast<HistoryPengisianWhereUniqueInput, 'id'>
 
   @Field(() => HistoryPengisianCreateWithoutUserInput, { nullable: false })
   @Type(() => HistoryPengisianCreateWithoutUserInput)

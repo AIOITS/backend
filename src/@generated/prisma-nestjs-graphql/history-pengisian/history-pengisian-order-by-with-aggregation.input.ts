@@ -10,6 +10,9 @@ import { HistoryPengisianSumOrderByAggregateInput } from './history-pengisian-su
 @InputType()
 export class HistoryPengisianOrderByWithAggregationInput {
   @Field(() => SortOrder, { nullable: true })
+  id?: keyof typeof SortOrder
+
+  @Field(() => SortOrder, { nullable: true })
   kategori_pengisian?: keyof typeof SortOrder
 
   @Field(() => SortOrder, { nullable: true })

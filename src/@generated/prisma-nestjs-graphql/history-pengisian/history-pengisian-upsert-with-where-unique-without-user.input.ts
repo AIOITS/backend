@@ -10,7 +10,7 @@ import { HistoryPengisianCreateWithoutUserInput } from './history-pengisian-crea
 export class HistoryPengisianUpsertWithWhereUniqueWithoutUserInput {
   @Field(() => HistoryPengisianWhereUniqueInput, { nullable: false })
   @Type(() => HistoryPengisianWhereUniqueInput)
-  where!: Prisma.AtLeast<HistoryPengisianWhereUniqueInput, 'kategori_pengisian'>
+  where!: Prisma.AtLeast<HistoryPengisianWhereUniqueInput, 'id'>
 
   @Field(() => HistoryPengisianUpdateWithoutUserInput, { nullable: false })
   @Type(() => HistoryPengisianUpdateWithoutUserInput)

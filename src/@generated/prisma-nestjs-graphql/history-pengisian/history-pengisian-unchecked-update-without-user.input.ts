@@ -1,5 +1,6 @@
 import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
+import { IntFieldUpdateOperationsInput } from '../prisma/int-field-update-operations.input'
 import { EnumKategoriPengisianFieldUpdateOperationsInput } from '../prisma/enum-kategori-pengisian-field-update-operations.input'
 import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input'
 import { FloatFieldUpdateOperationsInput } from '../prisma/float-field-update-operations.input'
@@ -7,6 +8,9 @@ import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-up
 
 @InputType()
 export class HistoryPengisianUncheckedUpdateWithoutUserInput {
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  id?: IntFieldUpdateOperationsInput
+
   @Field(() => EnumKategoriPengisianFieldUpdateOperationsInput, {
     nullable: true,
   })

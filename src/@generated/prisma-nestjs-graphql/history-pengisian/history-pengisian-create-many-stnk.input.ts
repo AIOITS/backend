@@ -1,11 +1,14 @@
 import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
+import { Int } from '@nestjs/graphql'
 import { KategoriPengisian } from '../prisma/kategori-pengisian.enum'
 import { Float } from '@nestjs/graphql'
-import { Int } from '@nestjs/graphql'
 
 @InputType()
 export class HistoryPengisianCreateManyStnkInput {
+  @Field(() => Int, { nullable: true })
+  id?: number
+
   @Field(() => KategoriPengisian, { nullable: false })
   kategori_pengisian!: keyof typeof KategoriPengisian
 

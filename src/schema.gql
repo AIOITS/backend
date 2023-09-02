@@ -153,6 +153,7 @@ type Stnk {
 }
 
 type HistoryPengisian {
+  id: ID!
   kategori_pengisian: KategoriPengisian!
   nama_spbu: String!
   jumlah: Float!
@@ -380,6 +381,7 @@ input HistoryPengisianWhereInput {
   AND: [HistoryPengisianWhereInput!]
   OR: [HistoryPengisianWhereInput!]
   NOT: [HistoryPengisianWhereInput!]
+  id: IntFilter
   kategori_pengisian: EnumKategoriPengisianFilter
   nama_spbu: StringFilter
   jumlah: FloatFilter
@@ -952,6 +954,7 @@ enum StnkScalarFieldEnum {
 }
 
 input HistoryPengisianOrderByWithRelationInput {
+  id: SortOrder
   kategori_pengisian: SortOrder
   nama_spbu: SortOrder
   jumlah: SortOrder
@@ -964,10 +967,11 @@ input HistoryPengisianOrderByWithRelationInput {
 }
 
 input HistoryPengisianWhereUniqueInput {
-  kategori_pengisian: KategoriPengisian
+  id: Int
   AND: [HistoryPengisianWhereInput!]
   OR: [HistoryPengisianWhereInput!]
   NOT: [HistoryPengisianWhereInput!]
+  kategori_pengisian: EnumKategoriPengisianFilter
   nama_spbu: StringFilter
   jumlah: FloatFilter
   createdAt: DateTimeFilter
@@ -979,6 +983,7 @@ input HistoryPengisianWhereUniqueInput {
 }
 
 enum HistoryPengisianScalarFieldEnum {
+  id
   kategori_pengisian
   nama_spbu
   jumlah

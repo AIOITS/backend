@@ -7,6 +7,9 @@ import { StnkOrderByWithRelationInput } from '../stnk/stnk-order-by-with-relatio
 @InputType()
 export class HistoryPengisianOrderByWithRelationInput {
   @Field(() => SortOrder, { nullable: true })
+  id?: keyof typeof SortOrder
+
+  @Field(() => SortOrder, { nullable: true })
   kategori_pengisian?: keyof typeof SortOrder
 
   @Field(() => SortOrder, { nullable: true })

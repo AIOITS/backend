@@ -1,6 +1,7 @@
 import { registerEnumType } from '@nestjs/graphql'
 
 export enum HistoryPengisianScalarFieldEnum {
+  id = 'id',
   kategori_pengisian = 'kategori_pengisian',
   nama_spbu = 'nama_spbu',
   jumlah = 'jumlah',

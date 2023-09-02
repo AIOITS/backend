@@ -5,6 +5,9 @@ import { SortOrder } from '../prisma/sort-order.enum'
 @InputType()
 export class HistoryPengisianMinOrderByAggregateInput {
   @Field(() => SortOrder, { nullable: true })
+  id?: keyof typeof SortOrder
+
+  @Field(() => SortOrder, { nullable: true })
   kategori_pengisian?: keyof typeof SortOrder
 
   @Field(() => SortOrder, { nullable: true })

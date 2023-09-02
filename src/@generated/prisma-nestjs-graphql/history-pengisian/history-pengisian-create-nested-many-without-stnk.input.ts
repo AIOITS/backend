@@ -25,7 +25,5 @@ export class HistoryPengisianCreateNestedManyWithoutStnkInput {
 
   @Field(() => [HistoryPengisianWhereUniqueInput], { nullable: true })
   @Type(() => HistoryPengisianWhereUniqueInput)
-  connect?: Array<
-    Prisma.AtLeast<HistoryPengisianWhereUniqueInput, 'kategori_pengisian'>
-  >
+  connect?: Array<Prisma.AtLeast<HistoryPengisianWhereUniqueInput, 'id'>>
 }

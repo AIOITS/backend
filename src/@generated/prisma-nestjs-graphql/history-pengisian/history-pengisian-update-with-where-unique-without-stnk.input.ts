@@ -9,7 +9,7 @@ import { HistoryPengisianUpdateWithoutStnkInput } from './history-pengisian-upda
 export class HistoryPengisianUpdateWithWhereUniqueWithoutStnkInput {
   @Field(() => HistoryPengisianWhereUniqueInput, { nullable: false })
   @Type(() => HistoryPengisianWhereUniqueInput)
-  where!: Prisma.AtLeast<HistoryPengisianWhereUniqueInput, 'kategori_pengisian'>
+  where!: Prisma.AtLeast<HistoryPengisianWhereUniqueInput, 'id'>
 
   @Field(() => HistoryPengisianUpdateWithoutStnkInput, { nullable: false })
   @Type(() => HistoryPengisianUpdateWithoutStnkInput)
