@@ -49,7 +49,8 @@ model User {
 }
 
 model HistoryPengisian {
-  kategori_pengisian KategoriPengisian @id @unique
+  id Int  @id @default(autoincrement())
+  kategori_pengisian KategoriPengisian
 
   nama_spbu String
   jumlah    Float
