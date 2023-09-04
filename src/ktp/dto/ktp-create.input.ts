@@ -1,7 +1,6 @@
 import { InputType } from '@nestjs/graphql'
 import { Agama } from 'src/@generated/prisma-nestjs-graphql/prisma/agama.enum'
 import { StatusPerkawinan } from 'src/@generated/prisma-nestjs-graphql/prisma/status-perkawinan.enum'
-import { Type } from 'class-transformer'
 import {
   IsEnum,
   IsISO8601,
@@ -10,8 +9,6 @@ import {
   IsNumberString,
   IsString,
   Length,
-  MaxLength,
-  MinLength,
 } from 'class-validator'
 import { ApiProperty } from '@nestjs/swagger'
 import { GolonganDarah } from '@prisma/client'
