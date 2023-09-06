@@ -34,7 +34,7 @@ export class KtpController {
   })
   @ApiCreatedResponse({
     description: 'Succesful register Ktp',
-    type: getResponseWithDataType(KtpCreateOutput),
+    type: KtpCreateOutput,
   })
   async create(
     @Body() createKtpDto: KtpCreateInput,
@@ -51,7 +51,7 @@ export class KtpController {
   })
   @ApiAcceptedResponse({
     description: 'Ktp updated',
-    type: getResponseWithDataType(KtpCreateOutput),
+    type: KtpCreateOutput,
   })
   @HttpCode(HttpStatus.ACCEPTED)
   async update(

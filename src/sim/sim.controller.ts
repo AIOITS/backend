@@ -12,7 +12,6 @@ import {
 import { AuthGuard } from 'src/auth/auth.guard'
 import { SimCreateInput } from './dto/sim-create.input'
 import { ApiBearerAuth, ApiCreatedResponse } from '@nestjs/swagger'
-import { getResponseWithDataType } from 'common/response-with-data'
 import { SimService } from './sim.service'
 
 @ApiBearerAuth()
@@ -28,7 +27,7 @@ export class SimController {
   @UseGuards(AuthGuard)
   @ApiCreatedResponse({
     description: 'Succesful add Sim',
-    type: getResponseWithDataType(SimCreateInput),
+    type: SimCreateInput,
   })
   async create(
     @Request() req,
