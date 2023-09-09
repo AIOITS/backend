@@ -131,13 +131,13 @@ export class KtpResolver {
 
 @Resolver(() => AjuanSubsidi)
 export class AjuanSubsidiResolver {
-  constructor(
-    private readonly prismaService: PrismaService,
-  ) {}
+  constructor(private readonly prismaService: PrismaService) {}
 
   @ResolveField(() => [File], { name: 'dokumen_pendukung' })
   async getAllFiles(@Parent() AjuanSubsidi: AjuanSubsidi) {
-    return await this.prismaService.file.findMany({ where: { AjuanSubsidi: { id: AjuanSubsidi.id } } })
+    return await this.prismaService.file.findMany({
+      where: { AjuanSubsidi: { id: AjuanSubsidi.id } },
+    })
   }
 }
 

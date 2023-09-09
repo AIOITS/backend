@@ -35,8 +35,8 @@ export class AjuanSubsidiService {
         alasan,
         dokumen_pendukung: {
           createMany: {
-            data: newDocuments
-          }
+            data: newDocuments,
+          },
         },
         tanggal_pengajuan: new Date(tanggal_pengajuan),
         user: { connect: { id: userId } },
