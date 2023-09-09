@@ -33,7 +33,7 @@ export class AjuanSubsidiService {
       data: {
         jumlah: +jumlah,
         alasan,
-        dokumen_pendukung: newDocuments,
+        dokumen_pendukung: newDocuments.map((it) => it.url),
         tanggal_pengajuan: new Date(tanggal_pengajuan),
         user: { connect: { id: userId } },
         status_pengajuan: 'diproses',
@@ -45,6 +45,7 @@ export class AjuanSubsidiService {
       tanggal_pengajuan: createdAjuanSubsidi.tanggal_pengajuan
         .toISOString()
         .split('T')[0],
+      dokumen_pendukung: newDocuments
     }
   }
 }

@@ -16,6 +16,7 @@ import { AuthGuard } from 'src/auth/auth.guard'
 import { FilesInterceptor } from '@nestjs/platform-express'
 import { AjuanSubsidiCreateInput } from './dto/ajuan-subsidi-create.input'
 import { ApiBearerAuth, ApiCreatedResponse } from '@nestjs/swagger'
+import { AjuanSubsidiCreateOutput } from './dto/ajuan-subsidi-create.output'
 
 @ApiBearerAuth()
 @Controller('ajuan-subsidi')
@@ -28,7 +29,7 @@ export class AjuanSubsidiController {
   @UseGuards(AuthGuard)
   @ApiCreatedResponse({
     description: 'Succesful create ajuan Subsidi',
-    type: AjuanSubsidiCreateInput,
+    type: AjuanSubsidiCreateOutput,
   })
   @UseInterceptors(FilesInterceptor('dokumen_pendukung'))
   async create(
