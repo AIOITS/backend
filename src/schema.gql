@@ -170,17 +170,30 @@ enum KategoriPengisian {
   non_subsidi
 }
 
+type File {
+  id: ID!
+  name: String!
+  url: String!
+  ajuanSubsidiId: Int
+  AjuanSubsidi: AjuanSubsidi
+}
+
+type AjuanSubsidiCount {
+  dokumen_pendukung: Int!
+}
+
 type AjuanSubsidi {
   id: ID!
   jumlah: Int!
   alasan: String!
-  dokumen_pendukung: [String!]
   tanggal_pengajuan: DateTime!
   status_pengajuan: StatusPengajuanSubsidi
   createdAt: DateTime!
   updatedAt: DateTime!
   userId: Int
+  dokumen_pendukung: [File!]!
   user: User
+  _count: AjuanSubsidiCount!
 }
 
 enum StatusPengajuanSubsidi {
@@ -638,21 +651,13 @@ input AjuanSubsidiWhereInput {
   id: IntFilter
   jumlah: IntFilter
   alasan: StringFilter
-  dokumen_pendukung: StringNullableListFilter
   tanggal_pengajuan: DateTimeFilter
   status_pengajuan: EnumStatusPengajuanSubsidiNullableFilter
   createdAt: DateTimeFilter
   updatedAt: DateTimeFilter
   userId: IntNullableFilter
+  dokumen_pendukung: FileListRelationFilter
   user: UserNullableRelationFilter
-}
-
-input StringNullableListFilter {
-  equals: [String!]
-  has: String
-  hasEvery: [String!]
-  hasSome: [String!]
-  isEmpty: Boolean
 }
 
 input EnumStatusPengajuanSubsidiNullableFilter {
@@ -689,6 +694,28 @@ input NestedIntNullableFilter {
   gt: Int
   gte: Int
   not: NestedIntNullableFilter
+}
+
+input FileListRelationFilter {
+  every: FileWhereInput
+  some: FileWhereInput
+  none: FileWhereInput
+}
+
+input FileWhereInput {
+  AND: [FileWhereInput!]
+  OR: [FileWhereInput!]
+  NOT: [FileWhereInput!]
+  id: IntFilter
+  name: StringFilter
+  url: StringFilter
+  ajuanSubsidiId: IntNullableFilter
+  AjuanSubsidi: AjuanSubsidiNullableRelationFilter
+}
+
+input AjuanSubsidiNullableRelationFilter {
+  is: AjuanSubsidiWhereInput
+  isNot: AjuanSubsidiWhereInput
 }
 
 input KtpRelationFilter {
@@ -997,13 +1024,17 @@ input AjuanSubsidiOrderByWithRelationInput {
   id: SortOrder
   jumlah: SortOrder
   alasan: SortOrder
-  dokumen_pendukung: SortOrder
   tanggal_pengajuan: SortOrder
   status_pengajuan: SortOrderInput
   createdAt: SortOrder
   updatedAt: SortOrder
   userId: SortOrderInput
+  dokumen_pendukung: FileOrderByRelationAggregateInput
   user: UserOrderByWithRelationInput
+}
+
+input FileOrderByRelationAggregateInput {
+  _count: SortOrder
 }
 
 input AjuanSubsidiWhereUniqueInput {
@@ -1013,12 +1044,12 @@ input AjuanSubsidiWhereUniqueInput {
   NOT: [AjuanSubsidiWhereInput!]
   jumlah: IntFilter
   alasan: StringFilter
-  dokumen_pendukung: StringNullableListFilter
   tanggal_pengajuan: DateTimeFilter
   status_pengajuan: EnumStatusPengajuanSubsidiNullableFilter
   createdAt: DateTimeFilter
   updatedAt: DateTimeFilter
   userId: IntNullableFilter
+  dokumen_pendukung: FileListRelationFilter
   user: UserNullableRelationFilter
 }
 
@@ -1026,7 +1057,6 @@ enum AjuanSubsidiScalarFieldEnum {
   id
   jumlah
   alasan
-  dokumen_pendukung
   tanggal_pengajuan
   status_pengajuan
   createdAt

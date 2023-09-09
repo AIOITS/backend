@@ -13,9 +13,6 @@ export class AjuanSubsidiCountAggregateInput {
   alasan?: true
 
   @Field(() => Boolean, { nullable: true })
-  dokumen_pendukung?: true
-
-  @Field(() => Boolean, { nullable: true })
   tanggal_pengajuan?: true
 
   @Field(() => Boolean, { nullable: true })

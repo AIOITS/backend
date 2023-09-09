@@ -2,8 +2,8 @@ import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
 import { Int } from '@nestjs/graphql'
 import * as Validator from 'class-validator'
-import { AjuanSubsidiCreatedokumen_pendukungInput } from './ajuan-subsidi-createdokumen-pendukung.input'
 import { StatusPengajuanSubsidi } from '../prisma/status-pengajuan-subsidi.enum'
+import { FileUncheckedCreateNestedManyWithoutAjuanSubsidiInput } from '../file/file-unchecked-create-nested-many-without-ajuan-subsidi.input'
 
 @InputType()
 export class AjuanSubsidiUncheckedCreateWithoutUserInput {
@@ -18,9 +18,6 @@ export class AjuanSubsidiUncheckedCreateWithoutUserInput {
   @Validator.IsNotEmpty()
   alasan!: string
 
-  @Field(() => AjuanSubsidiCreatedokumen_pendukungInput, { nullable: true })
-  dokumen_pendukung?: AjuanSubsidiCreatedokumen_pendukungInput
-
   @Field(() => Date, { nullable: false })
   @Validator.IsNotEmpty()
   @Validator.IsISO8601({ strict: true })
@@ -34,4 +31,9 @@ export class AjuanSubsidiUncheckedCreateWithoutUserInput {
 
   @Field(() => Date, { nullable: true })
   updatedAt?: Date | string
+
+  @Field(() => FileUncheckedCreateNestedManyWithoutAjuanSubsidiInput, {
+    nullable: true,
+  })
+  dokumen_pendukung?: FileUncheckedCreateNestedManyWithoutAjuanSubsidiInput
 }

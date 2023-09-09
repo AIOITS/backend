@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common'
 import {
+  AjuanSubsidiResolver,
   GraphqlResolver,
   KtpResolver,
   StnkResolver,
@@ -22,6 +23,7 @@ import { StorageService } from 'src/storage/storage.service'
     KtpResolver,
     StnkResolver,
     GraphqlResolver,
+    AjuanSubsidiResolver,
     StorageService,
 
     UserService,

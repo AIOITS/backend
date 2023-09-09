@@ -4,10 +4,10 @@ import { Int } from '@nestjs/graphql'
 import { AjuanSubsidiWhereInput } from './ajuan-subsidi-where.input'
 import { IntFilter } from '../prisma/int-filter.input'
 import { StringFilter } from '../prisma/string-filter.input'
-import { StringNullableListFilter } from '../prisma/string-nullable-list-filter.input'
 import { DateTimeFilter } from '../prisma/date-time-filter.input'
 import { EnumStatusPengajuanSubsidiNullableFilter } from '../prisma/enum-status-pengajuan-subsidi-nullable-filter.input'
 import { IntNullableFilter } from '../prisma/int-nullable-filter.input'
+import { FileListRelationFilter } from '../file/file-list-relation-filter.input'
 import { UserNullableRelationFilter } from '../user/user-nullable-relation-filter.input'
 
 @InputType()
@@ -30,9 +30,6 @@ export class AjuanSubsidiWhereUniqueInput {
   @Field(() => StringFilter, { nullable: true })
   alasan?: StringFilter
 
-  @Field(() => StringNullableListFilter, { nullable: true })
-  dokumen_pendukung?: StringNullableListFilter
-
   @Field(() => DateTimeFilter, { nullable: true })
   tanggal_pengajuan?: DateTimeFilter
 
@@ -47,6 +44,9 @@ export class AjuanSubsidiWhereUniqueInput {
 
   @Field(() => IntNullableFilter, { nullable: true })
   userId?: IntNullableFilter
+
+  @Field(() => FileListRelationFilter, { nullable: true })
+  dokumen_pendukung?: FileListRelationFilter
 
   @Field(() => UserNullableRelationFilter, { nullable: true })
   user?: UserNullableRelationFilter

@@ -2,7 +2,6 @@ import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
 import { IntFilter } from '../prisma/int-filter.input'
 import { StringFilter } from '../prisma/string-filter.input'
-import { StringNullableListFilter } from '../prisma/string-nullable-list-filter.input'
 import { DateTimeFilter } from '../prisma/date-time-filter.input'
 import { EnumStatusPengajuanSubsidiNullableFilter } from '../prisma/enum-status-pengajuan-subsidi-nullable-filter.input'
 import { IntNullableFilter } from '../prisma/int-nullable-filter.input'
@@ -26,9 +25,6 @@ export class AjuanSubsidiScalarWhereInput {
 
   @Field(() => StringFilter, { nullable: true })
   alasan?: StringFilter
-
-  @Field(() => StringNullableListFilter, { nullable: true })
-  dokumen_pendukung?: StringNullableListFilter
 
   @Field(() => DateTimeFilter, { nullable: true })
   tanggal_pengajuan?: DateTimeFilter

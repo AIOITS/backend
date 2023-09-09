@@ -20,9 +20,6 @@ export class AjuanSubsidiOrderByWithAggregationInput {
   alasan?: keyof typeof SortOrder
 
   @Field(() => SortOrder, { nullable: true })
-  dokumen_pendukung?: keyof typeof SortOrder
-
-  @Field(() => SortOrder, { nullable: true })
   tanggal_pengajuan?: keyof typeof SortOrder
 
   @Field(() => SortOrderInput, { nullable: true })

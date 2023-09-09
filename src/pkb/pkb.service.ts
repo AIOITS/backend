@@ -17,12 +17,11 @@ export class PkbService {
 
   async create(createSimDto: PkbCreateInput) {
     const { userId, ...data } = createSimDto
-    const createdSim =
-      await this._prismaService.pkb.create({
-        data: {
-          ...data,
-        },
-      })
+    const createdSim = await this._prismaService.pkb.create({
+      data: {
+        ...data,
+      },
+    })
 
     return createdSim
   }

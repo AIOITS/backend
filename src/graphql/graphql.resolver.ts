@@ -20,6 +20,9 @@ import { FindManyHistoryPengisianArgs } from 'src/@generated/prisma-nestjs-graph
 import { FindManyAjuanSubsidiArgs } from 'src/@generated/prisma-nestjs-graphql/ajuan-subsidi/find-many-ajuan-subsidi.args'
 import { FindManySimArgs } from 'src/@generated/prisma-nestjs-graphql/sim/find-many-sim.args'
 import { FindManyPkbArgs } from 'src/@generated/prisma-nestjs-graphql/pkb/find-many-pkb.args'
+import { PrismaService } from 'src/prisma/prisma.service'
+import { FindManyFileArgs } from 'src/@generated/prisma-nestjs-graphql/file/find-many-file.args'
+import { File } from 'src/@generated/prisma-nestjs-graphql/file/file.model'
 
 @Resolver()
 export class GraphqlResolver {
@@ -123,6 +126,18 @@ export class KtpResolver {
   @ResolveField('stnk', () => [Stnk])
   async getStnk(@Parent() Ktp: Ktp) {
     return await this.stnkService.findAll({ where: { Ktp: { nik: Ktp.nik } } })
+  }
+}
+
+@Resolver(() => AjuanSubsidi)
+export class AjuanSubsidiResolver {
+  constructor(
+    private readonly prismaService: PrismaService,
+  ) {}
+
+  @ResolveField(() => [File], { name: 'dokumen_pendukung' })
+  async getAllFiles(@Parent() AjuanSubsidi: AjuanSubsidi) {
+    return await this.prismaService.file.findMany({ where: { AjuanSubsidi: { id: AjuanSubsidi.id } } })
   }
 }
 

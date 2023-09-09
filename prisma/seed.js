@@ -1,4 +1,5 @@
 const { PrismaClient } = require('@prisma/client');
+const { url } = require('inspector');
 const prisma = new PrismaClient();
 
 async function main() {  
@@ -127,14 +128,36 @@ async function main() {
           {
             jumlah: 500,
             alasan: 'Low income',
-            dokumen_pendukung: ['document1.pdf', 'document2.pdf'],
+            dokumen_pendukung: {
+              createMany: {
+                data: [
+                  {
+                    name: 'dokumen bukti.jpg',
+                    url: 'http:contoh_url'
+                  },
+                  {
+                    name: 'dokumen bukti2.jpg',
+                    url: 'http:contoh_url'
+                  }
+                ]
+              }
+            },
             tanggal_pengajuan: new Date('2023-08-25'),
             status_pengajuan: 'ditolak',
           },
           {
             jumlah: 300,
             alasan: 'Financial hardship',
-            dokumen_pendukung: ['document3.pdf'],
+            dokumen_pendukung: {
+              createMany: {
+                data: [
+                  {
+                    name: 'dokumen bukti.jpg',
+                    url: 'http:contoh_url'
+                  },
+                ]
+              }
+            },
             tanggal_pengajuan: new Date('2023-08-26'),
             status_pengajuan: 'diproses',
           },

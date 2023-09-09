@@ -2,10 +2,10 @@ import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
 import { IntFieldUpdateOperationsInput } from '../prisma/int-field-update-operations.input'
 import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input'
-import { AjuanSubsidiUpdatedokumen_pendukungInput } from './ajuan-subsidi-updatedokumen-pendukung.input'
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input'
 import { NullableEnumStatusPengajuanSubsidiFieldUpdateOperationsInput } from '../prisma/nullable-enum-status-pengajuan-subsidi-field-update-operations.input'
 import { NullableIntFieldUpdateOperationsInput } from '../prisma/nullable-int-field-update-operations.input'
+import { FileUncheckedUpdateManyWithoutAjuanSubsidiNestedInput } from '../file/file-unchecked-update-many-without-ajuan-subsidi-nested.input'
 
 @InputType()
 export class AjuanSubsidiUncheckedUpdateInput {
@@ -17,9 +17,6 @@ export class AjuanSubsidiUncheckedUpdateInput {
 
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
   alasan?: StringFieldUpdateOperationsInput
-
-  @Field(() => AjuanSubsidiUpdatedokumen_pendukungInput, { nullable: true })
-  dokumen_pendukung?: AjuanSubsidiUpdatedokumen_pendukungInput
 
   @Field(() => DateTimeFieldUpdateOperationsInput, { nullable: true })
   tanggal_pengajuan?: DateTimeFieldUpdateOperationsInput
@@ -37,4 +34,9 @@ export class AjuanSubsidiUncheckedUpdateInput {
 
   @Field(() => NullableIntFieldUpdateOperationsInput, { nullable: true })
   userId?: NullableIntFieldUpdateOperationsInput
+
+  @Field(() => FileUncheckedUpdateManyWithoutAjuanSubsidiNestedInput, {
+    nullable: true,
+  })
+  dokumen_pendukung?: FileUncheckedUpdateManyWithoutAjuanSubsidiNestedInput
 }

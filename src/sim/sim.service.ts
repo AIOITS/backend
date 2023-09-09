@@ -21,17 +21,16 @@ export class SimService {
 
   async create(createSimDto: SimCreateInput) {
     const { userId, ...data } = createSimDto
-    const user = this._userService.findOne({ where: {id: userId} })
+    const user = this._userService.findOne({ where: { id: userId } })
     const nik = (await user).nik
-    const createdSim =
-      await this._prismaService.sim.create({
-        data: {
-          ...data,
-          tanggal_terbit: new Date(data.tanggal_terbit),
-          berlaku_sampai: new Date(data.berlaku_sampai),
-          nik
-        },
-      })
+    const createdSim = await this._prismaService.sim.create({
+      data: {
+        ...data,
+        tanggal_terbit: new Date(data.tanggal_terbit),
+        berlaku_sampai: new Date(data.berlaku_sampai),
+        nik,
+      },
+    })
 
     return createdSim
   }

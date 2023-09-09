@@ -14,9 +14,6 @@ export class AjuanSubsidiCountAggregate {
   alasan!: number
 
   @Field(() => Int, { nullable: false })
-  dokumen_pendukung!: number
-
-  @Field(() => Int, { nullable: false })
   tanggal_pengajuan!: number
 
   @Field(() => Int, { nullable: false })

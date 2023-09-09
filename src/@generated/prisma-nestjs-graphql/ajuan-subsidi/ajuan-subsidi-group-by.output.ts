@@ -19,9 +19,6 @@ export class AjuanSubsidiGroupBy {
   @Field(() => String, { nullable: false })
   alasan!: string
 
-  @Field(() => [String], { nullable: true })
-  dokumen_pendukung?: Array<string>
-
   @Field(() => Date, { nullable: false })
   tanggal_pengajuan!: Date | string
 

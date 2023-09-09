@@ -17,9 +17,7 @@ import { SimService } from './sim.service'
 @ApiBearerAuth()
 @Controller('sim')
 export class SimController {
-  constructor(
-    private readonly simService: SimService
-  ) {}
+  constructor(private readonly simService: SimService) {}
 
   @HttpCode(HttpStatus.CREATED)
   @Post()
@@ -29,10 +27,7 @@ export class SimController {
     description: 'Succesful add Sim',
     type: SimCreateInput,
   })
-  async create(
-    @Request() req,
-    @Body() createSimDto: SimCreateInput,
-  ) {
+  async create(@Request() req, @Body() createSimDto: SimCreateInput) {
     return {
       statusCode: HttpStatus.CREATED,
       data: await this.simService.create({

@@ -17,9 +17,7 @@ import StnkCreateInput from './dto/stnk-create.input'
 @ApiBearerAuth()
 @Controller('stnk')
 export class StnkController {
-  constructor(
-    private readonly stnkService: StnkService
-  ) {}
+  constructor(private readonly stnkService: StnkService) {}
 
   @HttpCode(HttpStatus.CREATED)
   @Post()
@@ -29,10 +27,7 @@ export class StnkController {
     description: 'Succesful add Stnk',
     type: StnkCreateInput,
   })
-  async create(
-    @Request() req,
-    @Body() createStnkDto: StnkCreateInput,
-  ) {
+  async create(@Request() req, @Body() createStnkDto: StnkCreateInput) {
     return {
       statusCode: HttpStatus.CREATED,
       data: await this.stnkService.create({

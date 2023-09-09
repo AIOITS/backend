@@ -15,9 +15,7 @@ import { PkbCreateInput } from './dto/pkb-create.input'
 
 @Controller('pkb')
 export class PkbController {
-  constructor(
-    private readonly pkbService: PkbService
-  ) {}
+  constructor(private readonly pkbService: PkbService) {}
 
   @HttpCode(HttpStatus.CREATED)
   @Post()
@@ -26,10 +24,7 @@ export class PkbController {
     description: 'Succesful add Pkb',
     type: PkbCreateInput,
   })
-  async create(
-    @Request() req,
-    @Body() createPkbDto: PkbCreateInput,
-  ) {
+  async create(@Request() req, @Body() createPkbDto: PkbCreateInput) {
     return {
       statusCode: HttpStatus.CREATED,
       data: await this.pkbService.create({

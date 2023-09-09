@@ -16,12 +16,14 @@ export class AjuanSubsidiCreateOutput {
   @IsNotEmpty()
   readonly alasan: string
 
-  @ApiProperty({ example: [
-    {
-      name: 'Dokumen Bukti.jpg',
-      url: 'https://storage.googleapis.com/aioits_storage/dokumen_pendukung/xxx.jpeg'
-    }
-  ] })
+  @ApiProperty({
+    example: [
+      {
+        name: 'Dokumen Bukti.jpg',
+        url: 'https://storage.googleapis.com/aioits_storage/dokumen_pendukung/xxx.jpeg',
+      },
+    ],
+  })
   readonly dokumen_pendukung: Array<outputFile>
 
   @ApiProperty({ example: '2023-09-01' })

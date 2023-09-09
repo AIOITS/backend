@@ -2,7 +2,6 @@ import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
 import { Int } from '@nestjs/graphql'
 import * as Validator from 'class-validator'
-import { AjuanSubsidiCreatedokumen_pendukungInput } from './ajuan-subsidi-createdokumen-pendukung.input'
 import { StatusPengajuanSubsidi } from '../prisma/status-pengajuan-subsidi.enum'
 
 @InputType()
@@ -17,9 +16,6 @@ export class AjuanSubsidiCreateManyInput {
   @Field(() => String, { nullable: false })
   @Validator.IsNotEmpty()
   alasan!: string
-
-  @Field(() => AjuanSubsidiCreatedokumen_pendukungInput, { nullable: true })
-  dokumen_pendukung?: AjuanSubsidiCreatedokumen_pendukungInput
 
   @Field(() => Date, { nullable: false })
   @Validator.IsNotEmpty()
