@@ -25,7 +25,11 @@ export class StorageService {
       const uploadedFile = this.storage.bucket(this.bucket).file(path)
       const stream = uploadedFile.createWriteStream()
       stream.end(file.buffer)
-      return `https://storage.googleapis.com/${this.bucket}/${path}`
+      console.log('testing::', file)
+      return {
+        name: file.originalname,
+        url: `https://storage.googleapis.com/${this.bucket}/${path}`,
+      }
     }
     return undefined
   }
