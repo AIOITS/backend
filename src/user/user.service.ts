@@ -17,7 +17,6 @@ export class UserService {
     })
 
     if (!ktp) throw new HttpException('NIK not found', 400)
-    console.log('testing::', ktp.user)
     if (ktp.user)
       throw new HttpException('NIK was used in another account', 400)
 
