@@ -33,7 +33,7 @@ import { File } from 'src/@generated/prisma-nestjs-graphql/file/file.model'
 import { HistoryPengisianAggregateArgs } from 'src/@generated/prisma-nestjs-graphql/history-pengisian/history-pengisian-aggregate.args'
 import { AggregateHistoryPengisian } from 'src/@generated/prisma-nestjs-graphql/history-pengisian/aggregate-history-pengisian.output'
 import { HistoryPengisianGroupBy } from 'src/@generated/prisma-nestjs-graphql/history-pengisian/history-pengisian-group-by.output'
-import { HistoryPengisianGroupByArgs } from 'src/@generated/prisma-nestjs-graphql/history-pengisian/history-pengisian-group-by.args'
+import { HistoryPengisianGroupByArgs } from 'src/history-pengisian/dto/history-pengisian-group-by.args'
 import { Spbu } from 'src/@generated/prisma-nestjs-graphql/spbu/spbu.model'
 import { FindManySpbuArgs } from 'src/@generated/prisma-nestjs-graphql/spbu/find-many-spbu.args'
 
