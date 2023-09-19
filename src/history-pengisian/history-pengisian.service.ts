@@ -5,7 +5,7 @@ import { HistoryPengisianCreateInput } from './dto/history-pengisian-create.inpu
 import { StnkService } from 'src/stnk/stnk.service'
 import { KtpService } from 'src/ktp/ktp.service'
 import { UserService } from 'src/user/user.service'
-import { HistoryPengisianGroupByArgs } from 'src/@generated/prisma-nestjs-graphql/history-pengisian/history-pengisian-group-by.args'
+import { HistoryPengisianGroupByArgs } from './dto/history-pengisian-group-by.args'
 
 @Injectable()
 export class HistoryPengisianService {
