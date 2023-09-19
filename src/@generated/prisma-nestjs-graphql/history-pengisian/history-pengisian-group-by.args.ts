@@ -21,7 +21,7 @@ export class HistoryPengisianGroupByArgs {
   @Field(() => [HistoryPengisianOrderByWithAggregationInput], {
     nullable: true,
   })
-  orderBy!: Array<HistoryPengisianOrderByWithAggregationInput>
+  orderBy: Array<HistoryPengisianOrderByWithAggregationInput>
 
   @Field(() => [HistoryPengisianScalarFieldEnum], { nullable: false })
   by!: Array<keyof typeof HistoryPengisianScalarFieldEnum>
