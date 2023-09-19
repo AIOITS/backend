@@ -24,7 +24,13 @@ export class HistoryPengisianScalarWhereInput {
   kategori_pengisian?: EnumKategoriPengisianFilter
 
   @Field(() => StringFilter, { nullable: true })
-  nama_spbu?: StringFilter
+  device_id?: StringFilter
+
+  @Field(() => StringFilter, { nullable: true })
+  jenis_kendaraan?: StringFilter
+
+  @Field(() => IntFilter, { nullable: true })
+  spbu_id?: IntFilter
 
   @Field(() => FloatFilter, { nullable: true })
   jumlah?: FloatFilter

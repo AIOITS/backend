@@ -16,7 +16,13 @@ export class HistoryPengisianOrderByWithAggregationInput {
   kategori_pengisian?: keyof typeof SortOrder
 
   @Field(() => SortOrder, { nullable: true })
-  nama_spbu?: keyof typeof SortOrder
+  device_id?: keyof typeof SortOrder
+
+  @Field(() => SortOrder, { nullable: true })
+  jenis_kendaraan?: keyof typeof SortOrder
+
+  @Field(() => SortOrder, { nullable: true })
+  spbu_id?: keyof typeof SortOrder
 
   @Field(() => SortOrder, { nullable: true })
   jumlah?: keyof typeof SortOrder

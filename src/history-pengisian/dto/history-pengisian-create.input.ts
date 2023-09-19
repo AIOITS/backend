@@ -28,5 +28,13 @@ export class HistoryPengisianCreateInput {
   @IsNumberString()
   readonly nomor_stnk: string
 
+  @ApiProperty({ example: 'sepeda motor' })
+  @IsNotEmpty()
+  readonly jenis_kendaraan: string
+
+  @ApiProperty({ example: '00:1A:2B:3C:4D:5E' })
+  @IsNotEmpty()
+  readonly device_id: string
+
   readonly user_id: number
 }

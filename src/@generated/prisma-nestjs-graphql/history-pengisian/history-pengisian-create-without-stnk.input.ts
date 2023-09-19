@@ -2,6 +2,8 @@ import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
 import { KategoriPengisian } from '../prisma/kategori-pengisian.enum'
 import { Float } from '@nestjs/graphql'
+import { DeviceCreateNestedOneWithoutHistoryPengisianInput } from '../device/device-create-nested-one-without-history-pengisian.input'
+import { SpbuCreateNestedOneWithoutHistoryPengisianInput } from '../spbu/spbu-create-nested-one-without-history-pengisian.input'
 import { UserCreateNestedOneWithoutHistory_pengisianInput } from '../user/user-create-nested-one-without-history-pengisian.input'
 
 @InputType()
@@ -10,7 +12,7 @@ export class HistoryPengisianCreateWithoutStnkInput {
   kategori_pengisian!: keyof typeof KategoriPengisian
 
   @Field(() => String, { nullable: false })
-  nama_spbu!: string
+  jenis_kendaraan!: string
 
   @Field(() => Float, { nullable: false })
   jumlah!: number
@@ -20,6 +22,16 @@ export class HistoryPengisianCreateWithoutStnkInput {
 
   @Field(() => Date, { nullable: true })
   updatedAt?: Date | string
+
+  @Field(() => DeviceCreateNestedOneWithoutHistoryPengisianInput, {
+    nullable: false,
+  })
+  device!: DeviceCreateNestedOneWithoutHistoryPengisianInput
+
+  @Field(() => SpbuCreateNestedOneWithoutHistoryPengisianInput, {
+    nullable: false,
+  })
+  spbu!: SpbuCreateNestedOneWithoutHistoryPengisianInput
 
   @Field(() => UserCreateNestedOneWithoutHistory_pengisianInput, {
     nullable: true,

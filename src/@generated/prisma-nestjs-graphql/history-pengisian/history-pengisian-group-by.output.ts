@@ -18,7 +18,13 @@ export class HistoryPengisianGroupBy {
   kategori_pengisian!: keyof typeof KategoriPengisian
 
   @Field(() => String, { nullable: false })
-  nama_spbu!: string
+  device_id!: string
+
+  @Field(() => String, { nullable: false })
+  jenis_kendaraan!: string
+
+  @Field(() => Int, { nullable: false })
+  spbu_id!: number
 
   @Field(() => Float, { nullable: false })
   jumlah!: number

@@ -53,7 +53,7 @@ export class StnkService {
       })
     )
       throw new HttpException('Nomor Polisi telah terdaftar', 400)
-    const nik = (await user).nik
+    const nik = (await user)!.nik
     const createdStnk = await this._prismaService.stnk.create({
       data: {
         ...data,

@@ -11,7 +11,13 @@ export class HistoryPengisianCountAggregate {
   kategori_pengisian!: number
 
   @Field(() => Int, { nullable: false })
-  nama_spbu!: number
+  device_id!: number
+
+  @Field(() => Int, { nullable: false })
+  jenis_kendaraan!: number
+
+  @Field(() => Int, { nullable: false })
+  spbu_id!: number
 
   @Field(() => Int, { nullable: false })
   jumlah!: number

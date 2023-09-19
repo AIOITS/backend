@@ -5,6 +5,10 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger'
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule)
+  const corsOptions = {
+    origin: '*',
+    optionsSuccessStatus: 200,
+  }
   const config = new DocumentBuilder()
     .addBearerAuth()
     .setTitle('AIOITS Documentation')
@@ -17,6 +21,8 @@ async function bootstrap() {
       transform: true,
     }),
   )
+  app.enableCors(corsOptions)
+
   const document = SwaggerModule.createDocument(app, config)
   SwaggerModule.setup('docs', app, document)
   await app.listen(8080)

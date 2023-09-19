@@ -5,6 +5,7 @@ import { HistoryPengisianCreateInput } from './dto/history-pengisian-create.inpu
 import { StnkService } from 'src/stnk/stnk.service'
 import { KtpService } from 'src/ktp/ktp.service'
 import { UserService } from 'src/user/user.service'
+import { HistoryPengisianGroupByArgs } from 'src/@generated/prisma-nestjs-graphql/history-pengisian/history-pengisian-group-by.args'
 
 @Injectable()
 export class HistoryPengisianService {
@@ -25,9 +26,23 @@ export class HistoryPengisianService {
     return this._prismaService.historyPengisian.findFirst(args)
   }
 
+  aggregate(args: Prisma.HistoryPengisianAggregateArgs) {
+    return this._prismaService.historyPengisian.aggregate(args)
+  }
+
+  groupBy(args: HistoryPengisianGroupByArgs) {
+    return this._prismaService.historyPengisian.groupBy(args)
+  }
+
   async create(createHistoryPengisianDto: HistoryPengisianCreateInput) {
-    const { nomor_stnk, user_id, kategori_pengisian, nama_spbu, jumlah } =
-      createHistoryPengisianDto
+    const {
+      nomor_stnk,
+      user_id,
+      kategori_pengisian,
+      device_id,
+      jumlah,
+      jenis_kendaraan,
+    } = createHistoryPengisianDto
     const user = await this._userService.findOne({ where: { id: user_id } })
     if (!user) throw new HttpException('User not found', 400)
 
@@ -39,6 +54,13 @@ export class HistoryPengisianService {
     if (user.kuota_subsidi < jumlah)
       throw new HttpException('Subsidy quota is insufficient', 400)
 
+    const device = await this._prismaService.device.findFirst({
+      where: {
+        device_id,
+      },
+    })
+    if (!device) throw new HttpException('device is not registered', 401)
+
     await this._userService.update({
       where: { id: user_id },
       data: {
@@ -46,12 +68,15 @@ export class HistoryPengisianService {
         kuota_subsidi: user.kuota_subsidi - jumlah,
       },
     })
+
     const createdHistoryPengisian =
       await this._prismaService.historyPengisian.create({
         data: {
           kategori_pengisian,
-          nama_spbu,
+          jenis_kendaraan,
           jumlah,
+          spbu: { connect: { id: device.spbu_id } },
+          device: { connect: { device_id: device.device_id } },
           user: { connect: { id: user_id } },
           stnk: { connect: { nomor_stnk } },
         },

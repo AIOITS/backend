@@ -7,6 +7,9 @@ export class HistoryPengisianSumAggregateInput {
   id?: true
 
   @Field(() => Boolean, { nullable: true })
+  spbu_id?: true
+
+  @Field(() => Boolean, { nullable: true })
   jumlah?: true
 
   @Field(() => Boolean, { nullable: true })

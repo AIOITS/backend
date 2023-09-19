@@ -13,7 +13,7 @@ export class HistoryPengisianUpdateManyMutationInput {
   kategori_pengisian?: EnumKategoriPengisianFieldUpdateOperationsInput
 
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
-  nama_spbu?: StringFieldUpdateOperationsInput
+  jenis_kendaraan?: StringFieldUpdateOperationsInput
 
   @Field(() => FloatFieldUpdateOperationsInput, { nullable: true })
   jumlah?: FloatFieldUpdateOperationsInput

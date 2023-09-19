@@ -4,9 +4,11 @@ import { Int } from '@nestjs/graphql'
 import { HistoryPengisianWhereInput } from './history-pengisian-where.input'
 import { EnumKategoriPengisianFilter } from '../prisma/enum-kategori-pengisian-filter.input'
 import { StringFilter } from '../prisma/string-filter.input'
+import { IntFilter } from '../prisma/int-filter.input'
 import { FloatFilter } from '../prisma/float-filter.input'
 import { DateTimeFilter } from '../prisma/date-time-filter.input'
-import { IntFilter } from '../prisma/int-filter.input'
+import { DeviceRelationFilter } from '../device/device-relation-filter.input'
+import { SpbuRelationFilter } from '../spbu/spbu-relation-filter.input'
 import { UserNullableRelationFilter } from '../user/user-nullable-relation-filter.input'
 import { StnkRelationFilter } from '../stnk/stnk-relation-filter.input'
 
@@ -28,7 +30,13 @@ export class HistoryPengisianWhereUniqueInput {
   kategori_pengisian?: EnumKategoriPengisianFilter
 
   @Field(() => StringFilter, { nullable: true })
-  nama_spbu?: StringFilter
+  device_id?: StringFilter
+
+  @Field(() => StringFilter, { nullable: true })
+  jenis_kendaraan?: StringFilter
+
+  @Field(() => IntFilter, { nullable: true })
+  spbu_id?: IntFilter
 
   @Field(() => FloatFilter, { nullable: true })
   jumlah?: FloatFilter
@@ -44,6 +52,12 @@ export class HistoryPengisianWhereUniqueInput {
 
   @Field(() => StringFilter, { nullable: true })
   nomor_stnk?: StringFilter
+
+  @Field(() => DeviceRelationFilter, { nullable: true })
+  device?: DeviceRelationFilter
+
+  @Field(() => SpbuRelationFilter, { nullable: true })
+  spbu?: SpbuRelationFilter
 
   @Field(() => UserNullableRelationFilter, { nullable: true })
   user?: UserNullableRelationFilter

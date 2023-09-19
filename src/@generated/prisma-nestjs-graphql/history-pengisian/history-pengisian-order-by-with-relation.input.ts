@@ -1,6 +1,8 @@
 import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
 import { SortOrder } from '../prisma/sort-order.enum'
+import { DeviceOrderByWithRelationInput } from '../device/device-order-by-with-relation.input'
+import { SpbuOrderByWithRelationInput } from '../spbu/spbu-order-by-with-relation.input'
 import { UserOrderByWithRelationInput } from '../user/user-order-by-with-relation.input'
 import { StnkOrderByWithRelationInput } from '../stnk/stnk-order-by-with-relation.input'
 
@@ -13,7 +15,13 @@ export class HistoryPengisianOrderByWithRelationInput {
   kategori_pengisian?: keyof typeof SortOrder
 
   @Field(() => SortOrder, { nullable: true })
-  nama_spbu?: keyof typeof SortOrder
+  device_id?: keyof typeof SortOrder
+
+  @Field(() => SortOrder, { nullable: true })
+  jenis_kendaraan?: keyof typeof SortOrder
+
+  @Field(() => SortOrder, { nullable: true })
+  spbu_id?: keyof typeof SortOrder
 
   @Field(() => SortOrder, { nullable: true })
   jumlah?: keyof typeof SortOrder
@@ -29,6 +37,12 @@ export class HistoryPengisianOrderByWithRelationInput {
 
   @Field(() => SortOrder, { nullable: true })
   nomor_stnk?: keyof typeof SortOrder
+
+  @Field(() => DeviceOrderByWithRelationInput, { nullable: true })
+  device?: DeviceOrderByWithRelationInput
+
+  @Field(() => SpbuOrderByWithRelationInput, { nullable: true })
+  spbu?: SpbuOrderByWithRelationInput
 
   @Field(() => UserOrderByWithRelationInput, { nullable: true })
   user?: UserOrderByWithRelationInput

@@ -10,7 +10,13 @@ export class HistoryPengisianMaxAggregateInput {
   kategori_pengisian?: true
 
   @Field(() => Boolean, { nullable: true })
-  nama_spbu?: true
+  device_id?: true
+
+  @Field(() => Boolean, { nullable: true })
+  jenis_kendaraan?: true
+
+  @Field(() => Boolean, { nullable: true })
+  spbu_id?: true
 
   @Field(() => Boolean, { nullable: true })
   jumlah?: true

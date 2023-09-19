@@ -8,6 +8,9 @@ export class HistoryPengisianAvgAggregate {
   id?: number
 
   @Field(() => Float, { nullable: true })
+  spbu_id?: number
+
+  @Field(() => Float, { nullable: true })
   jumlah?: number
 
   @Field(() => Float, { nullable: true })

@@ -2,8 +2,10 @@ import { Field } from '@nestjs/graphql'
 import { ObjectType } from '@nestjs/graphql'
 import { ID } from '@nestjs/graphql'
 import { KategoriPengisian } from '../prisma/kategori-pengisian.enum'
-import { Float } from '@nestjs/graphql'
 import { Int } from '@nestjs/graphql'
+import { Float } from '@nestjs/graphql'
+import { Device } from '../device/device.model'
+import { Spbu } from '../spbu/spbu.model'
 import { User } from '../user/user.model'
 import { Stnk } from '../stnk/stnk.model'
 
@@ -16,7 +18,13 @@ export class HistoryPengisian {
   kategori_pengisian!: keyof typeof KategoriPengisian
 
   @Field(() => String, { nullable: false })
-  nama_spbu!: string
+  device_id!: string
+
+  @Field(() => String, { nullable: false })
+  jenis_kendaraan!: string
+
+  @Field(() => Int, { nullable: false })
+  spbu_id!: number
 
   @Field(() => Float, { nullable: false })
   jumlah!: number
@@ -32,6 +40,12 @@ export class HistoryPengisian {
 
   @Field(() => String, { nullable: false })
   nomor_stnk!: string
+
+  @Field(() => Device, { nullable: false })
+  device?: Device
+
+  @Field(() => Spbu, { nullable: false })
+  spbu?: Spbu
 
   @Field(() => User, { nullable: true })
   user?: User | null

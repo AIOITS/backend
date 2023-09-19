@@ -1,4 +1,11 @@
-import { Resolver, Query, Args, Parent, ResolveField } from '@nestjs/graphql'
+import {
+  Resolver,
+  Query,
+  Args,
+  Parent,
+  ResolveField,
+  Int,
+} from '@nestjs/graphql'
 import { UserService } from 'src/user/user.service'
 import { User } from 'src/@generated/prisma-nestjs-graphql/user/user.model'
 import { KtpService } from 'src/ktp/ktp.service'
@@ -23,6 +30,12 @@ import { FindManyPkbArgs } from 'src/@generated/prisma-nestjs-graphql/pkb/find-m
 import { PrismaService } from 'src/prisma/prisma.service'
 import { FindManyFileArgs } from 'src/@generated/prisma-nestjs-graphql/file/find-many-file.args'
 import { File } from 'src/@generated/prisma-nestjs-graphql/file/file.model'
+import { HistoryPengisianAggregateArgs } from 'src/@generated/prisma-nestjs-graphql/history-pengisian/history-pengisian-aggregate.args'
+import { AggregateHistoryPengisian } from 'src/@generated/prisma-nestjs-graphql/history-pengisian/aggregate-history-pengisian.output'
+import { HistoryPengisianGroupBy } from 'src/@generated/prisma-nestjs-graphql/history-pengisian/history-pengisian-group-by.output'
+import { HistoryPengisianGroupByArgs } from 'src/@generated/prisma-nestjs-graphql/history-pengisian/history-pengisian-group-by.args'
+import { Spbu } from 'src/@generated/prisma-nestjs-graphql/spbu/spbu.model'
+import { FindManySpbuArgs } from 'src/@generated/prisma-nestjs-graphql/spbu/find-many-spbu.args'
 
 @Resolver()
 export class GraphqlResolver {
@@ -34,6 +47,7 @@ export class GraphqlResolver {
     private readonly simService: SimService,
     private readonly stnkService: StnkService,
     private readonly pkbService: PkbService,
+    private readonly prismaService: PrismaService,
   ) {}
 
   @Query(() => [User], { name: 'user' })
@@ -69,6 +83,23 @@ export class GraphqlResolver {
   @Query(() => [Pkb], { name: 'pkb' })
   async getAllPkb(@Args() query: FindManyPkbArgs) {
     return await this.pkbService.findAll(query)
+  }
+
+  @Query(() => [Spbu], { name: 'spbu' })
+  async getAllSpbu(@Args() query: FindManySpbuArgs) {
+    return await this.prismaService.spbu.findMany(query)
+  }
+
+  @Query(() => AggregateHistoryPengisian, {
+    name: 'history_pengisian_aggregate',
+  })
+  async getHistoryPengisian(@Args() query: HistoryPengisianAggregateArgs) {
+    return await this.historyPengisianService.aggregate(query)
+  }
+
+  @Query(() => [HistoryPengisianGroupBy], { name: 'history_pengisian_groupby' })
+  async getGroupByHistoryPengisian(@Args() query: HistoryPengisianGroupByArgs) {
+    return await this.historyPengisianService.groupBy(query)
   }
 }
 @Resolver(() => User)

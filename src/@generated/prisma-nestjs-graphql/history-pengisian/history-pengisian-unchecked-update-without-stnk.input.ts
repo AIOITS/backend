@@ -17,7 +17,13 @@ export class HistoryPengisianUncheckedUpdateWithoutStnkInput {
   kategori_pengisian?: EnumKategoriPengisianFieldUpdateOperationsInput
 
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
-  nama_spbu?: StringFieldUpdateOperationsInput
+  device_id?: StringFieldUpdateOperationsInput
+
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  jenis_kendaraan?: StringFieldUpdateOperationsInput
+
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  spbu_id?: IntFieldUpdateOperationsInput
 
   @Field(() => FloatFieldUpdateOperationsInput, { nullable: true })
   jumlah?: FloatFieldUpdateOperationsInput

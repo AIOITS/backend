@@ -13,7 +13,13 @@ export class HistoryPengisianMaxAggregate {
   kategori_pengisian?: keyof typeof KategoriPengisian
 
   @Field(() => String, { nullable: true })
-  nama_spbu?: string
+  device_id?: string
+
+  @Field(() => String, { nullable: true })
+  jenis_kendaraan?: string
+
+  @Field(() => Int, { nullable: true })
+  spbu_id?: number
 
   @Field(() => Float, { nullable: true })
   jumlah?: number

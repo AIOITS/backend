@@ -52,7 +52,13 @@ model HistoryPengisian {
   id                 Int               @id @default(autoincrement())
   kategori_pengisian KategoriPengisian
 
-  nama_spbu String
+  device_id String
+  device    Device @relation(fields: [device_id], references: [device_id])
+
+  jenis_kendaraan String
+  spbu_id         Int
+  spbu            Spbu   @relation(fields: [spbu_id], references: [id])
+
   jumlah    Float
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -61,6 +67,8 @@ model HistoryPengisian {
 
   nomor_stnk String
   stnk       Stnk   @relation(fields: [nomor_stnk], references: [nomor_stnk])
+
+  @@index([jenis_kendaraan, spbu_id, kategori_pengisian, createdAt])
 }
 
 model AjuanSubsidi {
@@ -188,6 +196,22 @@ model Pkb {
   stnk Stnk?
 
   @@map("PKB")
+}
+
+model Device {
+  device_id        String             @id
+  spbu             Spbu               @relation(fields: [spbu_id], references: [id])
+  spbu_id          Int
+  historyPengisian HistoryPengisian[]
+}
+
+model Spbu {
+  id     Int    @id @default(autoincrement())
+  name   String
+  alamat String
+
+  device           Device[]
+  historyPengisian HistoryPengisian[]
 }
 
 model File {

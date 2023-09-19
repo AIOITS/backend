@@ -1,7 +1,7 @@
 import { Storage } from '@google-cloud/storage'
-import { Injectable } from '@nestjs/common'
+import { HttpException, Injectable } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
-
+import { Prisma } from '@prisma/client'
 @Injectable()
 export class StorageService {
   private storage: Storage
@@ -10,28 +10,29 @@ export class StorageService {
   constructor(private readonly configService: ConfigService) {
     this.storage = new Storage({
       projectId: this.configService.get<string>('PROJECT_ID'),
-      // credentials: {
-      //   client_email: this.configService.get<string>('CLIENT_EMAIL'),
-      //   private_key: this.configService.get<string>('PRIVATE_KEY'),
-      // },
+      credentials: {
+        client_email: this.configService.get<string>('CLIENT_EMAIL'),
+        private_key: this.configService.get<string>('PRIVATE_KEY'),
+      },
     })
 
-    this.bucket = this.configService.get<string>('STORAGE_MEDIA_BUCKET')
+    this.bucket = this.configService.get<string>('STORAGE_MEDIA_BUCKET')!
   }
 
-  async save(directory: string, file: Express.Multer.File) {
-    if (file) {
-      const path = this.generatePath(directory, file)
-      const uploadedFile = this.storage.bucket(this.bucket).file(path)
-      const stream = uploadedFile.createWriteStream()
-      stream.end(file.buffer)
-      console.log('testing::', file)
-      return {
-        name: file.originalname,
-        url: `https://storage.googleapis.com/${this.bucket}/${path}`,
-      }
+  async save(
+    directory: string,
+    file: Express.Multer.File,
+  ): Promise<Prisma.FileCreateInput> {
+    if (!file)
+      throw new HttpException('Terdapat kesalahan ketika membaca file', 400)
+    const path = this.generatePath(directory, file)
+    const uploadedFile = this.storage.bucket(this.bucket).file(path)
+    const stream = uploadedFile.createWriteStream()
+    stream.end(file.buffer)
+    return {
+      name: file.originalname,
+      url: `https://storage.googleapis.com/${this.bucket}/${path}`,
     }
-    return undefined
   }
 
   async removeFileIfExists(path: string) {

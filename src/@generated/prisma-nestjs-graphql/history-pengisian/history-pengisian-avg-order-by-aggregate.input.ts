@@ -8,6 +8,9 @@ export class HistoryPengisianAvgOrderByAggregateInput {
   id?: keyof typeof SortOrder
 
   @Field(() => SortOrder, { nullable: true })
+  spbu_id?: keyof typeof SortOrder
+
+  @Field(() => SortOrder, { nullable: true })
   jumlah?: keyof typeof SortOrder
 
   @Field(() => SortOrder, { nullable: true })

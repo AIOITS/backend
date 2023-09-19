@@ -4,6 +4,8 @@ import { EnumKategoriPengisianFieldUpdateOperationsInput } from '../prisma/enum-
 import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input'
 import { FloatFieldUpdateOperationsInput } from '../prisma/float-field-update-operations.input'
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input'
+import { DeviceUpdateOneRequiredWithoutHistoryPengisianNestedInput } from '../device/device-update-one-required-without-history-pengisian-nested.input'
+import { SpbuUpdateOneRequiredWithoutHistoryPengisianNestedInput } from '../spbu/spbu-update-one-required-without-history-pengisian-nested.input'
 import { UserUpdateOneWithoutHistory_pengisianNestedInput } from '../user/user-update-one-without-history-pengisian-nested.input'
 import { StnkUpdateOneRequiredWithoutHistory_pengisianNestedInput } from '../stnk/stnk-update-one-required-without-history-pengisian-nested.input'
 
@@ -15,7 +17,7 @@ export class HistoryPengisianUpdateInput {
   kategori_pengisian?: EnumKategoriPengisianFieldUpdateOperationsInput
 
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
-  nama_spbu?: StringFieldUpdateOperationsInput
+  jenis_kendaraan?: StringFieldUpdateOperationsInput
 
   @Field(() => FloatFieldUpdateOperationsInput, { nullable: true })
   jumlah?: FloatFieldUpdateOperationsInput
@@ -25,6 +27,16 @@ export class HistoryPengisianUpdateInput {
 
   @Field(() => DateTimeFieldUpdateOperationsInput, { nullable: true })
   updatedAt?: DateTimeFieldUpdateOperationsInput
+
+  @Field(() => DeviceUpdateOneRequiredWithoutHistoryPengisianNestedInput, {
+    nullable: true,
+  })
+  device?: DeviceUpdateOneRequiredWithoutHistoryPengisianNestedInput
+
+  @Field(() => SpbuUpdateOneRequiredWithoutHistoryPengisianNestedInput, {
+    nullable: true,
+  })
+  spbu?: SpbuUpdateOneRequiredWithoutHistoryPengisianNestedInput
 
   @Field(() => UserUpdateOneWithoutHistory_pengisianNestedInput, {
     nullable: true,

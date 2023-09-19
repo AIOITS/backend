@@ -8,7 +8,7 @@ import { PrismaService } from 'src/prisma/prisma.service'
 export class KtpService {
   constructor(private readonly _prismaService: PrismaService) {}
 
-  async create(createKtpDto: KtpCreateInput) {
+  async create(createKtpDto: Prisma.KtpCreateInput) {
     const { nik } = createKtpDto
     if (
       await this._prismaService.ktp.count({
@@ -54,8 +54,8 @@ export class KtpService {
       where: { nik },
       data: {
         ...updateKtpDto,
-        tanggal_lahir: new Date(updateKtpDto.tanggal_lahir),
-        tanggal_terbit: new Date(updateKtpDto.tanggal_terbit),
+        tanggal_lahir: new Date(updateKtpDto.tanggal_lahir!),
+        tanggal_terbit: new Date(updateKtpDto.tanggal_terbit!),
       },
     })
 

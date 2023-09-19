@@ -30,7 +30,13 @@ export class HistoryPengisianScalarWhereWithAggregatesInput {
   kategori_pengisian?: EnumKategoriPengisianWithAggregatesFilter
 
   @Field(() => StringWithAggregatesFilter, { nullable: true })
-  nama_spbu?: StringWithAggregatesFilter
+  device_id?: StringWithAggregatesFilter
+
+  @Field(() => StringWithAggregatesFilter, { nullable: true })
+  jenis_kendaraan?: StringWithAggregatesFilter
+
+  @Field(() => IntWithAggregatesFilter, { nullable: true })
+  spbu_id?: IntWithAggregatesFilter
 
   @Field(() => FloatWithAggregatesFilter, { nullable: true })
   jumlah?: FloatWithAggregatesFilter
