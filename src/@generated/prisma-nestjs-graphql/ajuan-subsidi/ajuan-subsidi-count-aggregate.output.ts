@@ -26,7 +26,7 @@ export class AjuanSubsidiCountAggregate {
   updatedAt!: number
 
   @Field(() => Int, { nullable: false })
-  userId!: number
+  user_id!: number
 
   @Field(() => Int, { nullable: false })
   _all!: number

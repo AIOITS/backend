@@ -16,5 +16,5 @@ export class FileUncheckedUpdateInput {
   url?: StringFieldUpdateOperationsInput
 
   @Field(() => NullableIntFieldUpdateOperationsInput, { nullable: true })
-  ajuanSubsidiId?: NullableIntFieldUpdateOperationsInput
+  ajuanSubsidi_id?: NullableIntFieldUpdateOperationsInput
 }

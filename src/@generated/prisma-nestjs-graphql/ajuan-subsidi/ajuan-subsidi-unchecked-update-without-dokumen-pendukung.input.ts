@@ -32,5 +32,5 @@ export class AjuanSubsidiUncheckedUpdateWithoutDokumen_pendukungInput {
   updatedAt?: DateTimeFieldUpdateOperationsInput
 
   @Field(() => NullableIntFieldUpdateOperationsInput, { nullable: true })
-  userId?: NullableIntFieldUpdateOperationsInput
+  user_id?: NullableIntFieldUpdateOperationsInput
 }

@@ -8,5 +8,5 @@ export class FileAvgAggregate {
   id?: number
 
   @Field(() => Float, { nullable: true })
-  ajuanSubsidiId?: number
+  ajuanSubsidi_id?: number
 }

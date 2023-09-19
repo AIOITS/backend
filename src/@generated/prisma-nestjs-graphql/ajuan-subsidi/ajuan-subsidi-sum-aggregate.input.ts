@@ -10,5 +10,5 @@ export class AjuanSubsidiSumAggregateInput {
   jumlah?: true
 
   @Field(() => Boolean, { nullable: true })
-  userId?: true
+  user_id?: true
 }

@@ -14,5 +14,5 @@ export class FileCreateManyInput {
   url!: string
 
   @Field(() => Int, { nullable: true })
-  ajuanSubsidiId?: number
+  ajuanSubsidi_id?: number
 }

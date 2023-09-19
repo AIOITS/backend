@@ -20,7 +20,7 @@ export class FileOrderByWithAggregationInput {
   url?: keyof typeof SortOrder
 
   @Field(() => SortOrderInput, { nullable: true })
-  ajuanSubsidiId?: SortOrderInput
+  ajuanSubsidi_id?: SortOrderInput
 
   @Field(() => FileCountOrderByAggregateInput, { nullable: true })
   _count?: FileCountOrderByAggregateInput

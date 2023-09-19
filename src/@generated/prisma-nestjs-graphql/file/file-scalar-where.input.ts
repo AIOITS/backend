@@ -25,5 +25,5 @@ export class FileScalarWhereInput {
   url?: StringFilter
 
   @Field(() => IntNullableFilter, { nullable: true })
-  ajuanSubsidiId?: IntNullableFilter
+  ajuanSubsidi_id?: IntNullableFilter
 }

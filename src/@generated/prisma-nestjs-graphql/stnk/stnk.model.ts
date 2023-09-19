@@ -81,7 +81,7 @@ export class Stnk {
   pkb?: Pkb
 
   @Field(() => Ktp, { nullable: true })
-  Ktp?: Ktp | null
+  ktp?: Ktp | null
 
   @Field(() => [HistoryPengisian], { nullable: true })
   history_pengisian?: Array<HistoryPengisian>

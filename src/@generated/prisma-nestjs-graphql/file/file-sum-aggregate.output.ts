@@ -8,5 +8,5 @@ export class FileSumAggregate {
   id?: number
 
   @Field(() => Int, { nullable: true })
-  ajuanSubsidiId?: number
+  ajuanSubsidi_id?: number
 }

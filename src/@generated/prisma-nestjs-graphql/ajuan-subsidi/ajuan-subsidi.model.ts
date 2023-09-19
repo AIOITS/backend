@@ -31,7 +31,7 @@ export class AjuanSubsidi {
   updatedAt!: Date
 
   @Field(() => Int, { nullable: true })
-  userId!: number | null
+  user_id!: number | null
 
   @Field(() => [File], { nullable: true })
   dokumen_pendukung?: Array<File>

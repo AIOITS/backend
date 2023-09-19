@@ -29,7 +29,7 @@ export class AjuanSubsidiOrderByWithRelationInput {
   updatedAt?: keyof typeof SortOrder
 
   @Field(() => SortOrderInput, { nullable: true })
-  userId?: SortOrderInput
+  user_id?: SortOrderInput
 
   @Field(() => FileOrderByRelationAggregateInput, { nullable: true })
   dokumen_pendukung?: FileOrderByRelationAggregateInput

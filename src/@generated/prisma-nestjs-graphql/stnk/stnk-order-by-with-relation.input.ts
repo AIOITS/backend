@@ -81,7 +81,7 @@ export class StnkOrderByWithRelationInput {
   pkb?: PkbOrderByWithRelationInput
 
   @Field(() => KtpOrderByWithRelationInput, { nullable: true })
-  Ktp?: KtpOrderByWithRelationInput
+  ktp?: KtpOrderByWithRelationInput
 
   @Field(() => HistoryPengisianOrderByRelationAggregateInput, {
     nullable: true,

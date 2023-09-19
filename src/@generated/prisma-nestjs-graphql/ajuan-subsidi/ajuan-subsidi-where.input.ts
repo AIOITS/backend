@@ -41,7 +41,7 @@ export class AjuanSubsidiWhereInput {
   updatedAt?: DateTimeFilter
 
   @Field(() => IntNullableFilter, { nullable: true })
-  userId?: IntNullableFilter
+  user_id?: IntNullableFilter
 
   @Field(() => FileListRelationFilter, { nullable: true })
   dokumen_pendukung?: FileListRelationFilter

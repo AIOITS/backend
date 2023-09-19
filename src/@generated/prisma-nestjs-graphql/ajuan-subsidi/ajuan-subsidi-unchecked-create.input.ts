@@ -33,7 +33,7 @@ export class AjuanSubsidiUncheckedCreateInput {
   updatedAt?: Date | string
 
   @Field(() => Int, { nullable: true })
-  userId?: number
+  user_id?: number
 
   @Field(() => FileUncheckedCreateNestedManyWithoutAjuanSubsidiInput, {
     nullable: true,

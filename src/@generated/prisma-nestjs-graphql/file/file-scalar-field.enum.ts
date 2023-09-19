@@ -4,7 +4,7 @@ export enum FileScalarFieldEnum {
   id = 'id',
   name = 'name',
   url = 'url',
-  ajuanSubsidiId = 'ajuanSubsidiId',
+  ajuanSubsidi_id = 'ajuanSubsidi_id',
 }
 
 registerEnumType(FileScalarFieldEnum, {

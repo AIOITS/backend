@@ -14,5 +14,5 @@ export class FileMaxOrderByAggregateInput {
   url?: keyof typeof SortOrder
 
   @Field(() => SortOrder, { nullable: true })
-  ajuanSubsidiId?: keyof typeof SortOrder
+  ajuanSubsidi_id?: keyof typeof SortOrder
 }

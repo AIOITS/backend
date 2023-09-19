@@ -13,7 +13,7 @@ export class FileCountAggregateInput {
   url?: true
 
   @Field(() => Boolean, { nullable: true })
-  ajuanSubsidiId?: true
+  ajuanSubsidi_id?: true
 
   @Field(() => Boolean, { nullable: true })
   _all?: true

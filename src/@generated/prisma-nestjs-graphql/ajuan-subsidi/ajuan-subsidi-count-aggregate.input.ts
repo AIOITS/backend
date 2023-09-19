@@ -25,7 +25,7 @@ export class AjuanSubsidiCountAggregateInput {
   updatedAt?: true
 
   @Field(() => Boolean, { nullable: true })
-  userId?: true
+  user_id?: true
 
   @Field(() => Boolean, { nullable: true })
   _all?: true

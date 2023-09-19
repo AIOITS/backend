@@ -32,7 +32,7 @@ export class AjuanSubsidiOrderByWithAggregationInput {
   updatedAt?: keyof typeof SortOrder
 
   @Field(() => SortOrderInput, { nullable: true })
-  userId?: SortOrderInput
+  user_id?: SortOrderInput
 
   @Field(() => AjuanSubsidiCountOrderByAggregateInput, { nullable: true })
   _count?: AjuanSubsidiCountOrderByAggregateInput

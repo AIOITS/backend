@@ -67,5 +67,5 @@ export class SimWhereInput {
   nik?: StringNullableFilter
 
   @Field(() => KtpNullableRelationFilter, { nullable: true })
-  Ktp?: KtpNullableRelationFilter
+  ktp?: KtpNullableRelationFilter
 }

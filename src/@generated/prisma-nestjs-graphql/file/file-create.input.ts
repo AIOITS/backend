@@ -13,5 +13,5 @@ export class FileCreateInput {
   @Field(() => AjuanSubsidiCreateNestedOneWithoutDokumen_pendukungInput, {
     nullable: true,
   })
-  AjuanSubsidi?: AjuanSubsidiCreateNestedOneWithoutDokumen_pendukungInput
+  ajuanSubsidi?: AjuanSubsidiCreateNestedOneWithoutDokumen_pendukungInput
 }

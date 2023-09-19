@@ -32,5 +32,5 @@ export class AjuanSubsidiUncheckedUpdateManyInput {
   updatedAt?: DateTimeFieldUpdateOperationsInput
 
   @Field(() => NullableIntFieldUpdateOperationsInput, { nullable: true })
-  userId?: NullableIntFieldUpdateOperationsInput
+  user_id?: NullableIntFieldUpdateOperationsInput
 }

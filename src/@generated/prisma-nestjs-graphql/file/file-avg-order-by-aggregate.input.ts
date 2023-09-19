@@ -8,5 +8,5 @@ export class FileAvgOrderByAggregateInput {
   id?: keyof typeof SortOrder
 
   @Field(() => SortOrder, { nullable: true })
-  ajuanSubsidiId?: keyof typeof SortOrder
+  ajuanSubsidi_id?: keyof typeof SortOrder
 }

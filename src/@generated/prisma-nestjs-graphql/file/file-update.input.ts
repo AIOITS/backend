@@ -14,5 +14,5 @@ export class FileUpdateInput {
   @Field(() => AjuanSubsidiUpdateOneWithoutDokumen_pendukungNestedInput, {
     nullable: true,
   })
-  AjuanSubsidi?: AjuanSubsidiUpdateOneWithoutDokumen_pendukungNestedInput
+  ajuanSubsidi?: AjuanSubsidiUpdateOneWithoutDokumen_pendukungNestedInput
 }

@@ -16,8 +16,8 @@ export class File {
   url!: string
 
   @Field(() => Int, { nullable: true })
-  ajuanSubsidiId!: number | null
+  ajuanSubsidi_id!: number | null
 
   @Field(() => AjuanSubsidi, { nullable: true })
-  AjuanSubsidi?: AjuanSubsidi | null
+  ajuanSubsidi?: AjuanSubsidi | null
 }

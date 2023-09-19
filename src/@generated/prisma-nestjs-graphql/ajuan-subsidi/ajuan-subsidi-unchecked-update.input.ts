@@ -33,7 +33,7 @@ export class AjuanSubsidiUncheckedUpdateInput {
   updatedAt?: DateTimeFieldUpdateOperationsInput
 
   @Field(() => NullableIntFieldUpdateOperationsInput, { nullable: true })
-  userId?: NullableIntFieldUpdateOperationsInput
+  user_id?: NullableIntFieldUpdateOperationsInput
 
   @Field(() => FileUncheckedUpdateManyWithoutAjuanSubsidiNestedInput, {
     nullable: true,

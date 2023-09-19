@@ -71,7 +71,7 @@ export class StnkUpdateWithoutPkbInput {
   nomor_urut_pendaftaran?: StringFieldUpdateOperationsInput
 
   @Field(() => KtpUpdateOneWithoutStnkNestedInput, { nullable: true })
-  Ktp?: KtpUpdateOneWithoutStnkNestedInput
+  ktp?: KtpUpdateOneWithoutStnkNestedInput
 
   @Field(() => HistoryPengisianUpdateManyWithoutStnkNestedInput, {
     nullable: true,

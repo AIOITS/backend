@@ -72,5 +72,5 @@ export class StnkCreateWithoutHistory_pengisianInput {
   pkb!: PkbCreateNestedOneWithoutStnkInput
 
   @Field(() => KtpCreateNestedOneWithoutStnkInput, { nullable: true })
-  Ktp?: KtpCreateNestedOneWithoutStnkInput
+  ktp?: KtpCreateNestedOneWithoutStnkInput
 }

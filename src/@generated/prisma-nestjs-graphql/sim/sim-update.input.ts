@@ -54,5 +54,5 @@ export class SimUpdateInput {
   berlaku_sampai?: DateTimeFieldUpdateOperationsInput
 
   @Field(() => KtpUpdateOneWithoutSimNestedInput, { nullable: true })
-  Ktp?: KtpUpdateOneWithoutSimNestedInput
+  ktp?: KtpUpdateOneWithoutSimNestedInput
 }

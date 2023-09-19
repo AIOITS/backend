@@ -69,7 +69,7 @@ export class StnkCreateWithoutPkbInput {
   nomor_urut_pendaftaran!: string
 
   @Field(() => KtpCreateNestedOneWithoutStnkInput, { nullable: true })
-  Ktp?: KtpCreateNestedOneWithoutStnkInput
+  ktp?: KtpCreateNestedOneWithoutStnkInput
 
   @Field(() => HistoryPengisianCreateNestedManyWithoutStnkInput, {
     nullable: true,

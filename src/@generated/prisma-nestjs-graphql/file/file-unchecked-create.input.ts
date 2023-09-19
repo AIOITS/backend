@@ -14,5 +14,5 @@ export class FileUncheckedCreateInput {
   url!: string
 
   @Field(() => Int, { nullable: true })
-  ajuanSubsidiId?: number
+  ajuanSubsidi_id?: number
 }

@@ -16,8 +16,8 @@ export class FileOrderByWithRelationInput {
   url?: keyof typeof SortOrder
 
   @Field(() => SortOrderInput, { nullable: true })
-  ajuanSubsidiId?: SortOrderInput
+  ajuanSubsidi_id?: SortOrderInput
 
   @Field(() => AjuanSubsidiOrderByWithRelationInput, { nullable: true })
-  AjuanSubsidi?: AjuanSubsidiOrderByWithRelationInput
+  ajuanSubsidi?: AjuanSubsidiOrderByWithRelationInput
 }

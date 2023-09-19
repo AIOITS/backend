@@ -26,8 +26,8 @@ export class FileWhereInput {
   url?: StringFilter
 
   @Field(() => IntNullableFilter, { nullable: true })
-  ajuanSubsidiId?: IntNullableFilter
+  ajuanSubsidi_id?: IntNullableFilter
 
   @Field(() => AjuanSubsidiNullableRelationFilter, { nullable: true })
-  AjuanSubsidi?: AjuanSubsidiNullableRelationFilter
+  ajuanSubsidi?: AjuanSubsidiNullableRelationFilter
 }

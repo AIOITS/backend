@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common'
 import {
   AjuanSubsidiResolver,
   GraphqlResolver,
+  HistoryPengisianResolver,
   KtpResolver,
   StnkResolver,
   UserResolver,
@@ -23,6 +24,7 @@ import { StorageService } from 'src/storage/storage.service'
     StnkResolver,
     GraphqlResolver,
     AjuanSubsidiResolver,
+    HistoryPengisianResolver,
     StorageService,
 
     UserService,

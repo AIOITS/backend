@@ -32,5 +32,5 @@ export class AjuanSubsidiUncheckedCreateWithoutDokumen_pendukungInput {
   updatedAt?: Date | string
 
   @Field(() => Int, { nullable: true })
-  userId?: number
+  user_id?: number
 }

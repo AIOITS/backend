@@ -150,13 +150,13 @@ export class KtpResolver {
   }
 
   @ResolveField('sim', () => [Sim])
-  async getSim(@Parent() Ktp: Ktp) {
-    return await this.simService.findAll({ where: { Ktp: { nik: Ktp.nik } } })
+  async getSim(@Parent() ktp: Ktp) {
+    return await this.simService.findAll({ where: { ktp: { nik: ktp.nik } } })
   }
 
   @ResolveField('stnk', () => [Stnk])
-  async getStnk(@Parent() Ktp: Ktp) {
-    return await this.stnkService.findAll({ where: { Ktp: { nik: Ktp.nik } } })
+  async getStnk(@Parent() ktp: Ktp) {
+    return await this.stnkService.findAll({ where: { ktp: { nik: ktp.nik } } })
   }
 }
 
@@ -165,9 +165,9 @@ export class AjuanSubsidiResolver {
   constructor(private readonly prismaService: PrismaService) {}
 
   @ResolveField(() => [File], { name: 'dokumen_pendukung' })
-  async getAllFiles(@Parent() AjuanSubsidi: AjuanSubsidi) {
+  async getAllFiles(@Parent() ajuanSubsidi: AjuanSubsidi) {
     return await this.prismaService.file.findMany({
-      where: { AjuanSubsidi: { id: AjuanSubsidi.id } },
+      where: { ajuanSubsidi: { id: ajuanSubsidi.id } },
     })
   }
 }
@@ -196,6 +196,18 @@ export class StnkResolver {
   async getHistoryPengisian(@Parent() stnk: Stnk) {
     return await this.historyPengisianService.findAll({
       where: { stnk: { nomor_stnk: stnk.nomor_stnk } },
+    })
+  }
+}
+
+@Resolver(() => HistoryPengisian)
+export class HistoryPengisianResolver {
+  constructor(private readonly prismaService: PrismaService) {}
+
+  @ResolveField(() => [Spbu], { name: 'spbu' })
+  async getAllFiles(@Parent() historyPengisian: HistoryPengisian) {
+    return await this.prismaService.spbu.findMany({
+      where: { historyPengisian: { every: { id: historyPengisian.id } } },
     })
   }
 }

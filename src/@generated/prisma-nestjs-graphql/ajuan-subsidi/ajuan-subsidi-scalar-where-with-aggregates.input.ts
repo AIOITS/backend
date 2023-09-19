@@ -41,5 +41,5 @@ export class AjuanSubsidiScalarWhereWithAggregatesInput {
   updatedAt?: DateTimeWithAggregatesFilter
 
   @Field(() => IntNullableWithAggregatesFilter, { nullable: true })
-  userId?: IntNullableWithAggregatesFilter
+  user_id?: IntNullableWithAggregatesFilter
 }

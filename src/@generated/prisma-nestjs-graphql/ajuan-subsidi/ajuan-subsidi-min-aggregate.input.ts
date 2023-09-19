@@ -25,5 +25,5 @@ export class AjuanSubsidiMinAggregateInput {
   updatedAt?: true
 
   @Field(() => Boolean, { nullable: true })
-  userId?: true
+  user_id?: true
 }

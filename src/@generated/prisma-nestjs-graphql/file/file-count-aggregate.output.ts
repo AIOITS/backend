@@ -14,7 +14,7 @@ export class FileCountAggregate {
   url!: number
 
   @Field(() => Int, { nullable: false })
-  ajuanSubsidiId!: number
+  ajuanSubsidi_id!: number
 
   @Field(() => Int, { nullable: false })
   _all!: number

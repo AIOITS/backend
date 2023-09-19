@@ -55,5 +55,5 @@ export class SimOrderByWithRelationInput {
   nik?: SortOrderInput
 
   @Field(() => KtpOrderByWithRelationInput, { nullable: true })
-  Ktp?: KtpOrderByWithRelationInput
+  ktp?: KtpOrderByWithRelationInput
 }

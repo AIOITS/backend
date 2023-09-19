@@ -11,5 +11,5 @@ export class AjuanSubsidiAvgAggregate {
   jumlah?: number
 
   @Field(() => Float, { nullable: true })
-  userId?: number
+  user_id?: number
 }

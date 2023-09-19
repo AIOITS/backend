@@ -11,5 +11,5 @@ export class AjuanSubsidiSumAggregate {
   jumlah?: number
 
   @Field(() => Int, { nullable: true })
-  userId?: number
+  user_id?: number
 }

@@ -7,5 +7,5 @@ export class FileAvgAggregateInput {
   id?: true
 
   @Field(() => Boolean, { nullable: true })
-  ajuanSubsidiId?: true
+  ajuanSubsidi_id?: true
 }

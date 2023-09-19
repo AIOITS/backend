@@ -73,7 +73,7 @@ export class StnkCreateInput {
   pkb!: PkbCreateNestedOneWithoutStnkInput
 
   @Field(() => KtpCreateNestedOneWithoutStnkInput, { nullable: true })
-  Ktp?: KtpCreateNestedOneWithoutStnkInput
+  ktp?: KtpCreateNestedOneWithoutStnkInput
 
   @Field(() => HistoryPengisianCreateNestedManyWithoutStnkInput, {
     nullable: true,

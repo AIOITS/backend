@@ -27,5 +27,5 @@ export class AjuanSubsidiMinAggregate {
   updatedAt?: Date | string
 
   @Field(() => Int, { nullable: true })
-  userId?: number
+  user_id?: number
 }

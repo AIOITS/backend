@@ -91,7 +91,7 @@ export class StnkWhereInput {
   pkb?: PkbRelationFilter
 
   @Field(() => KtpNullableRelationFilter, { nullable: true })
-  Ktp?: KtpNullableRelationFilter
+  ktp?: KtpNullableRelationFilter
 
   @Field(() => HistoryPengisianListRelationFilter, { nullable: true })
   history_pengisian?: HistoryPengisianListRelationFilter

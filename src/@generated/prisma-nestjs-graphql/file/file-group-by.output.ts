@@ -19,7 +19,7 @@ export class FileGroupBy {
   url!: string
 
   @Field(() => Int, { nullable: true })
-  ajuanSubsidiId?: number
+  ajuanSubsidi_id?: number
 
   @Field(() => FileCountAggregate, { nullable: true })
   _count?: FileCountAggregate

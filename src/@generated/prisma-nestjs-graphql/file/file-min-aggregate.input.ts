@@ -13,5 +13,5 @@ export class FileMinAggregateInput {
   url?: true
 
   @Field(() => Boolean, { nullable: true })
-  ajuanSubsidiId?: true
+  ajuanSubsidi_id?: true
 }

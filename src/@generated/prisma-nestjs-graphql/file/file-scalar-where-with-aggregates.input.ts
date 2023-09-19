@@ -25,5 +25,5 @@ export class FileScalarWhereWithAggregatesInput {
   url?: StringWithAggregatesFilter
 
   @Field(() => IntNullableWithAggregatesFilter, { nullable: true })
-  ajuanSubsidiId?: IntNullableWithAggregatesFilter
+  ajuanSubsidi_id?: IntNullableWithAggregatesFilter
 }

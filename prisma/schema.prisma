@@ -91,8 +91,8 @@ model AjuanSubsidi {
   status_pengajuan StatusPengajuanSubsidi?
   createdAt        DateTime                @default(now())
   updatedAt        DateTime                @updatedAt
-  user             User?                   @relation(fields: [userId], references: [id])
-  userId           Int?
+  user             User?                   @relation(fields: [user_id], references: [id])
+  user_id           Int?
 }
 
 model Ktp {
@@ -140,7 +140,7 @@ model Sim {
   berlaku_sampai   DateTime @db.Date
 
   nik String?
-  Ktp Ktp?    @relation(fields: [nik], references: [nik])
+  ktp Ktp?    @relation(fields: [nik], references: [nik])
 
   @@map("SIM")
 }
@@ -172,7 +172,7 @@ model Stnk {
   pkb       Pkb    @relation(fields: [nomor_pkb], references: [nomor_pkb])
 
   nik String?
-  Ktp Ktp?    @relation(fields: [nik], references: [nik])
+  ktp Ktp?    @relation(fields: [nik], references: [nik])
 
   history_pengisian HistoryPengisian[]
 
@@ -218,8 +218,8 @@ model File {
   id             Int           @id @default(autoincrement())
   name           String
   url            String
-  AjuanSubsidi   AjuanSubsidi? @relation(fields: [ajuanSubsidiId], references: [id])
-  ajuanSubsidiId Int?
+  ajuanSubsidi   AjuanSubsidi? @relation(fields: [ajuanSubsidi_id], references: [id])
+  ajuanSubsidi_id Int?
 }
 
 enum KategoriPengisian {

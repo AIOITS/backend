@@ -52,5 +52,5 @@ export class SimCreateInput {
   berlaku_sampai!: Date | string
 
   @Field(() => KtpCreateNestedOneWithoutSimInput, { nullable: true })
-  Ktp?: KtpCreateNestedOneWithoutSimInput
+  ktp?: KtpCreateNestedOneWithoutSimInput
 }

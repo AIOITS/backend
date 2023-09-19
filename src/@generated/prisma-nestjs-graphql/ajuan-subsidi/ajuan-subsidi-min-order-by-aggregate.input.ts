@@ -26,5 +26,5 @@ export class AjuanSubsidiMinOrderByAggregateInput {
   updatedAt?: keyof typeof SortOrder
 
   @Field(() => SortOrder, { nullable: true })
-  userId?: keyof typeof SortOrder
+  user_id?: keyof typeof SortOrder
 }

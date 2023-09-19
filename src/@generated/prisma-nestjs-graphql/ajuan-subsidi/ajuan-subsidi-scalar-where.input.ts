@@ -39,5 +39,5 @@ export class AjuanSubsidiScalarWhereInput {
   updatedAt?: DateTimeFilter
 
   @Field(() => IntNullableFilter, { nullable: true })
-  userId?: IntNullableFilter
+  user_id?: IntNullableFilter
 }

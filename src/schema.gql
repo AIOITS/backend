@@ -61,7 +61,7 @@ type Sim {
   penerbit: String!
   berlaku_sampai: DateTime!
   nik: String
-  Ktp: Ktp
+  ktp: Ktp
 }
 
 enum JenisSim {
@@ -173,7 +173,7 @@ type Stnk {
   nomor_pkb: String!
   nik: String
   pkb: Pkb!
-  Ktp: Ktp
+  ktp: Ktp
   history_pengisian: [HistoryPengisian!]!
   _count: StnkCount!
 }
@@ -190,7 +190,7 @@ type HistoryPengisian {
   user_id: Int!
   nomor_stnk: String!
   device: Device!
-  spbu: Spbu!
+  spbu: [Spbu!]!
   user: User
   stnk: Stnk!
 }
@@ -204,8 +204,8 @@ type File {
   id: ID!
   name: String!
   url: String!
-  ajuanSubsidiId: Int
-  AjuanSubsidi: AjuanSubsidi
+  ajuanSubsidi_id: Int
+  ajuanSubsidi: AjuanSubsidi
 }
 
 type AjuanSubsidiCount {
@@ -220,7 +220,7 @@ type AjuanSubsidi {
   status_pengajuan: StatusPengajuanSubsidi
   createdAt: DateTime!
   updatedAt: DateTime!
-  userId: Int
+  user_id: Int
   dokumen_pendukung: [File!]!
   user: User
   _count: AjuanSubsidiCount!
@@ -612,7 +612,7 @@ input StnkWhereInput {
   nomor_pkb: StringFilter
   nik: StringNullableFilter
   pkb: PkbRelationFilter
-  Ktp: KtpNullableRelationFilter
+  ktp: KtpNullableRelationFilter
   history_pengisian: HistoryPengisianListRelationFilter
 }
 
@@ -769,7 +769,7 @@ input SimWhereInput {
   penerbit: StringFilter
   berlaku_sampai: DateTimeFilter
   nik: StringNullableFilter
-  Ktp: KtpNullableRelationFilter
+  ktp: KtpNullableRelationFilter
 }
 
 input EnumJenisSimFilter {
@@ -809,7 +809,7 @@ input AjuanSubsidiWhereInput {
   status_pengajuan: EnumStatusPengajuanSubsidiNullableFilter
   createdAt: DateTimeFilter
   updatedAt: DateTimeFilter
-  userId: IntNullableFilter
+  user_id: IntNullableFilter
   dokumen_pendukung: FileListRelationFilter
   user: UserNullableRelationFilter
 }
@@ -863,8 +863,8 @@ input FileWhereInput {
   id: IntFilter
   name: StringFilter
   url: StringFilter
-  ajuanSubsidiId: IntNullableFilter
-  AjuanSubsidi: AjuanSubsidiNullableRelationFilter
+  ajuanSubsidi_id: IntNullableFilter
+  ajuanSubsidi: AjuanSubsidiNullableRelationFilter
 }
 
 input AjuanSubsidiNullableRelationFilter {
@@ -1056,7 +1056,7 @@ input StnkOrderByWithRelationInput {
   nomor_pkb: SortOrder
   nik: SortOrderInput
   pkb: PkbOrderByWithRelationInput
-  Ktp: KtpOrderByWithRelationInput
+  ktp: KtpOrderByWithRelationInput
   history_pengisian: HistoryPengisianOrderByRelationAggregateInput
 }
 
@@ -1104,7 +1104,7 @@ input StnkWhereUniqueInput {
   nomor_urut_pendaftaran: StringFilter
   nik: StringNullableFilter
   pkb: PkbRelationFilter
-  Ktp: KtpNullableRelationFilter
+  ktp: KtpNullableRelationFilter
   history_pengisian: HistoryPengisianListRelationFilter
 }
 
@@ -1211,7 +1211,7 @@ input AjuanSubsidiOrderByWithRelationInput {
   status_pengajuan: SortOrderInput
   createdAt: SortOrder
   updatedAt: SortOrder
-  userId: SortOrderInput
+  user_id: SortOrderInput
   dokumen_pendukung: FileOrderByRelationAggregateInput
   user: UserOrderByWithRelationInput
 }
@@ -1231,7 +1231,7 @@ input AjuanSubsidiWhereUniqueInput {
   status_pengajuan: EnumStatusPengajuanSubsidiNullableFilter
   createdAt: DateTimeFilter
   updatedAt: DateTimeFilter
-  userId: IntNullableFilter
+  user_id: IntNullableFilter
   dokumen_pendukung: FileListRelationFilter
   user: UserNullableRelationFilter
 }
@@ -1244,7 +1244,7 @@ enum AjuanSubsidiScalarFieldEnum {
   status_pengajuan
   createdAt
   updatedAt
-  userId
+  user_id
 }
 
 input SimOrderByWithRelationInput {
@@ -1264,7 +1264,7 @@ input SimOrderByWithRelationInput {
   penerbit: SortOrder
   berlaku_sampai: SortOrder
   nik: SortOrderInput
-  Ktp: KtpOrderByWithRelationInput
+  ktp: KtpOrderByWithRelationInput
 }
 
 input SimWhereUniqueInput {
@@ -1287,7 +1287,7 @@ input SimWhereUniqueInput {
   penerbit: StringFilter
   berlaku_sampai: DateTimeFilter
   nik: StringNullableFilter
-  Ktp: KtpNullableRelationFilter
+  ktp: KtpNullableRelationFilter
 }
 
 enum SimScalarFieldEnum {

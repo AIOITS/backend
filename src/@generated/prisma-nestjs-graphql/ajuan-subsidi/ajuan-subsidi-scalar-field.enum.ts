@@ -8,7 +8,7 @@ export enum AjuanSubsidiScalarFieldEnum {
   status_pengajuan = 'status_pengajuan',
   createdAt = 'createdAt',
   updatedAt = 'updatedAt',
-  userId = 'userId',
+  user_id = 'user_id',
 }
 
 registerEnumType(AjuanSubsidiScalarFieldEnum, {

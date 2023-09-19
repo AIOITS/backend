@@ -56,5 +56,5 @@ export class Sim {
   nik!: string | null
 
   @Field(() => Ktp, { nullable: true })
-  Ktp?: Ktp | null
+  ktp?: Ktp | null
 }

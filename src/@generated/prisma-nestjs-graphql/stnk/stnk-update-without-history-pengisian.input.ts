@@ -74,5 +74,5 @@ export class StnkUpdateWithoutHistory_pengisianInput {
   pkb?: PkbUpdateOneRequiredWithoutStnkNestedInput
 
   @Field(() => KtpUpdateOneWithoutStnkNestedInput, { nullable: true })
-  Ktp?: KtpUpdateOneWithoutStnkNestedInput
+  ktp?: KtpUpdateOneWithoutStnkNestedInput
 }
