@@ -12,7 +12,7 @@ async function seedHistoryPengisian() {
         bbm_id: (await prisma.bbm.findFirst({where: { name: 'Pertalite'}})).id,
         jumlah: 50.0,
         nomor_stnk: '98762848',
-        user_id: (await prisma.user.findFirst({where: { email: 'testing@example.com'}})).id
+        user_id: (await prisma.user.findFirst({where: { email: 'pkmaioits@email.com'}})).id
       },
     ]
   })

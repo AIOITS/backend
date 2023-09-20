@@ -157,6 +157,41 @@ async function seedUser() {
       }
     },
   })
+
+  // Government
+  await prisma.user.create({
+    data: {
+      name: "Government",
+      email: "government@email.com",
+      phone: "081234567891",
+      password: await argon2.hash("rahasia"),
+      kuota_subsidi: 100.0,
+      saldo: 50000,
+      role: 0,
+      ktp: {
+        create: {
+          nik: "1234567890123457",
+          nama: "Government",
+          tempat_lahir: "Bandung",
+          tanggal_lahir: new Date("1992-08-10"),
+          alamat: "Jl. PQR No. 789",
+          rt: 5,
+          rw: 6,
+          kelurahan_desa: "Ciumbuleuit",
+          kecamatan: "Cidadap",
+          kabupaten_kota: "Bandung",
+          provinsi: "Jawa Barat",
+          golongan_darah: "ab",
+          agama: "kristen",
+          jenis_kelamin: "lainnya",
+          status_perkawinan: "belum_kawin",
+          pekerjaan: "Graphic Designer",
+          kewarganegaraan: "WNI",
+          tanggal_terbit: new Date("2012-12-05"),
+        }
+      }
+    },
+  })
 }
 
 
