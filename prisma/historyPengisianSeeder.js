@@ -9,6 +9,7 @@ async function seedHistoryPengisian() {
         device_id: '00:1A:2B:3C:4D:5E',
         jenis_kendaraan: 'sepeda motor',
         spbu_id: (await prisma.device.findFirst({where: { device_id: '00:1A:2B:3C:4D:5E'}})).spbu_id,
+        bbm_id: (await prisma.bbm.findFirst({where: { name: 'Pertalite'}})).id,
         jumlah: 50.0,
         nomor_stnk: '98762848',
         user_id: (await prisma.user.findFirst({where: { email: 'testing@example.com'}})).id

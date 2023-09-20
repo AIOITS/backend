@@ -5,16 +5,16 @@ const argon2 = require('argon2')
 async function seedUser() {  
   await prisma.user.create({
     data: {
-      name: "Testing Doe",
-      email: "testing@example.com",
+      name: "PKM AIOITS",
+      email: "pkmaioits@email.com",
       phone: "081234567890",
-      password: await argon2.hash("testing"),
+      password: await argon2.hash("rahasia"),
       kuota_subsidi: 100.0,
       saldo: 50000,
       ktp: {
         create: {
           nik: "1234567890123456",
-          nama: "Testing Doe",
+          nama: "PKM AIOITS",
           tempat_lahir: "Bandung",
           tanggal_lahir: new Date("1992-08-10"),
           alamat: "Jl. PQR No. 789",
@@ -38,7 +38,7 @@ async function seedUser() {
                 uid: "49a65da8ab81af",
                 nomor_sim: "67045837028",
                 jenis_sim: "a_umum",
-                nama: "Testing Doe",
+                nama: "PKM AIOITS",
                 alamat: "Jl. PQR No. 101",
                 rt: 7,
                 rw: 8,
@@ -55,7 +55,7 @@ async function seedUser() {
                 uid: "cc02bb4aac2722",
                 nomor_sim: "670458370281",
                 jenis_sim: "b1",
-                nama: "Testing Doe",
+                nama: "PKM AIOITS",
                 alamat: "Jl. PQR No. 101",
                 rt: 7,
                 rw: 8,
@@ -75,7 +75,7 @@ async function seedUser() {
               {
                 nomor_stnk: '98762848',
                 nomor_polisi: 'AB123CD',
-                nama_pemilik: 'Testing Doe',
+                nama_pemilik: 'PKM AIOITS',
                 nomor_bpkb: '67890',
                 alamat: '123 Main St, City',
                 bahan_bakar: 'Gasoline',

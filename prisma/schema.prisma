@@ -56,14 +56,19 @@ model HistoryPengisian {
   device    Device @relation(fields: [device_id], references: [device_id])
 
   jenis_kendaraan String
-  spbu_id         Int
-  spbu            Spbu   @relation(fields: [spbu_id], references: [id])
+
+  spbu_id Int
+  spbu    Spbu @relation(fields: [spbu_id], references: [id])
 
   jumlah    Float
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  user_id   Int
-  user      User?    @relation(fields: [user_id], references: [id])
+
+  bbm_id Int
+  bbm    Bbm? @relation(fields: [bbm_id], references: [id])
+
+  user_id Int
+  user    User? @relation(fields: [user_id], references: [id])
 
   nomor_stnk String
   stnk       Stnk   @relation(fields: [nomor_stnk], references: [nomor_stnk])
@@ -92,7 +97,7 @@ model AjuanSubsidi {
   createdAt        DateTime                @default(now())
   updatedAt        DateTime                @updatedAt
   user             User?                   @relation(fields: [user_id], references: [id])
-  user_id           Int?
+  user_id          Int?
 }
 
 model Ktp {
@@ -215,11 +220,19 @@ model Spbu {
 }
 
 model File {
-  id             Int           @id @default(autoincrement())
-  name           String
-  url            String
-  ajuanSubsidi   AjuanSubsidi? @relation(fields: [ajuanSubsidi_id], references: [id])
+  id              Int           @id @default(autoincrement())
+  name            String
+  url             String
+  ajuanSubsidi    AjuanSubsidi? @relation(fields: [ajuanSubsidi_id], references: [id])
   ajuanSubsidi_id Int?
+}
+
+model Bbm {
+  id               Int                @id @default(autoincrement())
+  name             String
+  type             String
+  price_per_liter  Float
+  HistoryPengisian HistoryPengisian[]
 }
 
 enum KategoriPengisian {
