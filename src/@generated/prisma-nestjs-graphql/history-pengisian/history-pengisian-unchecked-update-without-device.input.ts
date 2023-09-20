@@ -32,6 +32,9 @@ export class HistoryPengisianUncheckedUpdateWithoutDeviceInput {
   updatedAt?: DateTimeFieldUpdateOperationsInput
 
   @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  bbm_id?: IntFieldUpdateOperationsInput
+
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
   user_id?: IntFieldUpdateOperationsInput
 
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })

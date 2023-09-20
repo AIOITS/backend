@@ -3,6 +3,7 @@ import { InputType } from '@nestjs/graphql'
 import { SortOrder } from '../prisma/sort-order.enum'
 import { DeviceOrderByWithRelationInput } from '../device/device-order-by-with-relation.input'
 import { SpbuOrderByWithRelationInput } from '../spbu/spbu-order-by-with-relation.input'
+import { BbmOrderByWithRelationInput } from '../bbm/bbm-order-by-with-relation.input'
 import { UserOrderByWithRelationInput } from '../user/user-order-by-with-relation.input'
 import { StnkOrderByWithRelationInput } from '../stnk/stnk-order-by-with-relation.input'
 
@@ -33,6 +34,9 @@ export class HistoryPengisianOrderByWithRelationInput {
   updatedAt?: keyof typeof SortOrder
 
   @Field(() => SortOrder, { nullable: true })
+  bbm_id?: keyof typeof SortOrder
+
+  @Field(() => SortOrder, { nullable: true })
   user_id?: keyof typeof SortOrder
 
   @Field(() => SortOrder, { nullable: true })
@@ -43,6 +47,9 @@ export class HistoryPengisianOrderByWithRelationInput {
 
   @Field(() => SpbuOrderByWithRelationInput, { nullable: true })
   spbu?: SpbuOrderByWithRelationInput
+
+  @Field(() => BbmOrderByWithRelationInput, { nullable: true })
+  bbm?: BbmOrderByWithRelationInput
 
   @Field(() => UserOrderByWithRelationInput, { nullable: true })
   user?: UserOrderByWithRelationInput

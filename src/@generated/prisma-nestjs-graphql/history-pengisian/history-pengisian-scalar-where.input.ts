@@ -42,6 +42,9 @@ export class HistoryPengisianScalarWhereInput {
   updatedAt?: DateTimeFilter
 
   @Field(() => IntFilter, { nullable: true })
+  bbm_id?: IntFilter
+
+  @Field(() => IntFilter, { nullable: true })
   user_id?: IntFilter
 
   @Field(() => StringFilter, { nullable: true })

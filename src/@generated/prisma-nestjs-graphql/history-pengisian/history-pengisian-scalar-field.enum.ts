@@ -9,6 +9,7 @@ export enum HistoryPengisianScalarFieldEnum {
   jumlah = 'jumlah',
   createdAt = 'createdAt',
   updatedAt = 'updatedAt',
+  bbm_id = 'bbm_id',
   user_id = 'user_id',
   nomor_stnk = 'nomor_stnk',
 }

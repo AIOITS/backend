@@ -36,6 +36,8 @@ import { HistoryPengisianGroupBy } from 'src/@generated/prisma-nestjs-graphql/hi
 import { HistoryPengisianGroupByArgs } from 'src/history-pengisian/dto/history-pengisian-group-by.args'
 import { Spbu } from 'src/@generated/prisma-nestjs-graphql/spbu/spbu.model'
 import { FindManySpbuArgs } from 'src/@generated/prisma-nestjs-graphql/spbu/find-many-spbu.args'
+import { Bbm } from 'src/@generated/prisma-nestjs-graphql/bbm/bbm.model'
+import { FindManyBbmArgs } from 'src/@generated/prisma-nestjs-graphql/bbm/find-many-bbm.args'
 
 @Resolver()
 export class GraphqlResolver {
@@ -100,6 +102,11 @@ export class GraphqlResolver {
   @Query(() => [HistoryPengisianGroupBy], { name: 'history_pengisian_groupby' })
   async getGroupByHistoryPengisian(@Args() query: HistoryPengisianGroupByArgs) {
     return await this.historyPengisianService.groupBy(query)
+  }
+
+  @Query(() => [Bbm], { name: 'bbm' })
+  async getAllBbm(@Args() query: FindManyBbmArgs) {
+    return await this.prismaService.bbm.findMany(query)
   }
 }
 @Resolver(() => User)

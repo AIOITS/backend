@@ -29,6 +29,9 @@ export class HistoryPengisianCountAggregate {
   updatedAt!: number
 
   @Field(() => Int, { nullable: false })
+  bbm_id!: number
+
+  @Field(() => Int, { nullable: false })
   user_id!: number
 
   @Field(() => Int, { nullable: false })

@@ -13,10 +13,10 @@ export class HistoryPengisianCreateInput {
   @IsEnum(KategoriPengisian)
   readonly kategori_pengisian: KategoriPengisian
 
-  @ApiProperty({ example: 'SPBU Surabaya Soetomo' })
+  @ApiProperty({ example: 'sepeda motor' })
   @IsNotEmpty()
   @IsString()
-  readonly nama_spbu: string
+  readonly jenis_kendaraan: string
 
   @ApiProperty({ example: 20 })
   @IsNotEmpty()
@@ -28,9 +28,9 @@ export class HistoryPengisianCreateInput {
   @IsNumberString()
   readonly nomor_stnk: string
 
-  @ApiProperty({ example: 'sepeda motor' })
+  @ApiProperty({ example: 1 })
   @IsNotEmpty()
-  readonly jenis_kendaraan: string
+  readonly bbm_id: number
 
   @ApiProperty({ example: '00:1A:2B:3C:4D:5E' })
   @IsNotEmpty()

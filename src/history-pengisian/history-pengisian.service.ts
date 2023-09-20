@@ -42,6 +42,7 @@ export class HistoryPengisianService {
       device_id,
       jumlah,
       jenis_kendaraan,
+      bbm_id,
     } = createHistoryPengisianDto
     const user = await this._userService.findOne({ where: { id: user_id } })
     if (!user) throw new HttpException('User not found', 400)
@@ -61,6 +62,13 @@ export class HistoryPengisianService {
     })
     if (!device) throw new HttpException('device is not registered', 401)
 
+    const bbm = await this._prismaService.bbm.findFirst({
+      where: {
+        id: bbm_id,
+      },
+    })
+    if (!bbm) throw new HttpException('bbm is not found', 400)
+
     await this._userService.update({
       where: { id: user_id },
       data: {
@@ -77,6 +85,7 @@ export class HistoryPengisianService {
           jumlah,
           spbu: { connect: { id: device.spbu_id } },
           device: { connect: { device_id: device.device_id } },
+          bbm: { connect: { id: bbm.id } },
           user: { connect: { id: user_id } },
           stnk: { connect: { nomor_stnk } },
         },

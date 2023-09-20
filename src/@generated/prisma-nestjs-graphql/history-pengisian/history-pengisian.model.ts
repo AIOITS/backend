@@ -6,6 +6,7 @@ import { Int } from '@nestjs/graphql'
 import { Float } from '@nestjs/graphql'
 import { Device } from '../device/device.model'
 import { Spbu } from '../spbu/spbu.model'
+import { Bbm } from '../bbm/bbm.model'
 import { User } from '../user/user.model'
 import { Stnk } from '../stnk/stnk.model'
 
@@ -36,6 +37,9 @@ export class HistoryPengisian {
   updatedAt!: Date
 
   @Field(() => Int, { nullable: false })
+  bbm_id!: number
+
+  @Field(() => Int, { nullable: false })
   user_id!: number
 
   @Field(() => String, { nullable: false })
@@ -46,6 +50,9 @@ export class HistoryPengisian {
 
   @Field(() => Spbu, { nullable: false })
   spbu?: Spbu
+
+  @Field(() => Bbm, { nullable: true })
+  bbm?: Bbm | null
 
   @Field(() => User, { nullable: true })
   user?: User | null

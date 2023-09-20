@@ -29,6 +29,9 @@ export class HistoryPengisianCountOrderByAggregateInput {
   updatedAt?: keyof typeof SortOrder
 
   @Field(() => SortOrder, { nullable: true })
+  bbm_id?: keyof typeof SortOrder
+
+  @Field(() => SortOrder, { nullable: true })
   user_id?: keyof typeof SortOrder
 
   @Field(() => SortOrder, { nullable: true })

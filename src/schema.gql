@@ -28,6 +28,19 @@ type Device {
   _count: DeviceCount!
 }
 
+type BbmCount {
+  HistoryPengisian: Int!
+}
+
+type Bbm {
+  id: ID!
+  name: String!
+  type: String!
+  price_per_liter: Float!
+  HistoryPengisian: [HistoryPengisian!]
+  _count: BbmCount!
+}
+
 type Pkb {
   nomor_pkb: ID!
   status_pajak: Boolean!
@@ -187,10 +200,12 @@ type HistoryPengisian {
   jumlah: Float!
   createdAt: DateTime!
   updatedAt: DateTime!
+  bbm_id: Int!
   user_id: Int!
   nomor_stnk: String!
   device: Device!
   spbu: [Spbu!]!
+  bbm: Bbm
   user: User
   stnk: Stnk!
 }
@@ -264,6 +279,7 @@ type HistoryPengisianCountAggregate {
   jumlah: Int!
   createdAt: Int!
   updatedAt: Int!
+  bbm_id: Int!
   user_id: Int!
   nomor_stnk: Int!
   _all: Int!
@@ -273,6 +289,7 @@ type HistoryPengisianAvgAggregate {
   id: Float
   spbu_id: Float
   jumlah: Float
+  bbm_id: Float
   user_id: Float
 }
 
@@ -280,6 +297,7 @@ type HistoryPengisianSumAggregate {
   id: Int
   spbu_id: Int
   jumlah: Float
+  bbm_id: Int
   user_id: Int
 }
 
@@ -292,6 +310,7 @@ type HistoryPengisianMinAggregate {
   jumlah: Float
   createdAt: DateTime
   updatedAt: DateTime
+  bbm_id: Int
   user_id: Int
   nomor_stnk: String
 }
@@ -305,6 +324,7 @@ type HistoryPengisianMaxAggregate {
   jumlah: Float
   createdAt: DateTime
   updatedAt: DateTime
+  bbm_id: Int
   user_id: Int
   nomor_stnk: String
 }
@@ -326,6 +346,7 @@ type HistoryPengisianGroupBy {
   jumlah: Float!
   createdAt: DateTime!
   updatedAt: DateTime!
+  bbm_id: Int!
   user_id: Int!
   nomor_stnk: String!
   _count: HistoryPengisianCountAggregate
@@ -346,6 +367,7 @@ type Query {
   spbu(where: SpbuWhereInput, orderBy: [SpbuOrderByWithRelationInput!], cursor: SpbuWhereUniqueInput, take: Int, skip: Int, distinct: [SpbuScalarFieldEnum!]): [Spbu!]!
   history_pengisian_aggregate(where: HistoryPengisianWhereInput, orderBy: [HistoryPengisianOrderByWithRelationInput!], cursor: HistoryPengisianWhereUniqueInput, take: Int, skip: Int, _count: HistoryPengisianCountAggregateInput, _avg: HistoryPengisianAvgAggregateInput, _sum: HistoryPengisianSumAggregateInput, _min: HistoryPengisianMinAggregateInput, _max: HistoryPengisianMaxAggregateInput): AggregateHistoryPengisian!
   history_pengisian_groupby(where: HistoryPengisianWhereInput, orderBy: [HistoryPengisianOrderByWithAggregationInput!], by: [HistoryPengisianScalarFieldEnum!]!, having: HistoryPengisianScalarWhereWithAggregatesInput, take: Int, skip: Int, _count: HistoryPengisianCountAggregateInput, _avg: HistoryPengisianAvgAggregateInput, _sum: HistoryPengisianSumAggregateInput, _min: HistoryPengisianMinAggregateInput, _max: HistoryPengisianMaxAggregateInput): [HistoryPengisianGroupBy!]!
+  bbm(where: BbmWhereInput, orderBy: [BbmOrderByWithRelationInput!], cursor: BbmWhereUniqueInput, take: Int, skip: Int, distinct: [BbmScalarFieldEnum!]): [Bbm!]!
 }
 
 input UserWhereInput {
@@ -515,10 +537,12 @@ input HistoryPengisianWhereInput {
   jumlah: FloatFilter
   createdAt: DateTimeFilter
   updatedAt: DateTimeFilter
+  bbm_id: IntFilter
   user_id: IntFilter
   nomor_stnk: StringFilter
   device: DeviceRelationFilter
   spbu: SpbuRelationFilter
+  bbm: BbmNullableRelationFilter
   user: UserNullableRelationFilter
   stnk: StnkRelationFilter
 }
@@ -572,6 +596,22 @@ input DeviceListRelationFilter {
   every: DeviceWhereInput
   some: DeviceWhereInput
   none: DeviceWhereInput
+}
+
+input BbmNullableRelationFilter {
+  is: BbmWhereInput
+  isNot: BbmWhereInput
+}
+
+input BbmWhereInput {
+  AND: [BbmWhereInput!]
+  OR: [BbmWhereInput!]
+  NOT: [BbmWhereInput!]
+  id: IntFilter
+  name: StringFilter
+  type: StringFilter
+  price_per_liter: FloatFilter
+  HistoryPengisian: HistoryPengisianListRelationFilter
 }
 
 input UserNullableRelationFilter {
@@ -1143,10 +1183,12 @@ input HistoryPengisianOrderByWithRelationInput {
   jumlah: SortOrder
   createdAt: SortOrder
   updatedAt: SortOrder
+  bbm_id: SortOrder
   user_id: SortOrder
   nomor_stnk: SortOrder
   device: DeviceOrderByWithRelationInput
   spbu: SpbuOrderByWithRelationInput
+  bbm: BbmOrderByWithRelationInput
   user: UserOrderByWithRelationInput
   stnk: StnkOrderByWithRelationInput
 }
@@ -1170,6 +1212,14 @@ input DeviceOrderByRelationAggregateInput {
   _count: SortOrder
 }
 
+input BbmOrderByWithRelationInput {
+  id: SortOrder
+  name: SortOrder
+  type: SortOrder
+  price_per_liter: SortOrder
+  HistoryPengisian: HistoryPengisianOrderByRelationAggregateInput
+}
+
 input HistoryPengisianWhereUniqueInput {
   id: Int
   AND: [HistoryPengisianWhereInput!]
@@ -1182,10 +1232,12 @@ input HistoryPengisianWhereUniqueInput {
   jumlah: FloatFilter
   createdAt: DateTimeFilter
   updatedAt: DateTimeFilter
+  bbm_id: IntFilter
   user_id: IntFilter
   nomor_stnk: StringFilter
   device: DeviceRelationFilter
   spbu: SpbuRelationFilter
+  bbm: BbmNullableRelationFilter
   user: UserNullableRelationFilter
   stnk: StnkRelationFilter
 }
@@ -1199,6 +1251,7 @@ enum HistoryPengisianScalarFieldEnum {
   jumlah
   createdAt
   updatedAt
+  bbm_id
   user_id
   nomor_stnk
 }
@@ -1369,6 +1422,7 @@ input HistoryPengisianCountAggregateInput {
   jumlah: Boolean
   createdAt: Boolean
   updatedAt: Boolean
+  bbm_id: Boolean
   user_id: Boolean
   nomor_stnk: Boolean
   _all: Boolean
@@ -1378,6 +1432,7 @@ input HistoryPengisianAvgAggregateInput {
   id: Boolean
   spbu_id: Boolean
   jumlah: Boolean
+  bbm_id: Boolean
   user_id: Boolean
 }
 
@@ -1385,6 +1440,7 @@ input HistoryPengisianSumAggregateInput {
   id: Boolean
   spbu_id: Boolean
   jumlah: Boolean
+  bbm_id: Boolean
   user_id: Boolean
 }
 
@@ -1397,6 +1453,7 @@ input HistoryPengisianMinAggregateInput {
   jumlah: Boolean
   createdAt: Boolean
   updatedAt: Boolean
+  bbm_id: Boolean
   user_id: Boolean
   nomor_stnk: Boolean
 }
@@ -1410,6 +1467,7 @@ input HistoryPengisianMaxAggregateInput {
   jumlah: Boolean
   createdAt: Boolean
   updatedAt: Boolean
+  bbm_id: Boolean
   user_id: Boolean
   nomor_stnk: Boolean
 }
@@ -1423,6 +1481,7 @@ input HistoryPengisianOrderByWithAggregationInput {
   jumlah: SortOrder
   createdAt: SortOrder
   updatedAt: SortOrder
+  bbm_id: SortOrder
   user_id: SortOrder
   nomor_stnk: SortOrder
   _count: HistoryPengisianCountOrderByAggregateInput
@@ -1441,6 +1500,7 @@ input HistoryPengisianCountOrderByAggregateInput {
   jumlah: SortOrder
   createdAt: SortOrder
   updatedAt: SortOrder
+  bbm_id: SortOrder
   user_id: SortOrder
   nomor_stnk: SortOrder
 }
@@ -1449,6 +1509,7 @@ input HistoryPengisianAvgOrderByAggregateInput {
   id: SortOrder
   spbu_id: SortOrder
   jumlah: SortOrder
+  bbm_id: SortOrder
   user_id: SortOrder
 }
 
@@ -1461,6 +1522,7 @@ input HistoryPengisianMaxOrderByAggregateInput {
   jumlah: SortOrder
   createdAt: SortOrder
   updatedAt: SortOrder
+  bbm_id: SortOrder
   user_id: SortOrder
   nomor_stnk: SortOrder
 }
@@ -1474,6 +1536,7 @@ input HistoryPengisianMinOrderByAggregateInput {
   jumlah: SortOrder
   createdAt: SortOrder
   updatedAt: SortOrder
+  bbm_id: SortOrder
   user_id: SortOrder
   nomor_stnk: SortOrder
 }
@@ -1482,6 +1545,7 @@ input HistoryPengisianSumOrderByAggregateInput {
   id: SortOrder
   spbu_id: SortOrder
   jumlah: SortOrder
+  bbm_id: SortOrder
   user_id: SortOrder
 }
 
@@ -1497,6 +1561,7 @@ input HistoryPengisianScalarWhereWithAggregatesInput {
   jumlah: FloatWithAggregatesFilter
   createdAt: DateTimeWithAggregatesFilter
   updatedAt: DateTimeWithAggregatesFilter
+  bbm_id: IntWithAggregatesFilter
   user_id: IntWithAggregatesFilter
   nomor_stnk: StringWithAggregatesFilter
 }
@@ -1646,4 +1711,22 @@ input NestedDateTimeWithAggregatesFilter {
   _count: NestedIntFilter
   _min: NestedDateTimeFilter
   _max: NestedDateTimeFilter
+}
+
+input BbmWhereUniqueInput {
+  id: Int
+  AND: [BbmWhereInput!]
+  OR: [BbmWhereInput!]
+  NOT: [BbmWhereInput!]
+  name: StringFilter
+  type: StringFilter
+  price_per_liter: FloatFilter
+  HistoryPengisian: HistoryPengisianListRelationFilter
+}
+
+enum BbmScalarFieldEnum {
+  id
+  name
+  type
+  price_per_liter
 }

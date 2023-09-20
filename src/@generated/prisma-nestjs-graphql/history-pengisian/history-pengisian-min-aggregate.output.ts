@@ -31,6 +31,9 @@ export class HistoryPengisianMinAggregate {
   updatedAt?: Date | string
 
   @Field(() => Int, { nullable: true })
+  bbm_id?: number
+
+  @Field(() => Int, { nullable: true })
   user_id?: number
 
   @Field(() => String, { nullable: true })

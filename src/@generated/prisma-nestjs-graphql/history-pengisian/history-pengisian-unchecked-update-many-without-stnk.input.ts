@@ -35,5 +35,8 @@ export class HistoryPengisianUncheckedUpdateManyWithoutStnkInput {
   updatedAt?: DateTimeFieldUpdateOperationsInput
 
   @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  bbm_id?: IntFieldUpdateOperationsInput
+
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
   user_id?: IntFieldUpdateOperationsInput
 }

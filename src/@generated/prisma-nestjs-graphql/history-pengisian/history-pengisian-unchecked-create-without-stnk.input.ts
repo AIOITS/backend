@@ -31,5 +31,8 @@ export class HistoryPengisianUncheckedCreateWithoutStnkInput {
   updatedAt?: Date | string
 
   @Field(() => Int, { nullable: false })
+  bbm_id!: number
+
+  @Field(() => Int, { nullable: false })
   user_id!: number
 }

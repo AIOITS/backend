@@ -13,5 +13,8 @@ export class HistoryPengisianSumAggregateInput {
   jumlah?: true
 
   @Field(() => Boolean, { nullable: true })
+  bbm_id?: true
+
+  @Field(() => Boolean, { nullable: true })
   user_id?: true
 }

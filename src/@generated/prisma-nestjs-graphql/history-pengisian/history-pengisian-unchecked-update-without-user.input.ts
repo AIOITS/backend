@@ -34,6 +34,9 @@ export class HistoryPengisianUncheckedUpdateWithoutUserInput {
   @Field(() => DateTimeFieldUpdateOperationsInput, { nullable: true })
   updatedAt?: DateTimeFieldUpdateOperationsInput
 
+  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
+  bbm_id?: IntFieldUpdateOperationsInput
+
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
   nomor_stnk?: StringFieldUpdateOperationsInput
 }

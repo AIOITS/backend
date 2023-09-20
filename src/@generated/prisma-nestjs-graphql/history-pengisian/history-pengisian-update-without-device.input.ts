@@ -5,6 +5,7 @@ import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-
 import { FloatFieldUpdateOperationsInput } from '../prisma/float-field-update-operations.input'
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input'
 import { SpbuUpdateOneRequiredWithoutHistoryPengisianNestedInput } from '../spbu/spbu-update-one-required-without-history-pengisian-nested.input'
+import { BbmUpdateOneWithoutHistoryPengisianNestedInput } from '../bbm/bbm-update-one-without-history-pengisian-nested.input'
 import { UserUpdateOneWithoutHistory_pengisianNestedInput } from '../user/user-update-one-without-history-pengisian-nested.input'
 import { StnkUpdateOneRequiredWithoutHistory_pengisianNestedInput } from '../stnk/stnk-update-one-required-without-history-pengisian-nested.input'
 
@@ -31,6 +32,11 @@ export class HistoryPengisianUpdateWithoutDeviceInput {
     nullable: true,
   })
   spbu?: SpbuUpdateOneRequiredWithoutHistoryPengisianNestedInput
+
+  @Field(() => BbmUpdateOneWithoutHistoryPengisianNestedInput, {
+    nullable: true,
+  })
+  bbm?: BbmUpdateOneWithoutHistoryPengisianNestedInput
 
   @Field(() => UserUpdateOneWithoutHistory_pengisianNestedInput, {
     nullable: true,

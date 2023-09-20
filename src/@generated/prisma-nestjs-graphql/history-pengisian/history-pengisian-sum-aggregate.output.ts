@@ -15,5 +15,8 @@ export class HistoryPengisianSumAggregate {
   jumlah?: number
 
   @Field(() => Int, { nullable: true })
+  bbm_id?: number
+
+  @Field(() => Int, { nullable: true })
   user_id?: number
 }

@@ -14,5 +14,8 @@ export class HistoryPengisianAvgAggregate {
   jumlah?: number
 
   @Field(() => Float, { nullable: true })
+  bbm_id?: number
+
+  @Field(() => Float, { nullable: true })
   user_id?: number
 }

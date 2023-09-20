@@ -48,6 +48,9 @@ export class HistoryPengisianScalarWhereWithAggregatesInput {
   updatedAt?: DateTimeWithAggregatesFilter
 
   @Field(() => IntWithAggregatesFilter, { nullable: true })
+  bbm_id?: IntWithAggregatesFilter
+
+  @Field(() => IntWithAggregatesFilter, { nullable: true })
   user_id?: IntWithAggregatesFilter
 
   @Field(() => StringWithAggregatesFilter, { nullable: true })

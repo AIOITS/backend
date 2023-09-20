@@ -4,6 +4,7 @@ import { KategoriPengisian } from '../prisma/kategori-pengisian.enum'
 import { Float } from '@nestjs/graphql'
 import { DeviceCreateNestedOneWithoutHistoryPengisianInput } from '../device/device-create-nested-one-without-history-pengisian.input'
 import { SpbuCreateNestedOneWithoutHistoryPengisianInput } from '../spbu/spbu-create-nested-one-without-history-pengisian.input'
+import { BbmCreateNestedOneWithoutHistoryPengisianInput } from '../bbm/bbm-create-nested-one-without-history-pengisian.input'
 import { UserCreateNestedOneWithoutHistory_pengisianInput } from '../user/user-create-nested-one-without-history-pengisian.input'
 import { StnkCreateNestedOneWithoutHistory_pengisianInput } from '../stnk/stnk-create-nested-one-without-history-pengisian.input'
 
@@ -33,6 +34,11 @@ export class HistoryPengisianCreateInput {
     nullable: false,
   })
   spbu!: SpbuCreateNestedOneWithoutHistoryPengisianInput
+
+  @Field(() => BbmCreateNestedOneWithoutHistoryPengisianInput, {
+    nullable: true,
+  })
+  bbm?: BbmCreateNestedOneWithoutHistoryPengisianInput
 
   @Field(() => UserCreateNestedOneWithoutHistory_pengisianInput, {
     nullable: true,

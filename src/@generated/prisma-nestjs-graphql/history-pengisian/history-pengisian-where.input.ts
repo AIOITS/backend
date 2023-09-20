@@ -7,6 +7,7 @@ import { FloatFilter } from '../prisma/float-filter.input'
 import { DateTimeFilter } from '../prisma/date-time-filter.input'
 import { DeviceRelationFilter } from '../device/device-relation-filter.input'
 import { SpbuRelationFilter } from '../spbu/spbu-relation-filter.input'
+import { BbmNullableRelationFilter } from '../bbm/bbm-nullable-relation-filter.input'
 import { UserNullableRelationFilter } from '../user/user-nullable-relation-filter.input'
 import { StnkRelationFilter } from '../stnk/stnk-relation-filter.input'
 
@@ -46,6 +47,9 @@ export class HistoryPengisianWhereInput {
   updatedAt?: DateTimeFilter
 
   @Field(() => IntFilter, { nullable: true })
+  bbm_id?: IntFilter
+
+  @Field(() => IntFilter, { nullable: true })
   user_id?: IntFilter
 
   @Field(() => StringFilter, { nullable: true })
@@ -56,6 +60,9 @@ export class HistoryPengisianWhereInput {
 
   @Field(() => SpbuRelationFilter, { nullable: true })
   spbu?: SpbuRelationFilter
+
+  @Field(() => BbmNullableRelationFilter, { nullable: true })
+  bbm?: BbmNullableRelationFilter
 
   @Field(() => UserNullableRelationFilter, { nullable: true })
   user?: UserNullableRelationFilter
