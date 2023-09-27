@@ -15,4 +15,10 @@ export class BbmMaxOrderByAggregateInput {
 
   @Field(() => SortOrder, { nullable: true })
   price_per_liter?: keyof typeof SortOrder
+
+  @Field(() => SortOrder, { nullable: true })
+  is_subsidi?: keyof typeof SortOrder
+
+  @Field(() => SortOrder, { nullable: true })
+  category?: keyof typeof SortOrder
 }

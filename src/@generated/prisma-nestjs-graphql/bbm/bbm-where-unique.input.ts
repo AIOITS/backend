@@ -4,6 +4,8 @@ import { Int } from '@nestjs/graphql'
 import { BbmWhereInput } from './bbm-where.input'
 import { StringFilter } from '../prisma/string-filter.input'
 import { FloatFilter } from '../prisma/float-filter.input'
+import { BoolFilter } from '../prisma/bool-filter.input'
+import { EnumBbmCategoryFilter } from '../prisma/enum-bbm-category-filter.input'
 import { HistoryPengisianListRelationFilter } from '../history-pengisian/history-pengisian-list-relation-filter.input'
 
 @InputType()
@@ -28,6 +30,12 @@ export class BbmWhereUniqueInput {
 
   @Field(() => FloatFilter, { nullable: true })
   price_per_liter?: FloatFilter
+
+  @Field(() => BoolFilter, { nullable: true })
+  is_subsidi?: BoolFilter
+
+  @Field(() => EnumBbmCategoryFilter, { nullable: true })
+  category?: EnumBbmCategoryFilter
 
   @Field(() => HistoryPengisianListRelationFilter, { nullable: true })
   HistoryPengisian?: HistoryPengisianListRelationFilter

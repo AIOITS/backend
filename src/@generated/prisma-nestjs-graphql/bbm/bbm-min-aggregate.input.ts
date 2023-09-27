@@ -14,4 +14,10 @@ export class BbmMinAggregateInput {
 
   @Field(() => Boolean, { nullable: true })
   price_per_liter?: true
+
+  @Field(() => Boolean, { nullable: true })
+  is_subsidi?: true
+
+  @Field(() => Boolean, { nullable: true })
+  category?: true
 }

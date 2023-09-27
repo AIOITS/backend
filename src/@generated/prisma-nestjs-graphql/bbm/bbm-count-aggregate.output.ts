@@ -17,5 +17,11 @@ export class BbmCountAggregate {
   price_per_liter!: number
 
   @Field(() => Int, { nullable: false })
+  is_subsidi!: number
+
+  @Field(() => Int, { nullable: false })
+  category!: number
+
+  @Field(() => Int, { nullable: false })
   _all!: number
 }

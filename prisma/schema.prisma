@@ -232,6 +232,8 @@ model Bbm {
   name             String
   type             String
   price_per_liter  Float
+  is_subsidi  Boolean
+  category BbmCategory
   HistoryPengisian HistoryPengisian[]
 }
 
@@ -289,4 +291,9 @@ enum JenisKelamin {
   laki_laki
   perempuan
   lainnya
+}
+
+enum BbmCategory {
+  bensin
+  solar
 }

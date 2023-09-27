@@ -37,8 +37,15 @@ type Bbm {
   name: String!
   type: String!
   price_per_liter: Float!
+  is_subsidi: Boolean!
+  category: BbmCategory!
   HistoryPengisian: [HistoryPengisian!]
   _count: BbmCount!
+}
+
+enum BbmCategory {
+  bensin
+  solar
 }
 
 type Pkb {
@@ -611,7 +618,33 @@ input BbmWhereInput {
   name: StringFilter
   type: StringFilter
   price_per_liter: FloatFilter
+  is_subsidi: BoolFilter
+  category: EnumBbmCategoryFilter
   HistoryPengisian: HistoryPengisianListRelationFilter
+}
+
+input BoolFilter {
+  equals: Boolean
+  not: NestedBoolFilter
+}
+
+input NestedBoolFilter {
+  equals: Boolean
+  not: NestedBoolFilter
+}
+
+input EnumBbmCategoryFilter {
+  equals: BbmCategory
+  in: [BbmCategory!]
+  notIn: [BbmCategory!]
+  not: NestedEnumBbmCategoryFilter
+}
+
+input NestedEnumBbmCategoryFilter {
+  equals: BbmCategory
+  in: [BbmCategory!]
+  notIn: [BbmCategory!]
+  not: NestedEnumBbmCategoryFilter
 }
 
 input UserNullableRelationFilter {
@@ -678,16 +711,6 @@ input PkbWhereInput {
   administrasi_tnkb_pokok: IntFilter
   administrasi_tnkb_sanksi: IntFilter
   stnk: StnkNullableRelationFilter
-}
-
-input BoolFilter {
-  equals: Boolean
-  not: NestedBoolFilter
-}
-
-input NestedBoolFilter {
-  equals: Boolean
-  not: NestedBoolFilter
 }
 
 input StnkNullableRelationFilter {
@@ -1217,6 +1240,8 @@ input BbmOrderByWithRelationInput {
   name: SortOrder
   type: SortOrder
   price_per_liter: SortOrder
+  is_subsidi: SortOrder
+  category: SortOrder
   HistoryPengisian: HistoryPengisianOrderByRelationAggregateInput
 }
 
@@ -1721,6 +1746,8 @@ input BbmWhereUniqueInput {
   name: StringFilter
   type: StringFilter
   price_per_liter: FloatFilter
+  is_subsidi: BoolFilter
+  category: EnumBbmCategoryFilter
   HistoryPengisian: HistoryPengisianListRelationFilter
 }
 
@@ -1729,4 +1756,6 @@ enum BbmScalarFieldEnum {
   name
   type
   price_per_liter
+  is_subsidi
+  category
 }

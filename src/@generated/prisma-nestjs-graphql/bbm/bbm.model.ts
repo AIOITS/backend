@@ -2,6 +2,7 @@ import { Field } from '@nestjs/graphql'
 import { ObjectType } from '@nestjs/graphql'
 import { ID } from '@nestjs/graphql'
 import { Float } from '@nestjs/graphql'
+import { BbmCategory } from '../prisma/bbm-category.enum'
 import { HistoryPengisian } from '../history-pengisian/history-pengisian.model'
 import { BbmCount } from './bbm-count.output'
 
@@ -18,6 +19,12 @@ export class Bbm {
 
   @Field(() => Float, { nullable: false })
   price_per_liter!: number
+
+  @Field(() => Boolean, { nullable: false })
+  is_subsidi!: boolean
+
+  @Field(() => BbmCategory, { nullable: false })
+  category!: keyof typeof BbmCategory
 
   @Field(() => [HistoryPengisian], { nullable: true })
   HistoryPengisian?: Array<HistoryPengisian>

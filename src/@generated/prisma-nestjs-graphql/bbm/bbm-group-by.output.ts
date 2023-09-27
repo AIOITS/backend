@@ -2,6 +2,7 @@ import { Field } from '@nestjs/graphql'
 import { ObjectType } from '@nestjs/graphql'
 import { Int } from '@nestjs/graphql'
 import { Float } from '@nestjs/graphql'
+import { BbmCategory } from '../prisma/bbm-category.enum'
 import { BbmCountAggregate } from './bbm-count-aggregate.output'
 import { BbmAvgAggregate } from './bbm-avg-aggregate.output'
 import { BbmSumAggregate } from './bbm-sum-aggregate.output'
@@ -21,6 +22,12 @@ export class BbmGroupBy {
 
   @Field(() => Float, { nullable: false })
   price_per_liter!: number
+
+  @Field(() => Boolean, { nullable: false })
+  is_subsidi!: boolean
+
+  @Field(() => BbmCategory, { nullable: false })
+  category!: keyof typeof BbmCategory
 
   @Field(() => BbmCountAggregate, { nullable: true })
   _count?: BbmCountAggregate
