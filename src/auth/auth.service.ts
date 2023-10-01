@@ -48,7 +48,7 @@ export class AuthService {
     const sim = await this.prismaService.sim.findFirst({where: {uid}})
     if (!sim) throw new UnauthorizedException()
 
-    const ktp = await this.prismaService.ktp.findFirst({where: {sim: {every: {nomor_sim: sim.nomor_sim}}}})
+    const ktp = await this.prismaService.ktp.findFirst({where: {nik: sim.nik!}})
     if (!ktp) throw new UnauthorizedException()
 
     const user = await this.prismaService.user.findFirst({where: {ktp}})
