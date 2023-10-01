@@ -4,6 +4,7 @@ import {
   GraphqlResolver,
   HistoryPengisianResolver,
   KtpResolver,
+  SimResolver,
   StnkResolver,
   UserResolver,
 } from './graphql.resolver'
@@ -25,6 +26,7 @@ import { StorageService } from 'src/storage/storage.service'
     GraphqlResolver,
     AjuanSubsidiResolver,
     HistoryPengisianResolver,
+    SimResolver,
     StorageService,
 
     UserService,

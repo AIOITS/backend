@@ -81,7 +81,7 @@ type Sim {
   penerbit: String!
   berlaku_sampai: DateTime!
   nik: String
-  ktp: Ktp
+  ktp: Ktp!
 }
 
 enum JenisSim {
@@ -130,7 +130,7 @@ type Ktp {
   tanggal_terbit: DateTime!
   sim: [Sim!]!
   stnk: [Stnk!]!
-  user: User
+  user: User!
   _count: KtpCount!
 }
 

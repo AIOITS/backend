@@ -149,11 +149,17 @@ export class KtpResolver {
     private readonly ktpService: KtpService,
     private readonly simService: SimService,
     private readonly stnkService: StnkService,
+    private readonly userService: UserService,
   ) {}
 
   @Query(() => [Ktp], { name: 'ktp' })
   async getAllKtp(@Args() query: FindManyKtpArgs) {
     return await this.ktpService.findAll(query)
+  }
+
+  @ResolveField('user', () => User)
+  async getUser(@Parent() ktp: Ktp) {
+    return await this.userService.findOne({ where: { ktp: { nik: ktp.nik } } })
   }
 
   @ResolveField('sim', () => [Sim])
@@ -164,6 +170,20 @@ export class KtpResolver {
   @ResolveField('stnk', () => [Stnk])
   async getStnk(@Parent() ktp: Ktp) {
     return await this.stnkService.findAll({ where: { ktp: { nik: ktp.nik } } })
+  }
+}
+
+@Resolver(() => Sim)
+export class SimResolver {
+  constructor(
+    private readonly ktpService: KtpService,
+    private readonly simService: SimService,
+    private readonly stnkService: StnkService,
+  ) {}
+
+  @ResolveField('ktp', () => Ktp)
+  async getSim(@Parent() sim: Sim) {
+    return await this.ktpService.findOne({ where: { nik: sim.nik! } })
   }
 }
 
