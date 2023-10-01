@@ -1,72 +1,73 @@
-import { Field } from '@nestjs/graphql'
-import { InputType } from '@nestjs/graphql'
-import { Int } from '@nestjs/graphql'
-import { JenisKelamin } from '../prisma/jenis-kelamin.enum'
-import { GolonganDarah } from '../prisma/golongan-darah.enum'
-import { Agama } from '../prisma/agama.enum'
-import { StatusPerkawinan } from '../prisma/status-perkawinan.enum'
-import { StnkUncheckedCreateNestedManyWithoutKtpInput } from '../stnk/stnk-unchecked-create-nested-many-without-ktp.input'
-import { UserUncheckedCreateNestedOneWithoutKtpInput } from '../user/user-unchecked-create-nested-one-without-ktp.input'
+import { Field } from '@nestjs/graphql';
+import { InputType } from '@nestjs/graphql';
+import { Int } from '@nestjs/graphql';
+import { JenisKelamin } from '../prisma/jenis-kelamin.enum';
+import { GolonganDarah } from '../prisma/golongan-darah.enum';
+import { Agama } from '../prisma/agama.enum';
+import { StatusPerkawinan } from '../prisma/status-perkawinan.enum';
+import { StnkUncheckedCreateNestedManyWithoutKtpInput } from '../stnk/stnk-unchecked-create-nested-many-without-ktp.input';
+import { UserUncheckedCreateNestedOneWithoutKtpInput } from '../user/user-unchecked-create-nested-one-without-ktp.input';
 
 @InputType()
 export class KtpUncheckedCreateWithoutSimInput {
-  @Field(() => String, { nullable: false })
-  nik!: string
 
-  @Field(() => String, { nullable: false })
-  nama!: string
+    @Field(() => String, {nullable:false})
+    nik!: string;
 
-  @Field(() => String, { nullable: false })
-  tempat_lahir!: string
+    @Field(() => String, {nullable:false})
+    nama!: string;
 
-  @Field(() => Date, { nullable: false })
-  tanggal_lahir!: Date | string
+    @Field(() => String, {nullable:false})
+    tempat_lahir!: string;
 
-  @Field(() => String, { nullable: false })
-  alamat!: string
+    @Field(() => Date, {nullable:false})
+    tanggal_lahir!: Date | string;
 
-  @Field(() => Int, { nullable: false })
-  rt!: number
+    @Field(() => String, {nullable:false})
+    alamat!: string;
 
-  @Field(() => Int, { nullable: false })
-  rw!: number
+    @Field(() => Int, {nullable:false})
+    rt!: number;
 
-  @Field(() => String, { nullable: false })
-  kelurahan_desa!: string
+    @Field(() => Int, {nullable:false})
+    rw!: number;
 
-  @Field(() => String, { nullable: false })
-  kecamatan!: string
+    @Field(() => String, {nullable:false})
+    kelurahan_desa!: string;
 
-  @Field(() => String, { nullable: false })
-  kabupaten_kota!: string
+    @Field(() => String, {nullable:false})
+    kecamatan!: string;
 
-  @Field(() => String, { nullable: false })
-  provinsi!: string
+    @Field(() => String, {nullable:false})
+    kabupaten_kota!: string;
 
-  @Field(() => JenisKelamin, { nullable: false })
-  jenis_kelamin!: keyof typeof JenisKelamin
+    @Field(() => String, {nullable:false})
+    provinsi!: string;
 
-  @Field(() => GolonganDarah, { nullable: false })
-  golongan_darah!: keyof typeof GolonganDarah
+    @Field(() => JenisKelamin, {nullable:false})
+    jenis_kelamin!: keyof typeof JenisKelamin;
 
-  @Field(() => Agama, { nullable: false })
-  agama!: keyof typeof Agama
+    @Field(() => GolonganDarah, {nullable:false})
+    golongan_darah!: keyof typeof GolonganDarah;
 
-  @Field(() => StatusPerkawinan, { nullable: false })
-  status_perkawinan!: keyof typeof StatusPerkawinan
+    @Field(() => Agama, {nullable:false})
+    agama!: keyof typeof Agama;
 
-  @Field(() => String, { nullable: false })
-  pekerjaan!: string
+    @Field(() => StatusPerkawinan, {nullable:false})
+    status_perkawinan!: keyof typeof StatusPerkawinan;
 
-  @Field(() => String, { nullable: false })
-  kewarganegaraan!: string
+    @Field(() => String, {nullable:false})
+    pekerjaan!: string;
 
-  @Field(() => Date, { nullable: false })
-  tanggal_terbit!: Date | string
+    @Field(() => String, {nullable:false})
+    kewarganegaraan!: string;
 
-  @Field(() => StnkUncheckedCreateNestedManyWithoutKtpInput, { nullable: true })
-  stnk?: StnkUncheckedCreateNestedManyWithoutKtpInput
+    @Field(() => Date, {nullable:false})
+    tanggal_terbit!: Date | string;
 
-  @Field(() => UserUncheckedCreateNestedOneWithoutKtpInput, { nullable: true })
-  user?: UserUncheckedCreateNestedOneWithoutKtpInput
+    @Field(() => StnkUncheckedCreateNestedManyWithoutKtpInput, {nullable:true})
+    stnk?: StnkUncheckedCreateNestedManyWithoutKtpInput;
+
+    @Field(() => UserUncheckedCreateNestedOneWithoutKtpInput, {nullable:true})
+    user?: UserUncheckedCreateNestedOneWithoutKtpInput;
 }

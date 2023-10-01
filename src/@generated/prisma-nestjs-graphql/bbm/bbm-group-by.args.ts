@@ -1,50 +1,51 @@
-import { Field } from '@nestjs/graphql'
-import { ArgsType } from '@nestjs/graphql'
-import { BbmWhereInput } from './bbm-where.input'
-import { Type } from 'class-transformer'
-import { BbmOrderByWithAggregationInput } from './bbm-order-by-with-aggregation.input'
-import { BbmScalarFieldEnum } from './bbm-scalar-field.enum'
-import { BbmScalarWhereWithAggregatesInput } from './bbm-scalar-where-with-aggregates.input'
-import { Int } from '@nestjs/graphql'
-import { BbmCountAggregateInput } from './bbm-count-aggregate.input'
-import { BbmAvgAggregateInput } from './bbm-avg-aggregate.input'
-import { BbmSumAggregateInput } from './bbm-sum-aggregate.input'
-import { BbmMinAggregateInput } from './bbm-min-aggregate.input'
-import { BbmMaxAggregateInput } from './bbm-max-aggregate.input'
+import { Field } from '@nestjs/graphql';
+import { ArgsType } from '@nestjs/graphql';
+import { BbmWhereInput } from './bbm-where.input';
+import { Type } from 'class-transformer';
+import { BbmOrderByWithAggregationInput } from './bbm-order-by-with-aggregation.input';
+import { BbmScalarFieldEnum } from './bbm-scalar-field.enum';
+import { BbmScalarWhereWithAggregatesInput } from './bbm-scalar-where-with-aggregates.input';
+import { Int } from '@nestjs/graphql';
+import { BbmCountAggregateInput } from './bbm-count-aggregate.input';
+import { BbmAvgAggregateInput } from './bbm-avg-aggregate.input';
+import { BbmSumAggregateInput } from './bbm-sum-aggregate.input';
+import { BbmMinAggregateInput } from './bbm-min-aggregate.input';
+import { BbmMaxAggregateInput } from './bbm-max-aggregate.input';
 
 @ArgsType()
 export class BbmGroupByArgs {
-  @Field(() => BbmWhereInput, { nullable: true })
-  @Type(() => BbmWhereInput)
-  where?: BbmWhereInput
 
-  @Field(() => [BbmOrderByWithAggregationInput], { nullable: true })
-  orderBy?: Array<BbmOrderByWithAggregationInput>
+    @Field(() => BbmWhereInput, {nullable:true})
+    @Type(() => BbmWhereInput)
+    where?: BbmWhereInput;
 
-  @Field(() => [BbmScalarFieldEnum], { nullable: false })
-  by!: Array<keyof typeof BbmScalarFieldEnum>
+    @Field(() => [BbmOrderByWithAggregationInput], {nullable:true})
+    orderBy?: Array<BbmOrderByWithAggregationInput>;
 
-  @Field(() => BbmScalarWhereWithAggregatesInput, { nullable: true })
-  having?: BbmScalarWhereWithAggregatesInput
+    @Field(() => [BbmScalarFieldEnum], {nullable:false})
+    by!: Array<keyof typeof BbmScalarFieldEnum>;
 
-  @Field(() => Int, { nullable: true })
-  take?: number
+    @Field(() => BbmScalarWhereWithAggregatesInput, {nullable:true})
+    having?: BbmScalarWhereWithAggregatesInput;
 
-  @Field(() => Int, { nullable: true })
-  skip?: number
+    @Field(() => Int, {nullable:true})
+    take?: number;
 
-  @Field(() => BbmCountAggregateInput, { nullable: true })
-  _count?: BbmCountAggregateInput
+    @Field(() => Int, {nullable:true})
+    skip?: number;
 
-  @Field(() => BbmAvgAggregateInput, { nullable: true })
-  _avg?: BbmAvgAggregateInput
+    @Field(() => BbmCountAggregateInput, {nullable:true})
+    _count?: BbmCountAggregateInput;
 
-  @Field(() => BbmSumAggregateInput, { nullable: true })
-  _sum?: BbmSumAggregateInput
+    @Field(() => BbmAvgAggregateInput, {nullable:true})
+    _avg?: BbmAvgAggregateInput;
 
-  @Field(() => BbmMinAggregateInput, { nullable: true })
-  _min?: BbmMinAggregateInput
+    @Field(() => BbmSumAggregateInput, {nullable:true})
+    _sum?: BbmSumAggregateInput;
 
-  @Field(() => BbmMaxAggregateInput, { nullable: true })
-  _max?: BbmMaxAggregateInput
+    @Field(() => BbmMinAggregateInput, {nullable:true})
+    _min?: BbmMinAggregateInput;
+
+    @Field(() => BbmMaxAggregateInput, {nullable:true})
+    _max?: BbmMaxAggregateInput;
 }

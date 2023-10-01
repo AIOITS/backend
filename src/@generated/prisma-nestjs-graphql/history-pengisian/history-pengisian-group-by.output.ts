@@ -1,61 +1,62 @@
-import { Field } from '@nestjs/graphql'
-import { ObjectType } from '@nestjs/graphql'
-import { Int } from '@nestjs/graphql'
-import { KategoriPengisian } from '../prisma/kategori-pengisian.enum'
-import { Float } from '@nestjs/graphql'
-import { HistoryPengisianCountAggregate } from './history-pengisian-count-aggregate.output'
-import { HistoryPengisianAvgAggregate } from './history-pengisian-avg-aggregate.output'
-import { HistoryPengisianSumAggregate } from './history-pengisian-sum-aggregate.output'
-import { HistoryPengisianMinAggregate } from './history-pengisian-min-aggregate.output'
-import { HistoryPengisianMaxAggregate } from './history-pengisian-max-aggregate.output'
+import { Field } from '@nestjs/graphql';
+import { ObjectType } from '@nestjs/graphql';
+import { Int } from '@nestjs/graphql';
+import { KategoriPengisian } from '../prisma/kategori-pengisian.enum';
+import { Float } from '@nestjs/graphql';
+import { HistoryPengisianCountAggregate } from './history-pengisian-count-aggregate.output';
+import { HistoryPengisianAvgAggregate } from './history-pengisian-avg-aggregate.output';
+import { HistoryPengisianSumAggregate } from './history-pengisian-sum-aggregate.output';
+import { HistoryPengisianMinAggregate } from './history-pengisian-min-aggregate.output';
+import { HistoryPengisianMaxAggregate } from './history-pengisian-max-aggregate.output';
 
 @ObjectType()
 export class HistoryPengisianGroupBy {
-  @Field(() => Int, { nullable: false })
-  id!: number
 
-  @Field(() => KategoriPengisian, { nullable: false })
-  kategori_pengisian!: keyof typeof KategoriPengisian
+    @Field(() => Int, {nullable:false})
+    id!: number;
 
-  @Field(() => String, { nullable: false })
-  device_id!: string
+    @Field(() => KategoriPengisian, {nullable:false})
+    kategori_pengisian!: keyof typeof KategoriPengisian;
 
-  @Field(() => String, { nullable: false })
-  jenis_kendaraan!: string
+    @Field(() => String, {nullable:false})
+    device_id!: string;
 
-  @Field(() => Int, { nullable: false })
-  spbu_id!: number
+    @Field(() => String, {nullable:false})
+    jenis_kendaraan!: string;
 
-  @Field(() => Float, { nullable: false })
-  jumlah!: number
+    @Field(() => Int, {nullable:false})
+    spbu_id!: number;
 
-  @Field(() => Date, { nullable: false })
-  createdAt!: Date | string
+    @Field(() => Float, {nullable:false})
+    jumlah!: number;
 
-  @Field(() => Date, { nullable: false })
-  updatedAt!: Date | string
+    @Field(() => Date, {nullable:false})
+    createdAt!: Date | string;
 
-  @Field(() => Int, { nullable: false })
-  bbm_id!: number
+    @Field(() => Date, {nullable:false})
+    updatedAt!: Date | string;
 
-  @Field(() => Int, { nullable: false })
-  user_id!: number
+    @Field(() => Int, {nullable:false})
+    bbm_id!: number;
 
-  @Field(() => String, { nullable: false })
-  nomor_stnk!: string
+    @Field(() => Int, {nullable:false})
+    user_id!: number;
 
-  @Field(() => HistoryPengisianCountAggregate, { nullable: true })
-  _count?: HistoryPengisianCountAggregate
+    @Field(() => String, {nullable:false})
+    nomor_stnk!: string;
 
-  @Field(() => HistoryPengisianAvgAggregate, { nullable: true })
-  _avg?: HistoryPengisianAvgAggregate
+    @Field(() => HistoryPengisianCountAggregate, {nullable:true})
+    _count?: HistoryPengisianCountAggregate;
 
-  @Field(() => HistoryPengisianSumAggregate, { nullable: true })
-  _sum?: HistoryPengisianSumAggregate
+    @Field(() => HistoryPengisianAvgAggregate, {nullable:true})
+    _avg?: HistoryPengisianAvgAggregate;
 
-  @Field(() => HistoryPengisianMinAggregate, { nullable: true })
-  _min?: HistoryPengisianMinAggregate
+    @Field(() => HistoryPengisianSumAggregate, {nullable:true})
+    _sum?: HistoryPengisianSumAggregate;
 
-  @Field(() => HistoryPengisianMaxAggregate, { nullable: true })
-  _max?: HistoryPengisianMaxAggregate
+    @Field(() => HistoryPengisianMinAggregate, {nullable:true})
+    _min?: HistoryPengisianMinAggregate;
+
+    @Field(() => HistoryPengisianMaxAggregate, {nullable:true})
+    _max?: HistoryPengisianMaxAggregate;
 }

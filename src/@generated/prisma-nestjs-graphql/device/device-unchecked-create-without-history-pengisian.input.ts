@@ -1,12 +1,13 @@
-import { Field } from '@nestjs/graphql'
-import { InputType } from '@nestjs/graphql'
-import { Int } from '@nestjs/graphql'
+import { Field } from '@nestjs/graphql';
+import { InputType } from '@nestjs/graphql';
+import { Int } from '@nestjs/graphql';
 
 @InputType()
 export class DeviceUncheckedCreateWithoutHistoryPengisianInput {
-  @Field(() => String, { nullable: false })
-  device_id!: string
 
-  @Field(() => Int, { nullable: false })
-  spbu_id!: number
+    @Field(() => String, {nullable:false})
+    device_id!: string;
+
+    @Field(() => Int, {nullable:false})
+    spbu_id!: number;
 }

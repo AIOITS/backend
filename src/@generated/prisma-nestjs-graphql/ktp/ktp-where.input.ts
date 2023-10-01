@@ -1,87 +1,88 @@
-import { Field } from '@nestjs/graphql'
-import { InputType } from '@nestjs/graphql'
-import { StringFilter } from '../prisma/string-filter.input'
-import { DateTimeFilter } from '../prisma/date-time-filter.input'
-import { IntFilter } from '../prisma/int-filter.input'
-import { EnumJenisKelaminFilter } from '../prisma/enum-jenis-kelamin-filter.input'
-import { EnumGolonganDarahFilter } from '../prisma/enum-golongan-darah-filter.input'
-import { EnumAgamaFilter } from '../prisma/enum-agama-filter.input'
-import { EnumStatusPerkawinanFilter } from '../prisma/enum-status-perkawinan-filter.input'
-import { SimListRelationFilter } from '../sim/sim-list-relation-filter.input'
-import { StnkListRelationFilter } from '../stnk/stnk-list-relation-filter.input'
-import { UserNullableRelationFilter } from '../user/user-nullable-relation-filter.input'
+import { Field } from '@nestjs/graphql';
+import { InputType } from '@nestjs/graphql';
+import { StringFilter } from '../prisma/string-filter.input';
+import { DateTimeFilter } from '../prisma/date-time-filter.input';
+import { IntFilter } from '../prisma/int-filter.input';
+import { EnumJenisKelaminFilter } from '../prisma/enum-jenis-kelamin-filter.input';
+import { EnumGolonganDarahFilter } from '../prisma/enum-golongan-darah-filter.input';
+import { EnumAgamaFilter } from '../prisma/enum-agama-filter.input';
+import { EnumStatusPerkawinanFilter } from '../prisma/enum-status-perkawinan-filter.input';
+import { SimListRelationFilter } from '../sim/sim-list-relation-filter.input';
+import { StnkListRelationFilter } from '../stnk/stnk-list-relation-filter.input';
+import { UserNullableRelationFilter } from '../user/user-nullable-relation-filter.input';
 
 @InputType()
 export class KtpWhereInput {
-  @Field(() => [KtpWhereInput], { nullable: true })
-  AND?: Array<KtpWhereInput>
 
-  @Field(() => [KtpWhereInput], { nullable: true })
-  OR?: Array<KtpWhereInput>
+    @Field(() => [KtpWhereInput], {nullable:true})
+    AND?: Array<KtpWhereInput>;
 
-  @Field(() => [KtpWhereInput], { nullable: true })
-  NOT?: Array<KtpWhereInput>
+    @Field(() => [KtpWhereInput], {nullable:true})
+    OR?: Array<KtpWhereInput>;
 
-  @Field(() => StringFilter, { nullable: true })
-  nik?: StringFilter
+    @Field(() => [KtpWhereInput], {nullable:true})
+    NOT?: Array<KtpWhereInput>;
 
-  @Field(() => StringFilter, { nullable: true })
-  nama?: StringFilter
+    @Field(() => StringFilter, {nullable:true})
+    nik?: StringFilter;
 
-  @Field(() => StringFilter, { nullable: true })
-  tempat_lahir?: StringFilter
+    @Field(() => StringFilter, {nullable:true})
+    nama?: StringFilter;
 
-  @Field(() => DateTimeFilter, { nullable: true })
-  tanggal_lahir?: DateTimeFilter
+    @Field(() => StringFilter, {nullable:true})
+    tempat_lahir?: StringFilter;
 
-  @Field(() => StringFilter, { nullable: true })
-  alamat?: StringFilter
+    @Field(() => DateTimeFilter, {nullable:true})
+    tanggal_lahir?: DateTimeFilter;
 
-  @Field(() => IntFilter, { nullable: true })
-  rt?: IntFilter
+    @Field(() => StringFilter, {nullable:true})
+    alamat?: StringFilter;
 
-  @Field(() => IntFilter, { nullable: true })
-  rw?: IntFilter
+    @Field(() => IntFilter, {nullable:true})
+    rt?: IntFilter;
 
-  @Field(() => StringFilter, { nullable: true })
-  kelurahan_desa?: StringFilter
+    @Field(() => IntFilter, {nullable:true})
+    rw?: IntFilter;
 
-  @Field(() => StringFilter, { nullable: true })
-  kecamatan?: StringFilter
+    @Field(() => StringFilter, {nullable:true})
+    kelurahan_desa?: StringFilter;
 
-  @Field(() => StringFilter, { nullable: true })
-  kabupaten_kota?: StringFilter
+    @Field(() => StringFilter, {nullable:true})
+    kecamatan?: StringFilter;
 
-  @Field(() => StringFilter, { nullable: true })
-  provinsi?: StringFilter
+    @Field(() => StringFilter, {nullable:true})
+    kabupaten_kota?: StringFilter;
 
-  @Field(() => EnumJenisKelaminFilter, { nullable: true })
-  jenis_kelamin?: EnumJenisKelaminFilter
+    @Field(() => StringFilter, {nullable:true})
+    provinsi?: StringFilter;
 
-  @Field(() => EnumGolonganDarahFilter, { nullable: true })
-  golongan_darah?: EnumGolonganDarahFilter
+    @Field(() => EnumJenisKelaminFilter, {nullable:true})
+    jenis_kelamin?: EnumJenisKelaminFilter;
 
-  @Field(() => EnumAgamaFilter, { nullable: true })
-  agama?: EnumAgamaFilter
+    @Field(() => EnumGolonganDarahFilter, {nullable:true})
+    golongan_darah?: EnumGolonganDarahFilter;
 
-  @Field(() => EnumStatusPerkawinanFilter, { nullable: true })
-  status_perkawinan?: EnumStatusPerkawinanFilter
+    @Field(() => EnumAgamaFilter, {nullable:true})
+    agama?: EnumAgamaFilter;
 
-  @Field(() => StringFilter, { nullable: true })
-  pekerjaan?: StringFilter
+    @Field(() => EnumStatusPerkawinanFilter, {nullable:true})
+    status_perkawinan?: EnumStatusPerkawinanFilter;
 
-  @Field(() => StringFilter, { nullable: true })
-  kewarganegaraan?: StringFilter
+    @Field(() => StringFilter, {nullable:true})
+    pekerjaan?: StringFilter;
 
-  @Field(() => DateTimeFilter, { nullable: true })
-  tanggal_terbit?: DateTimeFilter
+    @Field(() => StringFilter, {nullable:true})
+    kewarganegaraan?: StringFilter;
 
-  @Field(() => SimListRelationFilter, { nullable: true })
-  sim?: SimListRelationFilter
+    @Field(() => DateTimeFilter, {nullable:true})
+    tanggal_terbit?: DateTimeFilter;
 
-  @Field(() => StnkListRelationFilter, { nullable: true })
-  stnk?: StnkListRelationFilter
+    @Field(() => SimListRelationFilter, {nullable:true})
+    sim?: SimListRelationFilter;
 
-  @Field(() => UserNullableRelationFilter, { nullable: true })
-  user?: UserNullableRelationFilter
+    @Field(() => StnkListRelationFilter, {nullable:true})
+    stnk?: StnkListRelationFilter;
+
+    @Field(() => UserNullableRelationFilter, {nullable:true})
+    user?: UserNullableRelationFilter;
 }

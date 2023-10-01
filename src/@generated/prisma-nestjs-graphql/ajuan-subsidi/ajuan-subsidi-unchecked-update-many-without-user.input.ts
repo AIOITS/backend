@@ -1,32 +1,31 @@
-import { Field } from '@nestjs/graphql'
-import { InputType } from '@nestjs/graphql'
-import { IntFieldUpdateOperationsInput } from '../prisma/int-field-update-operations.input'
-import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input'
-import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input'
-import { NullableEnumStatusPengajuanSubsidiFieldUpdateOperationsInput } from '../prisma/nullable-enum-status-pengajuan-subsidi-field-update-operations.input'
+import { Field } from '@nestjs/graphql';
+import { InputType } from '@nestjs/graphql';
+import { IntFieldUpdateOperationsInput } from '../prisma/int-field-update-operations.input';
+import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input';
+import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input';
+import { NullableEnumStatusPengajuanSubsidiFieldUpdateOperationsInput } from '../prisma/nullable-enum-status-pengajuan-subsidi-field-update-operations.input';
 
 @InputType()
 export class AjuanSubsidiUncheckedUpdateManyWithoutUserInput {
-  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
-  id?: IntFieldUpdateOperationsInput
 
-  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
-  jumlah?: IntFieldUpdateOperationsInput
+    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
+    id?: IntFieldUpdateOperationsInput;
 
-  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
-  alasan?: StringFieldUpdateOperationsInput
+    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
+    jumlah?: IntFieldUpdateOperationsInput;
 
-  @Field(() => DateTimeFieldUpdateOperationsInput, { nullable: true })
-  tanggal_pengajuan?: DateTimeFieldUpdateOperationsInput
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    alasan?: StringFieldUpdateOperationsInput;
 
-  @Field(() => NullableEnumStatusPengajuanSubsidiFieldUpdateOperationsInput, {
-    nullable: true,
-  })
-  status_pengajuan?: NullableEnumStatusPengajuanSubsidiFieldUpdateOperationsInput
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    tanggal_pengajuan?: DateTimeFieldUpdateOperationsInput;
 
-  @Field(() => DateTimeFieldUpdateOperationsInput, { nullable: true })
-  createdAt?: DateTimeFieldUpdateOperationsInput
+    @Field(() => NullableEnumStatusPengajuanSubsidiFieldUpdateOperationsInput, {nullable:true})
+    status_pengajuan?: NullableEnumStatusPengajuanSubsidiFieldUpdateOperationsInput;
 
-  @Field(() => DateTimeFieldUpdateOperationsInput, { nullable: true })
-  updatedAt?: DateTimeFieldUpdateOperationsInput
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    createdAt?: DateTimeFieldUpdateOperationsInput;
+
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    updatedAt?: DateTimeFieldUpdateOperationsInput;
 }

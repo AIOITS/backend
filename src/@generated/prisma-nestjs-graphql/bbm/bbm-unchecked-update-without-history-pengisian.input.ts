@@ -1,28 +1,29 @@
-import { Field } from '@nestjs/graphql'
-import { InputType } from '@nestjs/graphql'
-import { IntFieldUpdateOperationsInput } from '../prisma/int-field-update-operations.input'
-import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input'
-import { FloatFieldUpdateOperationsInput } from '../prisma/float-field-update-operations.input'
-import { BoolFieldUpdateOperationsInput } from '../prisma/bool-field-update-operations.input'
-import { EnumBbmCategoryFieldUpdateOperationsInput } from '../prisma/enum-bbm-category-field-update-operations.input'
+import { Field } from '@nestjs/graphql';
+import { InputType } from '@nestjs/graphql';
+import { IntFieldUpdateOperationsInput } from '../prisma/int-field-update-operations.input';
+import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input';
+import { FloatFieldUpdateOperationsInput } from '../prisma/float-field-update-operations.input';
+import { BoolFieldUpdateOperationsInput } from '../prisma/bool-field-update-operations.input';
+import { EnumBbmCategoryFieldUpdateOperationsInput } from '../prisma/enum-bbm-category-field-update-operations.input';
 
 @InputType()
 export class BbmUncheckedUpdateWithoutHistoryPengisianInput {
-  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
-  id?: IntFieldUpdateOperationsInput
 
-  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
-  name?: StringFieldUpdateOperationsInput
+    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
+    id?: IntFieldUpdateOperationsInput;
 
-  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
-  type?: StringFieldUpdateOperationsInput
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    name?: StringFieldUpdateOperationsInput;
 
-  @Field(() => FloatFieldUpdateOperationsInput, { nullable: true })
-  price_per_liter?: FloatFieldUpdateOperationsInput
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    type?: StringFieldUpdateOperationsInput;
 
-  @Field(() => BoolFieldUpdateOperationsInput, { nullable: true })
-  is_subsidi?: BoolFieldUpdateOperationsInput
+    @Field(() => FloatFieldUpdateOperationsInput, {nullable:true})
+    price_per_liter?: FloatFieldUpdateOperationsInput;
 
-  @Field(() => EnumBbmCategoryFieldUpdateOperationsInput, { nullable: true })
-  category?: EnumBbmCategoryFieldUpdateOperationsInput
+    @Field(() => BoolFieldUpdateOperationsInput, {nullable:true})
+    is_subsidi?: BoolFieldUpdateOperationsInput;
+
+    @Field(() => EnumBbmCategoryFieldUpdateOperationsInput, {nullable:true})
+    category?: EnumBbmCategoryFieldUpdateOperationsInput;
 }

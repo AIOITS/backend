@@ -1,84 +1,85 @@
-import { Field } from '@nestjs/graphql'
-import { ObjectType } from '@nestjs/graphql'
-import { Int } from '@nestjs/graphql'
-import { JenisKelamin } from '../prisma/jenis-kelamin.enum'
-import { GolonganDarah } from '../prisma/golongan-darah.enum'
-import { Agama } from '../prisma/agama.enum'
-import { StatusPerkawinan } from '../prisma/status-perkawinan.enum'
-import { KtpCountAggregate } from './ktp-count-aggregate.output'
-import { KtpAvgAggregate } from './ktp-avg-aggregate.output'
-import { KtpSumAggregate } from './ktp-sum-aggregate.output'
-import { KtpMinAggregate } from './ktp-min-aggregate.output'
-import { KtpMaxAggregate } from './ktp-max-aggregate.output'
+import { Field } from '@nestjs/graphql';
+import { ObjectType } from '@nestjs/graphql';
+import { Int } from '@nestjs/graphql';
+import { JenisKelamin } from '../prisma/jenis-kelamin.enum';
+import { GolonganDarah } from '../prisma/golongan-darah.enum';
+import { Agama } from '../prisma/agama.enum';
+import { StatusPerkawinan } from '../prisma/status-perkawinan.enum';
+import { KtpCountAggregate } from './ktp-count-aggregate.output';
+import { KtpAvgAggregate } from './ktp-avg-aggregate.output';
+import { KtpSumAggregate } from './ktp-sum-aggregate.output';
+import { KtpMinAggregate } from './ktp-min-aggregate.output';
+import { KtpMaxAggregate } from './ktp-max-aggregate.output';
 
 @ObjectType()
 export class KtpGroupBy {
-  @Field(() => String, { nullable: false })
-  nik!: string
 
-  @Field(() => String, { nullable: false })
-  nama!: string
+    @Field(() => String, {nullable:false})
+    nik!: string;
 
-  @Field(() => String, { nullable: false })
-  tempat_lahir!: string
+    @Field(() => String, {nullable:false})
+    nama!: string;
 
-  @Field(() => Date, { nullable: false })
-  tanggal_lahir!: Date | string
+    @Field(() => String, {nullable:false})
+    tempat_lahir!: string;
 
-  @Field(() => String, { nullable: false })
-  alamat!: string
+    @Field(() => Date, {nullable:false})
+    tanggal_lahir!: Date | string;
 
-  @Field(() => Int, { nullable: false })
-  rt!: number
+    @Field(() => String, {nullable:false})
+    alamat!: string;
 
-  @Field(() => Int, { nullable: false })
-  rw!: number
+    @Field(() => Int, {nullable:false})
+    rt!: number;
 
-  @Field(() => String, { nullable: false })
-  kelurahan_desa!: string
+    @Field(() => Int, {nullable:false})
+    rw!: number;
 
-  @Field(() => String, { nullable: false })
-  kecamatan!: string
+    @Field(() => String, {nullable:false})
+    kelurahan_desa!: string;
 
-  @Field(() => String, { nullable: false })
-  kabupaten_kota!: string
+    @Field(() => String, {nullable:false})
+    kecamatan!: string;
 
-  @Field(() => String, { nullable: false })
-  provinsi!: string
+    @Field(() => String, {nullable:false})
+    kabupaten_kota!: string;
 
-  @Field(() => JenisKelamin, { nullable: false })
-  jenis_kelamin!: keyof typeof JenisKelamin
+    @Field(() => String, {nullable:false})
+    provinsi!: string;
 
-  @Field(() => GolonganDarah, { nullable: false })
-  golongan_darah!: keyof typeof GolonganDarah
+    @Field(() => JenisKelamin, {nullable:false})
+    jenis_kelamin!: keyof typeof JenisKelamin;
 
-  @Field(() => Agama, { nullable: false })
-  agama!: keyof typeof Agama
+    @Field(() => GolonganDarah, {nullable:false})
+    golongan_darah!: keyof typeof GolonganDarah;
 
-  @Field(() => StatusPerkawinan, { nullable: false })
-  status_perkawinan!: keyof typeof StatusPerkawinan
+    @Field(() => Agama, {nullable:false})
+    agama!: keyof typeof Agama;
 
-  @Field(() => String, { nullable: false })
-  pekerjaan!: string
+    @Field(() => StatusPerkawinan, {nullable:false})
+    status_perkawinan!: keyof typeof StatusPerkawinan;
 
-  @Field(() => String, { nullable: false })
-  kewarganegaraan!: string
+    @Field(() => String, {nullable:false})
+    pekerjaan!: string;
 
-  @Field(() => Date, { nullable: false })
-  tanggal_terbit!: Date | string
+    @Field(() => String, {nullable:false})
+    kewarganegaraan!: string;
 
-  @Field(() => KtpCountAggregate, { nullable: true })
-  _count?: KtpCountAggregate
+    @Field(() => Date, {nullable:false})
+    tanggal_terbit!: Date | string;
 
-  @Field(() => KtpAvgAggregate, { nullable: true })
-  _avg?: KtpAvgAggregate
+    @Field(() => KtpCountAggregate, {nullable:true})
+    _count?: KtpCountAggregate;
 
-  @Field(() => KtpSumAggregate, { nullable: true })
-  _sum?: KtpSumAggregate
+    @Field(() => KtpAvgAggregate, {nullable:true})
+    _avg?: KtpAvgAggregate;
 
-  @Field(() => KtpMinAggregate, { nullable: true })
-  _min?: KtpMinAggregate
+    @Field(() => KtpSumAggregate, {nullable:true})
+    _sum?: KtpSumAggregate;
 
-  @Field(() => KtpMaxAggregate, { nullable: true })
-  _max?: KtpMaxAggregate
+    @Field(() => KtpMinAggregate, {nullable:true})
+    _min?: KtpMinAggregate;
+
+    @Field(() => KtpMaxAggregate, {nullable:true})
+    _max?: KtpMaxAggregate;
 }

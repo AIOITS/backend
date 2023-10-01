@@ -1,42 +1,41 @@
-import { Field } from '@nestjs/graphql'
-import { InputType } from '@nestjs/graphql'
-import { IntFieldUpdateOperationsInput } from '../prisma/int-field-update-operations.input'
-import { EnumKategoriPengisianFieldUpdateOperationsInput } from '../prisma/enum-kategori-pengisian-field-update-operations.input'
-import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input'
-import { FloatFieldUpdateOperationsInput } from '../prisma/float-field-update-operations.input'
-import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input'
+import { Field } from '@nestjs/graphql';
+import { InputType } from '@nestjs/graphql';
+import { IntFieldUpdateOperationsInput } from '../prisma/int-field-update-operations.input';
+import { EnumKategoriPengisianFieldUpdateOperationsInput } from '../prisma/enum-kategori-pengisian-field-update-operations.input';
+import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input';
+import { FloatFieldUpdateOperationsInput } from '../prisma/float-field-update-operations.input';
+import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input';
 
 @InputType()
 export class HistoryPengisianUncheckedUpdateManyWithoutUserInput {
-  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
-  id?: IntFieldUpdateOperationsInput
 
-  @Field(() => EnumKategoriPengisianFieldUpdateOperationsInput, {
-    nullable: true,
-  })
-  kategori_pengisian?: EnumKategoriPengisianFieldUpdateOperationsInput
+    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
+    id?: IntFieldUpdateOperationsInput;
 
-  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
-  device_id?: StringFieldUpdateOperationsInput
+    @Field(() => EnumKategoriPengisianFieldUpdateOperationsInput, {nullable:true})
+    kategori_pengisian?: EnumKategoriPengisianFieldUpdateOperationsInput;
 
-  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
-  jenis_kendaraan?: StringFieldUpdateOperationsInput
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    device_id?: StringFieldUpdateOperationsInput;
 
-  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
-  spbu_id?: IntFieldUpdateOperationsInput
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    jenis_kendaraan?: StringFieldUpdateOperationsInput;
 
-  @Field(() => FloatFieldUpdateOperationsInput, { nullable: true })
-  jumlah?: FloatFieldUpdateOperationsInput
+    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
+    spbu_id?: IntFieldUpdateOperationsInput;
 
-  @Field(() => DateTimeFieldUpdateOperationsInput, { nullable: true })
-  createdAt?: DateTimeFieldUpdateOperationsInput
+    @Field(() => FloatFieldUpdateOperationsInput, {nullable:true})
+    jumlah?: FloatFieldUpdateOperationsInput;
 
-  @Field(() => DateTimeFieldUpdateOperationsInput, { nullable: true })
-  updatedAt?: DateTimeFieldUpdateOperationsInput
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    createdAt?: DateTimeFieldUpdateOperationsInput;
 
-  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
-  bbm_id?: IntFieldUpdateOperationsInput
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    updatedAt?: DateTimeFieldUpdateOperationsInput;
 
-  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
-  nomor_stnk?: StringFieldUpdateOperationsInput
+    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
+    bbm_id?: IntFieldUpdateOperationsInput;
+
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    nomor_stnk?: StringFieldUpdateOperationsInput;
 }

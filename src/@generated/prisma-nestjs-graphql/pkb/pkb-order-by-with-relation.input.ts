@@ -1,46 +1,47 @@
-import { Field } from '@nestjs/graphql'
-import { InputType } from '@nestjs/graphql'
-import { SortOrder } from '../prisma/sort-order.enum'
-import { StnkOrderByWithRelationInput } from '../stnk/stnk-order-by-with-relation.input'
+import { Field } from '@nestjs/graphql';
+import { InputType } from '@nestjs/graphql';
+import { SortOrder } from '../prisma/sort-order.enum';
+import { StnkOrderByWithRelationInput } from '../stnk/stnk-order-by-with-relation.input';
 
 @InputType()
 export class PkbOrderByWithRelationInput {
-  @Field(() => SortOrder, { nullable: true })
-  nomor_pkb?: keyof typeof SortOrder
 
-  @Field(() => SortOrder, { nullable: true })
-  status_pajak?: keyof typeof SortOrder
+    @Field(() => SortOrder, {nullable:true})
+    nomor_pkb?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  bbknb_pokok?: keyof typeof SortOrder
+    @Field(() => SortOrder, {nullable:true})
+    status_pajak?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  bbknb_sanksi?: keyof typeof SortOrder
+    @Field(() => SortOrder, {nullable:true})
+    bbknb_pokok?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  PKB_pokok?: keyof typeof SortOrder
+    @Field(() => SortOrder, {nullable:true})
+    bbknb_sanksi?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  PKB_sanksi?: keyof typeof SortOrder
+    @Field(() => SortOrder, {nullable:true})
+    PKB_pokok?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  swdkllj_pokok?: keyof typeof SortOrder
+    @Field(() => SortOrder, {nullable:true})
+    PKB_sanksi?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  swdkllj_sanksi?: keyof typeof SortOrder
+    @Field(() => SortOrder, {nullable:true})
+    swdkllj_pokok?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  administrasi_stnk_pokok?: keyof typeof SortOrder
+    @Field(() => SortOrder, {nullable:true})
+    swdkllj_sanksi?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  administrasi_stnk_sanksi?: keyof typeof SortOrder
+    @Field(() => SortOrder, {nullable:true})
+    administrasi_stnk_pokok?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  administrasi_tnkb_pokok?: keyof typeof SortOrder
+    @Field(() => SortOrder, {nullable:true})
+    administrasi_stnk_sanksi?: keyof typeof SortOrder;
 
-  @Field(() => SortOrder, { nullable: true })
-  administrasi_tnkb_sanksi?: keyof typeof SortOrder
+    @Field(() => SortOrder, {nullable:true})
+    administrasi_tnkb_pokok?: keyof typeof SortOrder;
 
-  @Field(() => StnkOrderByWithRelationInput, { nullable: true })
-  stnk?: StnkOrderByWithRelationInput
+    @Field(() => SortOrder, {nullable:true})
+    administrasi_tnkb_sanksi?: keyof typeof SortOrder;
+
+    @Field(() => StnkOrderByWithRelationInput, {nullable:true})
+    stnk?: StnkOrderByWithRelationInput;
 }

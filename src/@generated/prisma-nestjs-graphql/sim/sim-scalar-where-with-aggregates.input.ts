@@ -1,67 +1,68 @@
-import { Field } from '@nestjs/graphql'
-import { InputType } from '@nestjs/graphql'
-import { StringWithAggregatesFilter } from '../prisma/string-with-aggregates-filter.input'
-import { EnumJenisSimWithAggregatesFilter } from '../prisma/enum-jenis-sim-with-aggregates-filter.input'
-import { IntWithAggregatesFilter } from '../prisma/int-with-aggregates-filter.input'
-import { DateTimeWithAggregatesFilter } from '../prisma/date-time-with-aggregates-filter.input'
-import { StringNullableWithAggregatesFilter } from '../prisma/string-nullable-with-aggregates-filter.input'
+import { Field } from '@nestjs/graphql';
+import { InputType } from '@nestjs/graphql';
+import { StringWithAggregatesFilter } from '../prisma/string-with-aggregates-filter.input';
+import { EnumJenisSimWithAggregatesFilter } from '../prisma/enum-jenis-sim-with-aggregates-filter.input';
+import { IntWithAggregatesFilter } from '../prisma/int-with-aggregates-filter.input';
+import { DateTimeWithAggregatesFilter } from '../prisma/date-time-with-aggregates-filter.input';
+import { StringNullableWithAggregatesFilter } from '../prisma/string-nullable-with-aggregates-filter.input';
 
 @InputType()
 export class SimScalarWhereWithAggregatesInput {
-  @Field(() => [SimScalarWhereWithAggregatesInput], { nullable: true })
-  AND?: Array<SimScalarWhereWithAggregatesInput>
 
-  @Field(() => [SimScalarWhereWithAggregatesInput], { nullable: true })
-  OR?: Array<SimScalarWhereWithAggregatesInput>
+    @Field(() => [SimScalarWhereWithAggregatesInput], {nullable:true})
+    AND?: Array<SimScalarWhereWithAggregatesInput>;
 
-  @Field(() => [SimScalarWhereWithAggregatesInput], { nullable: true })
-  NOT?: Array<SimScalarWhereWithAggregatesInput>
+    @Field(() => [SimScalarWhereWithAggregatesInput], {nullable:true})
+    OR?: Array<SimScalarWhereWithAggregatesInput>;
 
-  @Field(() => StringWithAggregatesFilter, { nullable: true })
-  uid?: StringWithAggregatesFilter
+    @Field(() => [SimScalarWhereWithAggregatesInput], {nullable:true})
+    NOT?: Array<SimScalarWhereWithAggregatesInput>;
 
-  @Field(() => StringWithAggregatesFilter, { nullable: true })
-  nomor_sim?: StringWithAggregatesFilter
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    uid?: StringWithAggregatesFilter;
 
-  @Field(() => EnumJenisSimWithAggregatesFilter, { nullable: true })
-  jenis_sim?: EnumJenisSimWithAggregatesFilter
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    nomor_sim?: StringWithAggregatesFilter;
 
-  @Field(() => StringWithAggregatesFilter, { nullable: true })
-  nama?: StringWithAggregatesFilter
+    @Field(() => EnumJenisSimWithAggregatesFilter, {nullable:true})
+    jenis_sim?: EnumJenisSimWithAggregatesFilter;
 
-  @Field(() => StringWithAggregatesFilter, { nullable: true })
-  alamat?: StringWithAggregatesFilter
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    nama?: StringWithAggregatesFilter;
 
-  @Field(() => IntWithAggregatesFilter, { nullable: true })
-  rt?: IntWithAggregatesFilter
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    alamat?: StringWithAggregatesFilter;
 
-  @Field(() => IntWithAggregatesFilter, { nullable: true })
-  rw?: IntWithAggregatesFilter
+    @Field(() => IntWithAggregatesFilter, {nullable:true})
+    rt?: IntWithAggregatesFilter;
 
-  @Field(() => StringWithAggregatesFilter, { nullable: true })
-  kelurahan_desa?: StringWithAggregatesFilter
+    @Field(() => IntWithAggregatesFilter, {nullable:true})
+    rw?: IntWithAggregatesFilter;
 
-  @Field(() => StringWithAggregatesFilter, { nullable: true })
-  kecamatan?: StringWithAggregatesFilter
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    kelurahan_desa?: StringWithAggregatesFilter;
 
-  @Field(() => StringWithAggregatesFilter, { nullable: true })
-  kabupaten?: StringWithAggregatesFilter
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    kecamatan?: StringWithAggregatesFilter;
 
-  @Field(() => StringWithAggregatesFilter, { nullable: true })
-  pekerjaan?: StringWithAggregatesFilter
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    kabupaten?: StringWithAggregatesFilter;
 
-  @Field(() => StringWithAggregatesFilter, { nullable: true })
-  kabupaten_terbit?: StringWithAggregatesFilter
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    pekerjaan?: StringWithAggregatesFilter;
 
-  @Field(() => DateTimeWithAggregatesFilter, { nullable: true })
-  tanggal_terbit?: DateTimeWithAggregatesFilter
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    kabupaten_terbit?: StringWithAggregatesFilter;
 
-  @Field(() => StringWithAggregatesFilter, { nullable: true })
-  penerbit?: StringWithAggregatesFilter
+    @Field(() => DateTimeWithAggregatesFilter, {nullable:true})
+    tanggal_terbit?: DateTimeWithAggregatesFilter;
 
-  @Field(() => DateTimeWithAggregatesFilter, { nullable: true })
-  berlaku_sampai?: DateTimeWithAggregatesFilter
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    penerbit?: StringWithAggregatesFilter;
 
-  @Field(() => StringNullableWithAggregatesFilter, { nullable: true })
-  nik?: StringNullableWithAggregatesFilter
+    @Field(() => DateTimeWithAggregatesFilter, {nullable:true})
+    berlaku_sampai?: DateTimeWithAggregatesFilter;
+
+    @Field(() => StringNullableWithAggregatesFilter, {nullable:true})
+    nik?: StringNullableWithAggregatesFilter;
 }

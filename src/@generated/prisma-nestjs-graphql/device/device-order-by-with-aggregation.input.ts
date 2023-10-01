@@ -1,32 +1,33 @@
-import { Field } from '@nestjs/graphql'
-import { InputType } from '@nestjs/graphql'
-import { SortOrder } from '../prisma/sort-order.enum'
-import { DeviceCountOrderByAggregateInput } from './device-count-order-by-aggregate.input'
-import { DeviceAvgOrderByAggregateInput } from './device-avg-order-by-aggregate.input'
-import { DeviceMaxOrderByAggregateInput } from './device-max-order-by-aggregate.input'
-import { DeviceMinOrderByAggregateInput } from './device-min-order-by-aggregate.input'
-import { DeviceSumOrderByAggregateInput } from './device-sum-order-by-aggregate.input'
+import { Field } from '@nestjs/graphql';
+import { InputType } from '@nestjs/graphql';
+import { SortOrder } from '../prisma/sort-order.enum';
+import { DeviceCountOrderByAggregateInput } from './device-count-order-by-aggregate.input';
+import { DeviceAvgOrderByAggregateInput } from './device-avg-order-by-aggregate.input';
+import { DeviceMaxOrderByAggregateInput } from './device-max-order-by-aggregate.input';
+import { DeviceMinOrderByAggregateInput } from './device-min-order-by-aggregate.input';
+import { DeviceSumOrderByAggregateInput } from './device-sum-order-by-aggregate.input';
 
 @InputType()
 export class DeviceOrderByWithAggregationInput {
-  @Field(() => SortOrder, { nullable: true })
-  device_id?: keyof typeof SortOrder
 
-  @Field(() => SortOrder, { nullable: true })
-  spbu_id?: keyof typeof SortOrder
+    @Field(() => SortOrder, {nullable:true})
+    device_id?: keyof typeof SortOrder;
 
-  @Field(() => DeviceCountOrderByAggregateInput, { nullable: true })
-  _count?: DeviceCountOrderByAggregateInput
+    @Field(() => SortOrder, {nullable:true})
+    spbu_id?: keyof typeof SortOrder;
 
-  @Field(() => DeviceAvgOrderByAggregateInput, { nullable: true })
-  _avg?: DeviceAvgOrderByAggregateInput
+    @Field(() => DeviceCountOrderByAggregateInput, {nullable:true})
+    _count?: DeviceCountOrderByAggregateInput;
 
-  @Field(() => DeviceMaxOrderByAggregateInput, { nullable: true })
-  _max?: DeviceMaxOrderByAggregateInput
+    @Field(() => DeviceAvgOrderByAggregateInput, {nullable:true})
+    _avg?: DeviceAvgOrderByAggregateInput;
 
-  @Field(() => DeviceMinOrderByAggregateInput, { nullable: true })
-  _min?: DeviceMinOrderByAggregateInput
+    @Field(() => DeviceMaxOrderByAggregateInput, {nullable:true})
+    _max?: DeviceMaxOrderByAggregateInput;
 
-  @Field(() => DeviceSumOrderByAggregateInput, { nullable: true })
-  _sum?: DeviceSumOrderByAggregateInput
+    @Field(() => DeviceMinOrderByAggregateInput, {nullable:true})
+    _min?: DeviceMinOrderByAggregateInput;
+
+    @Field(() => DeviceSumOrderByAggregateInput, {nullable:true})
+    _sum?: DeviceSumOrderByAggregateInput;
 }

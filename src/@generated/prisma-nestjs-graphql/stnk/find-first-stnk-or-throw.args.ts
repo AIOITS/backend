@@ -1,34 +1,32 @@
-import { Field } from '@nestjs/graphql'
-import { ArgsType } from '@nestjs/graphql'
-import { StnkWhereInput } from './stnk-where.input'
-import { Type } from 'class-transformer'
-import { StnkOrderByWithRelationInput } from './stnk-order-by-with-relation.input'
-import { Prisma } from '@prisma/client'
-import { StnkWhereUniqueInput } from './stnk-where-unique.input'
-import { Int } from '@nestjs/graphql'
-import { StnkScalarFieldEnum } from './stnk-scalar-field.enum'
+import { Field } from '@nestjs/graphql';
+import { ArgsType } from '@nestjs/graphql';
+import { StnkWhereInput } from './stnk-where.input';
+import { Type } from 'class-transformer';
+import { StnkOrderByWithRelationInput } from './stnk-order-by-with-relation.input';
+import { Prisma } from '@prisma/client';
+import { StnkWhereUniqueInput } from './stnk-where-unique.input';
+import { Int } from '@nestjs/graphql';
+import { StnkScalarFieldEnum } from './stnk-scalar-field.enum';
 
 @ArgsType()
 export class FindFirstStnkOrThrowArgs {
-  @Field(() => StnkWhereInput, { nullable: true })
-  @Type(() => StnkWhereInput)
-  where?: StnkWhereInput
 
-  @Field(() => [StnkOrderByWithRelationInput], { nullable: true })
-  orderBy?: Array<StnkOrderByWithRelationInput>
+    @Field(() => StnkWhereInput, {nullable:true})
+    @Type(() => StnkWhereInput)
+    where?: StnkWhereInput;
 
-  @Field(() => StnkWhereUniqueInput, { nullable: true })
-  cursor?: Prisma.AtLeast<
-    StnkWhereUniqueInput,
-    'nomor_stnk' | 'nomor_polisi' | 'nomor_pkb'
-  >
+    @Field(() => [StnkOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<StnkOrderByWithRelationInput>;
 
-  @Field(() => Int, { nullable: true })
-  take?: number
+    @Field(() => StnkWhereUniqueInput, {nullable:true})
+    cursor?: Prisma.AtLeast<StnkWhereUniqueInput, 'nomor_stnk' | 'nomor_polisi' | 'nomor_pkb'>;
 
-  @Field(() => Int, { nullable: true })
-  skip?: number
+    @Field(() => Int, {nullable:true})
+    take?: number;
 
-  @Field(() => [StnkScalarFieldEnum], { nullable: true })
-  distinct?: Array<keyof typeof StnkScalarFieldEnum>
+    @Field(() => Int, {nullable:true})
+    skip?: number;
+
+    @Field(() => [StnkScalarFieldEnum], {nullable:true})
+    distinct?: Array<keyof typeof StnkScalarFieldEnum>;
 }

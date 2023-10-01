@@ -1,11 +1,9 @@
-import { registerEnumType } from '@nestjs/graphql'
+import { registerEnumType } from '@nestjs/graphql';
 
 export enum DeviceScalarFieldEnum {
-  device_id = 'device_id',
-  spbu_id = 'spbu_id',
+    device_id = "device_id",
+    spbu_id = "spbu_id"
 }
 
-registerEnumType(DeviceScalarFieldEnum, {
-  name: 'DeviceScalarFieldEnum',
-  description: undefined,
-})
+
+registerEnumType(DeviceScalarFieldEnum, { name: 'DeviceScalarFieldEnum', description: undefined })

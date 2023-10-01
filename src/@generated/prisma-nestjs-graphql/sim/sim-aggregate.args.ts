@@ -1,47 +1,48 @@
-import { Field } from '@nestjs/graphql'
-import { ArgsType } from '@nestjs/graphql'
-import { SimWhereInput } from './sim-where.input'
-import { Type } from 'class-transformer'
-import { SimOrderByWithRelationInput } from './sim-order-by-with-relation.input'
-import { Prisma } from '@prisma/client'
-import { SimWhereUniqueInput } from './sim-where-unique.input'
-import { Int } from '@nestjs/graphql'
-import { SimCountAggregateInput } from './sim-count-aggregate.input'
-import { SimAvgAggregateInput } from './sim-avg-aggregate.input'
-import { SimSumAggregateInput } from './sim-sum-aggregate.input'
-import { SimMinAggregateInput } from './sim-min-aggregate.input'
-import { SimMaxAggregateInput } from './sim-max-aggregate.input'
+import { Field } from '@nestjs/graphql';
+import { ArgsType } from '@nestjs/graphql';
+import { SimWhereInput } from './sim-where.input';
+import { Type } from 'class-transformer';
+import { SimOrderByWithRelationInput } from './sim-order-by-with-relation.input';
+import { Prisma } from '@prisma/client';
+import { SimWhereUniqueInput } from './sim-where-unique.input';
+import { Int } from '@nestjs/graphql';
+import { SimCountAggregateInput } from './sim-count-aggregate.input';
+import { SimAvgAggregateInput } from './sim-avg-aggregate.input';
+import { SimSumAggregateInput } from './sim-sum-aggregate.input';
+import { SimMinAggregateInput } from './sim-min-aggregate.input';
+import { SimMaxAggregateInput } from './sim-max-aggregate.input';
 
 @ArgsType()
 export class SimAggregateArgs {
-  @Field(() => SimWhereInput, { nullable: true })
-  @Type(() => SimWhereInput)
-  where?: SimWhereInput
 
-  @Field(() => [SimOrderByWithRelationInput], { nullable: true })
-  orderBy?: Array<SimOrderByWithRelationInput>
+    @Field(() => SimWhereInput, {nullable:true})
+    @Type(() => SimWhereInput)
+    where?: SimWhereInput;
 
-  @Field(() => SimWhereUniqueInput, { nullable: true })
-  cursor?: Prisma.AtLeast<SimWhereUniqueInput, 'uid' | 'nomor_sim'>
+    @Field(() => [SimOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<SimOrderByWithRelationInput>;
 
-  @Field(() => Int, { nullable: true })
-  take?: number
+    @Field(() => SimWhereUniqueInput, {nullable:true})
+    cursor?: Prisma.AtLeast<SimWhereUniqueInput, 'uid' | 'nomor_sim'>;
 
-  @Field(() => Int, { nullable: true })
-  skip?: number
+    @Field(() => Int, {nullable:true})
+    take?: number;
 
-  @Field(() => SimCountAggregateInput, { nullable: true })
-  _count?: SimCountAggregateInput
+    @Field(() => Int, {nullable:true})
+    skip?: number;
 
-  @Field(() => SimAvgAggregateInput, { nullable: true })
-  _avg?: SimAvgAggregateInput
+    @Field(() => SimCountAggregateInput, {nullable:true})
+    _count?: SimCountAggregateInput;
 
-  @Field(() => SimSumAggregateInput, { nullable: true })
-  _sum?: SimSumAggregateInput
+    @Field(() => SimAvgAggregateInput, {nullable:true})
+    _avg?: SimAvgAggregateInput;
 
-  @Field(() => SimMinAggregateInput, { nullable: true })
-  _min?: SimMinAggregateInput
+    @Field(() => SimSumAggregateInput, {nullable:true})
+    _sum?: SimSumAggregateInput;
 
-  @Field(() => SimMaxAggregateInput, { nullable: true })
-  _max?: SimMaxAggregateInput
+    @Field(() => SimMinAggregateInput, {nullable:true})
+    _min?: SimMinAggregateInput;
+
+    @Field(() => SimMaxAggregateInput, {nullable:true})
+    _max?: SimMaxAggregateInput;
 }
