@@ -8,12 +8,15 @@ import { JwtService } from '@nestjs/jwt'
 import { UserService } from 'src/user/user.service'
 import { LoginAuthDto } from './dto/login-auth.dto'
 import { UserCreateInput } from './dto/user-create.input'
+import { DeviceLoginAuthDto } from './dto/device-login-auth.dto'
+import { PrismaService } from 'src/prisma/prisma.service'
 
 @Injectable()
 export class AuthService {
   constructor(
     private usersService: UserService,
     private jwtService: JwtService,
+    private prismaService: PrismaService,
   ) {}
 
   async signIn(loginAuthDto: LoginAuthDto) {
@@ -24,6 +27,31 @@ export class AuthService {
     const user = email
       ? await this.usersService.validateWithEmail(email, password)
       : await this.usersService.validateWithPhone(phone, password)
+    if (!user) throw new UnauthorizedException()
+
+    const payload = {
+      id: user.id,
+      role: user.role,
+    }
+    return {
+      id: user.id,
+      access_token: await this.jwtService.signAsync(payload),
+    }
+  }
+
+  async signInFromDevice(loginAuthDto: DeviceLoginAuthDto) {
+    const { deviceId, uid } = loginAuthDto
+    
+    const device = await this.prismaService.device.findFirst({where: {device_id: deviceId}})
+    if (!device) throw new UnauthorizedException()
+
+    const sim = await this.prismaService.sim.findFirst({where: {uid}})
+    if (!sim) throw new UnauthorizedException()
+
+    const ktp = await this.prismaService.ktp.findFirst({where: {sim: {every: {nomor_sim: sim.nomor_sim}}}})
+    if (!ktp) throw new UnauthorizedException()
+
+    const user = await this.prismaService.user.findFirst({where: {ktp}})
     if (!user) throw new UnauthorizedException()
 
     const payload = {

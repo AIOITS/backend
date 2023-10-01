@@ -12,6 +12,7 @@ import {
 } from '@nestjs/swagger'
 import { errorResponse } from 'common/error-response'
 import { UserCreateInput } from './dto/user-create.input'
+import { DeviceLoginAuthDto } from './dto/device-login-auth.dto'
 
 class SuccessLogin {
   @ApiProperty({
@@ -41,6 +42,28 @@ export class AuthController {
   })
   async validate(@Body() loginAuthDto: LoginAuthDto) {
     const data = await this.authService.signIn(loginAuthDto)
+    return {
+      statusCode: 200,
+      data,
+    }
+  }
+
+  @Post('login-from-device')
+  @HttpCode(HttpStatus.OK)
+  @ApiOkResponse({
+    description: 'Login Successfully',
+    type: SuccessLogin,
+  })
+  @ApiUnauthorizedResponse({
+    description: 'Login Failed',
+    type: errorResponse,
+  })
+  @ApiBadRequestResponse({
+    description: 'Bad Request',
+    type: errorResponse,
+  })
+  async validateFromDevice(@Body() loginAuthDto: DeviceLoginAuthDto) {
+    const data = await this.authService.signInFromDevice(loginAuthDto)
     return {
       statusCode: 200,
       data,
