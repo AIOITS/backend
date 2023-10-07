@@ -234,7 +234,7 @@ export class HistoryPengisianResolver {
   @ResolveField(() => [Spbu], { name: 'spbu' })
   async getAllFiles(@Parent() historyPengisian: HistoryPengisian) {
     return await this.prismaService.spbu.findMany({
-      where: { historyPengisian: { every: { id: historyPengisian.id } } },
+      where: { id: historyPengisian.spbu_id },
     })
   }
 }
