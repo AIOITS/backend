@@ -211,7 +211,7 @@ type HistoryPengisian {
   user_id: Int!
   nomor_stnk: String!
   device: Device!
-  spbu: [Spbu!]!
+  spbu: Spbu!
   bbm: Bbm
   user: User
   stnk: Stnk!

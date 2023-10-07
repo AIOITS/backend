@@ -231,7 +231,7 @@ export class StnkResolver {
 export class HistoryPengisianResolver {
   constructor(private readonly prismaService: PrismaService) {}
 
-  @ResolveField(() => [Spbu], { name: 'spbu' })
+  @ResolveField(() => Spbu, { name: 'spbu' })
   async getAllFiles(@Parent() historyPengisian: HistoryPengisian) {
     return await this.prismaService.spbu.findFirst({
       where: { id: historyPengisian.spbu_id },
