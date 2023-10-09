@@ -38,6 +38,7 @@ import { Spbu } from 'src/@generated/prisma-nestjs-graphql/spbu/spbu.model'
 import { FindManySpbuArgs } from 'src/@generated/prisma-nestjs-graphql/spbu/find-many-spbu.args'
 import { Bbm } from 'src/@generated/prisma-nestjs-graphql/bbm/bbm.model'
 import { FindManyBbmArgs } from 'src/@generated/prisma-nestjs-graphql/bbm/find-many-bbm.args'
+import { SubsidyQuota } from 'src/@generated/prisma-nestjs-graphql/subsidy-quota/subsidy-quota.model'
 
 @Resolver()
 export class GraphqlResolver {
@@ -204,6 +205,7 @@ export class StnkResolver {
   constructor(
     private readonly stnkService: StnkService,
     private readonly pkbService: PkbService,
+    private readonly prismaService: PrismaService,
     private readonly historyPengisianService: HistoryPengisianService,
   ) {}
 
@@ -217,6 +219,13 @@ export class StnkResolver {
     return await this.pkbService.findOne({
       where: { stnk: { nomor_stnk: stnk.nomor_stnk } },
     })
+  }
+
+  @ResolveField('kuota_subsidi', () => Number)
+  async getSubsidyQuota(@Parent() stnk: Stnk) {
+    return (await this.prismaService.subsidyQuota.findFirst({
+      where: { stnk: { nomor_stnk: stnk.nomor_stnk } },
+    }))?.quota
   }
 
   @ResolveField('history_pengisian', () => [HistoryPengisian])

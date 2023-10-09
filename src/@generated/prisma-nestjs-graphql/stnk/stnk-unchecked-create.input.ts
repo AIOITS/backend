@@ -1,6 +1,8 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
+import { Int } from '@nestjs/graphql';
 import { HistoryPengisianUncheckedCreateNestedManyWithoutStnkInput } from '../history-pengisian/history-pengisian-unchecked-create-nested-many-without-stnk.input';
+import { SubsidyQuotaUncheckedCreateNestedOneWithoutStnkInput } from '../subsidy-quota/subsidy-quota-unchecked-create-nested-one-without-stnk.input';
 
 @InputType()
 export class StnkUncheckedCreateInput {
@@ -41,8 +43,8 @@ export class StnkUncheckedCreateInput {
     @Field(() => String, {nullable:false})
     tahun_pembuatan!: string;
 
-    @Field(() => String, {nullable:false})
-    isi_silinder!: string;
+    @Field(() => Int, {nullable:false})
+    isi_silinder!: number;
 
     @Field(() => String, {nullable:false})
     nomor_mesin!: string;
@@ -76,4 +78,7 @@ export class StnkUncheckedCreateInput {
 
     @Field(() => HistoryPengisianUncheckedCreateNestedManyWithoutStnkInput, {nullable:true})
     history_pengisian?: HistoryPengisianUncheckedCreateNestedManyWithoutStnkInput;
+
+    @Field(() => SubsidyQuotaUncheckedCreateNestedOneWithoutStnkInput, {nullable:true})
+    subsidy_quota?: SubsidyQuotaUncheckedCreateNestedOneWithoutStnkInput;
 }

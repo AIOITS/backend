@@ -2,7 +2,9 @@ import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input';
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input';
+import { IntFieldUpdateOperationsInput } from '../prisma/int-field-update-operations.input';
 import { HistoryPengisianUncheckedUpdateManyWithoutStnkNestedInput } from '../history-pengisian/history-pengisian-unchecked-update-many-without-stnk-nested.input';
+import { SubsidyQuotaUncheckedUpdateOneWithoutStnkNestedInput } from '../subsidy-quota/subsidy-quota-unchecked-update-one-without-stnk-nested.input';
 
 @InputType()
 export class StnkUncheckedUpdateWithoutKtpInput {
@@ -43,8 +45,8 @@ export class StnkUncheckedUpdateWithoutKtpInput {
     @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
     tahun_pembuatan?: StringFieldUpdateOperationsInput;
 
-    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
-    isi_silinder?: StringFieldUpdateOperationsInput;
+    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
+    isi_silinder?: IntFieldUpdateOperationsInput;
 
     @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
     nomor_mesin?: StringFieldUpdateOperationsInput;
@@ -75,4 +77,7 @@ export class StnkUncheckedUpdateWithoutKtpInput {
 
     @Field(() => HistoryPengisianUncheckedUpdateManyWithoutStnkNestedInput, {nullable:true})
     history_pengisian?: HistoryPengisianUncheckedUpdateManyWithoutStnkNestedInput;
+
+    @Field(() => SubsidyQuotaUncheckedUpdateOneWithoutStnkNestedInput, {nullable:true})
+    subsidy_quota?: SubsidyQuotaUncheckedUpdateOneWithoutStnkNestedInput;
 }

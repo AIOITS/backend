@@ -1,5 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { ObjectType } from '@nestjs/graphql';
+import { Int } from '@nestjs/graphql';
 
 @ObjectType()
 export class StnkMaxAggregate {
@@ -40,8 +41,8 @@ export class StnkMaxAggregate {
     @Field(() => String, {nullable:true})
     tahun_pembuatan?: string;
 
-    @Field(() => String, {nullable:true})
-    isi_silinder?: string;
+    @Field(() => Int, {nullable:true})
+    isi_silinder?: number;
 
     @Field(() => String, {nullable:true})
     nomor_mesin?: string;

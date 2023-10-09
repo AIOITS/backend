@@ -2,10 +2,12 @@ import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { StringFilter } from '../prisma/string-filter.input';
 import { DateTimeFilter } from '../prisma/date-time-filter.input';
+import { IntFilter } from '../prisma/int-filter.input';
 import { StringNullableFilter } from '../prisma/string-nullable-filter.input';
 import { PkbRelationFilter } from '../pkb/pkb-relation-filter.input';
 import { KtpNullableRelationFilter } from '../ktp/ktp-nullable-relation-filter.input';
 import { HistoryPengisianListRelationFilter } from '../history-pengisian/history-pengisian-list-relation-filter.input';
+import { SubsidyQuotaNullableRelationFilter } from '../subsidy-quota/subsidy-quota-nullable-relation-filter.input';
 
 @InputType()
 export class StnkWhereInput {
@@ -55,8 +57,8 @@ export class StnkWhereInput {
     @Field(() => StringFilter, {nullable:true})
     tahun_pembuatan?: StringFilter;
 
-    @Field(() => StringFilter, {nullable:true})
-    isi_silinder?: StringFilter;
+    @Field(() => IntFilter, {nullable:true})
+    isi_silinder?: IntFilter;
 
     @Field(() => StringFilter, {nullable:true})
     nomor_mesin?: StringFilter;
@@ -96,4 +98,7 @@ export class StnkWhereInput {
 
     @Field(() => HistoryPengisianListRelationFilter, {nullable:true})
     history_pengisian?: HistoryPengisianListRelationFilter;
+
+    @Field(() => SubsidyQuotaNullableRelationFilter, {nullable:true})
+    subsidy_quota?: SubsidyQuotaNullableRelationFilter;
 }

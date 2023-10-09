@@ -41,17 +41,21 @@ export class AuthService {
 
   async signInFromDevice(loginAuthDto: DeviceLoginAuthDto) {
     const { deviceId, uid } = loginAuthDto
-    
-    const device = await this.prismaService.device.findFirst({where: {device_id: deviceId}})
+
+    const device = await this.prismaService.device.findFirst({
+      where: { device_id: deviceId },
+    })
     if (!device) throw new UnauthorizedException()
 
-    const sim = await this.prismaService.sim.findFirst({where: {uid}})
+    const sim = await this.prismaService.sim.findFirst({ where: { uid } })
     if (!sim) throw new UnauthorizedException()
 
-    const ktp = await this.prismaService.ktp.findFirst({where: {nik: sim.nik!}})
+    const ktp = await this.prismaService.ktp.findFirst({
+      where: { nik: sim.nik! },
+    })
     if (!ktp) throw new UnauthorizedException()
 
-    const user = await this.prismaService.user.findFirst({where: {ktp}})
+    const user = await this.prismaService.user.findFirst({ where: { ktp } })
     if (!user) throw new UnauthorizedException()
 
     const payload = {

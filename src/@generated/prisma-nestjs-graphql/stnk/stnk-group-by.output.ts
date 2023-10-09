@@ -1,6 +1,9 @@
 import { Field } from '@nestjs/graphql';
 import { ObjectType } from '@nestjs/graphql';
+import { Int } from '@nestjs/graphql';
 import { StnkCountAggregate } from './stnk-count-aggregate.output';
+import { StnkAvgAggregate } from './stnk-avg-aggregate.output';
+import { StnkSumAggregate } from './stnk-sum-aggregate.output';
 import { StnkMinAggregate } from './stnk-min-aggregate.output';
 import { StnkMaxAggregate } from './stnk-max-aggregate.output';
 
@@ -43,8 +46,8 @@ export class StnkGroupBy {
     @Field(() => String, {nullable:false})
     tahun_pembuatan!: string;
 
-    @Field(() => String, {nullable:false})
-    isi_silinder!: string;
+    @Field(() => Int, {nullable:false})
+    isi_silinder!: number;
 
     @Field(() => String, {nullable:false})
     nomor_mesin!: string;
@@ -78,6 +81,12 @@ export class StnkGroupBy {
 
     @Field(() => StnkCountAggregate, {nullable:true})
     _count?: StnkCountAggregate;
+
+    @Field(() => StnkAvgAggregate, {nullable:true})
+    _avg?: StnkAvgAggregate;
+
+    @Field(() => StnkSumAggregate, {nullable:true})
+    _sum?: StnkSumAggregate;
 
     @Field(() => StnkMinAggregate, {nullable:true})
     _min?: StnkMinAggregate;

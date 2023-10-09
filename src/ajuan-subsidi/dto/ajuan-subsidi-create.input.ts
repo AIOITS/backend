@@ -5,7 +5,7 @@ export class AjuanSubsidiCreateInput {
   @ApiProperty({ example: '50' })
   @IsNotEmpty()
   @IsNumberString()
-  readonly jumlah: number
+  readonly jumlah: number|string
 
   @ApiProperty({ example: 'dibutuhkan dalam mendukung pekerjaan' })
   @IsNotEmpty()

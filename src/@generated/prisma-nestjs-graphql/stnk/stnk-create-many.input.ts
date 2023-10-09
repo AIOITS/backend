@@ -1,5 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
+import { Int } from '@nestjs/graphql';
 
 @InputType()
 export class StnkCreateManyInput {
@@ -40,8 +41,8 @@ export class StnkCreateManyInput {
     @Field(() => String, {nullable:false})
     tahun_pembuatan!: string;
 
-    @Field(() => String, {nullable:false})
-    isi_silinder!: string;
+    @Field(() => Int, {nullable:false})
+    isi_silinder!: number;
 
     @Field(() => String, {nullable:false})
     nomor_mesin!: string;

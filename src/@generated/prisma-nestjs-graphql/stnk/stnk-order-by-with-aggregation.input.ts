@@ -3,8 +3,10 @@ import { InputType } from '@nestjs/graphql';
 import { SortOrder } from '../prisma/sort-order.enum';
 import { SortOrderInput } from '../prisma/sort-order.input';
 import { StnkCountOrderByAggregateInput } from './stnk-count-order-by-aggregate.input';
+import { StnkAvgOrderByAggregateInput } from './stnk-avg-order-by-aggregate.input';
 import { StnkMaxOrderByAggregateInput } from './stnk-max-order-by-aggregate.input';
 import { StnkMinOrderByAggregateInput } from './stnk-min-order-by-aggregate.input';
+import { StnkSumOrderByAggregateInput } from './stnk-sum-order-by-aggregate.input';
 
 @InputType()
 export class StnkOrderByWithAggregationInput {
@@ -81,9 +83,15 @@ export class StnkOrderByWithAggregationInput {
     @Field(() => StnkCountOrderByAggregateInput, {nullable:true})
     _count?: StnkCountOrderByAggregateInput;
 
+    @Field(() => StnkAvgOrderByAggregateInput, {nullable:true})
+    _avg?: StnkAvgOrderByAggregateInput;
+
     @Field(() => StnkMaxOrderByAggregateInput, {nullable:true})
     _max?: StnkMaxOrderByAggregateInput;
 
     @Field(() => StnkMinOrderByAggregateInput, {nullable:true})
     _min?: StnkMinOrderByAggregateInput;
+
+    @Field(() => StnkSumOrderByAggregateInput, {nullable:true})
+    _sum?: StnkSumOrderByAggregateInput;
 }

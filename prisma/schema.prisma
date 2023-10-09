@@ -37,7 +37,6 @@ model User {
   /// @Validator.IsNotEmpty()
   password String
 
-  kuota_subsidi     Float              @default(0.0)
   saldo             Int                @default(0)
   history_pengisian HistoryPengisian[]
   ajuan_subsidi     AjuanSubsidi[]
@@ -163,7 +162,7 @@ model Stnk {
   jenis                  String
   model                  String
   tahun_pembuatan        String
-  isi_silinder           String
+  isi_silinder           Int
   nomor_mesin            String
   nomor_rangka           String
   warna                  String
@@ -180,6 +179,7 @@ model Stnk {
   ktp Ktp?    @relation(fields: [nik], references: [nik])
 
   history_pengisian HistoryPengisian[]
+  subsidy_quota     SubsidyQuota?
 
   @@map("STNK")
 }
@@ -201,6 +201,13 @@ model Pkb {
   stnk Stnk?
 
   @@map("PKB")
+}
+
+model SubsidyQuota {
+  id         Int    @id @default(autoincrement())
+  nomor_stnk String @unique
+  quota      Float  @default(0.0)
+  stnk       Stnk   @relation(fields: [nomor_stnk], references: [nomor_stnk])
 }
 
 model Device {
@@ -232,8 +239,8 @@ model Bbm {
   name             String
   type             String
   price_per_liter  Float
-  is_subsidi  Boolean
-  category BbmCategory
+  is_subsidi       Boolean
+  category         BbmCategory
   HistoryPengisian HistoryPengisian[]
 }
 

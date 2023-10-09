@@ -18,7 +18,7 @@ export class HistoryPengisianCreateInput {
   @IsString()
   readonly jenis_kendaraan: string
 
-  @ApiProperty({ example: 20 })
+  @ApiProperty({ example: 20000 })
   @IsNotEmpty()
   @IsNumber()
   readonly jumlah: number

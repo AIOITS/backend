@@ -3,7 +3,6 @@ import { InputType } from '@nestjs/graphql';
 import { IntFilter } from '../prisma/int-filter.input';
 import { StringFilter } from '../prisma/string-filter.input';
 import { StringNullableFilter } from '../prisma/string-nullable-filter.input';
-import { FloatFilter } from '../prisma/float-filter.input';
 import { DateTimeFilter } from '../prisma/date-time-filter.input';
 import { HistoryPengisianListRelationFilter } from '../history-pengisian/history-pengisian-list-relation-filter.input';
 import { AjuanSubsidiListRelationFilter } from '../ajuan-subsidi/ajuan-subsidi-list-relation-filter.input';
@@ -38,9 +37,6 @@ export class UserWhereInput {
 
     @Field(() => StringFilter, {nullable:true})
     password?: StringFilter;
-
-    @Field(() => FloatFilter, {nullable:true})
-    kuota_subsidi?: FloatFilter;
 
     @Field(() => IntFilter, {nullable:true})
     saldo?: IntFilter;

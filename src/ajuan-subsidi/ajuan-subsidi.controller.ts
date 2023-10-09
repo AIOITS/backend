@@ -10,6 +10,7 @@ import {
   Request,
   ValidationPipe,
   UsePipes,
+  HttpException,
 } from '@nestjs/common'
 import { AjuanSubsidiService } from './ajuan-subsidi.service'
 import { AuthGuard } from 'src/auth/auth.guard'
@@ -37,6 +38,8 @@ export class AjuanSubsidiController {
     @Body() createAjuanSubsidiDto: AjuanSubsidiCreateInput,
     @UploadedFiles() files: Array<Express.Multer.File>,
   ) {
+    if (!files) throw new HttpException('dokumen_pendukung is required', 400)
+
     return {
       statusCode: HttpStatus.CREATED,
       data: await this.ajuanSubsidiService.create({

@@ -9,7 +9,6 @@ async function seedUser() {
       email: "pkmaioits@email.com",
       phone: "081234567890",
       password: await argon2.hash("rahasia"),
-      kuota_subsidi: 100.0,
       saldo: 50000,
       ktp: {
         create: {
@@ -85,7 +84,7 @@ async function seedUser() {
                 jenis: 'Private',
                 model: 'Kijang',
                 tahun_pembuatan: '2022',
-                isi_silinder: '2000',
+                isi_silinder: 2000,
                 nomor_mesin: 'ABC123',
                 nomor_rangka: 'XYZ789',
                 warna: 'Silver',
@@ -94,6 +93,11 @@ async function seedUser() {
                 nomor_registrasi: 'R-1234-AB',
                 kode_lokasi: 'CITY123',
                 nomor_urut_pendaftaran: '56789',
+                subsidy_quota: {
+                  create: {
+                    quota: 20.0
+                  }
+                },
                 pkb: {
                   create: {
                     nomor_pkb: 'PKB123',
@@ -124,7 +128,7 @@ async function seedUser() {
                 jenis: 'Private',
                 model: 'Camry',
                 tahun_pembuatan: '2022',
-                isi_silinder: '2000',
+                isi_silinder: 2000,
                 nomor_mesin: 'ABC123',
                 nomor_rangka: 'XYZ789',
                 warna: 'Silver',
@@ -133,6 +137,11 @@ async function seedUser() {
                 nomor_registrasi: 'R-1234-AB',
                 kode_lokasi: 'CITY123',
                 nomor_urut_pendaftaran: '56789',
+                subsidy_quota: {
+                  create: {
+                    quota: 20.0
+                  }
+                },
                 pkb: {
                   create: {
                     nomor_pkb: 'PKB124',
@@ -163,7 +172,7 @@ async function seedUser() {
                 jenis: 'Private',
                 model: 'Turbo',
                 tahun_pembuatan: '2022',
-                isi_silinder: '2000',
+                isi_silinder: 2000,
                 nomor_mesin: 'ABC123',
                 nomor_rangka: 'XYZ789',
                 warna: 'Silver',
@@ -172,6 +181,11 @@ async function seedUser() {
                 nomor_registrasi: 'R-1234-AB',
                 kode_lokasi: 'CITY123',
                 nomor_urut_pendaftaran: '56789',
+                subsidy_quota: {
+                  create: {
+                    quota: 20.0
+                  }
+                },
                 pkb: {
                   create: {
                     nomor_pkb: 'PKB125',
@@ -243,7 +257,6 @@ async function seedUser() {
       email: "government@email.com",
       phone: "081234567891",
       password: await argon2.hash("rahasia"),
-      kuota_subsidi: 100.0,
       saldo: 50000,
       role: 0,
       ktp: {

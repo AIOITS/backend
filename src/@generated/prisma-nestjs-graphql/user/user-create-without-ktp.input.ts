@@ -1,7 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import * as Validator from 'class-validator';
-import { Float } from '@nestjs/graphql';
 import { Int } from '@nestjs/graphql';
 import { HistoryPengisianCreateNestedManyWithoutUserInput } from '../history-pengisian/history-pengisian-create-nested-many-without-user.input';
 import { AjuanSubsidiCreateNestedManyWithoutUserInput } from '../ajuan-subsidi/ajuan-subsidi-create-nested-many-without-user.input';
@@ -27,9 +26,6 @@ export class UserCreateWithoutKtpInput {
     @Field(() => String, {nullable:false})
     @Validator.IsNotEmpty()
     password!: string;
-
-    @Field(() => Float, {nullable:true})
-    kuota_subsidi?: number;
 
     @Field(() => Int, {nullable:true})
     saldo?: number;

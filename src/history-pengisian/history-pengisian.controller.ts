@@ -25,7 +25,7 @@ export class HistoryPengisianController {
   @UsePipes(new ValidationPipe())
   @UseGuards(AuthGuard)
   @ApiCreatedResponse({
-    description: 'Succesful create ajuan Subsidi',
+    description: 'Succesfully add fueling history',
     type: HistoryPengisianCreateInput,
   })
   async create(

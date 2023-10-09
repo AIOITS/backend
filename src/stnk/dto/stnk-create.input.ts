@@ -1,4 +1,4 @@
-import { IsString, IsNotEmpty, IsDateString } from 'class-validator'
+import { IsString, IsNotEmpty, IsDateString, IsNumber } from 'class-validator'
 import { ApiProperty } from '@nestjs/swagger'
 
 class StnkCreateInput {
@@ -54,9 +54,9 @@ class StnkCreateInput {
   @IsString()
   readonly tahun_pembuatan: string
 
-  @ApiProperty({ example: '4' })
-  @IsString()
-  readonly isi_silinder: string
+  @ApiProperty({ example: 4 })
+  @IsNumber()
+  readonly isi_silinder: number
 
   @ApiProperty({ example: '12345' })
   @IsString()
