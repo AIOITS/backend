@@ -9,6 +9,7 @@ import { PkbRelationFilter } from '../pkb/pkb-relation-filter.input';
 import { KtpNullableRelationFilter } from '../ktp/ktp-nullable-relation-filter.input';
 import { HistoryPengisianListRelationFilter } from '../history-pengisian/history-pengisian-list-relation-filter.input';
 import { SubsidyQuotaNullableRelationFilter } from '../subsidy-quota/subsidy-quota-nullable-relation-filter.input';
+import { AjuanSubsidiListRelationFilter } from '../ajuan-subsidi/ajuan-subsidi-list-relation-filter.input';
 
 @InputType()
 export class StnkWhereUniqueInput {
@@ -102,4 +103,7 @@ export class StnkWhereUniqueInput {
 
     @Field(() => SubsidyQuotaNullableRelationFilter, {nullable:true})
     subsidy_quota?: SubsidyQuotaNullableRelationFilter;
+
+    @Field(() => AjuanSubsidiListRelationFilter, {nullable:true})
+    ajuanSubsidi?: AjuanSubsidiListRelationFilter;
 }

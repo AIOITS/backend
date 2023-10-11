@@ -212,6 +212,7 @@ async function seedUser() {
           {
             jumlah: 500,
             alasan: 'Low income',
+            nomor_stnk: '98762848',
             dokumen_pendukung: {
               createMany: {
                 data: [
@@ -232,6 +233,7 @@ async function seedUser() {
           {
             jumlah: 300,
             alasan: 'Financial hardship',
+            nomor_stnk: '98762848',
             dokumen_pendukung: {
               createMany: {
                 data: [

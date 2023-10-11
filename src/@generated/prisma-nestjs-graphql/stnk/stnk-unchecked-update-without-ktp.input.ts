@@ -5,6 +5,7 @@ import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-up
 import { IntFieldUpdateOperationsInput } from '../prisma/int-field-update-operations.input';
 import { HistoryPengisianUncheckedUpdateManyWithoutStnkNestedInput } from '../history-pengisian/history-pengisian-unchecked-update-many-without-stnk-nested.input';
 import { SubsidyQuotaUncheckedUpdateOneWithoutStnkNestedInput } from '../subsidy-quota/subsidy-quota-unchecked-update-one-without-stnk-nested.input';
+import { AjuanSubsidiUncheckedUpdateManyWithoutStnkNestedInput } from '../ajuan-subsidi/ajuan-subsidi-unchecked-update-many-without-stnk-nested.input';
 
 @InputType()
 export class StnkUncheckedUpdateWithoutKtpInput {
@@ -80,4 +81,7 @@ export class StnkUncheckedUpdateWithoutKtpInput {
 
     @Field(() => SubsidyQuotaUncheckedUpdateOneWithoutStnkNestedInput, {nullable:true})
     subsidy_quota?: SubsidyQuotaUncheckedUpdateOneWithoutStnkNestedInput;
+
+    @Field(() => AjuanSubsidiUncheckedUpdateManyWithoutStnkNestedInput, {nullable:true})
+    ajuanSubsidi?: AjuanSubsidiUncheckedUpdateManyWithoutStnkNestedInput;
 }

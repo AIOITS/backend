@@ -6,6 +6,7 @@ import { IntFieldUpdateOperationsInput } from '../prisma/int-field-update-operat
 import { PkbUpdateOneRequiredWithoutStnkNestedInput } from '../pkb/pkb-update-one-required-without-stnk-nested.input';
 import { KtpUpdateOneWithoutStnkNestedInput } from '../ktp/ktp-update-one-without-stnk-nested.input';
 import { HistoryPengisianUpdateManyWithoutStnkNestedInput } from '../history-pengisian/history-pengisian-update-many-without-stnk-nested.input';
+import { AjuanSubsidiUpdateManyWithoutStnkNestedInput } from '../ajuan-subsidi/ajuan-subsidi-update-many-without-stnk-nested.input';
 
 @InputType()
 export class StnkUpdateWithoutSubsidy_quotaInput {
@@ -81,4 +82,7 @@ export class StnkUpdateWithoutSubsidy_quotaInput {
 
     @Field(() => HistoryPengisianUpdateManyWithoutStnkNestedInput, {nullable:true})
     history_pengisian?: HistoryPengisianUpdateManyWithoutStnkNestedInput;
+
+    @Field(() => AjuanSubsidiUpdateManyWithoutStnkNestedInput, {nullable:true})
+    ajuanSubsidi?: AjuanSubsidiUpdateManyWithoutStnkNestedInput;
 }

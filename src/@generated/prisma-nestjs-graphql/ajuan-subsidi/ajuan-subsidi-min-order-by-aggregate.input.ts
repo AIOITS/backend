@@ -9,6 +9,9 @@ export class AjuanSubsidiMinOrderByAggregateInput {
     id?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
+    nomor_stnk?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
     jumlah?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})

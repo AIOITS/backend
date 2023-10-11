@@ -9,6 +9,9 @@ export class AjuanSubsidiMaxAggregate {
     @Field(() => Int, {nullable:true})
     id?: number;
 
+    @Field(() => String, {nullable:true})
+    nomor_stnk?: string;
+
     @Field(() => Int, {nullable:true})
     jumlah?: number;
 

@@ -2,6 +2,7 @@ import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { Int } from '@nestjs/graphql';
 import { SubsidyQuotaUncheckedCreateNestedOneWithoutStnkInput } from '../subsidy-quota/subsidy-quota-unchecked-create-nested-one-without-stnk.input';
+import { AjuanSubsidiUncheckedCreateNestedManyWithoutStnkInput } from '../ajuan-subsidi/ajuan-subsidi-unchecked-create-nested-many-without-stnk.input';
 
 @InputType()
 export class StnkUncheckedCreateWithoutHistory_pengisianInput {
@@ -77,4 +78,7 @@ export class StnkUncheckedCreateWithoutHistory_pengisianInput {
 
     @Field(() => SubsidyQuotaUncheckedCreateNestedOneWithoutStnkInput, {nullable:true})
     subsidy_quota?: SubsidyQuotaUncheckedCreateNestedOneWithoutStnkInput;
+
+    @Field(() => AjuanSubsidiUncheckedCreateNestedManyWithoutStnkInput, {nullable:true})
+    ajuanSubsidi?: AjuanSubsidiUncheckedCreateNestedManyWithoutStnkInput;
 }

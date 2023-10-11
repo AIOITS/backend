@@ -78,6 +78,9 @@ model HistoryPengisian {
 model AjuanSubsidi {
   id Int @id @default(autoincrement())
 
+  nomor_stnk String
+  stnk       Stnk?  @relation(fields: [nomor_stnk], references: [nomor_stnk])
+
   /// @Validator.IsNotEmpty()
   jumlah Int
 
@@ -180,6 +183,7 @@ model Stnk {
 
   history_pengisian HistoryPengisian[]
   subsidy_quota     SubsidyQuota?
+  ajuanSubsidi      AjuanSubsidi[]
 
   @@map("STNK")
 }

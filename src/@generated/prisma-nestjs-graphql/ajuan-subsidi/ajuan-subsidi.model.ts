@@ -3,6 +3,7 @@ import { ObjectType } from '@nestjs/graphql';
 import { ID } from '@nestjs/graphql';
 import { Int } from '@nestjs/graphql';
 import { StatusPengajuanSubsidi } from '../prisma/status-pengajuan-subsidi.enum';
+import { Stnk } from '../stnk/stnk.model';
 import { File } from '../file/file.model';
 import { User } from '../user/user.model';
 import { AjuanSubsidiCount } from './ajuan-subsidi-count.output';
@@ -12,6 +13,9 @@ export class AjuanSubsidi {
 
     @Field(() => ID, {nullable:false})
     id!: number;
+
+    @Field(() => String, {nullable:false})
+    nomor_stnk!: string;
 
     @Field(() => Int, {nullable:false})
     jumlah!: number;
@@ -33,6 +37,9 @@ export class AjuanSubsidi {
 
     @Field(() => Int, {nullable:true})
     user_id!: number | null;
+
+    @Field(() => Stnk, {nullable:true})
+    stnk?: Stnk | null;
 
     @Field(() => [File], {nullable:true})
     dokumen_pendukung?: Array<File>;

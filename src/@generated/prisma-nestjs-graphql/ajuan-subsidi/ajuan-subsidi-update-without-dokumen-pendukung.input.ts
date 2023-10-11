@@ -4,6 +4,7 @@ import { IntFieldUpdateOperationsInput } from '../prisma/int-field-update-operat
 import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input';
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input';
 import { NullableEnumStatusPengajuanSubsidiFieldUpdateOperationsInput } from '../prisma/nullable-enum-status-pengajuan-subsidi-field-update-operations.input';
+import { StnkUpdateOneWithoutAjuanSubsidiNestedInput } from '../stnk/stnk-update-one-without-ajuan-subsidi-nested.input';
 import { UserUpdateOneWithoutAjuan_subsidiNestedInput } from '../user/user-update-one-without-ajuan-subsidi-nested.input';
 
 @InputType()
@@ -26,6 +27,9 @@ export class AjuanSubsidiUpdateWithoutDokumen_pendukungInput {
 
     @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
     updatedAt?: DateTimeFieldUpdateOperationsInput;
+
+    @Field(() => StnkUpdateOneWithoutAjuanSubsidiNestedInput, {nullable:true})
+    stnk?: StnkUpdateOneWithoutAjuanSubsidiNestedInput;
 
     @Field(() => UserUpdateOneWithoutAjuan_subsidiNestedInput, {nullable:true})
     user?: UserUpdateOneWithoutAjuan_subsidiNestedInput;

@@ -10,6 +10,9 @@ export class AjuanSubsidiUncheckedCreateWithoutDokumen_pendukungInput {
     @Field(() => Int, {nullable:true})
     id?: number;
 
+    @Field(() => String, {nullable:false})
+    nomor_stnk!: string;
+
     @Field(() => Int, {nullable:false})
     @Validator.IsNotEmpty()
     jumlah!: number;

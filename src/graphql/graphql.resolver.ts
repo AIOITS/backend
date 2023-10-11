@@ -179,7 +179,6 @@ export class SimResolver {
   constructor(
     private readonly ktpService: KtpService,
     private readonly simService: SimService,
-    private readonly stnkService: StnkService,
   ) {}
 
   @ResolveField('ktp', () => Ktp)
@@ -190,12 +189,22 @@ export class SimResolver {
 
 @Resolver(() => AjuanSubsidi)
 export class AjuanSubsidiResolver {
-  constructor(private readonly prismaService: PrismaService) {}
+  constructor(
+    private readonly prismaService: PrismaService,
+    private readonly stnkService: StnkService,
+  ) {}
 
   @ResolveField(() => [File], { name: 'dokumen_pendukung' })
   async getAllFiles(@Parent() ajuanSubsidi: AjuanSubsidi) {
     return await this.prismaService.file.findMany({
       where: { ajuanSubsidi: { id: ajuanSubsidi.id } },
+    })
+  }
+
+  @ResolveField(() => Stnk, { name: 'stnk' })
+  async getAllStnk(@Parent() ajuanSubsidi: AjuanSubsidi) {
+    return await this.stnkService.findOne({
+      where: { nomor_stnk: ajuanSubsidi.nomor_stnk },
     })
   }
 }

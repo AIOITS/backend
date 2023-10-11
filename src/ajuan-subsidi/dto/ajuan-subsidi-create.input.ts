@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger'
-import { IsISO8601, IsNotEmpty, IsNumberString } from 'class-validator'
+import { IsISO8601, IsNotEmpty, IsNumberString, IsString } from 'class-validator'
 
 export class AjuanSubsidiCreateInput {
   @ApiProperty({ example: '50' })
@@ -10,6 +10,10 @@ export class AjuanSubsidiCreateInput {
   @ApiProperty({ example: 'dibutuhkan dalam mendukung pekerjaan' })
   @IsNotEmpty()
   readonly alasan: string
+
+  @ApiProperty({ example: '98762848' })
+  @IsString()
+  readonly nomor_stnk: string
 
   @ApiProperty()
   readonly dokumen_pendukung: Express.Multer.File[]

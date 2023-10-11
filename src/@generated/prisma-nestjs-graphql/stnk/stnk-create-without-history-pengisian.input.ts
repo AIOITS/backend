@@ -4,6 +4,7 @@ import { Int } from '@nestjs/graphql';
 import { PkbCreateNestedOneWithoutStnkInput } from '../pkb/pkb-create-nested-one-without-stnk.input';
 import { KtpCreateNestedOneWithoutStnkInput } from '../ktp/ktp-create-nested-one-without-stnk.input';
 import { SubsidyQuotaCreateNestedOneWithoutStnkInput } from '../subsidy-quota/subsidy-quota-create-nested-one-without-stnk.input';
+import { AjuanSubsidiCreateNestedManyWithoutStnkInput } from '../ajuan-subsidi/ajuan-subsidi-create-nested-many-without-stnk.input';
 
 @InputType()
 export class StnkCreateWithoutHistory_pengisianInput {
@@ -79,4 +80,7 @@ export class StnkCreateWithoutHistory_pengisianInput {
 
     @Field(() => SubsidyQuotaCreateNestedOneWithoutStnkInput, {nullable:true})
     subsidy_quota?: SubsidyQuotaCreateNestedOneWithoutStnkInput;
+
+    @Field(() => AjuanSubsidiCreateNestedManyWithoutStnkInput, {nullable:true})
+    ajuanSubsidi?: AjuanSubsidiCreateNestedManyWithoutStnkInput;
 }

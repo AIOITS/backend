@@ -3,6 +3,7 @@ import { InputType } from '@nestjs/graphql';
 import { Int } from '@nestjs/graphql';
 import * as Validator from 'class-validator';
 import { StatusPengajuanSubsidi } from '../prisma/status-pengajuan-subsidi.enum';
+import { StnkCreateNestedOneWithoutAjuanSubsidiInput } from '../stnk/stnk-create-nested-one-without-ajuan-subsidi.input';
 import { FileCreateNestedManyWithoutAjuanSubsidiInput } from '../file/file-create-nested-many-without-ajuan-subsidi.input';
 
 @InputType()
@@ -29,6 +30,9 @@ export class AjuanSubsidiCreateWithoutUserInput {
 
     @Field(() => Date, {nullable:true})
     updatedAt?: Date | string;
+
+    @Field(() => StnkCreateNestedOneWithoutAjuanSubsidiInput, {nullable:true})
+    stnk?: StnkCreateNestedOneWithoutAjuanSubsidiInput;
 
     @Field(() => FileCreateNestedManyWithoutAjuanSubsidiInput, {nullable:true})
     dokumen_pendukung?: FileCreateNestedManyWithoutAjuanSubsidiInput;

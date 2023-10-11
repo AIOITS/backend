@@ -6,6 +6,7 @@ import { Pkb } from '../pkb/pkb.model';
 import { Ktp } from '../ktp/ktp.model';
 import { HistoryPengisian } from '../history-pengisian/history-pengisian.model';
 import { SubsidyQuota } from '../subsidy-quota/subsidy-quota.model';
+import { AjuanSubsidi } from '../ajuan-subsidi/ajuan-subsidi.model';
 import { StnkCount } from './stnk-count.output';
 
 @ObjectType()
@@ -91,6 +92,9 @@ export class Stnk {
 
     @Field(() => SubsidyQuota, {nullable:true})
     subsidy_quota?: SubsidyQuota | null;
+
+    @Field(() => [AjuanSubsidi], {nullable:true})
+    ajuanSubsidi?: Array<AjuanSubsidi>;
 
     @Field(() => StnkCount, {nullable:false})
     _count?: StnkCount;

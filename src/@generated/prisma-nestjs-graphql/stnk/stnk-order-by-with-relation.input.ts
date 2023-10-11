@@ -6,6 +6,7 @@ import { PkbOrderByWithRelationInput } from '../pkb/pkb-order-by-with-relation.i
 import { KtpOrderByWithRelationInput } from '../ktp/ktp-order-by-with-relation.input';
 import { HistoryPengisianOrderByRelationAggregateInput } from '../history-pengisian/history-pengisian-order-by-relation-aggregate.input';
 import { SubsidyQuotaOrderByWithRelationInput } from '../subsidy-quota/subsidy-quota-order-by-with-relation.input';
+import { AjuanSubsidiOrderByRelationAggregateInput } from '../ajuan-subsidi/ajuan-subsidi-order-by-relation-aggregate.input';
 
 @InputType()
 export class StnkOrderByWithRelationInput {
@@ -90,4 +91,7 @@ export class StnkOrderByWithRelationInput {
 
     @Field(() => SubsidyQuotaOrderByWithRelationInput, {nullable:true})
     subsidy_quota?: SubsidyQuotaOrderByWithRelationInput;
+
+    @Field(() => AjuanSubsidiOrderByRelationAggregateInput, {nullable:true})
+    ajuanSubsidi?: AjuanSubsidiOrderByRelationAggregateInput;
 }
