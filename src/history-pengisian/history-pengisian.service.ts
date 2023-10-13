@@ -78,14 +78,16 @@ export class HistoryPengisianService {
 
     const jumlahLiter = jumlah / bbm.price_per_liter
 
-    if (jumlahLiter > stnk.subsidy_quota.quota) throw new HttpException('Kuota subsidi tidak mencukupi', 400)
+    if (bbm.is_subsidi) {
+      if (jumlahLiter > stnk.subsidy_quota.quota) throw new HttpException('Kuota subsidi tidak mencukupi', 400)
 
-    await this._prismaService.subsidyQuota.update({
-      where: { nomor_stnk: stnk.nomor_stnk },
-      data: {
-        quota: stnk.subsidy_quota.quota - jumlahLiter,
-      },
-    })
+      await this._prismaService.subsidyQuota.update({
+        where: { nomor_stnk: stnk.nomor_stnk },
+        data: {
+          quota: stnk.subsidy_quota.quota - jumlahLiter,
+        },
+      })
+    }
 
     await this._userService.update({
       where: { id: user.id },
