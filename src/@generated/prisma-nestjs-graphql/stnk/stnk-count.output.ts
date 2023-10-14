@@ -7,4 +7,7 @@ export class StnkCount {
 
     @Field(() => Int, {nullable:false})
     history_pengisian?: number;
+
+    @Field(() => Int, {nullable:false})
+    ajuanSubsidi?: number;
 }

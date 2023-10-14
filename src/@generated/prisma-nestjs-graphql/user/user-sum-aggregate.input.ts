@@ -8,9 +8,6 @@ export class UserSumAggregateInput {
     id?: true;
 
     @Field(() => Boolean, {nullable:true})
-    kuota_subsidi?: true;
-
-    @Field(() => Boolean, {nullable:true})
     saldo?: true;
 
     @Field(() => Boolean, {nullable:true})

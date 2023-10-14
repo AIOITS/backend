@@ -2,6 +2,7 @@ import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { SortOrder } from '../prisma/sort-order.enum';
 import { SortOrderInput } from '../prisma/sort-order.input';
+import { StnkOrderByWithRelationInput } from '../stnk/stnk-order-by-with-relation.input';
 import { FileOrderByRelationAggregateInput } from '../file/file-order-by-relation-aggregate.input';
 import { UserOrderByWithRelationInput } from '../user/user-order-by-with-relation.input';
 
@@ -10,6 +11,9 @@ export class AjuanSubsidiOrderByWithRelationInput {
 
     @Field(() => SortOrder, {nullable:true})
     id?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
+    nomor_stnk?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
     jumlah?: keyof typeof SortOrder;
@@ -31,6 +35,9 @@ export class AjuanSubsidiOrderByWithRelationInput {
 
     @Field(() => SortOrderInput, {nullable:true})
     user_id?: SortOrderInput;
+
+    @Field(() => StnkOrderByWithRelationInput, {nullable:true})
+    stnk?: StnkOrderByWithRelationInput;
 
     @Field(() => FileOrderByRelationAggregateInput, {nullable:true})
     dokumen_pendukung?: FileOrderByRelationAggregateInput;

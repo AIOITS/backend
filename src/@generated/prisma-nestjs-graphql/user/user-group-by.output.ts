@@ -1,7 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { ObjectType } from '@nestjs/graphql';
 import { Int } from '@nestjs/graphql';
-import { Float } from '@nestjs/graphql';
 import { UserCountAggregate } from './user-count-aggregate.output';
 import { UserAvgAggregate } from './user-avg-aggregate.output';
 import { UserSumAggregate } from './user-sum-aggregate.output';
@@ -28,9 +27,6 @@ export class UserGroupBy {
 
     @Field(() => String, {nullable:false})
     password!: string;
-
-    @Field(() => Float, {nullable:false})
-    kuota_subsidi!: number;
 
     @Field(() => Int, {nullable:false})
     saldo!: number;

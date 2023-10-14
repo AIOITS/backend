@@ -58,6 +58,11 @@ export class StnkService {
       data: {
         ...data,
         berlaku: new Date(data.berlaku),
+        subsidy_quota: {
+          create: {
+            quota: 20
+          }
+        },
         nik,
       },
     })

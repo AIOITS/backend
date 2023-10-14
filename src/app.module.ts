@@ -17,6 +17,7 @@ import { StnkModule } from './stnk/stnk.module'
 import { PkbModule } from './pkb/pkb.module'
 import { HistoryPengisianModule } from './history-pengisian/history-pengisian.module'
 import { StorageModule } from './storage/storage.module'
+import { TasksModule } from './tasks/tasks.module'
 
 @Module({
   imports: [
@@ -38,6 +39,7 @@ import { StorageModule } from './storage/storage.module'
     PkbModule,
     HistoryPengisianModule,
     StorageModule,
+    TasksModule,
   ],
   controllers: [AppController],
   providers: [AppService, PrismaService],

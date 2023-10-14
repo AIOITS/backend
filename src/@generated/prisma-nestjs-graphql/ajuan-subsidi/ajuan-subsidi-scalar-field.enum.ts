@@ -2,6 +2,7 @@ import { registerEnumType } from '@nestjs/graphql';
 
 export enum AjuanSubsidiScalarFieldEnum {
     id = "id",
+    nomor_stnk = "nomor_stnk",
     jumlah = "jumlah",
     alasan = "alasan",
     tanggal_pengajuan = "tanggal_pengajuan",

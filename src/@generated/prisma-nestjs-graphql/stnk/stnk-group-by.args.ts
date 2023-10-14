@@ -7,6 +7,8 @@ import { StnkScalarFieldEnum } from './stnk-scalar-field.enum';
 import { StnkScalarWhereWithAggregatesInput } from './stnk-scalar-where-with-aggregates.input';
 import { Int } from '@nestjs/graphql';
 import { StnkCountAggregateInput } from './stnk-count-aggregate.input';
+import { StnkAvgAggregateInput } from './stnk-avg-aggregate.input';
+import { StnkSumAggregateInput } from './stnk-sum-aggregate.input';
 import { StnkMinAggregateInput } from './stnk-min-aggregate.input';
 import { StnkMaxAggregateInput } from './stnk-max-aggregate.input';
 
@@ -34,6 +36,12 @@ export class StnkGroupByArgs {
 
     @Field(() => StnkCountAggregateInput, {nullable:true})
     _count?: StnkCountAggregateInput;
+
+    @Field(() => StnkAvgAggregateInput, {nullable:true})
+    _avg?: StnkAvgAggregateInput;
+
+    @Field(() => StnkSumAggregateInput, {nullable:true})
+    _sum?: StnkSumAggregateInput;
 
     @Field(() => StnkMinAggregateInput, {nullable:true})
     _min?: StnkMinAggregateInput;

@@ -38,6 +38,7 @@ import { Spbu } from 'src/@generated/prisma-nestjs-graphql/spbu/spbu.model'
 import { FindManySpbuArgs } from 'src/@generated/prisma-nestjs-graphql/spbu/find-many-spbu.args'
 import { Bbm } from 'src/@generated/prisma-nestjs-graphql/bbm/bbm.model'
 import { FindManyBbmArgs } from 'src/@generated/prisma-nestjs-graphql/bbm/find-many-bbm.args'
+import { SubsidyQuota } from 'src/@generated/prisma-nestjs-graphql/subsidy-quota/subsidy-quota.model'
 
 @Resolver()
 export class GraphqlResolver {
@@ -178,7 +179,6 @@ export class SimResolver {
   constructor(
     private readonly ktpService: KtpService,
     private readonly simService: SimService,
-    private readonly stnkService: StnkService,
   ) {}
 
   @ResolveField('ktp', () => Ktp)
@@ -189,12 +189,22 @@ export class SimResolver {
 
 @Resolver(() => AjuanSubsidi)
 export class AjuanSubsidiResolver {
-  constructor(private readonly prismaService: PrismaService) {}
+  constructor(
+    private readonly prismaService: PrismaService,
+    private readonly stnkService: StnkService,
+  ) {}
 
   @ResolveField(() => [File], { name: 'dokumen_pendukung' })
   async getAllFiles(@Parent() ajuanSubsidi: AjuanSubsidi) {
     return await this.prismaService.file.findMany({
       where: { ajuanSubsidi: { id: ajuanSubsidi.id } },
+    })
+  }
+
+  @ResolveField(() => Stnk, { name: 'stnk' })
+  async getAllStnk(@Parent() ajuanSubsidi: AjuanSubsidi) {
+    return await this.stnkService.findOne({
+      where: { nomor_stnk: ajuanSubsidi.nomor_stnk },
     })
   }
 }
@@ -204,6 +214,7 @@ export class StnkResolver {
   constructor(
     private readonly stnkService: StnkService,
     private readonly pkbService: PkbService,
+    private readonly prismaService: PrismaService,
     private readonly historyPengisianService: HistoryPengisianService,
   ) {}
 
@@ -217,6 +228,13 @@ export class StnkResolver {
     return await this.pkbService.findOne({
       where: { stnk: { nomor_stnk: stnk.nomor_stnk } },
     })
+  }
+
+  @ResolveField('kuota_subsidi', () => Number)
+  async getSubsidyQuota(@Parent() stnk: Stnk) {
+    return (await this.prismaService.subsidyQuota.findFirst({
+      where: { stnk: { nomor_stnk: stnk.nomor_stnk } },
+    }))?.quota
   }
 
   @ResolveField('history_pengisian', () => [HistoryPengisian])

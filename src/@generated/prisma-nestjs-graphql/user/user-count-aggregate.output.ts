@@ -24,9 +24,6 @@ export class UserCountAggregate {
     password!: number;
 
     @Field(() => Int, {nullable:false})
-    kuota_subsidi!: number;
-
-    @Field(() => Int, {nullable:false})
     saldo!: number;
 
     @Field(() => Int, {nullable:false})

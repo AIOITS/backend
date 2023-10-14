@@ -21,6 +21,9 @@ export class AjuanSubsidiScalarWhereInput {
     @Field(() => IntFilter, {nullable:true})
     id?: IntFilter;
 
+    @Field(() => StringFilter, {nullable:true})
+    nomor_stnk?: StringFilter;
+
     @Field(() => IntFilter, {nullable:true})
     jumlah?: IntFilter;
 

@@ -1,9 +1,12 @@
 import { Field } from '@nestjs/graphql';
 import { ObjectType } from '@nestjs/graphql';
 import { ID } from '@nestjs/graphql';
+import { Int } from '@nestjs/graphql';
 import { Pkb } from '../pkb/pkb.model';
 import { Ktp } from '../ktp/ktp.model';
 import { HistoryPengisian } from '../history-pengisian/history-pengisian.model';
+import { SubsidyQuota } from '../subsidy-quota/subsidy-quota.model';
+import { AjuanSubsidi } from '../ajuan-subsidi/ajuan-subsidi.model';
 import { StnkCount } from './stnk-count.output';
 
 @ObjectType()
@@ -45,8 +48,8 @@ export class Stnk {
     @Field(() => String, {nullable:false})
     tahun_pembuatan!: string;
 
-    @Field(() => String, {nullable:false})
-    isi_silinder!: string;
+    @Field(() => Int, {nullable:false})
+    isi_silinder!: number;
 
     @Field(() => String, {nullable:false})
     nomor_mesin!: string;
@@ -86,6 +89,12 @@ export class Stnk {
 
     @Field(() => [HistoryPengisian], {nullable:true})
     history_pengisian?: Array<HistoryPengisian>;
+
+    @Field(() => SubsidyQuota, {nullable:true})
+    subsidy_quota?: SubsidyQuota | null;
+
+    @Field(() => [AjuanSubsidi], {nullable:true})
+    ajuanSubsidi?: Array<AjuanSubsidi>;
 
     @Field(() => StnkCount, {nullable:false})
     _count?: StnkCount;

@@ -9,6 +9,9 @@ export class AjuanSubsidiCountAggregate {
     id!: number;
 
     @Field(() => Int, {nullable:false})
+    nomor_stnk!: number;
+
+    @Field(() => Int, {nullable:false})
     jumlah!: number;
 
     @Field(() => Int, {nullable:false})

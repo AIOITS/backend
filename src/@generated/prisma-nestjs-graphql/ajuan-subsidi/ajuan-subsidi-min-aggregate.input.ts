@@ -8,6 +8,9 @@ export class AjuanSubsidiMinAggregateInput {
     id?: true;
 
     @Field(() => Boolean, {nullable:true})
+    nomor_stnk?: true;
+
+    @Field(() => Boolean, {nullable:true})
     jumlah?: true;
 
     @Field(() => Boolean, {nullable:true})

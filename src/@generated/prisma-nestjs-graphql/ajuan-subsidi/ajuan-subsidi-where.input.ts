@@ -5,6 +5,7 @@ import { StringFilter } from '../prisma/string-filter.input';
 import { DateTimeFilter } from '../prisma/date-time-filter.input';
 import { EnumStatusPengajuanSubsidiNullableFilter } from '../prisma/enum-status-pengajuan-subsidi-nullable-filter.input';
 import { IntNullableFilter } from '../prisma/int-nullable-filter.input';
+import { StnkNullableRelationFilter } from '../stnk/stnk-nullable-relation-filter.input';
 import { FileListRelationFilter } from '../file/file-list-relation-filter.input';
 import { UserNullableRelationFilter } from '../user/user-nullable-relation-filter.input';
 
@@ -22,6 +23,9 @@ export class AjuanSubsidiWhereInput {
 
     @Field(() => IntFilter, {nullable:true})
     id?: IntFilter;
+
+    @Field(() => StringFilter, {nullable:true})
+    nomor_stnk?: StringFilter;
 
     @Field(() => IntFilter, {nullable:true})
     jumlah?: IntFilter;
@@ -43,6 +47,9 @@ export class AjuanSubsidiWhereInput {
 
     @Field(() => IntNullableFilter, {nullable:true})
     user_id?: IntNullableFilter;
+
+    @Field(() => StnkNullableRelationFilter, {nullable:true})
+    stnk?: StnkNullableRelationFilter;
 
     @Field(() => FileListRelationFilter, {nullable:true})
     dokumen_pendukung?: FileListRelationFilter;

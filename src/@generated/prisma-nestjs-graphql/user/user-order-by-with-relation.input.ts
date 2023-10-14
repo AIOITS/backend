@@ -28,9 +28,6 @@ export class UserOrderByWithRelationInput {
     password?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
-    kuota_subsidi?: keyof typeof SortOrder;
-
-    @Field(() => SortOrder, {nullable:true})
     saldo?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})

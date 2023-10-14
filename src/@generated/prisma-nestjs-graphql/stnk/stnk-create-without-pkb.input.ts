@@ -1,7 +1,10 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
+import { Int } from '@nestjs/graphql';
 import { KtpCreateNestedOneWithoutStnkInput } from '../ktp/ktp-create-nested-one-without-stnk.input';
 import { HistoryPengisianCreateNestedManyWithoutStnkInput } from '../history-pengisian/history-pengisian-create-nested-many-without-stnk.input';
+import { SubsidyQuotaCreateNestedOneWithoutStnkInput } from '../subsidy-quota/subsidy-quota-create-nested-one-without-stnk.input';
+import { AjuanSubsidiCreateNestedManyWithoutStnkInput } from '../ajuan-subsidi/ajuan-subsidi-create-nested-many-without-stnk.input';
 
 @InputType()
 export class StnkCreateWithoutPkbInput {
@@ -42,8 +45,8 @@ export class StnkCreateWithoutPkbInput {
     @Field(() => String, {nullable:false})
     tahun_pembuatan!: string;
 
-    @Field(() => String, {nullable:false})
-    isi_silinder!: string;
+    @Field(() => Int, {nullable:false})
+    isi_silinder!: number;
 
     @Field(() => String, {nullable:false})
     nomor_mesin!: string;
@@ -74,4 +77,10 @@ export class StnkCreateWithoutPkbInput {
 
     @Field(() => HistoryPengisianCreateNestedManyWithoutStnkInput, {nullable:true})
     history_pengisian?: HistoryPengisianCreateNestedManyWithoutStnkInput;
+
+    @Field(() => SubsidyQuotaCreateNestedOneWithoutStnkInput, {nullable:true})
+    subsidy_quota?: SubsidyQuotaCreateNestedOneWithoutStnkInput;
+
+    @Field(() => AjuanSubsidiCreateNestedManyWithoutStnkInput, {nullable:true})
+    ajuanSubsidi?: AjuanSubsidiCreateNestedManyWithoutStnkInput;
 }

@@ -14,6 +14,9 @@ export class AjuanSubsidiGroupBy {
     @Field(() => Int, {nullable:false})
     id!: number;
 
+    @Field(() => String, {nullable:false})
+    nomor_stnk!: string;
+
     @Field(() => Int, {nullable:false})
     jumlah!: number;
 

@@ -1,7 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { ObjectType } from '@nestjs/graphql';
 import { ID } from '@nestjs/graphql';
-import { Float } from '@nestjs/graphql';
 import { Int } from '@nestjs/graphql';
 import { HistoryPengisian } from '../history-pengisian/history-pengisian.model';
 import { AjuanSubsidi } from '../ajuan-subsidi/ajuan-subsidi.model';
@@ -28,9 +27,6 @@ export class User {
 
     @Field(() => String, {nullable:false})
     password!: string;
-
-    @Field(() => Float, {nullable:false,defaultValue:0})
-    kuota_subsidi!: number;
 
     @Field(() => Int, {nullable:false,defaultValue:0})
     saldo!: number;

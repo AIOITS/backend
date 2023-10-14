@@ -21,6 +21,9 @@ export class AjuanSubsidiScalarWhereWithAggregatesInput {
     @Field(() => IntWithAggregatesFilter, {nullable:true})
     id?: IntWithAggregatesFilter;
 
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    nomor_stnk?: StringWithAggregatesFilter;
+
     @Field(() => IntWithAggregatesFilter, {nullable:true})
     jumlah?: IntWithAggregatesFilter;
 

@@ -164,8 +164,50 @@ enum StatusPerkawinan {
   cerai_mati
 }
 
+type SubsidyQuota {
+  id: ID!
+  nomor_stnk: String!
+  quota: Float!
+  stnk: Stnk!
+}
+
+type File {
+  id: ID!
+  name: String!
+  url: String!
+  ajuanSubsidi_id: Int
+  ajuanSubsidi: AjuanSubsidi
+}
+
+type AjuanSubsidiCount {
+  dokumen_pendukung: Int!
+}
+
+type AjuanSubsidi {
+  id: ID!
+  nomor_stnk: String!
+  jumlah: Int!
+  alasan: String!
+  tanggal_pengajuan: DateTime!
+  status_pengajuan: StatusPengajuanSubsidi
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  user_id: Int
+  stnk: Stnk!
+  dokumen_pendukung: [File!]!
+  user: User
+  _count: AjuanSubsidiCount!
+}
+
+enum StatusPengajuanSubsidi {
+  diproses
+  ditolak
+  disetujui
+}
+
 type StnkCount {
   history_pengisian: Int!
+  ajuanSubsidi: Int!
 }
 
 type Stnk {
@@ -181,7 +223,7 @@ type Stnk {
   jenis: String!
   model: String!
   tahun_pembuatan: String!
-  isi_silinder: String!
+  isi_silinder: Int!
   nomor_mesin: String!
   nomor_rangka: String!
   warna: String!
@@ -195,7 +237,10 @@ type Stnk {
   pkb: Pkb!
   ktp: Ktp
   history_pengisian: [HistoryPengisian!]!
+  subsidy_quota: SubsidyQuota
+  ajuanSubsidi: [AjuanSubsidi!]
   _count: StnkCount!
+  kuota_subsidi: Float!
 }
 
 type HistoryPengisian {
@@ -222,38 +267,6 @@ enum KategoriPengisian {
   non_subsidi
 }
 
-type File {
-  id: ID!
-  name: String!
-  url: String!
-  ajuanSubsidi_id: Int
-  ajuanSubsidi: AjuanSubsidi
-}
-
-type AjuanSubsidiCount {
-  dokumen_pendukung: Int!
-}
-
-type AjuanSubsidi {
-  id: ID!
-  jumlah: Int!
-  alasan: String!
-  tanggal_pengajuan: DateTime!
-  status_pengajuan: StatusPengajuanSubsidi
-  createdAt: DateTime!
-  updatedAt: DateTime!
-  user_id: Int
-  dokumen_pendukung: [File!]!
-  user: User
-  _count: AjuanSubsidiCount!
-}
-
-enum StatusPengajuanSubsidi {
-  diproses
-  ditolak
-  disetujui
-}
-
 type UserCount {
   history_pengisian: Int!
   ajuan_subsidi: Int!
@@ -266,7 +279,6 @@ type User {
   email: String
   phone: String
   password: String!
-  kuota_subsidi: Float!
   saldo: Int!
   role: Int!
   createdAt: DateTime!
@@ -387,7 +399,6 @@ input UserWhereInput {
   email: StringNullableFilter
   phone: StringNullableFilter
   password: StringFilter
-  kuota_subsidi: FloatFilter
   saldo: IntFilter
   role: IntFilter
   createdAt: DateTimeFilter
@@ -482,28 +493,6 @@ input NestedStringNullableFilter {
   not: NestedStringNullableFilter
 }
 
-input FloatFilter {
-  equals: Float
-  in: [Float!]
-  notIn: [Float!]
-  lt: Float
-  lte: Float
-  gt: Float
-  gte: Float
-  not: NestedFloatFilter
-}
-
-input NestedFloatFilter {
-  equals: Float
-  in: [Float!]
-  notIn: [Float!]
-  lt: Float
-  lte: Float
-  gt: Float
-  gte: Float
-  not: NestedFloatFilter
-}
-
 input DateTimeFilter {
   equals: DateTime
   in: [DateTime!]
@@ -566,6 +555,28 @@ input NestedEnumKategoriPengisianFilter {
   in: [KategoriPengisian!]
   notIn: [KategoriPengisian!]
   not: NestedEnumKategoriPengisianFilter
+}
+
+input FloatFilter {
+  equals: Float
+  in: [Float!]
+  notIn: [Float!]
+  lt: Float
+  lte: Float
+  gt: Float
+  gte: Float
+  not: NestedFloatFilter
+}
+
+input NestedFloatFilter {
+  equals: Float
+  in: [Float!]
+  notIn: [Float!]
+  lt: Float
+  lte: Float
+  gt: Float
+  gte: Float
+  not: NestedFloatFilter
 }
 
 input DeviceRelationFilter {
@@ -673,7 +684,7 @@ input StnkWhereInput {
   jenis: StringFilter
   model: StringFilter
   tahun_pembuatan: StringFilter
-  isi_silinder: StringFilter
+  isi_silinder: IntFilter
   nomor_mesin: StringFilter
   nomor_rangka: StringFilter
   warna: StringFilter
@@ -687,6 +698,8 @@ input StnkWhereInput {
   pkb: PkbRelationFilter
   ktp: KtpNullableRelationFilter
   history_pengisian: HistoryPengisianListRelationFilter
+  subsidy_quota: SubsidyQuotaNullableRelationFilter
+  ajuanSubsidi: AjuanSubsidiListRelationFilter
 }
 
 input PkbRelationFilter {
@@ -855,6 +868,21 @@ input StnkListRelationFilter {
   none: StnkWhereInput
 }
 
+input SubsidyQuotaNullableRelationFilter {
+  is: SubsidyQuotaWhereInput
+  isNot: SubsidyQuotaWhereInput
+}
+
+input SubsidyQuotaWhereInput {
+  AND: [SubsidyQuotaWhereInput!]
+  OR: [SubsidyQuotaWhereInput!]
+  NOT: [SubsidyQuotaWhereInput!]
+  id: IntFilter
+  nomor_stnk: StringFilter
+  quota: FloatFilter
+  stnk: StnkRelationFilter
+}
+
 input AjuanSubsidiListRelationFilter {
   every: AjuanSubsidiWhereInput
   some: AjuanSubsidiWhereInput
@@ -866,6 +894,7 @@ input AjuanSubsidiWhereInput {
   OR: [AjuanSubsidiWhereInput!]
   NOT: [AjuanSubsidiWhereInput!]
   id: IntFilter
+  nomor_stnk: StringFilter
   jumlah: IntFilter
   alasan: StringFilter
   tanggal_pengajuan: DateTimeFilter
@@ -873,6 +902,7 @@ input AjuanSubsidiWhereInput {
   createdAt: DateTimeFilter
   updatedAt: DateTimeFilter
   user_id: IntNullableFilter
+  stnk: StnkNullableRelationFilter
   dokumen_pendukung: FileListRelationFilter
   user: UserNullableRelationFilter
 }
@@ -947,7 +977,6 @@ input UserOrderByWithRelationInput {
   email: SortOrderInput
   phone: SortOrderInput
   password: SortOrder
-  kuota_subsidi: SortOrder
   saldo: SortOrder
   role: SortOrder
   createdAt: SortOrder
@@ -1022,7 +1051,6 @@ input UserWhereUniqueInput {
   NOT: [UserWhereInput!]
   name: StringFilter
   password: StringFilter
-  kuota_subsidi: FloatFilter
   saldo: IntFilter
   role: IntFilter
   createdAt: DateTimeFilter
@@ -1039,7 +1067,6 @@ enum UserScalarFieldEnum {
   email
   phone
   password
-  kuota_subsidi
   saldo
   role
   createdAt
@@ -1121,6 +1148,8 @@ input StnkOrderByWithRelationInput {
   pkb: PkbOrderByWithRelationInput
   ktp: KtpOrderByWithRelationInput
   history_pengisian: HistoryPengisianOrderByRelationAggregateInput
+  subsidy_quota: SubsidyQuotaOrderByWithRelationInput
+  ajuanSubsidi: AjuanSubsidiOrderByRelationAggregateInput
 }
 
 input PkbOrderByWithRelationInput {
@@ -1136,6 +1165,13 @@ input PkbOrderByWithRelationInput {
   administrasi_stnk_sanksi: SortOrder
   administrasi_tnkb_pokok: SortOrder
   administrasi_tnkb_sanksi: SortOrder
+  stnk: StnkOrderByWithRelationInput
+}
+
+input SubsidyQuotaOrderByWithRelationInput {
+  id: SortOrder
+  nomor_stnk: SortOrder
+  quota: SortOrder
   stnk: StnkOrderByWithRelationInput
 }
 
@@ -1156,7 +1192,7 @@ input StnkWhereUniqueInput {
   jenis: StringFilter
   model: StringFilter
   tahun_pembuatan: StringFilter
-  isi_silinder: StringFilter
+  isi_silinder: IntFilter
   nomor_mesin: StringFilter
   nomor_rangka: StringFilter
   warna: StringFilter
@@ -1169,6 +1205,8 @@ input StnkWhereUniqueInput {
   pkb: PkbRelationFilter
   ktp: KtpNullableRelationFilter
   history_pengisian: HistoryPengisianListRelationFilter
+  subsidy_quota: SubsidyQuotaNullableRelationFilter
+  ajuanSubsidi: AjuanSubsidiListRelationFilter
 }
 
 enum StnkScalarFieldEnum {
@@ -1283,6 +1321,7 @@ enum HistoryPengisianScalarFieldEnum {
 
 input AjuanSubsidiOrderByWithRelationInput {
   id: SortOrder
+  nomor_stnk: SortOrder
   jumlah: SortOrder
   alasan: SortOrder
   tanggal_pengajuan: SortOrder
@@ -1290,6 +1329,7 @@ input AjuanSubsidiOrderByWithRelationInput {
   createdAt: SortOrder
   updatedAt: SortOrder
   user_id: SortOrderInput
+  stnk: StnkOrderByWithRelationInput
   dokumen_pendukung: FileOrderByRelationAggregateInput
   user: UserOrderByWithRelationInput
 }
@@ -1303,6 +1343,7 @@ input AjuanSubsidiWhereUniqueInput {
   AND: [AjuanSubsidiWhereInput!]
   OR: [AjuanSubsidiWhereInput!]
   NOT: [AjuanSubsidiWhereInput!]
+  nomor_stnk: StringFilter
   jumlah: IntFilter
   alasan: StringFilter
   tanggal_pengajuan: DateTimeFilter
@@ -1310,12 +1351,14 @@ input AjuanSubsidiWhereUniqueInput {
   createdAt: DateTimeFilter
   updatedAt: DateTimeFilter
   user_id: IntNullableFilter
+  stnk: StnkNullableRelationFilter
   dokumen_pendukung: FileListRelationFilter
   user: UserNullableRelationFilter
 }
 
 enum AjuanSubsidiScalarFieldEnum {
   id
+  nomor_stnk
   jumlah
   alasan
   tanggal_pengajuan
